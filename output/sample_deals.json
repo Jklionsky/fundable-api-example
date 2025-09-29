@@ -1,0 +1,219 @@
+[
+  {
+    "id": "23f33db8-4d87-4c33-89f0-dbd755456477",
+    "round_type": "SERIES_A",
+    "extension": true,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2025-09-28T20:05:53.000Z",
+    "total_round_raised": 140.08,
+    "deal_descriptions": {
+      "short_description": "Beatbot developer Xingmai Innovation raised a \u00a510 billion RMB Series A equity round led by Dragonball Capital with participation from GL Ventures, Shunwei Capital and Anker Innovations, advancing its pool-cleaning robot business.",
+      "long_description": "Xingmai Innovation has secured an additional Series A equity financing of 10 billion RMB (about \u00a5210 billion JPY), led by Meituan-backed Dragonball Capital. Existing shareholders GL Ventures, Shunwei Capital and Anker Innovations also followed on in the round. The fresh capital will be directed toward continued technology R&D, product upgrades, global sales-channel expansion, brand marketing, talent acquisition and the build-out of new lines such as lawn-mowing robots. Founded in 2022, the company\u2019s Beatbot brand has already achieved strong commercial traction, and the new funds aim to accelerate that momentum on a global scale."
+    },
+    "articles": [
+      {
+        "link": "https://news.yahoo.co.jp/articles/a1a09015dbe3f5402cf717434c1d0aeb43bf032f",
+        "is_primary": true,
+        "date": "Sun Sep 28 2025 20:05:53 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Sun Sep 28 2025 20:05:53 GMT+0000 (Coordinated Universal Time)"
+      }
+    ],
+    "company": {
+      "id": "72af3ab9-dbbb-4019-8dd5-2c92369f369b",
+      "name": "Beatbot",
+      "legal_name": null,
+      "guru_permalink": "beatbot",
+      "domain": "beatbot.com",
+      "region": null,
+      "industries": [],
+      "location": {}
+    },
+    "deal_investors": [
+      {
+        "id": "054ba6f3-73ac-4e45-8e06-1316c2a01960",
+        "name": "Shunwei Capital",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "56cabc69-ee02-4c99-b513-922e49626bd2",
+        "name": "GL Ventures",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "5e2cc093-ffb5-401b-b291-67dc36513fc0",
+        "name": "DragonBall Capital",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "1009a9e8-127c-43d4-845a-abb4fa72d207",
+        "name": "Anker",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      }
+    ],
+    "financings": [
+      {
+        "id": "b24b1594-993a-42b4-9b2f-71927b0b8004",
+        "type": "SERIES_A",
+        "size_usd": 140.08,
+        "size": 1000,
+        "currency": "rmb"
+      }
+    ],
+    "valuations": []
+  },
+  {
+    "id": "e7aafde8-375d-4fdf-8aae-c440fcc6010d",
+    "round_type": "EQUITY",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2025-09-26T20:06:36.000Z",
+    "total_round_raised": 116.86,
+    "deal_descriptions": {
+      "short_description": "Swiss Sense, a Dutch bed manufacturer, raised a \u20ac100 million capital injection from undisclosed investors to drive European expansion.",
+      "long_description": "Swiss Sense obtained a \u20ac100 million capital injection to finance its next phase of growth. The article does not specify the form of the investment beyond describing it as a capital injection, nor does it identify the participating investors. Proceeds will be used to expand sales in Germany and the Scandinavian countries, markets the company considers strategically important. The company is already the market leader in the Netherlands and aims to replicate this success abroad. In addition to geographic expansion, the funds will back improvements in operational disciplines such as Sales & Operations Planning. Details on any previous fundraising activity were not provided, and no valuation figures or financial performance metrics were disclosed."
+    },
+    "articles": [
+      {
+        "link": "https://drimble.nl/regio/noord-brabant/oss/103837178/swiss-sense-uit-uden-wil-verder-europa-in-beddenbedrijf-haalt-er-100-miljoen-euro-voor-op.html",
+        "is_primary": true,
+        "date": "Fri Sep 26 2025 20:06:36 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Fri Sep 26 2025 20:06:36 GMT+0000 (Coordinated Universal Time)"
+      }
+    ],
+    "company": {
+      "id": "d3c916e7-21ad-4a6f-aa77-535580a25391",
+      "name": "Swiss Sense",
+      "legal_name": "Swiss Sense",
+      "guru_permalink": "swiss-sense",
+      "domain": "swisssense.de",
+      "region": "Noord-Brabant",
+      "industries": [
+        {
+          "permalink": "furniture",
+          "name": "Furniture",
+          "created_at": "2025-07-12T23:58:26.437Z",
+          "updated_at": null
+        },
+        {
+          "permalink": "home-decor-c954",
+          "name": "Home Decor",
+          "created_at": "2025-07-12T23:58:26.437Z",
+          "updated_at": null
+        },
+        {
+          "permalink": "retail",
+          "name": "Retail",
+          "created_at": "2025-07-12T23:58:26.437Z",
+          "updated_at": null
+        },
+        {
+          "permalink": "textiles",
+          "name": "Textiles",
+          "created_at": "2025-07-12T23:58:26.437Z",
+          "updated_at": null
+        }
+      ],
+      "location": {
+        "region": {
+          "name": "Europe",
+          "permalink": "europe"
+        },
+        "country": {
+          "name": "The Netherlands",
+          "permalink": "the-netherlands"
+        },
+        "state": {
+          "name": "Noord-Brabant",
+          "permalink": "noord-brabant-the-netherlands"
+        },
+        "city": {
+          "name": "Uden",
+          "permalink": "uden-noord-brabant"
+        }
+      }
+    },
+    "deal_investors": [],
+    "financings": [
+      {
+        "id": "a82f6383-2f2c-4935-bd58-6c3995e6372e",
+        "type": "EQUITY",
+        "size_usd": 116.86,
+        "size": 100,
+        "currency": "eur"
+      }
+    ],
+    "valuations": []
+  },
+  {
+    "id": "b1915d61-8c80-47b7-9c67-ffad8170ec82",
+    "round_type": "EQUITY",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2025-09-26T20:06:36.000Z",
+    "total_round_raised": 110,
+    "deal_descriptions": {
+      "short_description": "Fluoralpha, a fluor-based materials startup, secured a $110 million strategic financing agreement from Bank of Africa.",
+      "long_description": "INNOVX signed a strategic financing agreement worth more than one billion dirhams (\u2248 $110 million) with Bank of Africa to advance the development of its subsidiary Fluoralpha. The capital will support construction of two industrial units in Jorf Lasfar that together require a total investment of 2.5 billion dirhams (\u2248 $280 million). While the article does not specify the precise instrument, the transaction is framed as project financing arranged solely by Bank of Africa. No additional investors or equity components were mentioned. Founded in 2023, Fluoralpha will use the funds to build facilities capable of producing 20,000 t/year of anhydrous hydrofluoric acid and 28,000 t/year of aluminum fluoride\u2014materials critical to batteries, semiconductors and aluminium. The bank highlighted that the deal aligns with its strategy to back innovative, sustainable industrial projects supporting Morocco\u2019s energy transition. No prior funding rounds were cited."
+    },
+    "articles": [
+      {
+        "link": "https://fr.apanews.net/news/maroc-innovx-obtient-110-millions-de-dollars-pour-fluoralpha-a-jorf-lasfar/",
+        "is_primary": true,
+        "date": "Fri Sep 26 2025 20:06:36 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Fri Sep 26 2025 20:06:36 GMT+0000 (Coordinated Universal Time)"
+      }
+    ],
+    "company": {
+      "id": "9ee34d56-f78a-4cf8-a97e-e6377b5aa9f6",
+      "name": "Fluoralpha",
+      "legal_name": null,
+      "guru_permalink": "fluoralpha",
+      "domain": "fluoralpha.ma",
+      "region": null,
+      "industries": [],
+      "location": {}
+    },
+    "deal_investors": [
+      {
+        "id": "623824cc-e4f9-403f-9682-d9aaaec79843",
+        "name": "Bank of Africa",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [
+          "Khalid Nasr"
+        ],
+        "financing_type": "EQUITY",
+        "is_debt_investor": false
+      }
+    ],
+    "financings": [
+      {
+        "id": "f2d0e2af-c4cf-470d-8046-5a88cb637ab1",
+        "type": "EQUITY",
+        "size_usd": 110,
+        "size": 110,
+        "currency": "usd"
+      }
+    ],
+    "valuations": []
+  }
+]
