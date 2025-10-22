@@ -1,0 +1,349 @@
+[
+  {
+    "id": "a8118c2b-7ffb-40c5-9c68-b1a19228d907",
+    "round_type": "SERIES_B",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2025-10-21T22:12:46.000Z",
+    "total_round_raised": 125,
+    "deal_descriptions": {
+      "short_description": "LangChain, an open-source AI agent platform, raised a $125 million round led by IVP with participation from CapitalG, Sapphire Ventures, Sequoia, Benchmark and Amplify.",
+      "long_description": "LangChain secured $125 million in new funding at a $1.25 billion valuation. The round was led by IVP, while new investors CapitalG and Sapphire Ventures joined existing backers Sequoia, Benchmark and Amplify. No specific series label was disclosed in the article. This financing follows the company\u2019s $10 million seed round from Benchmark in April 2023 and a $25 million Series A led by Sequoia a week later, which valued the company at about $200 million. The fresh capital cements LangChain\u2019s unicorn status and will support ongoing development of its core framework and related tools LangGraph and LangSmith. Founded in 2022, LangChain continues to leverage its strong open-source community momentum as it scales its agentic AI platform."
+    },
+    "articles": [
+      {
+        "link": "https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/",
+        "is_primary": true,
+        "date": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)"
+      },
+      {
+        "link": "https://www.lemondeinformatique.fr/actualites/lireamp-telex-langchain-leve-125et-8239-m$-pekin-accuse-la-nsa-d-une-cyberattaque-majeure-google-dope-broadcom-et-mediatek-avec-ses-tpu-98256.html",
+        "is_primary": false,
+        "date": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)"
+      },
+      {
+        "link": "https://www.lemondeinformatique.fr/actualites/lire-telex-langchain-leve-125et-8239-m$-pekin-accuse-la-nsa-d-une-cyberattaque-majeure-google-dope-broadcom-et-mediatek-avec-ses-tpu-98256.html",
+        "is_primary": false,
+        "date": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)"
+      }
+    ],
+    "company": {
+      "id": "605a259d-d8f2-4a32-9d23-63da936f9a59",
+      "name": "LangChain",
+      "legal_name": "LangChain, Inc.",
+      "guru_permalink": "langsmith",
+      "domain": "langchain.com",
+      "region": "California",
+      "industries": [
+        {
+          "permalink": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "permalink": "database",
+          "name": "Database"
+        },
+        {
+          "permalink": "developer-apis",
+          "name": "Developer APIs"
+        },
+        {
+          "permalink": "generative-ai",
+          "name": "Generative AI"
+        }
+      ],
+      "location": {
+        "region": {
+          "name": "North America",
+          "permalink": "north-america"
+        },
+        "country": {
+          "name": "United States",
+          "permalink": "united-states"
+        },
+        "state": {
+          "name": "California",
+          "permalink": "california-united-states"
+        },
+        "city": {
+          "name": "San Francisco",
+          "permalink": "san-francisco-california"
+        }
+      }
+    },
+    "deal_investors": [
+      {
+        "id": "2d00393c-f02a-4bca-98da-ba803428272e",
+        "name": "Sequoia Capital",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      },
+      {
+        "id": "19684ffc-9736-4758-b8f2-3f3517d2717e",
+        "name": "Sapphire Ventures",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      },
+      {
+        "id": "4ece5266-50ef-4519-8e84-cb4112a10c2f",
+        "name": "IVP",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      },
+      {
+        "id": "5b7cf06d-2fb6-40cc-a86a-f3c35bbf876b",
+        "name": "CapitalG",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      },
+      {
+        "id": "5b0f872c-4cde-405f-98c0-c1ab933dcbe0",
+        "name": "Benchmark Capital",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      },
+      {
+        "id": "12e6e631-498c-44c0-bfd4-e8c8f67a4aa5",
+        "name": "Amplify Partners",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      }
+    ],
+    "financings": [
+      {
+        "id": "0276998d-6eeb-4af1-961a-0ed9310611be",
+        "type": "SERIES_B",
+        "size_usd": 125,
+        "size": 125,
+        "currency": "usd"
+      }
+    ],
+    "valuations": [
+      {
+        "valuation_currency": "USD",
+        "valuation": 1.25,
+        "valuation_usd": 1.25,
+        "valuation_usd_millions": 1250,
+        "type": "DEFAULT"
+      }
+    ]
+  },
+  {
+    "id": "9803ba8f-cea0-4b9f-8863-22222df9595f",
+    "round_type": "EQUITY",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2025-10-21T09:35:22.000Z",
+    "total_round_raised": 100,
+    "deal_descriptions": {
+      "short_description": "Electric motorbike startup Spiro raised a $100M investment round led by Afreximbank\u2019s FEDA with participation from other strategic investors.",
+      "long_description": "Spiro closed a $100 million investment round, with $75 million supplied by The Fund for Export Development in Africa (FEDA), the development arm of Afreximbank, and the remainder contributed by unnamed strategic investors. The deal is billed as the largest electric-mobility financing in Africa to date. Capital will be used to expand Spiro\u2019s battery-swap network, increase manufacturing capacity, advance R&D and launch pilots in Cameroon and Tanzania. Founded about three years ago and headquartered in Dubai, the company had previously raised more than $180 million in debt and equity from Equitane Group and Soci\u00e9t\u00e9 G\u00e9n\u00e9rale. The new round brings its total funding to over $280 million. No further details on the security type were disclosed beyond the description of an \u201cinvestment round.\u201d"
+    },
+    "articles": [
+      {
+        "link": "https://techcrunch.com/2025/10/21/spiro-raises-100m-the-largest-ever-investment-in-africas-e-mobility/",
+        "is_primary": true,
+        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
+      },
+      {
+        "link": "https://mascipolletti.com.ar/noticias/spiro-recauda-100-millones-de-dolares-en-la-mayor-inversion-en-vehiculos-electricos-jamas-realizada-en-africa/238347/",
+        "is_primary": false,
+        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
+      },
+      {
+        "link": "https://mascipolletti.com.ar/tecnica/spiro-recauda-100-millones-de-dolares-la-mayor-inversion-jamas-realizada-en-movilidad-electrica-en-africa/238089/",
+        "is_primary": false,
+        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
+      },
+      {
+        "link": "https://www.techinafrica.com/spiro-secures-100-million-investment-to-revolutionize-africas-electric-mobility-and-battery-swapping-infrastructure/",
+        "is_primary": false,
+        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
+      }
+    ],
+    "company": {
+      "id": "e13fbb60-2e0b-45c4-9174-1c8166eb4d9a",
+      "name": "Spironet",
+      "legal_name": "Spironet",
+      "guru_permalink": "spiro-1",
+      "domain": "spironet.com",
+      "region": "Littoral",
+      "industries": [
+        {
+          "permalink": "automotive",
+          "name": "Automotive"
+        },
+        {
+          "permalink": "electric-vehicle",
+          "name": "Electric Vehicle"
+        },
+        {
+          "permalink": "transportation",
+          "name": "Transportation"
+        }
+      ],
+      "location": {
+        "region": {
+          "name": "Africa",
+          "permalink": "africa"
+        },
+        "country": {
+          "name": "Benin",
+          "permalink": "benin"
+        },
+        "state": {
+          "name": "Littoral",
+          "permalink": "littoral-benin"
+        },
+        "city": {
+          "name": "Cotonou",
+          "permalink": "cotonou-littoral"
+        }
+      }
+    },
+    "deal_investors": [
+      {
+        "id": "294c9047-ae0e-4e25-ab1d-3df5c298823b",
+        "name": "Fund for Export Development in Africa",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "EQUITY",
+        "is_debt_investor": false
+      }
+    ],
+    "financings": [
+      {
+        "id": "8644fdbb-7164-4ea0-9a68-77f4eea22916",
+        "type": "EQUITY",
+        "size_usd": 100,
+        "size": 100,
+        "currency": "usd"
+      }
+    ],
+    "valuations": []
+  },
+  {
+    "id": "37c65d7f-eb63-45a6-92f3-1e310a5b7b78",
+    "round_type": "SERIES_B",
+    "extension": false,
+    "intermediate": "FOUR",
+    "pre": false,
+    "date": "2025-10-21T07:03:35.000Z",
+    "total_round_raised": 100,
+    "deal_descriptions": {
+      "short_description": "L4 RoboVan developer Jiushi Intelligence raised a $100 million Series B4 round led by Ant Group with participation from Blue Lake Capital and BV Baidu Ventures.",
+      "long_description": "Jiushi Intelligence closed a $100 million Series B4 equity financing led by Ant Group and joined by new and existing investors Blue Lake Capital and BV Baidu Ventures; Light Source Capital acted as the exclusive financial adviser.  The B4 tranche lifts the company\u2019s cumulative Series B funding to $400 million, making it one of the largest technology financings in China this year and a standout deal in the global L4 autonomous-driving arena.  Previous B-series tranches (B1\u2013B3) are not itemized in the article, but together they contributed $300 million prior to the latest raise.  Proceeds will fund increased R&D, accelerated product iteration, enhanced supply-chain control, and continued domestic and international market expansion.  The round underscores strong investor confidence in Jiushi\u2019s rapid commercial traction\u201410,000 vehicles delivered, 50 million safe kilometers driven, and 1 billion orders fulfilled to date.  Ant Group\u2019s entry also signals strategic alignment around logistics digitization and financial-services enablement for fleet operators.  The company positions the raise as a springboard to build a more intelligent, efficient, and environmentally friendly unmanned freight network worldwide."
+    },
+    "articles": [
+      {
+        "link": "https://eu.36kr.com/en/p/3518487879506054",
+        "is_primary": true,
+        "date": "Tue Oct 21 2025 07:03:35 GMT+0000 (Coordinated Universal Time)",
+        "publishedDate": "Tue Oct 21 2025 07:03:35 GMT+0000 (Coordinated Universal Time)"
+      }
+    ],
+    "company": {
+      "id": "5f613751-de6d-4d66-8597-abaade001554",
+      "name": "Jiushi Intelligence",
+      "legal_name": "Shanghai Jushi Intelligent Technology Co., Ltd.",
+      "guru_permalink": "jiushi-intelligence",
+      "domain": "",
+      "region": "Hainan",
+      "industries": [
+        {
+          "permalink": "artificial-intelligence",
+          "name": "Artificial Intelligence (AI)"
+        },
+        {
+          "permalink": "robotics",
+          "name": "Robotics"
+        }
+      ],
+      "location": {
+        "region": {
+          "name": "Asia",
+          "permalink": "asia"
+        },
+        "country": {
+          "name": "China",
+          "permalink": "china-500a"
+        },
+        "state": {
+          "name": "Hainan",
+          "permalink": "hainan-china"
+        },
+        "city": {
+          "name": "Yangpu",
+          "permalink": "yangpu-hainan"
+        }
+      }
+    },
+    "deal_investors": [
+      {
+        "id": "4a025cdf-8a7a-4b82-80c0-50af1fe2d7b0",
+        "name": "Baidu Ventures",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      },
+      {
+        "id": "3452e93c-8be0-4021-8efb-76872a4c9676",
+        "name": "Blue Lake Capital",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      },
+      {
+        "id": "0b621e0a-a927-42fa-b660-37948c310a38",
+        "name": "Ant Financial",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_B",
+        "is_debt_investor": false
+      }
+    ],
+    "financings": [
+      {
+        "id": "4e32a3dc-7f75-4d61-9d1f-c55971956b71",
+        "type": "SERIES_B",
+        "size_usd": 100,
+        "size": 100,
+        "currency": "usd"
+      }
+    ],
+    "valuations": []
+  }
+]

@@ -1,14 +1,26 @@
 #!/usr/bin/env python3
 """
-Test the updated FundableClient with all OpenAPI parameters.
+Example: Get recent deals with various filters.
+
+This script demonstrates basic usage of the FundableClient to fetch
+recent deals using different filter combinations.
 """
 
+import sys
+import os
 import json
 from datetime import datetime, timedelta
+
+# Add repo root directory to path to import fundableClient
+repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, repo_root)
+
 from fundableClient import FundableClient, DataExtractor
 
 def test_all_parameters():
     """Test the updated get_deals function with various parameter combinations."""
+    # You can pass your API key directly here if needed
+    # client = FundableClient(api_key="your_api_key_here")
     client = FundableClient()
 
     print("Testing updated get_deals function with all OpenAPI parameters...")

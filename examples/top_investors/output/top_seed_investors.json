@@ -1,0 +1,1231 @@
+{
+  "generated_at": "2025-10-22T00:45:36.695493",
+  "total_investors": 25,
+  "investors": [
+    {
+      "rank": 1,
+      "investor_id": "c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82",
+      "name": "Y Combinator",
+      "domain": "ycombinator.com",
+      "website": "https://www.ycombinator.com/",
+      "deal_count": 21,
+      "location": "California, United States",
+      "description": "Y Combinator is a startup accelerator that provides funding and mentorship to early-stage companies. Founded in 2005, it has created a new model for funding early-stage startups by investing in a large number of startups twice a year.",
+      "investment_stage": "Convertible Note, Early Stage Venture, Grant, Late Stage Venture, Non Equity Assistance, Private Equity, Seed, Venture",
+      "total_investments": 1569,
+      "lead_investments": 200,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 516
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 330
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 220
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/y-combinator",
+      "sample_deals": [
+        {
+          "company_name": "Golpo",
+          "round_type": "SEED",
+          "date": "2025-10-20T14:55:11.000Z",
+          "amount": 4.1
+        },
+        {
+          "company_name": "Provision",
+          "round_type": "SEED",
+          "date": "2025-10-20T11:00:41.000Z",
+          "amount": 7
+        },
+        {
+          "company_name": "ego AI",
+          "round_type": "SEED",
+          "date": "2025-10-16T06:46:29.000Z",
+          "amount": 6.7
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "investor_id": "b2ab226f-1eca-42a6-98c5-a629318d4563",
+      "name": "Antler",
+      "domain": "antler.co",
+      "website": "https://antler.co/",
+      "deal_count": 17,
+      "location": "Central Region, Singapore",
+      "description": "Antler MENAP is the Middle East, North Africa and Pakistan arm of global early-stage investor Antler. From its bases in Dubai and Riyadh it runs founder residencies, provides co-founder matching, coaching and invests up to US $500 K at the pre-seed/seed stage in startups across the MENAP region.",
+      "investment_stage": null,
+      "total_investments": 284,
+      "lead_investments": 114,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 86
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 63
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 41
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/antler-be9c",
+      "sample_deals": [
+        {
+          "company_name": "Jahazii",
+          "round_type": "SEED",
+          "date": "2025-10-15T20:06:52.000Z",
+          "amount": 0.4
+        },
+        {
+          "company_name": "Phablo.ai",
+          "round_type": "SEED",
+          "date": "2025-10-15T03:00:35.000Z",
+          "amount": 0.125
+        },
+        {
+          "company_name": "MyWonder",
+          "round_type": "SEED",
+          "date": "2025-10-13T00:56:24.000Z",
+          "amount": 0.3
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "investor_id": "5408ae44-3322-4fc3-b778-2a3d0735ce81",
+      "name": "General Catalyst",
+      "domain": "generalcatalyst.com",
+      "website": "https://www.generalcatalyst.com/",
+      "deal_count": 16,
+      "location": "California, United States",
+      "description": "Customer Value Fund (CVF) is a financing strategy launched by venture capital firm General Catalyst. The fund provides non-dilutive, structured growth capital that helps technology companies finance customer acquisition and sales & marketing while capping downside risk. Operating under the General Catalyst umbrella, CVF targets businesses that have achieved product-market fit and need flexible capital to accelerate growth without issuing additional equity.",
+      "investment_stage": null,
+      "total_investments": 1122,
+      "lead_investments": 474,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 343
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 202
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 198
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/general-catalyst-partners",
+      "sample_deals": [
+        {
+          "company_name": "1001 AI",
+          "round_type": "SEED",
+          "date": "2025-10-20T08:15:50.000Z",
+          "amount": 9
+        },
+        {
+          "company_name": "General Intuition",
+          "round_type": "SEED",
+          "date": "2025-10-16T14:08:04.000Z",
+          "amount": 133.7
+        },
+        {
+          "company_name": "Afori",
+          "round_type": "SEED",
+          "date": "2025-10-14T06:30:00.000Z",
+          "amount": 4.63
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "investor_id": "e9236a00-e0d8-4ab6-9068-45a723f63fd2",
+      "name": "Andreessen Horowitz",
+      "domain": "a16z.com",
+      "website": "https://www.a16z.com/",
+      "deal_count": 9,
+      "location": "California, United States",
+      "description": "Andreessen Horowitz Growth (a16z Growth) is the growth-stage investment arm of venture capital firm Andreessen Horowitz, managing more than $15 billion across four dedicated funds and backing market-leading technology companies in emerging categories.",
+      "investment_stage": null,
+      "total_investments": 1458,
+      "lead_investments": 649,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 441
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 240
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 221
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/andreessen-horowitz",
+      "sample_deals": [
+        {
+          "company_name": "Periodic Labs",
+          "round_type": "SEED",
+          "date": "2025-10-20T21:15:24.000Z",
+          "amount": 300
+        },
+        {
+          "company_name": "Alleviate Health",
+          "round_type": "SEED",
+          "date": "2025-10-13T13:00:00.000Z",
+          "amount": 4.3
+        },
+        {
+          "company_name": "Longeye",
+          "round_type": "SEED",
+          "date": "2025-10-09T16:04:14.000Z",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "investor_id": "91be3e03-91b2-4585-91c6-536bfa69663e",
+      "name": "Coinbase Ventures",
+      "domain": "coinbase.com",
+      "website": "https://ventures.coinbase.com/",
+      "deal_count": 9,
+      "location": "California, United States",
+      "description": "Coinbase Ventures is the corporate venture capital arm of Coinbase, founded in 2018. It focuses on investing in seed-stage cryptocurrency and blockchain startups to advance the crypto/Web3 ecosystem and support Coinbase's mission of creating more economic freedom for the world.",
+      "investment_stage": "Early Stage Venture, Initial Coin Offering, Late Stage Venture, Seed, Venture",
+      "total_investments": 318,
+      "lead_investments": 21,
+      "top_industries": [
+        {
+          "industry_name": "Blockchain",
+          "count": 157
+        },
+        {
+          "industry_name": "Cryptocurrency",
+          "count": 133
+        },
+        {
+          "industry_name": "FinTech",
+          "count": 96
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/coinbase-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Limitless Exchange",
+          "round_type": "SEED",
+          "date": "2025-10-20T20:06:49.000Z",
+          "amount": 10
+        },
+        {
+          "company_name": "Crown",
+          "round_type": "SEED",
+          "date": "2025-10-20T08:41:37.000Z",
+          "amount": 8.1
+        },
+        {
+          "company_name": "CipherOwl",
+          "round_type": "SEED",
+          "date": "2025-10-09T16:04:14.000Z",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "investor_id": "df8fb997-210c-4347-ace4-ea395e2b9410",
+      "name": "Khosla Ventures",
+      "domain": "khoslaventures.com",
+      "website": "https://www.khoslaventures.com/",
+      "deal_count": 8,
+      "location": "California, United States",
+      "description": "Khosla Ventures is a venture capital firm founded by Vinod Khosla in 2004. The firm is based in Menlo Park, California, and focuses on investing in companies that are bold, early, and impactful, operating in sectors such as AI, sustainability, enterprise, consumer, health, and frontier technologies.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Post-Ipo, Seed, Venture",
+      "total_investments": 925,
+      "lead_investments": 343,
+      "top_industries": [
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 208
+        },
+        {
+          "industry_name": "Software",
+          "count": 205
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 181
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/khosla-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Syntracts",
+          "round_type": "SEED",
+          "date": "2025-10-21T09:00:00.000Z",
+          "amount": 5.3
+        },
+        {
+          "company_name": "Liberate Bio",
+          "round_type": "SEED",
+          "date": "2025-10-20T20:06:49.000Z",
+          "amount": 31
+        },
+        {
+          "company_name": "General Intuition",
+          "round_type": "SEED",
+          "date": "2025-10-16T14:08:04.000Z",
+          "amount": 133.7
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "investor_id": "4241d61a-6ae2-44a5-9783-662fed8010d6",
+      "name": "Accel",
+      "domain": "accel.com",
+      "website": "https://www.accel.com/",
+      "deal_count": 8,
+      "location": "California, United States",
+      "description": "Accel Scouts is the scout\u2010fund initiative of global venture capital firm Accel. Through this program, Accel allocates capital to a network of carefully selected operators and angels, allowing them to invest small, early-stage checks into promising startups on the firm\u2019s behalf.",
+      "investment_stage": null,
+      "total_investments": 1479,
+      "lead_investments": 650,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 446
+        },
+        {
+          "industry_name": "SaaS",
+          "count": 241
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 211
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/accel",
+      "sample_deals": [
+        {
+          "company_name": "Periodic Labs",
+          "round_type": "SEED",
+          "date": "2025-10-20T21:15:24.000Z",
+          "amount": 300
+        },
+        {
+          "company_name": "ego AI",
+          "round_type": "SEED",
+          "date": "2025-10-16T06:46:29.000Z",
+          "amount": 6.7
+        },
+        {
+          "company_name": "Flint",
+          "round_type": "SEED",
+          "date": "2025-10-14T15:03:30.000Z",
+          "amount": 5
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "investor_id": "c413c938-aa96-4315-afd0-4428318e2ae4",
+      "name": "Kima Ventures",
+      "domain": "kimaventures.com",
+      "website": "https://www.kimaventures.com/",
+      "deal_count": 8,
+      "location": "Ile-de-France, France",
+      "description": "Kima Ventures is one of the world's most active early-stage investors, investing in 2 to 3 startups per week globally. Founded in 2010 and based in Paris, France, the firm focuses on providing funding and support to ambitious teams across various sectors.",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 374,
+      "lead_investments": 60,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 108
+        },
+        {
+          "industry_name": "SaaS",
+          "count": 49
+        },
+        {
+          "industry_name": "E-Commerce",
+          "count": 35
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/kima-ventures",
+      "sample_deals": [
+        {
+          "company_name": "MokN",
+          "round_type": "SEED",
+          "date": "2025-10-03T14:10:00.000Z",
+          "amount": 3.05
+        },
+        {
+          "company_name": "Metreecs",
+          "round_type": "SEED",
+          "date": "2025-10-02T20:03:34.000Z",
+          "amount": 3.17
+        },
+        {
+          "company_name": "Pillar",
+          "round_type": "SEED",
+          "date": "2025-09-27T09:03:43.000Z",
+          "amount": 3.74
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "investor_id": "b8926b35-ef63-43b6-8299-0f508c7f3a59",
+      "name": "Lightspeed Venture Partners",
+      "domain": "lsvp.com",
+      "website": "https://lsvp.com/",
+      "deal_count": 7,
+      "location": "California, United States",
+      "description": "Lightspeed Venture Partners is a multi-stage venture capital firm that invests globally across enterprise, consumer, health and other technology sectors, supporting companies from seed through growth stages.",
+      "investment_stage": null,
+      "total_investments": 1081,
+      "lead_investments": 426,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 346
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 193
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 191
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/lightspeed-venture-partners",
+      "sample_deals": [
+        {
+          "company_name": "Dialogue AI",
+          "round_type": "SEED",
+          "date": "2025-10-17T13:03:51.000Z",
+          "amount": 6
+        },
+        {
+          "company_name": "Airbound",
+          "round_type": "SEED",
+          "date": "2025-10-14T08:20:00.000Z",
+          "amount": 8.65
+        },
+        {
+          "company_name": "Notch.cx",
+          "round_type": "SEED",
+          "date": "2025-10-01T07:00:50.000Z",
+          "amount": 7
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "investor_id": "f8b353db-e369-4d16-a453-87d58dc7c30d",
+      "name": "Plug and Play",
+      "domain": "plugandplaytechcenter.com",
+      "website": "https://plugandplaytechcenter.com/corporations/new-materials-packaging",
+      "deal_count": 7,
+      "location": "California, United States",
+      "description": "Plug and Play is an accelerator firm. The firm seeks to invest in companies operating in consumer products, consumer services, financial services, healthcare, information technology, materials, resources, and technology sectors. They are creating a unique ecosystem designed to facilitate meaningful introductions, invest in startups, and bring together key stakeholders.",
+      "investment_stage": null,
+      "total_investments": 154,
+      "lead_investments": 7,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 52
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 44
+        },
+        {
+          "industry_name": "FinTech",
+          "count": 24
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/plug-and-play-new-materials-packaging",
+      "sample_deals": [
+        {
+          "company_name": "Emblematic",
+          "round_type": "SEED",
+          "date": "2025-10-02T09:00:00.000Z",
+          "amount": 2
+        },
+        {
+          "company_name": "Pillar",
+          "round_type": "SEED",
+          "date": "2025-09-27T09:03:43.000Z",
+          "amount": 3.74
+        },
+        {
+          "company_name": "Pillar",
+          "round_type": "SEED",
+          "date": "2025-09-23T09:00:00.000Z",
+          "amount": 3.77
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "investor_id": "b63c74ff-b3a5-4dd2-9e9a-ad661cf1f9ec",
+      "name": "Techstars",
+      "domain": "techstars.com",
+      "website": "https://www.techstars.com/",
+      "deal_count": 6,
+      "location": "Colorado, United States",
+      "description": "Techstars is a global startup accelerator and pre-seed venture capital firm that invests in early-stage companies through its worldwide network of accelerator programs and venture funds.",
+      "investment_stage": null,
+      "total_investments": 535,
+      "lead_investments": 57,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 190
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 92
+        },
+        {
+          "industry_name": "SaaS",
+          "count": 75
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/techstars",
+      "sample_deals": [
+        {
+          "company_name": "The Beans",
+          "round_type": "SEED",
+          "date": "2025-10-14T15:03:40.000Z",
+          "amount": 5.4
+        },
+        {
+          "company_name": "Nerveli",
+          "round_type": "SEED",
+          "date": "2025-10-09T20:17:32.000Z",
+          "amount": 0.54
+        },
+        {
+          "company_name": "TransCrypts",
+          "round_type": "SEED",
+          "date": "2025-10-08T11:04:19.000Z",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "investor_id": "4e03b611-0cb4-47c4-b632-79f0f32930d4",
+      "name": "Alumni Ventures",
+      "domain": "av.vc",
+      "website": "https://www.av.vc/",
+      "deal_count": 6,
+      "location": "New Hampshire, United States",
+      "description": "Alumni Ventures is a venture capital firm that provides accredited investors and institutions with access to professionally-managed, diversified venture portfolios. Founded in 2014, it is recognized as America's largest venture firm for individual investors.",
+      "investment_stage": "Convertible Note, Early Stage Venture, Initial Coin Offering, Late Stage Venture, Seed, Venture",
+      "total_investments": 387,
+      "lead_investments": 9,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 107
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 107
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 70
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/alumni-ventures-group",
+      "sample_deals": [
+        {
+          "company_name": "TransCrypts",
+          "round_type": "SEED",
+          "date": "2025-10-08T11:04:19.000Z",
+          "amount": 15
+        },
+        {
+          "company_name": "Moby",
+          "round_type": "SEED",
+          "date": "2025-09-25T21:46:00.000Z",
+          "amount": 5
+        },
+        {
+          "company_name": "Astrus",
+          "round_type": "SEED",
+          "date": "2025-09-08T09:00:51.000Z",
+          "amount": 7.95
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "investor_id": "a664d1cd-979e-4b44-a14e-12d0f95277be",
+      "name": "FJ Labs",
+      "domain": "fjlabs.com",
+      "website": "https://www.fjlabs.com/",
+      "deal_count": 5,
+      "location": "New York, United States",
+      "description": "FJ Labs is a stage-agnostic venture capital firm based in New York City, specializing in marketplaces and network effect businesses. They have invested in notable companies such as Alibaba, Coupang, Flexport, and Delivery Hero. FJ Labs co-invests with numerous institutional venture funds globally, leveraging their domain expertise and extensive network.",
+      "investment_stage": null,
+      "total_investments": 402,
+      "lead_investments": 25,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 92
+        },
+        {
+          "industry_name": "E-Commerce",
+          "count": 87
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 70
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/fj-labs",
+      "sample_deals": [
+        {
+          "company_name": "Karta",
+          "round_type": "SEED",
+          "date": "2025-10-20T17:06:48.000Z",
+          "amount": 5.4
+        },
+        {
+          "company_name": "Vocca",
+          "round_type": "SEED",
+          "date": "2025-09-25T10:05:00.000Z",
+          "amount": 5.5
+        },
+        {
+          "company_name": "sun.store",
+          "round_type": "SEED",
+          "date": "2025-09-24T05:30:00.000Z",
+          "amount": 7.09
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "investor_id": "8663ad33-f3d7-48b3-9a2b-026096867f35",
+      "name": "Plus VC",
+      "domain": "plus.vc",
+      "website": "https://plus.vc/",
+      "deal_count": 5,
+      "location": "Abu Dhabi, United Arab Emirates",
+      "description": "Plus Venture Capital is an early-stage venture capital firm that invests in seed to Series A technology startups across the MENA region and diaspora. Founded in 2021 and based in Abu Dhabi, United Arab Emirates, the firm leverages over a decade of experience and 200+ transactions to empower MENA startups for sustainable growth.",
+      "investment_stage": "Early Stage Venture",
+      "total_investments": 25,
+      "lead_investments": 9,
+      "top_industries": [
+        {
+          "industry_name": "FinTech",
+          "count": 7
+        },
+        {
+          "industry_name": "Software",
+          "count": 6
+        },
+        {
+          "industry_name": "SaaS",
+          "count": 4
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/plus-venture-capital",
+      "sample_deals": [
+        {
+          "company_name": "SehaTech",
+          "round_type": "SEED",
+          "date": "2025-10-20T11:00:41.000Z",
+          "amount": 1.1
+        },
+        {
+          "company_name": "EMMA Systems",
+          "round_type": "SEED",
+          "date": "2025-10-13T05:00:31.000Z",
+          "amount": 0
+        },
+        {
+          "company_name": "Armoir",
+          "round_type": "SEED",
+          "date": "2025-09-17T11:04:41.000Z",
+          "amount": 0.5
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "investor_id": "fb762f7d-6b9d-47ba-9aed-435cef992237",
+      "name": "Inflection Point Ventures",
+      "domain": "inflectpoint.com",
+      "website": "https://www.inflectpoint.com/",
+      "deal_count": 5,
+      "location": "Massachusetts, United States",
+      "description": "IPV provides venture capital and business support for early stage telecommunications, information technology, and electronic commerce companies with the potential to generate rapid growth in revenue, profitability, and shareholder value. They focus on businesses whose technology holds potential to fundamentally change markets. They seek companies who can cause an inflection point in demand -- who can introduce new, high value-added products and services, upset the status quo, and capture market leadership",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 129,
+      "lead_investments": 105,
+      "top_industries": [
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 24
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 18
+        },
+        {
+          "industry_name": "Software",
+          "count": 18
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/inflection-point-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Fire AI",
+          "round_type": "SEED",
+          "date": "2025-10-17T03:00:40.000Z",
+          "amount": 0.45
+        },
+        {
+          "company_name": "Fastest.Health",
+          "round_type": "SEED",
+          "date": "2025-10-10T10:03:43.000Z",
+          "amount": 0.14
+        },
+        {
+          "company_name": "Mishmash Naturals",
+          "round_type": "SEED",
+          "date": "2025-10-02T09:03:34.000Z",
+          "amount": 0.27
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "investor_id": "025041e1-1582-40be-8910-01af9b0ff4e0",
+      "name": "K Fund",
+      "domain": "kfund.vc",
+      "website": "https://kfund.vc/",
+      "deal_count": 5,
+      "location": "Madrid, Spain",
+      "description": "Kfund is a multi-stage venture capital firm that invests in entrepreneurs with the capacity to create differentiated technology-based products and services. They focus on supporting entrepreneurs across Southern Europe and Latin America, with more than \u20ac500 million in assets under management. Kfund invests from seed to later-stage companies.",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 83,
+      "lead_investments": 31,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 33
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 21
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 16
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/kfund",
+      "sample_deals": [
+        {
+          "company_name": "Omnia",
+          "round_type": "SEED",
+          "date": "2025-10-16T02:00:12.000Z",
+          "amount": 4.08
+        },
+        {
+          "company_name": "Emblematic",
+          "round_type": "SEED",
+          "date": "2025-10-02T09:00:00.000Z",
+          "amount": 2
+        },
+        {
+          "company_name": "2501.AI",
+          "round_type": "SEED",
+          "date": "2025-09-25T20:06:41.000Z",
+          "amount": 2.35
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "investor_id": "749c3808-d772-44f7-ae05-48189c411d66",
+      "name": "Inovia Capital",
+      "domain": "inovia.vc",
+      "website": "https://www.inovia.vc/",
+      "deal_count": 5,
+      "location": "Quebec, Canada",
+      "description": "Inovia Capital is a full-stack venture capital firm that partners with founders to build impactful and enduring global companies. The firm is based in Montreal, Canada, and focuses on investments in business-to-business and business-to-consumer sectors.",
+      "investment_stage": "Debt, Early Stage Venture, Late Stage Venture, Seed, Venture",
+      "total_investments": 237,
+      "lead_investments": 99,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 95
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 46
+        },
+        {
+          "industry_name": "SaaS",
+          "count": 40
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/inovia-capital",
+      "sample_deals": [
+        {
+          "company_name": "Clove",
+          "round_type": "SEED",
+          "date": "2025-10-14T11:41:21.000Z",
+          "amount": 13.89
+        },
+        {
+          "company_name": "Nexcade",
+          "round_type": "SEED",
+          "date": "2025-10-07T13:15:00.000Z",
+          "amount": 2.5
+        },
+        {
+          "company_name": "Belfort",
+          "round_type": "SEED",
+          "date": "2025-09-24T12:55:00.000Z",
+          "amount": 6
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "investor_id": "1100acdf-886d-4da2-8194-e7c95f3ada60",
+      "name": "Venture Catalysts",
+      "domain": "venturecatalysts.in",
+      "website": "https://venturecatalysts.in/",
+      "deal_count": 5,
+      "location": "Maharashtra, India",
+      "description": "Venture Catalysts is a venture capital investment firm based in Mumbai, India, focused on providing funding, mentorship, and network support to startups. They aim to create the world's largest early-stage startup ecosystem by bundling together all the elements that help startups become more successful.",
+      "investment_stage": "Early Stage Venture",
+      "total_investments": 197,
+      "lead_investments": 122,
+      "top_industries": [
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 29
+        },
+        {
+          "industry_name": "E-Commerce",
+          "count": 26
+        },
+        {
+          "industry_name": "Software",
+          "count": 24
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/venturecatalysts",
+      "sample_deals": [
+        {
+          "company_name": "R\u00e9ia Diamonds",
+          "round_type": "SEED",
+          "date": "2025-10-14T05:03:40.000Z",
+          "amount": 0.23
+        },
+        {
+          "company_name": "H2 Carbon Zero",
+          "round_type": "SEED",
+          "date": "2025-10-07T17:04:21.000Z",
+          "amount": 0.85
+        },
+        {
+          "company_name": "Wit & Chai",
+          "round_type": "SEED",
+          "date": "2025-09-29T13:04:05.000Z",
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "investor_id": "0fa5e898-ecc7-4ad2-a362-814bba36f67f",
+      "name": "Seedcamp",
+      "domain": "seedcamp.com",
+      "website": "https://www.seedcamp.com/",
+      "deal_count": 5,
+      "location": "England, United Kingdom",
+      "description": "Seedcamp is a European seed fund that identifies and invests early in world-class founders attacking global markets and solving real problems using technology. Founded in 2007 and based in London, Seedcamp partners with exceptional founders with the grit and vision to reshape the future.",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 342,
+      "lead_investments": 46,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 107
+        },
+        {
+          "industry_name": "FinTech",
+          "count": 62
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 57
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/seedcamp",
+      "sample_deals": [
+        {
+          "company_name": "Popsink",
+          "round_type": "SEED",
+          "date": "2025-10-02T20:03:34.000Z",
+          "amount": 3.52
+        },
+        {
+          "company_name": "DaltonTx",
+          "round_type": "SEED",
+          "date": "2025-09-23T07:30:00.000Z",
+          "amount": 5.4
+        },
+        {
+          "company_name": "Wexler",
+          "round_type": "SEED",
+          "date": "2025-09-23T05:00:00.000Z",
+          "amount": 5.3
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "investor_id": "68ae43b9-c129-4912-bf55-78b0b76eb39c",
+      "name": "Bpifrance",
+      "domain": "bpifrance.fr",
+      "website": "https://bpifrance.fr/",
+      "deal_count": 5,
+      "location": "Ile-de-France, France",
+      "description": "Bpifrance, France\u2019s public investment bank, provides financing, guarantees and equity investment to French companies ranging from start-ups to mid-market and large ventures. Created by the French government in 2012, it plays a strategic role in supporting domestic innovation and economic growth.",
+      "investment_stage": null,
+      "total_investments": 603,
+      "lead_investments": 165,
+      "top_industries": [
+        {
+          "industry_name": "Biotechnology",
+          "count": 132
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 127
+        },
+        {
+          "industry_name": "Software",
+          "count": 124
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/bpifrance",
+      "sample_deals": [
+        {
+          "company_name": "Metreecs",
+          "round_type": "SEED",
+          "date": "2025-10-02T20:03:34.000Z",
+          "amount": 3.17
+        },
+        {
+          "company_name": "2501.AI",
+          "round_type": "SEED",
+          "date": "2025-09-25T20:06:41.000Z",
+          "amount": 2.35
+        },
+        {
+          "company_name": "Sonomind",
+          "round_type": "SEED",
+          "date": "2025-09-24T12:35:22.000Z",
+          "amount": 3.54
+        }
+      ]
+    },
+    {
+      "rank": 21,
+      "investor_id": "d8127fb4-4784-4c68-b06e-7aa72026c437",
+      "name": "Pear VC",
+      "domain": "pear.vc",
+      "website": "https://www.pear.vc/",
+      "deal_count": 5,
+      "location": "California, United States",
+      "description": "Pear VC is a venture capital firm that specializes in pre-seed and seed-stage investments. They partner with founders at the earliest stages to help turn great ideas into category-defining companies. Based in San Francisco, California, Pear VC is known for its commitment to backing best-in-class founders and helping startups achieve product-market fit.",
+      "investment_stage": "Convertible Note, Early Stage Venture, Late Stage Venture, Seed, Venture",
+      "total_investments": 150,
+      "lead_investments": 20,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 41
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 32
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 29
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/pejman-mar-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Wexler",
+          "round_type": "SEED",
+          "date": "2025-09-23T05:00:00.000Z",
+          "amount": 5.3
+        },
+        {
+          "company_name": "TrueMeter",
+          "round_type": "SEED",
+          "date": "2025-09-10T15:00:00.000Z",
+          "amount": 4
+        },
+        {
+          "company_name": "Remuner",
+          "round_type": "SEED",
+          "date": "2025-09-09T22:00:00.000Z",
+          "amount": 6.5
+        }
+      ]
+    },
+    {
+      "rank": 22,
+      "investor_id": "833da14d-51c9-48f8-9e16-fb4421ad57cb",
+      "name": "Mirana Ventures",
+      "domain": "mirana.xyz",
+      "website": "https://www.mirana.xyz/",
+      "deal_count": 4,
+      "location": "Hong Kong Island, Hong Kong",
+      "description": "Mirana Ventures is a leading global investment fund that provides long-term capital and strategic partnerships to visionary founders and fund managers. The firm focuses on Web3 technologies and offers services in investment, legal, and advisory services.",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 64,
+      "lead_investments": 4,
+      "top_industries": [
+        {
+          "industry_name": "Blockchain",
+          "count": 27
+        },
+        {
+          "industry_name": "Cryptocurrency",
+          "count": 20
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 17
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/mirana",
+      "sample_deals": [
+        {
+          "company_name": "Printr",
+          "round_type": "SEED",
+          "date": "2025-10-21T11:00:00.000Z",
+          "amount": 2
+        },
+        {
+          "company_name": "Titan",
+          "round_type": "SEED",
+          "date": "2025-09-22T17:04:05.000Z",
+          "amount": 7
+        },
+        {
+          "company_name": "Titan",
+          "round_type": "SEED",
+          "date": "2025-09-18T16:30:00.000Z",
+          "amount": 7
+        }
+      ]
+    },
+    {
+      "rank": 23,
+      "investor_id": "86cf3008-4ef0-4e24-8691-880c6c23c610",
+      "name": "Point72 Ventures",
+      "domain": "p72.vc",
+      "website": "https://p72.vc/",
+      "deal_count": 4,
+      "location": "New York, United States",
+      "description": "Point72 Ventures is a global venture capital fund that builds on Steve Cohen's decades of public and private market investing experience. The firm focuses on fintech, deep tech, and enterprise investments, leveraging a diverse set of domain experts to lead rounds through all stages.",
+      "investment_stage": "Crowdfunding, Early Stage Venture, Late Stage Venture, Seed, Venture",
+      "total_investments": 157,
+      "lead_investments": 75,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 57
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 48
+        },
+        {
+          "industry_name": "FinTech",
+          "count": 45
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/point72-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Syntracts",
+          "round_type": "SEED",
+          "date": "2025-10-21T09:00:00.000Z",
+          "amount": 5.3
+        },
+        {
+          "company_name": "Le Walk",
+          "round_type": "SEED",
+          "date": "2025-09-22T09:33:32.000Z",
+          "amount": 4.1
+        },
+        {
+          "company_name": "Ethosphere",
+          "round_type": "SEED",
+          "date": "2025-09-16T12:00:00.000Z",
+          "amount": 2.5
+        }
+      ]
+    },
+    {
+      "rank": 24,
+      "investor_id": "40444778-ba26-4152-b4d1-576e153fd96e",
+      "name": "Wingman Ventures",
+      "domain": "founderful.com",
+      "website": "https://www.founderful.com/",
+      "deal_count": 4,
+      "location": "Zurich, Switzerland",
+      "description": "Wingman Ventures, now rebranded as Founderful, is a venture capital firm based in Switzerland. The firm focuses on investing in technology sectors, including robotics and industrial pre-seed startups. With a strong entrepreneurial background, Founderful aims to support Swiss tech and AI startups by providing capital and strategic guidance.",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 57,
+      "lead_investments": 36,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 16
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 15
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 7
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/wingman-897a",
+      "sample_deals": [
+        {
+          "company_name": "Chipmind",
+          "round_type": "SEED",
+          "date": "2025-10-21T08:07:11.000Z",
+          "amount": 2.5
+        },
+        {
+          "company_name": "Arqh",
+          "round_type": "SEED",
+          "date": "2025-09-30T07:30:00.000Z",
+          "amount": 3.8
+        },
+        {
+          "company_name": "Adaptyv Biosystems",
+          "round_type": "SEED",
+          "date": "2025-09-25T20:06:41.000Z",
+          "amount": 8
+        }
+      ]
+    },
+    {
+      "rank": 25,
+      "investor_id": "1cfe15b8-b765-4976-9f6b-db1d8525a39e",
+      "name": "Streamlined Ventures",
+      "domain": "streamlined.vc",
+      "website": "https://streamlined.vc/",
+      "deal_count": 4,
+      "location": "California, United States",
+      "description": "Streamlined Ventures is a seed-stage venture capital firm that invests in visionary founders building the next generation of transformational companies. The firm focuses on sectors such as Data Science, APIs, Blockchain/Web3, AI, and Software Automation.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed",
+      "total_investments": 91,
+      "lead_investments": 15,
+      "top_industries": [
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 25
+        },
+        {
+          "industry_name": "Software",
+          "count": 24
+        },
+        {
+          "industry_name": "Machine Learning",
+          "count": 13
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/streamlined-ventures",
+      "sample_deals": [
+        {
+          "company_name": "AdsGency",
+          "round_type": "SEED",
+          "date": "2025-10-20T18:06:48.000Z",
+          "amount": 12
+        },
+        {
+          "company_name": "TwinMind",
+          "round_type": "SEED",
+          "date": "2025-09-10T12:00:00.000Z",
+          "amount": 5.7
+        },
+        {
+          "company_name": "Honey Health",
+          "round_type": "SEED",
+          "date": "2025-09-04T12:00:00.000Z",
+          "amount": 7.8
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1856 @@
+openapi: 3.0.3
+info:
+  title: Fundable Deals 2
+  description: |
+    API for accessing venture capital deals data with advanced filtering capabilities.
+    
+    ## Authentication
+    All API requests require authentication using an API key in the Authorization header.
+    
+    ## Rate Limits
+    API usage is tracked and may be subject to monthly limits depending on your API key tier.
+    
+    ## Parameter Format
+    Most filter parameters use comma-separated values for multiple selections:
+    - `financingTypes=series-a,seed,series-b-pre`
+    - `industries=artificial-intelligence,fintech,healthcare`
+    - `locations=san-francisco,new-york,london`
+    
+    This provides a clean, URL-friendly format for complex filtering.
+    
+    ## Filtering
+    The API supports complex filtering across multiple dimensions including:
+    - Financing types and rounds (with modifiers like pre, extension, intermediate)
+    - Company attributes (size, location, industry, IPO status)  
+    - Deal characteristics (size ranges, date ranges)
+    - Investor participation
+    - Geographic filtering (regions, locations)
+    - Industry and super-category filtering
+    
+  version: 1.0.0
+  contact:
+    name: Fundable API Support
+    url: tj@tryfundable.ai
+  license:
+    name: Proprietary
+    url: https://www.tryfundable.ai/terms/privacy/
+
+servers:
+  - url: https://tryfundable.ai/api/v1
+    description: Production server
+  - url: http://localhost:8082/api/v1
+    description: Development server
+
+security:
+  - bearerAuth: []
+
+paths:
+  /api/v1/company/{identifier}:
+    get:
+      summary: Get company details by ID or permalink
+      description: Retrieve detailed company information and recent deals using either company UUID or permalink
+      operationId: getCompany
+      parameters:
+        - name: identifier
+          in: path
+          description: |
+            Company identifier - can be either:
+            - UUID format (e.g., "550e8400-e29b-41d4-a716-446655440000")
+            - Permalink format (e.g., "acme-corporation")
+          required: true
+          schema:
+            type: string
+          examples:
+            uuid:
+              value: "550e8400-e29b-41d4-a716-446655440000"
+              summary: "UUID identifier"
+            permalink:
+              value: "acme-corporation"
+              summary: "Permalink identifier"
+      responses:
+        '200':
+          description: Successful response with company data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      company:
+                        $ref: '#/components/schemas/CompanyDetails'
+                      company_deals:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Deal'
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 1
+                      offset:
+                        type: integer
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '404':
+          description: Company not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          headers:
+            Retry-After:
+              description: Number of seconds to wait before retrying
+              schema:
+                type: integer
+                example: 3600
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+
+  /api/v1/investor/{identifier}:
+    get:
+      summary: Get investor details by ID or permalink
+      description: Retrieve detailed investor information, statistics, and recent deals using either investor UUID or permalink
+      operationId: getInvestor
+      parameters:
+        - name: identifier
+          in: path
+          description: |
+            Investor identifier - can be either:
+            - UUID format (e.g., "550e8400-e29b-41d4-a716-446655440000")
+            - Permalink format (e.g., "acme-ventures")
+          required: true
+          schema:
+            type: string
+          examples:
+            uuid:
+              value: "550e8400-e29b-41d4-a716-446655440000"
+              summary: "UUID identifier"
+            permalink:
+              value: "acme-ventures"
+              summary: "Permalink identifier"
+      responses:
+        '200':
+          description: Successful response with investor data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      investor:
+                        $ref: '#/components/schemas/InvestorDetails'
+                      stats:
+                        $ref: '#/components/schemas/InvestorStats'
+                      investor_top_deals:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Deal'
+                      investor_deals:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Deal'
+                      investor_deals_length:
+                        type: integer
+                        description: Total number of deals for this investor
+                        example: 247
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 1
+                      offset:
+                        type: integer
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '404':
+          description: Investor not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          headers:
+            Retry-After:
+              description: Number of seconds to wait before retrying
+              schema:
+                type: integer
+                example: 3600
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+
+  /api/v1/company/search:
+    get:
+      summary: Search companies by name or domain
+      description: Search for companies using name or domain with fuzzy matching and relevance scoring
+      operationId: searchCompanies
+      parameters:
+        - name: q
+          in: query
+          description: General search query (searches across name and domain)
+          required: false
+          schema:
+            type: string
+            example: "acme"
+        - name: query
+          in: query
+          description: Alias for 'q' parameter
+          required: false
+          schema:
+            type: string
+            example: "acme"
+        - name: name
+          in: query
+          description: Search specifically by company name
+          required: false
+          schema:
+            type: string
+            example: "Acme Corporation"
+        - name: domain
+          in: query
+          description: Search specifically by company domain
+          required: false
+          schema:
+            type: string
+            example: "acme.com"
+      responses:
+        '200':
+          description: Successful search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      companies:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/CompanySearchResult'
+                      totalCount:
+                        type: integer
+                        description: Number of companies returned
+                        example: 15
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 1
+                      offset:
+                        type: integer
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+        '400':
+          description: Missing search parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        example: "MISSING_SEARCH_PARAMS"
+                      message:
+                        type: string
+                        example: "At least one search parameter is required"
+                      details:
+                        type: object
+                        properties:
+                          help:
+                            type: string
+                            example: "Provide one of: q, query, name, or domain parameters"
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+  /api/v1/investor/search:
+    get:
+      summary: Search investors by name or domain
+      description: Search for investors using name or domain with fuzzy matching and relevance scoring
+      operationId: searchInvestors
+      parameters:
+        - name: q
+          in: query
+          description: General search query (searches across name and domain)
+          required: false
+          schema:
+            type: string
+            example: "acme ventures"
+        - name: query
+          in: query
+          description: Alias for 'q' parameter
+          required: false
+          schema:
+            type: string
+            example: "acme ventures"
+        - name: name
+          in: query
+          description: Search specifically by investor name
+          required: false
+          schema:
+            type: string
+            example: "Acme Ventures"
+        - name: domain
+          in: query
+          description: Search specifically by investor domain
+          required: false
+          schema:
+            type: string
+            example: "acmeventures.com"
+      responses:
+        '200':
+          description: Successful search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      investors:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/InvestorSearchResult'
+                      totalCount:
+                        type: integer
+                        description: Number of investors returned
+                        example: 8
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 1
+                      offset:
+                        type: integer
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+              example:
+                success: true
+                data:
+                  investors:
+                    - id: "770e8400-e29b-41d4-a716-446655440000"
+                      guru_permalink: "acme-ventures"
+                      name: "Acme Ventures"
+                      description: "Early-stage venture capital firm focused on AI startups"
+                      image: "https://example.com/acme-ventures-logo.png"
+                      relevance_score: 0.92
+                      domain: "acmeventures.com"
+                      website: "https://acmeventures.com"
+                      linkedin: "https://linkedin.com/company/acme-ventures"
+                      crunchbase: "https://crunchbase.com/organization/acme-ventures"
+                      pitchbook: "https://pitchbook.com/profiles/investor/acme-ventures"
+                    - id: "880e8400-e29b-41d4-a716-446655440001"
+                      guru_permalink: "acme-capital"
+                      name: "Acme Capital"
+                      description: "Growth-stage investment firm"
+                      image: "https://example.com/acme-capital-logo.png"
+                      relevance_score: 0.85
+                      domain: "acmecap.com"
+                      website: "https://acmecap.com"
+                      linkedin: "https://linkedin.com/company/acme-capital"
+                      crunchbase: null
+                      pitchbook: null
+                  totalCount: 2
+                meta:
+                  limit: 1
+                  offset: 0
+                  remaining_requests: 990
+        '400':
+          description: Missing search parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        example: "MISSING_SEARCH_PARAMS"
+                      message:
+                        type: string
+                        example: "At least one search parameter is required"
+                      details:
+                        type: object
+                        properties:
+                          help:
+                            type: string
+                            example: "Provide one of: q, query, name, or domain parameters"
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+  /api/v1/location/search:
+    get:
+      summary: Search locations by name
+      description: Search for locations (cities, states, countries, regions) by name with fuzzy matching
+      operationId: searchLocations
+      parameters:
+        - name: q
+          in: query
+          description: General search query for location name
+          required: false
+          schema:
+            type: string
+            example: "san francisco"
+        - name: query
+          in: query
+          description: Alias for 'q' parameter
+          required: false
+          schema:
+            type: string
+            example: "san francisco"
+        - name: name
+          in: query
+          description: Search specifically by location name
+          required: false
+          schema:
+            type: string
+            example: "San Francisco"
+      responses:
+        '200':
+          description: Successful search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      locations:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/LocationSearchResult'
+                      totalCount:
+                        type: integer
+                        description: Number of locations returned
+                        example: 3
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 1
+                      offset:
+                        type: integer
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+              example:
+                success: true
+                data:
+                  locations:
+                    - permalink: "san-francisco"
+                      name: "San Francisco"
+                      location_type: "CITY"
+                      uuid: "990e8400-e29b-41d4-a716-446655440000"
+                    - permalink: "san-francisco-bay-area"
+                      name: "San Francisco Bay Area"
+                      location_type: "REGION"
+                      uuid: "aa0e8400-e29b-41d4-a716-446655440001"
+                    - permalink: "california"
+                      name: "California"
+                      location_type: "STATE"
+                      uuid: "bb0e8400-e29b-41d4-a716-446655440002"
+                  totalCount: 3
+                meta:
+                  limit: 1
+                  offset: 0
+                  remaining_requests: 990
+        '400':
+          description: Missing search parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        example: "MISSING_SEARCH_PARAMS"
+                      message:
+                        type: string
+                        example: "At least one search parameter is required"
+                      details:
+                        type: object
+                        properties:
+                          help:
+                            type: string
+                            example: "Provide one of: q, query, or name parameters"
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+  /api/v1/deals:
+    get:
+      summary: Get funding deals
+      description: Retrieve venture capital deals with optional filtering, pagination, and sorting
+      operationId: getDeals
+      parameters:
+        # Pagination
+        - name: page
+          in: query
+          description: Page number (0-based)
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+        - name: pageSize
+          in: query
+          description: Number of results per page
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 10
+        - name: sortBy
+          in: query
+          description: Sort order for results
+          required: false
+          schema:
+            type: string
+            enum: ['Most Recent', 'Largest Raise', 'Smallest Raise', 'Company Name']
+            default: 'Most Recent'
+            
+        # Date filters
+        - name: dealStartDate
+          in: query
+          description: Filter deals after this date (ISO 8601 format)
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: "2024-01-01T00:00:00Z"
+        - name: dealEndDate
+          in: query
+          description: Filter deals before this date (ISO 8601 format)
+          required: false
+          schema:
+            type: string
+            format: date-time
+            example: "2024-12-31T23:59:59Z"
+        - name: companyFoundedStart
+          in: query
+          description: Filter companies founded after this date (ISO 8601 format)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: companyFoundedEnd
+          in: query
+          description: Filter companies founded before this date (ISO 8601 format)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: dealDate
+          in: query
+          description: Predefined date filter for deals
+          required: false
+          schema:
+            type: string
+            enum: ['this_week', 'this_month', 'this_quarter', 'this_year']
+            
+        # Company filters
+        - name: companyIds
+          in: query
+          description: Filter by specific company IDs (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "123,456,789"
+        - name: industries
+          in: query
+          description: Filter by industry permalinks (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "artificial-intelligence,fintech,healthcare"
+        - name: superCategories
+          in: query
+          description: Filter by super category permalinks (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "technology,healthcare,financial-services"
+        - name: locations
+          in: query
+          description: Filter by location permalinks (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "san-francisco,new-york,london"
+        - name: regions
+          in: query
+          description: Filter by regions (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "north-america,europe,asia-pacific"
+        - name: employeeCount
+          in: query
+          description: Filter by company size ranges (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "1-10,11-50,51-100"
+        - name: ipoStatus
+          in: query
+          description: Filter by IPO status (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "Public,Private,Acquired"
+            
+        # Deal filters  
+        - name: financingTypes
+          in: query
+          description: |
+            Filter by financing types (comma-separated). 
+            Format: type[-modifier][-modifier] where modifiers can be 'pre', 'ext', 'int'
+            Examples: 'series-a', 'series-a-pre', 'seed-ext'
+          required: false
+          schema:
+            type: string
+            example: "series-a,seed,series-b-pre"
+        - name: dealSizeMax
+          in: query
+          description: Maximum deal size filter (USD $M)
+          required: false
+          schema:
+            type: number
+            minimum: 0
+            example: 50000000
+        - name: dealSizeMin
+          in: query
+          description: Minimum deal size filter (USD $M)
+          required: false
+          schema:
+            type: number
+            minimum: 0
+            example: 1000000
+            
+        # Investor filters
+        - name: investorIds
+          in: query
+          description: Filter by specific investor IDs (comma-separated)
+          required: false
+          schema:
+            type: string
+            example: "investor-1,investor-2,investor-3"
+            
+      responses:
+        '200':
+          description: Successful response with deals data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      deals:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Deal'
+                      totalCount:
+                        type: integer
+                        description: Total number of deals matching the filter criteria
+                        example: 1547
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        description: Number of results per page (pageSize parameter)
+                        example: 10
+                      offset:
+                        type: integer
+                        description: Number of results skipped (page * pageSize)
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        description: Remaining API requests for the current month (null if unlimited)
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+              example:
+                success: true
+                data:
+                  deals:
+                    - id: "deal-990e8400-e29b-41d4-a716-446655440000"
+                      company_name: "TechStartup Inc"
+                      round_type: "SERIES_A"
+                      extension: false
+                      intermediate: "NONE"
+                      pre: false
+                      date: "2024-01-15T00:00:00Z"
+                      total_round_raised: 15000000
+                      deal_descriptions:
+                        short_description: "Series A funding to scale AI platform"
+                        long_description: "TechStartup Inc raises $15M Series A to accelerate growth of their AI-powered analytics platform"
+                      articles:
+                        - link: "https://techcrunch.com/2024/01/15/techstartup-raises-15m"
+                      company:
+                        name: "TechStartup Inc"
+                        guru_permalink: "techstartup-inc"
+                        domain: "techstartup.com"
+                        region: "San Francisco Bay Area"
+                        industries:
+                          - permalink: "artificial-intelligence"
+                            name: "Artificial Intelligence"
+                        location:
+                          city:
+                            name: "San Francisco"
+                            permalink: "san-francisco"
+                            location_type: "CITY"
+                      deal_investors:
+                        - id: "inv-990e8400-e29b-41d4-a716-446655440000"
+                          name: "Growth Ventures"
+                          lead_investor: true
+                          angel_investor: false
+                          personnel: ["Sarah Johnson"]
+                          fund: ["Growth Ventures II"]
+                          financing_id: "fin-990e8400-e29b-41d4-a716-446655440000"
+                          financing_type: "SERIES_A"
+                          is_debt_investor: false
+                      financings:
+                        - id: "fin-990e8400-e29b-41d4-a716-446655440000"
+                          type: "SERIES_A"
+                          size_usd: 15000000
+                          size: 15000000
+                          currency: "USD"
+                      valuations:
+                        - valuation_currency: "USD"
+                          valuation_usd: 60000000
+                          valuation_usd_millions: 60
+                          type: "POST_MONEY"
+                  totalCount: 1547
+                meta:
+                  limit: 10
+                  offset: 0
+                  remaining_requests: 990
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          headers:
+            Retry-After:
+              description: Number of seconds to wait before retrying
+              schema:
+                type: integer
+                example: 3600
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+      description: |
+        API key authentication using Bearer token format.
+        Format: `Authorization: Bearer vg_your_api_key_here`
+        
+        API keys follow the pattern: `vg_[12_hex_chars]_[32_base64url_chars]`
+        
+  schemas:
+    Deal:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the deal
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        company_name:
+          type: string
+          description: Name of the company that received funding
+          example: "Acme Corp"
+        round_type:
+          type: string
+          nullable: true
+          description: Type of funding round
+          enum: [
+            'SERIES_A', 'SERIES_B', 'SERIES_C', 'SERIES_D', 'SERIES_E', 'SERIES_F',
+            'SERIES_G', 'SERIES_H', 'SERIES_I', 'SERIES_J', 'SERIES_K', 'SERIES_M',
+            'SEED', 'SAFE', 'CONVERTIBLE_NOTE', 'EQUITY', 'PREFERRED', 'SECONDARY_MARKET',
+            'DEBT_FINANCING', 'GRANT', 'NON_EQUITY_ASSISTANCE', 'CROWDFUNDING',
+            'INITIAL_COIN_OFFERING', 'FUNDING_ROUND', 'HYBRID', 'HYBRID_SEED',
+            'HYBRID_SERIES_A', 'HYBRID_SERIES_B', 'HYBRID_SERIES_C', 'HYBRID_SERIES_D',
+            'HYBRID_SERIES_E', 'HYBRID_SERIES_F', 'HYBRID_SERIES_G', 'HYBRID_SERIES_H',
+            'HYBRID_SERIES_I', 'HYBRID_SERIES_J', 'HYBRID_SERIES_K', 'HYBRID_SERIES_M'
+          ]
+          example: "SERIES_A"
+        extension:
+          type: boolean
+          nullable: true
+          description: Whether this is an extension round
+          example: false
+        intermediate:
+          type: string
+          nullable: true
+          description: Intermediate round designation
+          enum: ['PLUS', 'NONE', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT']
+          example: "NONE"
+        pre:
+          type: boolean
+          nullable: true
+          description: Whether this is a pre-round (e.g., Pre-Series A)
+          example: false
+        date:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date of the funding round
+          example: "2024-01-15T00:00:00Z"
+        total_round_raised:
+          type: number
+          nullable: true
+          description: Total amount raised in the round (USD $M)
+          example: 25
+        deal_descriptions:
+          type: object
+          nullable: true
+          properties:
+            short_description:
+              type: string
+              nullable: true
+              description: Brief description of the deal
+            long_description:
+              type: string
+              nullable: true
+              description: Detailed description of the deal
+        articles:
+          type: array
+          description: News articles related to this deal
+          items:
+            type: object
+            properties:
+              link:
+                type: string
+                format: uri
+                description: URL to the article
+                example: "https://techcrunch.com/2024/01/15/acme-corp-raises-25m"
+        company:
+          $ref: '#/components/schemas/Company'
+        deal_investors:
+          type: array
+          description: Investors participating in this deal
+          items:
+            $ref: '#/components/schemas/DealInvestor'
+        financings:
+          type: array
+          description: Detailed financing information for deals that have multiple financing types (e.g. Hybrid)
+          items:
+            $ref: '#/components/schemas/Financing'
+        valuations:
+          type: array
+          description: Valuation information for this deal
+          items:
+            $ref: '#/components/schemas/Valuation'
+      required:
+        - id
+        - company_name
+        - articles
+        - deal_investors
+        - financings
+        - valuations
+
+    Company:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+          description: Company name
+          example: "Acme Corporation"
+        legal_name:
+          type: string
+          nullable: true
+          description: Legal name of the company
+          example: "Acme Corporation Inc."
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the company
+          example: "acme-corporation"
+        domain:
+          type: string
+          nullable: true
+          description: Company website domain
+          example: "acme.com"
+        region:
+          type: string
+          nullable: true
+          description: Company region
+          example: "San Francisco Bay Area"
+        about:
+          type: string
+          nullable: true
+          description: About/description text for the company
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Company logo URL
+        num_employees:
+          type: string
+          nullable: true
+          description: Number of employees range
+          example: "11-50"
+        linkedin:
+          type: string
+          nullable: true
+          format: uri
+          description: LinkedIn profile URL
+        twitter:
+          type: string
+          nullable: true
+          format: uri
+          description: Twitter profile URL
+        facebook:
+          type: string
+          nullable: true
+          format: uri
+          description: Facebook profile URL
+        pitchbook:
+          type: string
+          nullable: true
+          format: uri
+          description: PitchBook profile URL
+        address:
+          type: string
+          nullable: true
+          description: Company address
+        crunchbase:
+          type: string
+          nullable: true
+          format: uri
+          description: Crunchbase profile URL
+        country_code:
+          type: string
+          nullable: true
+          description: Country code (ISO 3166-1 alpha-2)
+          example: "US"
+        acquired:
+          type: boolean
+          nullable: true
+          description: Whether the company has been acquired
+        contact_email:
+          type: string
+          nullable: true
+          format: email
+          description: Company contact email
+        contact_phone:
+          type: string
+          nullable: true
+          description: Company contact phone
+        founded_date:
+          type: string
+          format: date-time
+          nullable: true
+          description: Company founding date
+        ipo_status:
+          type: string
+          nullable: true
+          description: IPO status of the company
+          example: "Private"
+        operating_status:
+          type: string
+          nullable: true
+          description: Operating status
+          example: "Active"
+        company_type:
+          type: string
+          nullable: true
+          description: Type of company
+        num_funding_rounds:
+          type: integer
+          nullable: true
+          description: Total number of funding rounds
+          example: 3
+        num_investors:
+          type: integer
+          nullable: true
+          description: Total number of investors
+          example: 15
+        total_raised:
+          type: number
+          nullable: true
+          description: Total amount raised across all rounds (USD $M)
+          example: 5000
+        latest_valuation_usd:
+          type: number
+          nullable: true
+          description: Latest company valuation (USD $M)
+          example: 10000
+        latest_valuation_date:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date of latest valuation
+        short_description:
+          type: string
+          nullable: true
+          description: Short description of the company
+        long_description:
+          type: string
+          nullable: true
+          description: Long description of the company
+        industries:
+          type: array
+          description: Industries the company operates in
+          items:
+            type: object
+            properties:
+              permalink:
+                type: string
+                description: Industry permalink
+                example: "artificial-intelligence"
+              name:
+                type: string
+                description: Industry name
+                example: "Artificial Intelligence"
+        location:
+          type: object
+          description: Company location hierarchy
+          properties:
+            region:
+              $ref: '#/components/schemas/LocationInfo'
+            country:
+              $ref: '#/components/schemas/LocationInfo'
+            state:
+              $ref: '#/components/schemas/LocationInfo'
+            city:
+              $ref: '#/components/schemas/LocationInfo'
+
+    LocationInfo:
+      type: object
+      nullable: true
+      properties:
+        name:
+          type: string
+          description: Location name
+          example: "San Francisco"
+        permalink:
+          type: string
+          description: Location permalink
+          example: "san-francisco"
+        location_type:
+          type: string
+          description: Type of location
+          enum: ['REGION', 'COUNTRY', 'STATE', 'CITY']
+          example: "CITY"
+
+    DealInvestor:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for this investor participation
+        name:
+          type: string
+          description: Investor name
+          example: "Acme Ventures"
+        lead_investor:
+          type: boolean
+          nullable: true
+          description: Whether this investor led the round
+          example: true
+        angel_investor:
+          type: boolean
+          nullable: true
+          description: Whether this is an angel investor
+          example: false
+        personnel:
+          type: array
+          description: Personnel associated with the investment
+          items:
+            type: string
+        fund:
+          type: array
+          description: Fund names associated with the investment
+          items:
+            type: string
+        website:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor website URL
+        domain:
+          type: string
+          nullable: true
+          description: Investor domain
+        linkedin:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor LinkedIn URL
+        pitchbook:
+          type: string  
+          nullable: true
+          format: uri
+          description: Investor PitchBook URL
+        crunchbase:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Crunchbase URL
+        cbinsights:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor CB Insights URL
+        bloomberg:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Bloomberg URL
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the investor
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor logo URL
+        financing_id:
+          type: string
+          format: uuid
+          description: Associated financing record ID
+        financing_type:
+          type: string
+          nullable: true
+          description: Type of financing this investor provided
+        is_debt_investor:
+          type: boolean
+          description: Whether this investor provided debt financing
+      required:
+        - id
+        - name
+        - personnel
+        - fund
+        - financing_id
+        - is_debt_investor
+
+    Financing:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the financing
+        type:
+          type: string
+          description: Type of financing
+          enum: [
+            'SEED', 'SERIES_A', 'SERIES_B', 'SERIES_C', 'SERIES_D', 'SERIES_E',
+            'SERIES_F', 'SERIES_G', 'SERIES_H', 'SERIES_I', 'SERIES_J', 'SERIES_K',
+            'SERIES_M', 'CONVERTIBLE_NOTE', 'CROWDFUNDING', 'DEBT_FINANCING', 'EQUITY',
+            'FUNDING_ROUND', 'GRANT', 'INITIAL_COIN_OFFERING', 'NON_EQUITY_ASSISTANCE',
+            'PREFERRED', 'SAFE', 'SECONDARY_MARKET'
+          ]
+          example: "SERIES_A"
+        size_usd:
+          type: number
+          nullable: true
+          description: Financing amount (USD $M)
+          example: 25
+        size:
+          type: number
+          nullable: true
+          description: Financing amount in original currency (USD $M)
+          example: 25
+        currency:
+          type: string
+          nullable: true
+          description: Currency of the original financing amount
+          example: "USD"
+      required:
+        - id
+        - type
+
+    Valuation:
+      type: object
+      properties:
+        valuation_currency:
+          type: string
+          nullable: true
+          description: Currency of the valuation
+          example: "USD"
+        valuation:
+          type: number
+          nullable: true
+          description: Valuation amount in original currency
+          example: 100
+        valuation_usd:
+          type: number
+          nullable: true
+          description: Valuation amount (USD $M)
+          example: 100
+        valuation_usd_millions:
+          type: number
+          nullable: true
+          description: Valuation amount (USD $M)
+          example: 100
+        type:
+          type: string
+          description: Type of valuation
+          enum: ['DEFAULT', 'POST_MONEY', 'PRE_MONEY']
+          example: "POST_MONEY"
+      required:
+        - type
+
+    AuthError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              enum: ['AUTH_ERROR', 'INVALID_API_KEY', 'INACTIVE_API_KEY']
+              example: 'AUTH_ERROR'
+            message:
+              type: string
+              example: "API key not provided"
+            details:
+              type: object
+              properties:
+                help:
+                  type: string
+                  example: "Please provide your API key in the Authorization header"
+                format:
+                  type: string
+                  example: "Bearer vg_your_api_key_here"
+                example:
+                  type: object
+                  properties:
+                    header:
+                      type: string
+                      example: "Authorization: Bearer vg_your_api_key_here"
+                    curl:
+                      type: string
+                      example: "curl -H 'Authorization: Bearer vg_your_api_key_here' http://localhost:8082/api/v1/deals"
+                documentation:
+                  type: string
+                  example: "Visit our documentation for more information about authentication"
+      required:
+        - error
+
+    RateLimitError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: 'RATE_LIMIT_EXCEEDED'
+            message:
+              type: string
+              example: "Monthly request limit exceeded"
+            details:
+              type: object
+              properties:
+                monthly_limit:
+                  type: integer
+                  example: 1000
+                current_usage:
+                  type: integer
+                  example: 1000
+                remaining_requests:
+                  type: integer
+                  example: 0
+                requested_limit:
+                  type: integer
+                  example: 10
+      required:
+        - error
+
+    ServerError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: 'INTERNAL_SERVER_ERROR'
+            message:
+              type: string
+              example: "An unexpected error occurred"
+            details:
+              type: string
+              nullable: true
+              description: Error details (only in development mode)
+      required:
+        - error
+
+    NotFoundError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              enum: ['COMPANY_NOT_FOUND', 'INVESTOR_NOT_FOUND']
+              example: 'COMPANY_NOT_FOUND'
+            message:
+              type: string
+              example: "Company not found"
+            details:
+              type: object
+              properties:
+                help:
+                  type: string
+                  example: "Please check the company ID or permalink and try again"
+      required:
+        - error
+
+    CompanyDetails:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the company
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        name:
+          type: string
+          nullable: true
+          description: Company name
+          example: "Acme Corporation"
+        legal_name:
+          type: string
+          nullable: true
+          description: Legal name of the company
+          example: "Acme Corporation Inc."
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the company
+          example: "acme-corporation"
+        domain:
+          type: string
+          nullable: true
+          description: Company website domain
+          example: "acme.com"
+        region:
+          type: string
+          nullable: true
+          description: Company region
+          example: "San Francisco Bay Area"
+        full_description:
+          type: string
+          nullable: true
+          description: Full description of the company
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Company logo URL
+        num_employees:
+          type: string
+          nullable: true
+          description: Number of employees range
+          example: "11-50"
+        linkedin:
+          type: string
+          nullable: true
+          format: uri
+          description: LinkedIn profile URL
+        twitter:
+          type: string
+          nullable: true
+          format: uri
+          description: Twitter profile URL
+        facebook:
+          type: string
+          nullable: true
+          format: uri
+          description: Facebook profile URL
+        pitchbook:
+          type: string
+          nullable: true
+          format: uri
+          description: PitchBook profile URL
+        crunchbase:
+          type: string
+          nullable: true
+          format: uri
+          description: Crunchbase profile URL
+        cbinsights:
+          type: string
+          nullable: true
+          format: uri
+          description: CB Insights profile URL
+        bloomberg:
+          type: string
+          nullable: true
+          format: uri
+          description: Bloomberg profile URL
+        address:
+          type: string
+          nullable: true
+          description: Company address
+        industries:
+          type: array
+          description: Industries the company operates in
+          items:
+            type: object
+            properties:
+              permalink:
+                type: string
+                description: Industry permalink
+                example: "artificial-intelligence"
+              name:
+                type: string
+                description: Industry name
+                example: "Artificial Intelligence"
+        locations:
+          type: array
+          description: Company locations
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Location name
+                example: "San Francisco"
+              permalink:
+                type: string
+                description: Location permalink
+                example: "san-francisco"
+              location_type:
+                type: string
+                description: Type of location
+                enum: ['REGION', 'COUNTRY', 'STATE', 'CITY']
+                example: "CITY"
+
+    InvestorDetails:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the investor
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        name:
+          type: string
+          description: Investor name
+          example: "Acme Ventures"
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the investor
+          example: "acme-ventures"
+        website:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor website URL
+        domain:
+          type: string
+          nullable: true
+          description: Investor domain
+        linkedin:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor LinkedIn URL
+        pitchbook:
+          type: string  
+          nullable: true
+          format: uri
+          description: Investor PitchBook URL
+        crunchbase:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Crunchbase URL
+        cbinsights:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor CB Insights URL
+        bloomberg:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Bloomberg URL
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor logo URL
+
+    InvestorStats:
+      type: object
+      properties:
+        total_investments:
+          type: integer
+          description: Total number of investments made
+          example: 247
+        lead_investments:
+          type: integer
+          description: Number of investments where investor was lead
+          example: 89
+        industry_data:
+          type: array
+          description: Top industries invested in
+          items:
+            type: object
+            properties:
+              industry_name:
+                type: string
+                description: Name of the industry
+                example: "Artificial Intelligence"
+              count:
+                type: integer
+                description: Number of investments in this industry
+                example: 45
+
+    CompanySearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the company
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the company
+          example: "acme-corporation"
+        name:
+          type: string
+          description: Company name
+          example: "Acme Corporation"
+        short_description:
+          type: string
+          nullable: true
+          description: Brief description of the company
+          example: "AI-powered solutions for modern enterprises"
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Company logo URL
+        relevance_score:
+          type: number
+          description: Search relevance score (0-1)
+          example: 0.95
+        domain:
+          type: string
+          nullable: true
+          description: Company website domain
+          example: "acme.com"
+        website:
+          type: string
+          nullable: true
+          format: uri
+          description: Company website URL
+        linkedin:
+          type: string
+          nullable: true
+          format: uri
+          description: LinkedIn profile URL
+        crunchbase:
+          type: string
+          nullable: true
+          format: uri
+          description: Crunchbase profile URL
+        pitchbook:
+          type: string
+          nullable: true
+          format: uri
+          description: PitchBook profile URL
+        industries:
+          type: array
+          description: Industries the company operates in
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: "Artificial Intelligence"
+              permalink:
+                type: string
+                example: "artificial-intelligence"
+        founded_date:
+          type: string
+          format: date-time
+          nullable: true
+          description: Company founding date
+        num_employees:
+          type: string
+          nullable: true
+          description: Number of employees range
+          example: "11-50"
+        total_raised:
+          type: number
+          nullable: true
+          description: Total amount raised (USD $M)
+          example: 25.5
+        ipo_status:
+          type: string
+          nullable: true
+          description: IPO status
+          example: "Private"
+
+    InvestorSearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the investor
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the investor
+          example: "acme-ventures"
+        name:
+          type: string
+          description: Investor name
+          example: "Acme Ventures"
+        description:
+          type: string
+          nullable: true
+          description: Brief description of the investor
+          example: "Early-stage venture capital firm focused on AI startups"
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor logo URL
+        relevance_score:
+          type: number
+          description: Search relevance score (0-1)
+          example: 0.92
+        domain:
+          type: string
+          nullable: true
+          description: Investor website domain
+          example: "acmeventures.com"
+        website:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor website URL
+        linkedin:
+          type: string
+          nullable: true
+          format: uri
+          description: LinkedIn profile URL
+        crunchbase:
+          type: string
+          nullable: true
+          format: uri
+          description: Crunchbase profile URL
+        pitchbook:
+          type: string
+          nullable: true
+          format: uri
+          description: PitchBook profile URL
+
+    LocationSearchResult:
+      type: object
+      properties:
+        permalink:
+          type: string
+          description: Location permalink identifier
+          example: "san-francisco"
+        name:
+          type: string
+          description: Location name
+          example: "San Francisco"
+        location_type:
+          type: string
+          description: Type of location
+          enum: ['REGION', 'COUNTRY', 'STATE', 'CITY']
+          example: "CITY"
+        uuid:
+          type: string
+          format: uuid
+          nullable: true
+          description: Location UUID
+          example: "550e8400-e29b-41d4-a716-446655440000"
+
+tags:
+  - name: deals
+    description: Venture capital deals data
+  - name: search
+    description: Search operations for companies, investors, and locations

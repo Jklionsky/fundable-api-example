@@ -1,0 +1,560 @@
+openapi: 3.0.3
+info:
+  title: Fundable Investors API
+  description: |
+    API for accessing investor data including search and detailed investor information with statistics.
+    
+    ## Authentication
+    All API requests require authentication using an API key in the Authorization header.
+    
+    ## Rate Limits
+    API usage is tracked and may be subject to monthly limits depending on your API key tier.
+    
+    ## Investor Identifiers
+    Investors can be identified using either:
+    - UUID format (e.g., "550e8400-e29b-41d4-a716-446655440000")
+    - Permalink format (e.g., "acme-ventures")
+    
+  version: 1.0.0
+  contact:
+    name: Fundable API Support
+    url: tj@tryfundable.ai
+  license:
+    name: Proprietary
+    url: https://www.tryfundable.ai/terms/privacy/
+
+servers:
+  - url: https://tryfundable.ai/api/v1
+    description: Production server
+  - url: http://localhost:8082/api/v1
+    description: Development server
+
+security:
+  - bearerAuth: []
+
+paths:
+  /investor/{identifier}:
+    get:
+      summary: Get investor details by ID or permalink
+      description: Retrieve detailed investor information and statistics using either investor UUID or permalink
+      operationId: getInvestor
+      parameters:
+        - name: identifier
+          in: path
+          description: |
+            Investor identifier - can be either:
+            - UUID format (e.g., "550e8400-e29b-41d4-a716-446655440000")
+            - Permalink format (e.g., "acme-ventures")
+          required: true
+          schema:
+            type: string
+          examples:
+            uuid:
+              value: "550e8400-e29b-41d4-a716-446655440000"
+              summary: "UUID identifier"
+            permalink:
+              value: "acme-ventures"
+              summary: "Permalink identifier"
+      responses:
+        '200':
+          description: Successful response with investor data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      investor:
+                        $ref: '#/components/schemas/InvestorDetails'
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 1
+                      offset:
+                        type: integer
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '404':
+          description: Investor not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+          headers:
+            Retry-After:
+              description: Number of seconds to wait before retrying
+              schema:
+                type: integer
+                example: 3600
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+  /investor/search:
+    get:
+      summary: Search investors by name or domain
+      description: Search for investors using name or domain with fuzzy matching and relevance scoring
+      operationId: searchInvestors
+      parameters:
+        - name: q
+          in: query
+          description: General search query (searches across name and domain)
+          required: false
+          schema:
+            type: string
+            example: "acme ventures"
+        - name: query
+          in: query
+          description: Alias for 'q' parameter
+          required: false
+          schema:
+            type: string
+            example: "acme ventures"
+        - name: name
+          in: query
+          description: Search specifically by investor name
+          required: false
+          schema:
+            type: string
+            example: "Acme Ventures"
+        - name: domain
+          in: query
+          description: Search specifically by investor domain
+          required: false
+          schema:
+            type: string
+            example: "acmeventures.com"
+      responses:
+        '200':
+          description: Successful search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  data:
+                    type: object
+                    properties:
+                      investors:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/InvestorSearchResult'
+                      totalCount:
+                        type: integer
+                        description: Number of investors returned
+                        example: 8
+                  meta:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                        example: 1
+                      offset:
+                        type: integer
+                        example: 0
+                      remaining_requests:
+                        type: integer
+                        nullable: true
+                        example: 990
+                required:
+                  - success
+                  - data
+                  - meta
+              example:
+                success: true
+                data:
+                  investors:
+                    - id: "770e8400-e29b-41d4-a716-446655440000"
+                      guru_permalink: "acme-ventures"
+                      name: "Acme Ventures"
+                      description: "Early-stage venture capital firm focused on AI startups"
+                      image: "https://example.com/acme-ventures-logo.png"
+                      relevance_score: 0.92
+                      domain: "acmeventures.com"
+                      website: "https://acmeventures.com"
+                    - id: "880e8400-e29b-41d4-a716-446655440001"
+                      guru_permalink: "acme-capital"
+                      name: "Acme Capital"
+                      description: "Growth-stage investment firm"
+                      image: "https://example.com/acme-capital-logo.png"
+                      relevance_score: 0.85
+                      domain: "acmecap.com"
+                      website: "https://acmecap.com"
+                  totalCount: 2
+                meta:
+                  limit: 1
+                  offset: 0
+                  remaining_requests: 990
+        '400':
+          description: Missing search parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        example: "MISSING_SEARCH_PARAMS"
+                      message:
+                        type: string
+                        example: "At least one search parameter is required"
+                      details:
+                        type: object
+                        properties:
+                          help:
+                            type: string
+                            example: "Provide one of: q, query, name, or domain parameters"
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthError'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateLimitError'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Key
+      description: |
+        API key authentication using Bearer token format.
+        Format: `Authorization: Bearer vg_your_api_key_here`
+        
+        API keys follow the pattern: `vg_[12_hex_chars]_[32_base64url_chars]`
+        
+  schemas:
+    InvestorDetails:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the investor
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        name:
+          type: string
+          nullable: true
+          description: Investor name
+          example: "Acme Ventures"
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the investor
+          example: "acme-ventures"
+        website:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor website URL
+        domain:
+          type: string
+          nullable: true
+          description: Investor domain
+        linkedin:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor LinkedIn URL
+        pitchbook:
+          type: string  
+          nullable: true
+          format: uri
+          description: Investor PitchBook URL
+        crunchbase:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Crunchbase URL
+        cbinsights:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor CB Insights URL
+        bloomberg:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Bloomberg URL
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor logo URL
+        description:
+          type: string
+          nullable: true
+          description: Description of the investor
+          example: "Early-stage venture capital firm focused on AI startups"
+        investment_stage:
+          type: string
+          nullable: true
+          description: Investment stage focus
+          example: "Series A"
+        region:
+          type: string
+          nullable: true
+          description: Investor region
+          example: "San Francisco Bay Area"
+        address:
+          type: string
+          nullable: true
+          description: Investor address
+        founded_date:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date the investor was founded
+        legal_name:
+          type: string
+          nullable: true
+          description: Legal name of the investor
+        contact_email:
+          type: string
+          nullable: true
+          format: email
+          description: Contact email
+        contact_phone:
+          type: string
+          nullable: true
+          description: Contact phone number
+        full_description:
+          type: string
+          nullable: true
+          description: Detailed description of the investor
+          example: "Y Combinator is a startup accelerator that provides funding and mentorship to early-stage companies. It offers a program where startups receive guidance from experienced entrepreneurs and investors."
+        about:
+          type: string
+          nullable: true
+          description: Brief about section for the investor
+          example: "Y Combinator is a startup accelerator that invests in a wide range of startups."
+        country_code:
+          type: string
+          nullable: true
+          description: Country where the investor is located
+          example: "United States"
+        facebook:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Facebook URL
+          example: "http://www.facebook.com/YCombinator"
+        twitter:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor Twitter URL
+          example: "http://www.twitter.com/ycombinator"
+        num_employees:
+          type: string
+          nullable: true
+          description: Number of employees at the investor firm
+          example: "101-250"
+        total_investments:
+          type: integer
+          description: Total number of investments made
+          example: 247
+        lead_investments:
+          type: integer
+          description: Number of investments where investor was lead
+          example: 89
+        industry_data:
+          type: array
+          description: Top industries invested in
+          items:
+            type: object
+            properties:
+              industry_name:
+                type: string
+                description: Name of the industry
+                example: "Artificial Intelligence"
+              count:
+                type: integer
+                description: Number of investments in this industry
+                example: 45
+
+    InvestorSearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the investor
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        guru_permalink:
+          type: string
+          nullable: true
+          description: Fundable permalink for the investor
+          example: "acme-ventures"
+        name:
+          type: string
+          description: Investor name
+          example: "Acme Ventures"
+        description:
+          type: string
+          nullable: true
+          description: Brief description of the investor
+          example: "Early-stage venture capital firm focused on AI startups"
+        image:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor logo URL
+        relevance_score:
+          type: number
+          description: Search relevance score (0-1)
+          example: 0.92
+        domain:
+          type: string
+          nullable: true
+          description: Investor website domain
+          example: "acmeventures.com"
+        website:
+          type: string
+          nullable: true
+          format: uri
+          description: Investor website URL
+
+    AuthError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              enum: ['AUTH_ERROR', 'INVALID_API_KEY', 'INACTIVE_API_KEY']
+              example: 'AUTH_ERROR'
+            message:
+              type: string
+              example: "API key not provided"
+            details:
+              type: object
+              properties:
+                help:
+                  type: string
+                  example: "Please provide your API key in the Authorization header"
+                format:
+                  type: string
+                  example: "Bearer vg_your_api_key_here"
+      required:
+        - error
+
+    RateLimitError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: 'RATE_LIMIT_EXCEEDED'
+            message:
+              type: string
+              example: "Monthly request limit exceeded"
+            details:
+              type: object
+              properties:
+                monthly_limit:
+                  type: integer
+                  example: 1000
+                current_usage:
+                  type: integer
+                  example: 1000
+                remaining_requests:
+                  type: integer
+                  example: 0
+      required:
+        - error
+
+    ServerError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              example: 'INTERNAL_SERVER_ERROR'
+            message:
+              type: string
+              example: "An unexpected error occurred"
+            details:
+              type: string
+              nullable: true
+              description: Error details (only in development mode)
+      required:
+        - error
+
+    NotFoundError:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              enum: ['INVESTOR_NOT_FOUND']
+              example: 'INVESTOR_NOT_FOUND'
+            message:
+              type: string
+              example: "Investor not found"
+            details:
+              type: object
+              properties:
+                help:
+                  type: string
+                  example: "Please check the investor ID or permalink and try again"
+      required:
+        - error
+
+tags:
+  - name: investors
+    description: Investor data and search operations

@@ -1,0 +1,741 @@
+{
+  "generated_at": "2025-10-22T00:51:22.591517",
+  "total_investors": 15,
+  "investors": [
+    {
+      "rank": 1,
+      "investor_id": "c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82",
+      "name": "Y Combinator",
+      "domain": "ycombinator.com",
+      "website": "https://www.ycombinator.com/",
+      "deal_count": 13,
+      "location": "California, United States",
+      "description": "Y Combinator is a startup accelerator that provides funding and mentorship to early-stage companies. Founded in 2005, it has created a new model for funding early-stage startups by investing in a large number of startups twice a year.",
+      "investment_stage": "Convertible Note, Early Stage Venture, Grant, Late Stage Venture, Non Equity Assistance, Private Equity, Seed, Venture",
+      "total_investments": 1569,
+      "lead_investments": 200,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 516
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 330
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 220
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/y-combinator",
+      "sample_deals": [
+        {
+          "company_name": "FurtherAI",
+          "round_type": "SERIES_A",
+          "date": "2025-10-09T19:24:14.000Z",
+          "amount": 25
+        },
+        {
+          "company_name": "Alex",
+          "round_type": "SERIES_A",
+          "date": "2025-09-29T19:00:00.000Z",
+          "amount": 20
+        },
+        {
+          "company_name": "Greptile",
+          "round_type": "SERIES_A",
+          "date": "2025-09-23T17:13:55.000Z",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "investor_id": "e9236a00-e0d8-4ab6-9068-45a723f63fd2",
+      "name": "Andreessen Horowitz",
+      "domain": "a16z.com",
+      "website": "https://www.a16z.com/",
+      "deal_count": 7,
+      "location": "California, United States",
+      "description": "Andreessen Horowitz Growth (a16z Growth) is the growth-stage investment arm of venture capital firm Andreessen Horowitz, managing more than $15 billion across four dedicated funds and backing market-leading technology companies in emerging categories.",
+      "investment_stage": null,
+      "total_investments": 1458,
+      "lead_investments": 649,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 441
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 240
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 221
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/andreessen-horowitz",
+      "sample_deals": [
+        {
+          "company_name": "Counsel Health",
+          "round_type": "SERIES_A",
+          "date": "2025-10-17T08:35:23.000Z",
+          "amount": 25
+        },
+        {
+          "company_name": "Arcjet",
+          "round_type": "SERIES_A",
+          "date": "2025-10-10T12:03:44.000Z",
+          "amount": 8.3
+        },
+        {
+          "company_name": "FurtherAI",
+          "round_type": "SERIES_A",
+          "date": "2025-10-09T19:24:14.000Z",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "investor_id": "c516704c-8787-4859-86f4-e96916595688",
+      "name": "8VC",
+      "domain": "8vc.com",
+      "website": "https://www.8vc.com/",
+      "deal_count": 5,
+      "location": "California, United States",
+      "description": "8VC is a technology and bio-sciences investment firm that partners with elite founders to build transformational technologies, creating long-term economic and societal value. Based in Austin, Texas, 8VC invests in the world's most ambitious and innovative companies.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed",
+      "total_investments": 396,
+      "lead_investments": 113,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 124
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 86
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 67
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/8vc",
+      "sample_deals": [
+        {
+          "company_name": "Kite",
+          "round_type": "SERIES_A",
+          "date": "2025-09-02T14:03:43.000Z",
+          "amount": 18
+        },
+        {
+          "company_name": "Wispr AI",
+          "round_type": "SERIES_A",
+          "date": "2025-06-24T16:00:00.000Z",
+          "amount": 30
+        },
+        {
+          "company_name": "Outset",
+          "round_type": "SERIES_A",
+          "date": "2025-06-23T02:22:37.000Z",
+          "amount": 17
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "investor_id": "5408ae44-3322-4fc3-b778-2a3d0735ce81",
+      "name": "General Catalyst",
+      "domain": "generalcatalyst.com",
+      "website": "https://www.generalcatalyst.com/",
+      "deal_count": 4,
+      "location": "California, United States",
+      "description": "Customer Value Fund (CVF) is a financing strategy launched by venture capital firm General Catalyst. The fund provides non-dilutive, structured growth capital that helps technology companies finance customer acquisition and sales & marketing while capping downside risk. Operating under the General Catalyst umbrella, CVF targets businesses that have achieved product-market fit and need flexible capital to accelerate growth without issuing additional equity.",
+      "investment_stage": null,
+      "total_investments": 1122,
+      "lead_investments": 474,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 343
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 202
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 198
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/general-catalyst-partners",
+      "sample_deals": [
+        {
+          "company_name": "Serval",
+          "round_type": "SERIES_A",
+          "date": "2025-10-21T15:48:45.000Z",
+          "amount": 47
+        },
+        {
+          "company_name": "Neo",
+          "round_type": "SERIES_A",
+          "date": "2025-10-08T16:04:19.000Z",
+          "amount": 6
+        },
+        {
+          "company_name": "Kite",
+          "round_type": "SERIES_A",
+          "date": "2025-09-02T14:03:43.000Z",
+          "amount": 18
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "investor_id": "6833b218-96ac-4cde-8f2d-6ee22d3fd95b",
+      "name": "Liquid 2 Ventures",
+      "domain": "liquid2.vc",
+      "website": "https://liquid2.vc/",
+      "deal_count": 4,
+      "location": "California, United States",
+      "description": "Liquid 2 Ventures is a venture capital firm based in San Francisco, California, founded in 2015 by Joe Montana. The firm focuses on investing in pre-seed and seed-stage technology startups, providing them with the necessary capital and support to grow. Liquid 2 is composed of two funds: an early-stage fund and a growth-stage fund, and has helped over 800 companies achieve success.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed",
+      "total_investments": 271,
+      "lead_investments": 10,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 84
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 52
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 43
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/liquid2-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Rec",
+          "round_type": "SERIES_A",
+          "date": "2025-09-17T16:39:24.000Z",
+          "amount": 11
+        },
+        {
+          "company_name": "Standard Fleet",
+          "round_type": "SERIES_A",
+          "date": "2025-09-10T16:06:34.000Z",
+          "amount": 13
+        },
+        {
+          "company_name": "Flex",
+          "round_type": "SERIES_A",
+          "date": "2025-09-03T07:48:59.000Z",
+          "amount": 15
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "investor_id": "f0b7c1de-190d-4a94-8daa-beb7354fa745",
+      "name": "BoxGroup",
+      "domain": "boxgroup.com",
+      "website": "https://www.boxgroup.com/",
+      "deal_count": 3,
+      "location": "New York, United States",
+      "description": "BoxGroup is an early-stage investment fund focused on technology companies. Based in New York City, it was founded in 2007 by David Tisch. The firm seeks to invest in pre-seed to series A rounds, aiming to be the first commitment in early-stage fundraising.",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 369,
+      "lead_investments": 18,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 106
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 63
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 58
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/boxgroup",
+      "sample_deals": [
+        {
+          "company_name": "Serval",
+          "round_type": "SERIES_A",
+          "date": "2025-10-21T15:48:45.000Z",
+          "amount": 47
+        },
+        {
+          "company_name": "Tavrn",
+          "round_type": "SERIES_A",
+          "date": "2025-07-15T13:00:00.000Z",
+          "amount": 15
+        },
+        {
+          "company_name": "Reducto",
+          "round_type": "SERIES_A",
+          "date": "2025-04-28T12:26:36.000Z",
+          "amount": 24.5
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "investor_id": "4624516c-9a7a-43ce-9bf8-682f995b75b6",
+      "name": "Google Ventures",
+      "domain": "gv.com",
+      "website": "https://www.gv.com/",
+      "deal_count": 3,
+      "location": "California, United States",
+      "description": "GV, formerly known as Google Ventures, is the venture capital investment arm of Alphabet Inc. It provides seed, venture, and growth-stage funding to technology companies across North America and Europe. With over $10 billion in assets under management, GV supports innovative founders and has a diverse portfolio of over 400 active companies.",
+      "investment_stage": "Convertible Note, Crowdfunding, Early Stage Venture, Late Stage Venture, Post-Ipo, Private Equity, Seed, Venture",
+      "total_investments": 1037,
+      "lead_investments": 323,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 287
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 199
+        },
+        {
+          "industry_name": "Biotechnology",
+          "count": 189
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/google-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Counsel Health",
+          "round_type": "SERIES_A",
+          "date": "2025-10-17T08:35:23.000Z",
+          "amount": 25
+        },
+        {
+          "company_name": "Macroscope",
+          "round_type": "SERIES_A",
+          "date": "2025-09-17T19:52:16.000Z",
+          "amount": 30
+        },
+        {
+          "company_name": "Blacksmith",
+          "round_type": "SERIES_A",
+          "date": "2025-09-17T11:00:00.000Z",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "investor_id": "cde9e566-73c0-43a7-ac15-064c508b5993",
+      "name": "Nexus Venture Partners",
+      "domain": "nexusvp.com",
+      "website": "https://www.nexusvp.com/",
+      "deal_count": 3,
+      "location": "California, United States",
+      "description": "Nexus Venture Partners is a venture capital firm that supports extraordinary founders in building product-first companies. Founded in 2006, the firm is based in Menlo Park, California, and focuses on investing in seed-stage and early-stage companies. Nexus Venture Partners is known for its high-conviction approach and commitment to empowering software development teams and democratizing go-to-market software.",
+      "investment_stage": "Early Stage Venture, Seed",
+      "total_investments": 255,
+      "lead_investments": 115,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 93
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 55
+        },
+        {
+          "industry_name": "SaaS",
+          "count": 51
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/nexus-venture-partners",
+      "sample_deals": [
+        {
+          "company_name": "FurtherAI",
+          "round_type": "SERIES_A",
+          "date": "2025-10-09T19:24:14.000Z",
+          "amount": 25
+        },
+        {
+          "company_name": "Firecrawl",
+          "round_type": "SERIES_A",
+          "date": "2025-08-19T11:00:00.000Z",
+          "amount": 14.5
+        },
+        {
+          "company_name": "Metaforms",
+          "round_type": "SERIES_A",
+          "date": "2025-08-03T07:07:26.000Z",
+          "amount": 9
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "investor_id": "a850db4c-73b6-4ba1-8b64-74e990792fd7",
+      "name": "Sequoia Capital India",
+      "domain": "peakxv.com",
+      "website": "https://www.peakxv.com/",
+      "deal_count": 3,
+      "location": "Karnataka, India",
+      "description": "Peak XV Partners (formerly Sequoia Capital India & Southeast Asia) is a leading venture capital and growth-stage investor backing companies across India, Southeast Asia and other markets.",
+      "investment_stage": null,
+      "total_investments": 428,
+      "lead_investments": 239,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 103
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 86
+        },
+        {
+          "industry_name": "FinTech",
+          "count": 69
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/sequoia-india-2",
+      "sample_deals": [
+        {
+          "company_name": "Alex",
+          "round_type": "SERIES_A",
+          "date": "2025-09-29T19:00:00.000Z",
+          "amount": 20
+        },
+        {
+          "company_name": "Dashverse",
+          "round_type": "SERIES_A",
+          "date": "2025-08-12T09:04:25.000Z",
+          "amount": 13
+        },
+        {
+          "company_name": "Metaforms",
+          "round_type": "SERIES_A",
+          "date": "2025-08-03T07:07:26.000Z",
+          "amount": 9
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "investor_id": "6a33f8d6-bdd3-430c-8860-80ae8ea929f9",
+      "name": "Thrive Capital",
+      "domain": "thrivecap.com",
+      "website": "https://thrivecap.com/",
+      "deal_count": 3,
+      "location": "New York, United States",
+      "description": "Thrive Capital is an investment firm that builds and invests in internet, software, and technology-enabled companies.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed",
+      "total_investments": 321,
+      "lead_investments": 104,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 90
+        },
+        {
+          "industry_name": "FinTech",
+          "count": 61
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 53
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/thrive-capital",
+      "sample_deals": [
+        {
+          "company_name": "Console",
+          "round_type": "SERIES_A",
+          "date": "2025-09-18T20:06:46.000Z",
+          "amount": 23
+        },
+        {
+          "company_name": "Macroscope",
+          "round_type": "SERIES_A",
+          "date": "2025-09-17T19:52:16.000Z",
+          "amount": 30
+        },
+        {
+          "company_name": "Chai Discovery",
+          "round_type": "SERIES_A",
+          "date": "2025-08-06T18:05:00.000Z",
+          "amount": 70
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "investor_id": "abf596ef-f1d9-4915-a017-0a99a793d03f",
+      "name": "DST Global",
+      "domain": "dst-global.com",
+      "website": "https://dst-global.com/",
+      "deal_count": 3,
+      "location": "England, United Kingdom",
+      "description": "DST Global is one of the leading Internet investment firms globally, known for funding late-stage ventures in the internet industry. Founded in 2009 by Yuri Milner and others, it has invested in some of the world's fastest-growing and most valuable companies.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed",
+      "total_investments": 220,
+      "lead_investments": 79,
+      "top_industries": [
+        {
+          "industry_name": "FinTech",
+          "count": 69
+        },
+        {
+          "industry_name": "E-Commerce",
+          "count": 62
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 60
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/digital-sky-technologies-fo",
+      "sample_deals": [
+        {
+          "company_name": "Console",
+          "round_type": "SERIES_A",
+          "date": "2025-09-18T20:06:46.000Z",
+          "amount": 23
+        },
+        {
+          "company_name": "Chai Discovery",
+          "round_type": "SERIES_A",
+          "date": "2025-08-06T18:05:00.000Z",
+          "amount": 70
+        },
+        {
+          "company_name": "Paraform",
+          "round_type": "SERIES_A",
+          "date": "2025-06-24T13:00:00.000Z",
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "investor_id": "74bdf082-8501-4e93-a5be-3ba05720cf85",
+      "name": "Menlo Ventures",
+      "domain": "menlovc.com",
+      "website": "https://www.menlovc.com/",
+      "deal_count": 3,
+      "location": "California, United States",
+      "description": "Anthology Fund is a $100 million venture capital fund launched in 2024 by Menlo Ventures together with generative-AI company Anthropic. Based in San Francisco, the fund invests from seed through growth stages in startups that are building AI-first applications and infrastructure, particularly those leveraging Anthropic\u2019s models and technology.",
+      "investment_stage": null,
+      "total_investments": 512,
+      "lead_investments": 193,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 173
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 86
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 75
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/menlo-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Higgsfield",
+          "round_type": "SERIES_A",
+          "date": "2025-09-09T13:30:00.000Z",
+          "amount": 50
+        },
+        {
+          "company_name": "Chai Discovery",
+          "round_type": "SERIES_A",
+          "date": "2025-08-06T18:05:00.000Z",
+          "amount": 70
+        },
+        {
+          "company_name": "Wispr AI",
+          "round_type": "SERIES_A",
+          "date": "2025-06-24T16:00:00.000Z",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "investor_id": "df8fb997-210c-4347-ace4-ea395e2b9410",
+      "name": "Khosla Ventures",
+      "domain": "khoslaventures.com",
+      "website": "https://www.khoslaventures.com/",
+      "deal_count": 3,
+      "location": "California, United States",
+      "description": "Khosla Ventures is a venture capital firm founded by Vinod Khosla in 2004. The firm is based in Menlo Park, California, and focuses on investing in companies that are bold, early, and impactful, operating in sectors such as AI, sustainability, enterprise, consumer, health, and frontier technologies.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Post-Ipo, Seed, Venture",
+      "total_investments": 925,
+      "lead_investments": 343,
+      "top_industries": [
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 208
+        },
+        {
+          "industry_name": "Software",
+          "count": 205
+        },
+        {
+          "industry_name": "Health Care",
+          "count": 181
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/khosla-ventures",
+      "sample_deals": [
+        {
+          "company_name": "BrightAI",
+          "round_type": "SERIES_A",
+          "date": "2025-07-20T01:24:02.000Z",
+          "amount": 51
+        },
+        {
+          "company_name": "Ellipsis Health",
+          "round_type": "SERIES_A",
+          "date": "2025-06-17T09:11:32.000Z",
+          "amount": 45
+        },
+        {
+          "company_name": "Vivodyne",
+          "round_type": "SERIES_A",
+          "date": "2025-05-29T14:00:00.000Z",
+          "amount": 40
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "investor_id": "97542334-804d-49be-ae32-b5e6e01a60cb",
+      "name": "A Capital",
+      "domain": "acapital.com",
+      "website": "https://acapital.com/",
+      "deal_count": 3,
+      "location": "California, United States",
+      "description": "A* Capital is an early stage venture capital firm that focuses on guiding outlier founders from idea to IPO. The firm is based in San Francisco, California, and invests in the technology sector, emphasizing meaningful partnerships over transactional capital.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed, Venture",
+      "total_investments": 111,
+      "lead_investments": 24,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 53
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 26
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 23
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/a-capital-4ec5",
+      "sample_deals": [
+        {
+          "company_name": "Tavrn",
+          "round_type": "SERIES_A",
+          "date": "2025-07-15T13:00:00.000Z",
+          "amount": 15
+        },
+        {
+          "company_name": "Paraform",
+          "round_type": "SERIES_A",
+          "date": "2025-06-24T13:00:00.000Z",
+          "amount": 20
+        },
+        {
+          "company_name": "Landbase",
+          "round_type": "SERIES_A",
+          "date": "2025-06-12T12:45:00.000Z",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "investor_id": "df44f8c6-709c-4839-840e-969f3dc026a4",
+      "name": "Felicis Ventures",
+      "domain": "felicis.com",
+      "website": "https://www.felicis.com/",
+      "deal_count": 3,
+      "location": "California, United States",
+      "description": "Felicis Ventures is a venture capital firm that backs founders building iconic companies capable of transcending boundaries. The firm invests directly in their growth to make them unbreakable, with a focus on companies reinventing core markets. Felicis has backed more than 40 companies valued at $1B+ and more than 90 companies that have been acquired or gone public.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed, Venture",
+      "total_investments": 448,
+      "lead_investments": 133,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 160
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 100
+        },
+        {
+          "industry_name": "SaaS",
+          "count": 74
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/felicis-ventures",
+      "sample_deals": [
+        {
+          "company_name": "Eventual",
+          "round_type": "SERIES_A",
+          "date": "2025-06-24T13:00:00.000Z",
+          "amount": 20
+        },
+        {
+          "company_name": "Paraform",
+          "round_type": "SERIES_A",
+          "date": "2025-06-24T13:00:00.000Z",
+          "amount": 20
+        },
+        {
+          "company_name": "Chalk",
+          "round_type": "SERIES_A",
+          "date": "2025-05-28T16:40:00.000Z",
+          "amount": 50
+        }
+      ]
+    }
+  ]
+}

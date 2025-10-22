@@ -8,6 +8,9 @@ import requests
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
 
+from dotenv import load_dotenv
+load_dotenv()
+
 
 class FundableClient:
     """Simple client for fetching deals from Fundable API."""
@@ -23,6 +26,33 @@ class FundableClient:
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
         }
+
+    def get_investor(self, identifier: str) -> Optional[Dict[str, Any]]:
+        """
+        Get detailed investor information by ID or permalink.
+        
+        Args:
+            identifier: Investor UUID or permalink
+            
+        Returns:
+            Investor details dict or None if not found
+        """
+        try:
+            response = requests.get(
+                f"{self.base_url}/investor/{identifier}",
+                headers=self.headers,
+                timeout=30
+            )
+            response.raise_for_status()
+            data = response.json()
+            
+            if data.get("success"):
+                return data["data"]["investor"]
+            return None
+            
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching investor {identifier}: {e}")
+            return None
 
     def get_deals(self,
                   # Pagination
