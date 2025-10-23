@@ -7,7 +7,7 @@ import json
 from collections import Counter
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
-from fundableClient import FundableClient
+from fundable.client import FundableClient
 
 
 class InvestorAnalyzer:

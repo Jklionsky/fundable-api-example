@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-22T00:51:22.591517",
+  "generated_at": "2025-10-22T20:58:08.820000",
   "total_investors": 15,
   "investors": [
     {
@@ -30,6 +30,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/y-combinator",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/v1482160613/skm38vnvyl0wpgfyz98v.png",
       "sample_deals": [
         {
           "company_name": "FurtherAI",
@@ -79,6 +80,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/andreessen-horowitz",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/a6eb3a1422d244bb940a52ea0fea7f36",
       "sample_deals": [
         {
           "company_name": "Counsel Health",
@@ -128,6 +130,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/8vc",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/v1456898862/yzrhoc4y1poi37ffcrry.png",
       "sample_deals": [
         {
           "company_name": "Kite",
@@ -177,6 +180,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/general-catalyst-partners",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/2e14af31989642ea8b42e75137ed2dec",
       "sample_deals": [
         {
           "company_name": "Serval",
@@ -200,6 +204,56 @@
     },
     {
       "rank": 5,
+      "investor_id": "6a33f8d6-bdd3-430c-8860-80ae8ea929f9",
+      "name": "Thrive Capital",
+      "domain": "thrivecap.com",
+      "website": "https://thrivecap.com/",
+      "deal_count": 4,
+      "location": "New York, United States",
+      "description": "Thrive Capital is an investment firm that builds and invests in internet, software, and technology-enabled companies.",
+      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed",
+      "total_investments": 321,
+      "lead_investments": 104,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 90
+        },
+        {
+          "industry_name": "FinTech",
+          "count": 61
+        },
+        {
+          "industry_name": "Financial Services",
+          "count": 53
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/thrive-capital",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/v1491920473/jevg7ycv8vw8r6qmfbhy.png",
+      "sample_deals": [
+        {
+          "company_name": "Tempo Blockchain",
+          "round_type": "SERIES_A",
+          "date": "2025-10-21T15:03:35.000Z",
+          "amount": 500
+        },
+        {
+          "company_name": "Console",
+          "round_type": "SERIES_A",
+          "date": "2025-09-18T20:06:46.000Z",
+          "amount": 23
+        },
+        {
+          "company_name": "Macroscope",
+          "round_type": "SERIES_A",
+          "date": "2025-09-17T19:52:16.000Z",
+          "amount": 30
+        }
+      ]
+    },
+    {
+      "rank": 6,
       "investor_id": "6833b218-96ac-4cde-8f2d-6ee22d3fd95b",
       "name": "Liquid 2 Ventures",
       "domain": "liquid2.vc",
@@ -226,6 +280,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/liquid2-ventures",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/22c87799ce80427c9faf92f841b22c4f",
       "sample_deals": [
         {
           "company_name": "Rec",
@@ -248,7 +303,7 @@
       ]
     },
     {
-      "rank": 6,
+      "rank": 7,
       "investor_id": "f0b7c1de-190d-4a94-8daa-beb7354fa745",
       "name": "BoxGroup",
       "domain": "boxgroup.com",
@@ -275,6 +330,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/boxgroup",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/soia0e1ei3njnljz8zsc",
       "sample_deals": [
         {
           "company_name": "Serval",
@@ -297,7 +353,57 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 8,
+      "investor_id": "23fa8651-3f28-4422-87e0-a84c249244df",
+      "name": "SV Angel",
+      "domain": "svangel.com",
+      "website": "https://www.svangel.com/",
+      "deal_count": 3,
+      "location": "California, United States",
+      "description": "SV Angel is a San Francisco-based venture capital firm that invests in seed to early-stage companies, focusing on sectors like AI, software, and IT. They emphasize long-term partnerships with founders to create impactful businesses.",
+      "investment_stage": null,
+      "total_investments": 639,
+      "lead_investments": 19,
+      "top_industries": [
+        {
+          "industry_name": "Software",
+          "count": 187
+        },
+        {
+          "industry_name": "Information Technology",
+          "count": 86
+        },
+        {
+          "industry_name": "Artificial Intelligence (AI)",
+          "count": 84
+        }
+      ],
+      "linkedin": null,
+      "crunchbase": "https://www.crunchbase.com/organization/sv-angel",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/3471fbf9b3fb4387908b40faa6a82d61",
+      "sample_deals": [
+        {
+          "company_name": "Tempo Blockchain",
+          "round_type": "SERIES_A",
+          "date": "2025-10-21T15:03:35.000Z",
+          "amount": 500
+        },
+        {
+          "company_name": "Chai Discovery",
+          "round_type": "SERIES_A",
+          "date": "2025-08-06T18:05:00.000Z",
+          "amount": 70
+        },
+        {
+          "company_name": "Composio",
+          "round_type": "SERIES_A",
+          "date": "2025-07-22T13:00:00.000Z",
+          "amount": 25
+        }
+      ]
+    },
+    {
+      "rank": 9,
       "investor_id": "4624516c-9a7a-43ce-9bf8-682f995b75b6",
       "name": "Google Ventures",
       "domain": "gv.com",
@@ -324,6 +430,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/google-ventures",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/v1449512530/vwlbcbmlgxrje0ao2ksh.png",
       "sample_deals": [
         {
           "company_name": "Counsel Health",
@@ -346,7 +453,7 @@
       ]
     },
     {
-      "rank": 8,
+      "rank": 10,
       "investor_id": "cde9e566-73c0-43a7-ac15-064c508b5993",
       "name": "Nexus Venture Partners",
       "domain": "nexusvp.com",
@@ -373,6 +480,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/nexus-venture-partners",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/uqhio4wcyjl0danhwkny",
       "sample_deals": [
         {
           "company_name": "FurtherAI",
@@ -395,7 +503,7 @@
       ]
     },
     {
-      "rank": 9,
+      "rank": 11,
       "investor_id": "a850db4c-73b6-4ba1-8b64-74e990792fd7",
       "name": "Sequoia Capital India",
       "domain": "peakxv.com",
@@ -422,6 +530,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/sequoia-india-2",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/pghqv2z87lkxdjucgqme",
       "sample_deals": [
         {
           "company_name": "Alex",
@@ -444,56 +553,7 @@
       ]
     },
     {
-      "rank": 10,
-      "investor_id": "6a33f8d6-bdd3-430c-8860-80ae8ea929f9",
-      "name": "Thrive Capital",
-      "domain": "thrivecap.com",
-      "website": "https://thrivecap.com/",
-      "deal_count": 3,
-      "location": "New York, United States",
-      "description": "Thrive Capital is an investment firm that builds and invests in internet, software, and technology-enabled companies.",
-      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed",
-      "total_investments": 321,
-      "lead_investments": 104,
-      "top_industries": [
-        {
-          "industry_name": "Software",
-          "count": 90
-        },
-        {
-          "industry_name": "FinTech",
-          "count": 61
-        },
-        {
-          "industry_name": "Financial Services",
-          "count": 53
-        }
-      ],
-      "linkedin": null,
-      "crunchbase": "https://www.crunchbase.com/organization/thrive-capital",
-      "sample_deals": [
-        {
-          "company_name": "Console",
-          "round_type": "SERIES_A",
-          "date": "2025-09-18T20:06:46.000Z",
-          "amount": 23
-        },
-        {
-          "company_name": "Macroscope",
-          "round_type": "SERIES_A",
-          "date": "2025-09-17T19:52:16.000Z",
-          "amount": 30
-        },
-        {
-          "company_name": "Chai Discovery",
-          "round_type": "SERIES_A",
-          "date": "2025-08-06T18:05:00.000Z",
-          "amount": 70
-        }
-      ]
-    },
-    {
-      "rank": 11,
+      "rank": 12,
       "investor_id": "abf596ef-f1d9-4915-a017-0a99a793d03f",
       "name": "DST Global",
       "domain": "dst-global.com",
@@ -520,6 +580,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/digital-sky-technologies-fo",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/raes4tfum3otefbnrto4",
       "sample_deals": [
         {
           "company_name": "Console",
@@ -542,7 +603,7 @@
       ]
     },
     {
-      "rank": 12,
+      "rank": 13,
       "investor_id": "74bdf082-8501-4e93-a5be-3ba05720cf85",
       "name": "Menlo Ventures",
       "domain": "menlovc.com",
@@ -551,7 +612,7 @@
       "location": "California, United States",
       "description": "Anthology Fund is a $100 million venture capital fund launched in 2024 by Menlo Ventures together with generative-AI company Anthropic. Based in San Francisco, the fund invests from seed through growth stages in startups that are building AI-first applications and infrastructure, particularly those leveraging Anthropic\u2019s models and technology.",
       "investment_stage": null,
-      "total_investments": 512,
+      "total_investments": 513,
       "lead_investments": 193,
       "top_industries": [
         {
@@ -569,6 +630,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/menlo-ventures",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/ji680yw94yjojmeswmpq",
       "sample_deals": [
         {
           "company_name": "Higgsfield",
@@ -591,7 +653,7 @@
       ]
     },
     {
-      "rank": 13,
+      "rank": 14,
       "investor_id": "df8fb997-210c-4347-ace4-ea395e2b9410",
       "name": "Khosla Ventures",
       "domain": "khoslaventures.com",
@@ -618,6 +680,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/khosla-ventures",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/fcgp8cbvphlhsptwpjqc",
       "sample_deals": [
         {
           "company_name": "BrightAI",
@@ -640,7 +703,7 @@
       ]
     },
     {
-      "rank": 14,
+      "rank": 15,
       "investor_id": "97542334-804d-49be-ae32-b5e6e01a60cb",
       "name": "A Capital",
       "domain": "acapital.com",
@@ -667,6 +730,7 @@
       ],
       "linkedin": null,
       "crunchbase": "https://www.crunchbase.com/organization/a-capital-4ec5",
+      "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/b2uuhd8xyzlii3ck35jv",
       "sample_deals": [
         {
           "company_name": "Tavrn",
@@ -685,55 +749,6 @@
           "round_type": "SERIES_A",
           "date": "2025-06-12T12:45:00.000Z",
           "amount": 30
-        }
-      ]
-    },
-    {
-      "rank": 15,
-      "investor_id": "df44f8c6-709c-4839-840e-969f3dc026a4",
-      "name": "Felicis Ventures",
-      "domain": "felicis.com",
-      "website": "https://www.felicis.com/",
-      "deal_count": 3,
-      "location": "California, United States",
-      "description": "Felicis Ventures is a venture capital firm that backs founders building iconic companies capable of transcending boundaries. The firm invests directly in their growth to make them unbreakable, with a focus on companies reinventing core markets. Felicis has backed more than 40 companies valued at $1B+ and more than 90 companies that have been acquired or gone public.",
-      "investment_stage": "Early Stage Venture, Late Stage Venture, Seed, Venture",
-      "total_investments": 448,
-      "lead_investments": 133,
-      "top_industries": [
-        {
-          "industry_name": "Software",
-          "count": 160
-        },
-        {
-          "industry_name": "Artificial Intelligence (AI)",
-          "count": 100
-        },
-        {
-          "industry_name": "SaaS",
-          "count": 74
-        }
-      ],
-      "linkedin": null,
-      "crunchbase": "https://www.crunchbase.com/organization/felicis-ventures",
-      "sample_deals": [
-        {
-          "company_name": "Eventual",
-          "round_type": "SERIES_A",
-          "date": "2025-06-24T13:00:00.000Z",
-          "amount": 20
-        },
-        {
-          "company_name": "Paraform",
-          "round_type": "SERIES_A",
-          "date": "2025-06-24T13:00:00.000Z",
-          "amount": 20
-        },
-        {
-          "company_name": "Chalk",
-          "round_type": "SERIES_A",
-          "date": "2025-05-28T16:40:00.000Z",
-          "amount": 50
         }
       ]
     }

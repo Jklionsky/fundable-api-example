@@ -1,6 +1,18 @@
 __pycache__/
-  *.py[cod]
-  *.class
-  .env
-  env/
-  .venv/
+*.py[cod]
+*.class
+.env
+env/
+.venv/
+
+# Package build artifacts
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Logo cache
+.logo_cache/
+
+# Output files
+output/
