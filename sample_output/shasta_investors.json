@@ -1,0 +1,53 @@
+{
+    "success": true,
+    "data": {
+      "investor": {
+        "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+        "name": "Shasta Ventures",
+        "guru_permalink": "shasta-ventures",
+        "website": "https://www.shasta.vc/",
+        "domain": "shasta.vc",
+        "linkedin": null,
+        "pitchbook": "https://pitchbook.com/profiles/fund/16592-14F",
+        "crunchbase": "https://www.crunchbase.com/organization/shasta-ventures",
+        "cbinsights": null,
+        "bloomberg": null,
+        "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/jovdoixtzkeyfi0lrsqy",
+        "description": "Shasta Ventures is an early-stage venture capital firm with over a billion dollars under management and a 20-year track record in investing in groundbreaking startups. The firm is based in Portola Valley, California, and focuses on investing in enterprise and technology consumer startups.",
+        "full_description": "Shasta Ventures is an early-stage venture capital firm with over a billion dollars under management and a 20-year track record in investing in groundbreaking startups. The firm is based in Portola Valley, California, and focuses on investing in enterprise and technology consumer startups.",
+        "about": "Shasta Ventures is an early-stage venture capital firm with over a billion dollars under management and a 20-year track record in investing in groundbreaking startups. The firm is based in Portola Valley, California, and focuses on investing in enterprise and technology consumer startups.",
+        "investment_stage": "Early Stage Venture, Seed",
+        "region": "California",
+        "address": "Portola Valley, California, United States, North America",
+        "country_code": "United States",
+        "founded_date": "2004-01-01T00:00:00.000Z",
+        "legal_name": "Shasta Ventures",
+        "contact_email": "info@shasta.vc",
+        "contact_phone": "+1 650 543 1700",
+        "facebook": "https://www.facebook.com/shasta-ventures-348680362562",
+        "twitter": "https://twitter.com/shasta",
+        "num_employees": "11-50",
+        "total_investments": 326,
+        "lead_investments": 100,
+        "industry_data": [
+          {
+            "industry_name": "Software",
+            "count": 137
+          },
+          {
+            "industry_name": "SaaS",
+            "count": 62
+          },
+          {
+            "industry_name": "Enterprise Software",
+            "count": 57
+          }
+        ]
+      }
+    },
+    "meta": {
+      "limit": 1,
+      "offset": 0,
+      "remaining_requests": null
+    }
+  }

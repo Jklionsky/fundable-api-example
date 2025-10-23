@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "data": {
+      "company": {
+        "id": "65e3596a-5ae6-4a65-923b-e42ba1171daf",
+        "name": "Frame.io",
+        "legal_name": "Frame.io, Inc",
+        "guru_permalink": "frame.io",
+        "domain": "frame.io",
+        "region": "New York",
+        "full_description": "Frame.io is a cloud-based video collaboration platform that allows users to upload source media and assets into private workspaces.\n\nIt is used by media companies to streamline their video review and collaboration process with teammates, clients, and a variety of stakeholders. It supports over over 1 million media professionals and companies by bringing together media and stakeholders in a single platform for efficient and intuitive collaboration.",
+        "image": "https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_4/v1491830374/brejftll3nlkjf7xgpcf.png",
+        "num_employees": "101-250",
+        "linkedin": null,
+        "twitter": "https://www.twitter.com/frame_io",
+        "facebook": "https://www.facebook.com/frameioapp",
+        "pitchbook": null,
+        "crunchbase": "https://www.crunchbase.com/organization/frame-io",
+        "cbinsights": null,
+        "bloomberg": null,
+        "address": "New York, New York, United States, North America",
+        "num_funding_rounds": 4,
+        "num_investors": 6,
+        "total_raised": 82.2,
+        "latest_valuation_usd": null,
+        "latest_valuation_date": null,
+        "industries": [
+          {
+            "name": "Computer",
+            "permalink": "computer"
+          },
+          {
+            "name": "iOS",
+            "permalink": "ios-6e02"
+          },
+          {
+            "name": "Media and Entertainment",
+            "permalink": "media-and-entertainment"
+          },
+          {
+            "name": "Video",
+            "permalink": "video"
+          }
+        ],
+        "locations": [
+          {
+            "name": "North America",
+            "full_name": "North America",
+            "type": "REGION",
+            "permalink": "north-america"
+          },
+          {
+            "name": "United States",
+            "full_name": "North America",
+            "type": "COUNTRY",
+            "permalink": "united-states"
+          },
+          {
+            "name": "New York",
+            "full_name": "North America, United States",
+            "type": "STATE",
+            "permalink": "new-york-united-states"
+          },
+          {
+            "name": "New York",
+            "full_name": "North America, United States, New York",
+            "type": "CITY",
+            "permalink": "new-york-new-york"
+          }
+        ]
+      }
+    },
+    "meta": {
+      "limit": 1,
+      "offset": 0,
+      "remaining_requests": null
+    }
+  }

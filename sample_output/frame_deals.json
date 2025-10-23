@@ -1,0 +1,583 @@
+{
+    "success": true,
+    "data": {
+      "deals": [
+        {
+          "id": "ee44302e-fd5c-47df-8217-1a8260ecc3fc",
+          "round_type": "SERIES_C",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2019-11-25T00:00:00.000Z",
+          "total_round_raised": 50,
+          "deal_descriptions": {
+            "short_description": "Cloud video collaboration startup Frame.io raised a $50M Series C led by Insight Partners; Accel, FirstMark, SignalFire, and Shasta Ventures participated.",
+            "long_description": "Frame.io raised $50 million in a Series C round led by Insight Partners, with participation from existing investors Accel, FirstMark, SignalFire, and Shasta Ventures. The company is New York–based and was founded in 2014 by Emery Wells and John Traver. The new $50M brings Frame.io’s total capital raised to $82.2 million to date. Insight is taking board representation with Itai Tsiddon joining Frame.io’s board. The company plans to use the capital to double product, design, and engineering headcount from 40 to 80, grow total staff from 110 to 240, open an L.A. office and showroom, invest in security, and develop new products tied to its \"camera to cloud\" initiative. Co-founder Emery Wells declined to disclose Frame.io’s profitability or current valuation."
+          },
+          "articles": [
+            {
+              "link": "https://techcrunch.com/2019/11/25/cloud-video-collaboration-platform-frame-io-raises-50-million-heads-to-hollywood",
+              "is_primary": true,
+              "date": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://techcrunch.com/2021/02/11/frame-io-camera-to-cloud",
+              "is_primary": false,
+              "date": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://citybizlist.com/article/584526/frameio-raises-a-50m-series-c",
+              "is_primary": false,
+              "date": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://news.crunchbase.com/news/frame-io-raises-50m-series-c",
+              "is_primary": false,
+              "date": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://www.insightpartners.com/blog/growth-gurus-co-founder-ceo-of-frame-io",
+              "is_primary": false,
+              "date": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://www.finsmes.com/2019/11/frame-io-raises-50m-in-series-c-funding.html",
+              "is_primary": false,
+              "date": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://www.socaltech.com/frame_io_sets_up_shop_in_la_after___m_funding/s-0079204.html",
+              "is_primary": false,
+              "date": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Nov 25 2019 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            }
+          ],
+          "company": {
+            "id": "65e3596a-5ae6-4a65-923b-e42ba1171daf",
+            "name": "Frame.io",
+            "legal_name": "Frame.io, Inc",
+            "guru_permalink": "frame.io",
+            "domain": "frame.io",
+            "region": "New York",
+            "industries": [
+              {
+                "permalink": "computer",
+                "name": "Computer"
+              },
+              {
+                "permalink": "ios-6e02",
+                "name": "iOS"
+              },
+              {
+                "permalink": "media-and-entertainment",
+                "name": "Media and Entertainment"
+              },
+              {
+                "permalink": "video",
+                "name": "Video"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "New York",
+                "permalink": "new-york-united-states"
+              },
+              "city": {
+                "name": "New York",
+                "permalink": "new-york-new-york"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "4241d61a-6ae2-44a5-9783-662fed8010d6",
+              "name": "Accel",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_C",
+              "is_debt_investor": false
+            },
+            {
+              "id": "18cca946-4813-4b8e-a48e-f7acec33bbd5",
+              "name": "Insight Partners",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [
+                "Itai Tsiddon"
+              ],
+              "financing_type": "SERIES_C",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_C",
+              "is_debt_investor": false
+            },
+            {
+              "id": "63adbcbe-da14-4d0e-8006-6fd232a42de2",
+              "name": "FirstMark Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_C",
+              "is_debt_investor": false
+            },
+            {
+              "id": "dafeca3a-109c-45d2-bafe-56e611d16284",
+              "name": "SignalFire",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_C",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "0354a29f-a4dd-4bfb-9b8b-0bdf2155a5c8",
+              "type": "SERIES_C",
+              "size_usd": 50,
+              "size": 50,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "760f5234-45fe-4f76-8a07-fbdf480f9101",
+          "round_type": "SERIES_B",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2017-10-03T00:00:00.000Z",
+          "total_round_raised": 20,
+          "deal_descriptions": {
+            "short_description": "Frame.io, a collaboration platform for video, raised a $20M Series B led by FirstMark Capital; Accel, SignalFire and Shasta Ventures participated",
+            "long_description": "Frame.io closed a $20 million Series B round led by FirstMark Capital with participation from existing investors Accel Partners, SignalFire and Shasta Ventures. The company launched in March 2015 and this round brings total funding to $32 million. The financing was a Series B equity round and included participation from prior backers. Management says the new capital will be used to invest further in security, continue product development, and build out sales and marketing. Frame.io already offers a self-serve product (about 70% of revenue mix) and a security-focused enterprise tier used by large clients. The company has grown to a 40-person team and reports 370,000 registered users and over 700,000 monthly video uploads."
+          },
+          "articles": [
+            {
+              "link": "https://techcrunch.com/2017/10/03/frame-io-picks-up-20-million-to-be-the-slack-of-video",
+              "is_primary": true,
+              "date": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://www.finsmes.com/2017/10/frame-io-raises-20m-in-series-b-financing.html",
+              "is_primary": false,
+              "date": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://vcnewsdaily.com/frame.io/venture-capital-funding/gsyhmnrbkn",
+              "is_primary": false,
+              "date": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "http://www.businesswire.com/news/home/20171003005282/en/frame.io-announces-series-b-growth-round-of-funding-led-by-firstmark-capital",
+              "is_primary": false,
+              "date": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Tue Oct 03 2017 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            }
+          ],
+          "company": {
+            "id": "65e3596a-5ae6-4a65-923b-e42ba1171daf",
+            "name": "Frame.io",
+            "legal_name": "Frame.io, Inc",
+            "guru_permalink": "frame.io",
+            "domain": "frame.io",
+            "region": "New York",
+            "industries": [
+              {
+                "permalink": "computer",
+                "name": "Computer"
+              },
+              {
+                "permalink": "ios-6e02",
+                "name": "iOS"
+              },
+              {
+                "permalink": "media-and-entertainment",
+                "name": "Media and Entertainment"
+              },
+              {
+                "permalink": "video",
+                "name": "Video"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "New York",
+                "permalink": "new-york-united-states"
+              },
+              "city": {
+                "name": "New York",
+                "permalink": "new-york-new-york"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "4241d61a-6ae2-44a5-9783-662fed8010d6",
+              "name": "Accel",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "63adbcbe-da14-4d0e-8006-6fd232a42de2",
+              "name": "FirstMark Capital",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "dafeca3a-109c-45d2-bafe-56e611d16284",
+              "name": "SignalFire",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "ce5e39a9-b14d-4913-a8ca-b46fa7f52484",
+              "type": "SERIES_B",
+              "size_usd": 20,
+              "size": 20,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "c01fb35f-8400-4143-827d-6f347f889a66",
+          "round_type": "SERIES_A",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2016-09-14T00:00:00.000Z",
+          "total_round_raised": 10,
+          "deal_descriptions": {
+            "short_description": "Cloud collaboration tool Frame.io raised a $10M Series A led by Accel; SignalFire, FirstMark Capital, Shasta Ventures, Jared Leto, and Kevin Spacey participated.",
+            "long_description": "Frame.io raised $10M in a Series A led by Accel, with participation from SignalFire, FirstMark Capital and Shasta Ventures; actors Jared Leto and Kevin Spacey also invested in the round. The company previously raised a $2.2M seed round from Accel after reaching $30K in MRR in its first 90 days. The announced financing is a Series A equity round (Series A) following that seed. Publicly named participants in the Series A include the four venture firms and the two individual investors. The fundraise follows early product recognition, including an Apple Design Award for its iPhone app. The company cites rapid enterprise customer adoption—clients include Facebook, Snapchat, PayPal and TechCrunch—and that 40% of customers were new to creating video five years ago."
+          },
+          "articles": [
+            {
+              "link": "https://techcrunch.com/2016/09/14/frame-io-raises-a-10m-series-a-with-jared-leto-and-kevin-spacey-as-investors",
+              "is_primary": true,
+              "date": "Wed Sep 14 2016 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Wed Sep 14 2016 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            }
+          ],
+          "company": {
+            "id": "65e3596a-5ae6-4a65-923b-e42ba1171daf",
+            "name": "Frame.io",
+            "legal_name": "Frame.io, Inc",
+            "guru_permalink": "frame.io",
+            "domain": "frame.io",
+            "region": "New York",
+            "industries": [
+              {
+                "permalink": "computer",
+                "name": "Computer"
+              },
+              {
+                "permalink": "ios-6e02",
+                "name": "iOS"
+              },
+              {
+                "permalink": "media-and-entertainment",
+                "name": "Media and Entertainment"
+              },
+              {
+                "permalink": "video",
+                "name": "Video"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "New York",
+                "permalink": "new-york-united-states"
+              },
+              "city": {
+                "name": "New York",
+                "permalink": "new-york-new-york"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "4241d61a-6ae2-44a5-9783-662fed8010d6",
+              "name": "Accel",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "63adbcbe-da14-4d0e-8006-6fd232a42de2",
+              "name": "FirstMark Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "dafeca3a-109c-45d2-bafe-56e611d16284",
+              "name": "SignalFire",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "name": "Jared Leto",
+              "lead_investor": false,
+              "angel_investor": true,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "name": "Kevin Spacey",
+              "lead_investor": false,
+              "angel_investor": true,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "2d629fb0-fc54-49cf-8af9-5e762ccd8891",
+              "type": "SERIES_A",
+              "size_usd": 10,
+              "size": 10,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "0bca96fb-d895-4aa9-bfe8-f7d3aaf68695",
+          "round_type": "SEED",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2015-10-05T00:00:00.000Z",
+          "total_round_raised": 2.2,
+          "deal_descriptions": {
+            "short_description": "Video collaboration startup Frame.io raised a $2.2M seed round led by Accel Partners; Signal Fire, Jared Leto, Funders Guild, Thomas Hesse, Clark Valberg and others participated",
+            "long_description": "Frame.io raised a $2.2 million seed round led by Accel Partners. Other participants in the seed include Signal Fire, Jared Leto, Funders Guild, Thomas Hesse, InVision founder Clark Valberg, ZenCoder founder Jon Dahl and Walter Kortschak of Summit Partners. The financing is a $2.2M seed round announced after the company launched earlier this year. The company was founded by Emery Wells, who drew on his video post-production experience to build the product. Traction cited in the articles includes more than 26,000 businesses using the service and a nine-person team. The company intends to use the funding to expand its team and build integrations and \"connective tissue\" between disparate media-production tools, including a desktop app that connects with Final Cut Pro."
+          },
+          "articles": [
+            {
+              "link": "https://techcrunch.com/2015/10/05/frame-io-seed-funding",
+              "is_primary": true,
+              "date": "Mon Oct 05 2015 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Oct 05 2015 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            },
+            {
+              "link": "https://vcnewsdaily.com/frame.io/venture-capital-funding/fpgtrqqzvv",
+              "is_primary": false,
+              "date": "Mon Oct 05 2015 00:00:00 GMT+0000 (Coordinated Universal Time)",
+              "publishedDate": "Mon Oct 05 2015 00:00:00 GMT+0000 (Coordinated Universal Time)"
+            }
+          ],
+          "company": {
+            "id": "65e3596a-5ae6-4a65-923b-e42ba1171daf",
+            "name": "Frame.io",
+            "legal_name": "Frame.io, Inc",
+            "guru_permalink": "frame.io",
+            "domain": "frame.io",
+            "region": "New York",
+            "industries": [
+              {
+                "permalink": "computer",
+                "name": "Computer"
+              },
+              {
+                "permalink": "ios-6e02",
+                "name": "iOS"
+              },
+              {
+                "permalink": "media-and-entertainment",
+                "name": "Media and Entertainment"
+              },
+              {
+                "permalink": "video",
+                "name": "Video"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "New York",
+                "permalink": "new-york-united-states"
+              },
+              "city": {
+                "name": "New York",
+                "permalink": "new-york-new-york"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "4241d61a-6ae2-44a5-9783-662fed8010d6",
+              "name": "Accel",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "dafeca3a-109c-45d2-bafe-56e611d16284",
+              "name": "SignalFire",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "a91fb867-3307-4812-804d-b119c87287e6",
+              "name": "Tectonic Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "name": "Clark Valberg",
+              "lead_investor": false,
+              "angel_investor": true,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "name": "Jon Dahl",
+              "lead_investor": false,
+              "angel_investor": true,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "name": "Jared Leto",
+              "lead_investor": false,
+              "angel_investor": true,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "name": "Thomas Hesse",
+              "lead_investor": false,
+              "angel_investor": true,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "name": "Walter Kortschak",
+              "lead_investor": false,
+              "angel_investor": true,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "0ec9c6c8-6e36-4572-b795-39bb84bb77e3",
+              "type": "SEED",
+              "size_usd": 2.2,
+              "size": 2.2,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        }
+      ],
+      "totalCount": 4
+    },
+    "meta": {
+      "limit": 10,
+      "offset": 0,
+      "remaining_requests": null
+    }
+  }

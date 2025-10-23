@@ -6,16 +6,10 @@ This script demonstrates basic usage of the FundableClient to fetch
 recent deals using different filter combinations.
 """
 
-import sys
-import os
 import json
 from datetime import datetime, timedelta
 
-# Add repo root directory to path to import fundableClient
-repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, repo_root)
-
-from fundableClient import FundableClient, DataExtractor
+from fundable import FundableClient, DataExtractor
 
 def test_all_parameters():
     """Test the updated get_deals function with various parameter combinations."""

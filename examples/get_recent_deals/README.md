@@ -13,8 +13,7 @@ This example shows simple usage of the `FundableClient` to:
 ## Running the Example
 
 ```bash
-cd examples/get_recent_deals
-python3 get_recent_deals.py
+python3 examples/get_recent_deals/get_recent_deals.py
 ```
 
 ## What It Does
@@ -62,7 +61,7 @@ SAMPLE DEALS OUTPUT:
 Fetches deals with optional filters:
 
 ```python
-from fundableClient import FundableClient
+from fundable import FundableClient
 
 client = FundableClient()
 
@@ -88,7 +87,7 @@ deals = client.get_deals(
 Extracts key information from raw deal data:
 
 ```python
-from fundableClient import DataExtractor
+from fundable import DataExtractor
 
 for deal in deals:
     extracted = DataExtractor.extract_deal(deal)

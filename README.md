@@ -4,10 +4,11 @@ This repository contains a Python client for interacting with the Fundable API, 
 
 ## Setup
 
-1. **Install dependencies:**
+1. **Install the package:**
    ```bash
-   pip install -r requirements.txt
+   pip install -e .
    ```
+   This installs the `fundable` package in editable mode, allowing clean imports across all examples.
 
 2. **Set your API key:**
    ```bash
@@ -15,40 +16,46 @@ This repository contains a Python client for interacting with the Fundable API, 
    ```
 
 3. **Run examples:**
-   
-   **Get Recent Deals (Basic):**
+
+   **Simple Example:**
    ```bash
-   cd examples/get_recent_deals
-   python3 get_recent_deals.py
+   python3 examples/simple_example.py
    ```
-   
-   **Top Investors Analysis (Advanced):**
+
+   **Get Recent Deals:**
    ```bash
-   cd examples/top_investors
-   python3 top_seed_investors.py
+   python3 examples/get_recent_deals/get_recent_deals.py
    ```
-   
+
+   **Top Investors Analysis:**
+   ```bash
+   python3 examples/top_investors/top_seed_investors.py
+   ```
+
    See README files in each example directory for detailed documentation.
 
-## Files
+## Project Structure
 
-- `fundableClient.py` - Main client library with `FundableClient` and `DataExtractor` classes
-- `examples/` - Example use cases and analysis tools
-  - `get_recent_deals/` - Basic example: Fetch and display recent deals
-    - `get_recent_deals.py` - Script with multiple filter examples
-    - `README.md` - Documentation and usage guide
-  - `top_investors/` - Advanced example: Investor activity analysis
-    - `investor_analyzer.py` - Generalized investor analysis module
-    - `top_seed_investors.py` - Script with 5 investor analysis examples
-    - `README.md` - Comprehensive documentation
+- `src/fundable/` - Main Python package
+  - `client.py` - FundableClient and DataExtractor classes
+  - `analyzers/` - Analysis modules (InvestorAnalyzer, etc.)
+  - `visualization/` - Charting and visualization tools
+- `examples/` - Example scripts demonstrating API usage
+  - `simple_example.py` - Quick start example
+  - `analyze_top_investors.py` - Investor analysis examples
+  - `visualize_investors.py` - Visualization examples
+  - `get_recent_deals/` - Basic deal fetching examples
+  - `top_investors/` - Advanced investor analysis
+  - `visualizations/` - Chart generation examples
 - `openapi/` - OpenAPI specifications for all API endpoints
+- `pyproject.toml` - Package configuration
 
 ## Quick Usage
 
 ### Get Recent Deals
 
 ```python
-from fundableClient import FundableClient, DataExtractor
+from fundable import FundableClient, DataExtractor
 
 client = FundableClient()
 
@@ -70,8 +77,7 @@ DataExtractor.print_deals(extracted, "Recent Deals")
 ### Find Top Investors by Any Criteria
 
 ```python
-from fundableClient import FundableClient
-from examples.top_investors.investor_analyzer import InvestorAnalyzer
+from fundable import FundableClient, InvestorAnalyzer
 
 client = FundableClient()
 analyzer = InvestorAnalyzer(client)
@@ -88,18 +94,28 @@ analyzer.print_results(results)
 analyzer.save_results(results, 'output/top_investors.json')
 ```
 
-### Combine Any Filters
+### Visualize Results
 
 ```python
-# Top AI investors in California with mid-size rounds
+from fundable import FundableClient, InvestorAnalyzer
+from fundable.visualization import InvestorBarChart
+
+client = FundableClient()
+analyzer = InvestorAnalyzer(client)
+
 results = analyzer.analyze_top_investors(
     top_n=15,
-    months_back=6,
-    financing_types=['SERIES_A', 'SERIES_B'],
-    super_categories=['artificial-intelligence-e551'],
-    locations=['california'],
-    deal_size_min=10,
-    deal_size_max=50
+    months_back=2,
+    financing_types=['SEED']
+)
+
+# Create chart with logos
+chart = InvestorBarChart()
+chart.plot_top_investors(
+    results,
+    title="Top Seed Investors",
+    show_logos=True,
+    output_path="output/chart.png"
 )
 ```
 

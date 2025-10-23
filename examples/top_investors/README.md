@@ -52,8 +52,7 @@ Main example script with 5 different use cases demonstrating the flexibility of 
 
 ```bash
 # Run the primary example (Top Seed Investors)
-cd examples
-python3 top_seed_investors.py
+python3 examples/top_investors/top_seed_investors.py
 ```
 
 ### Run Specific Examples
@@ -72,8 +71,7 @@ def main():
 ### Using the Analyzer in Your Own Code
 
 ```python
-from fundableClient import FundableClient
-from investor_analyzer import InvestorAnalyzer
+from fundable import FundableClient, InvestorAnalyzer
 
 # Initialize
 client = FundableClient()

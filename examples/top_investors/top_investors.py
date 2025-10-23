@@ -6,19 +6,9 @@ This script demonstrates how to use the InvestorAnalyzer to find
 the most active investors based on different filtering criteria.
 """
 
-import sys
 import os
 
-# Add repo root directory to path to import fundableClient
-repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, repo_root)
-
-# Add current directory to path for investor_analyzer
-current_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, current_dir)
-
-from fundableClient import FundableClient
-from investor_analyzer import InvestorAnalyzer
+from fundable import FundableClient, InvestorAnalyzer
 
 
 def example_1_top_seed_investors():
@@ -155,8 +145,8 @@ def main():
     # example_1_top_seed_investors()
     
     # Uncomment to run additional examples:
-    example_2_top_series_a_sf()
-    # example_3_top_ai_investors()
+    # example_2_top_series_a_sf()
+    example_3_top_ai_investors()
     # example_4_large_round_investors()
     # example_5_combined_filters()
     
