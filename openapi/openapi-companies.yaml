@@ -11,9 +11,13 @@ info:
     API usage is tracked and may be subject to monthly limits depending on your API key tier.
     
     ## Company Identifiers
-    Companies can be identified using either:
-    - UUID format (e.g., "550e8400-e29b-41d4-a716-446655440000")
-    - Permalink format (e.g., "acme-corporation")
+    Companies can be identified using query parameters with any of the following formats:
+    - `id` - UUID format (e.g., "?id=550e8400-e29b-41d4-a716-446655440000")
+    - `permalink` - Permalink format (e.g., "?permalink=acme-corporation")
+    - `domain` - Domain (e.g., "?domain=stripe.com")
+    - `url` - Full URL (e.g., "?url=https://stripe.com")
+    - `linkedin` - LinkedIn URL (e.g., "?linkedin=https://www.linkedin.com/company/stripe")
+    - `crunchbase` - Crunchbase URL (e.g., "?crunchbase=https://www.crunchbase.com/organization/stripe")
     
   version: 1.0.0
   contact:
@@ -33,28 +37,68 @@ security:
   - bearerAuth: []
 
 paths:
-  /company/{identifier}:
+  /company:
     get:
-      summary: Get company details by ID or permalink
-      description: Retrieve detailed company information using either company UUID or permalink
+      summary: Get company details by identifier
+      description: |
+        Retrieve detailed company information using any supported identifier format.
+        The API intelligently detects the identifier type and queries accordingly.
+        
+        Provide ONE of the following query parameters to identify the company:
+        - `id` - Company UUID
+        - `permalink` - Company permalink/slug
+        - `domain` - Company domain (e.g., "stripe.com")
+        - `url` - Full website URL (e.g., "https://stripe.com")
+        - `linkedin` - LinkedIn company URL
+        - `crunchbase` - Crunchbase organization URL
       operationId: getCompany
       parameters:
-        - name: identifier
-          in: path
-          description: |
-            Company identifier - can be either:
-            - UUID format (e.g., "550e8400-e29b-41d4-a716-446655440000")
-            - Permalink format (e.g., "acme-corporation")
-          required: true
+        - name: id
+          in: query
+          description: Company UUID
+          required: false
           schema:
             type: string
-          examples:
-            uuid:
-              value: "550e8400-e29b-41d4-a716-446655440000"
-              summary: "UUID identifier"
-            permalink:
-              value: "acme-corporation"
-              summary: "Permalink identifier"
+            format: uuid
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        - name: permalink
+          in: query
+          description: Company permalink
+          required: false
+          schema:
+            type: string
+          example: "acme-corporation"
+        - name: domain
+          in: query
+          description: Company domain
+          required: false
+          schema:
+            type: string
+          example: "stripe.com"
+        - name: linkedin
+          in: query
+          description: LinkedIn company URL
+          required: false
+          schema:
+            type: string
+            format: uri
+          example: "https://www.linkedin.com/company/stripe"
+        - name: crunchbase
+          in: query
+          description: Crunchbase organization URL
+          required: false
+          schema:
+            type: string
+            format: uri
+          example: "https://www.crunchbase.com/organization/stripe"
+        - name: url
+          in: query
+          description: Generic URL (domain, LinkedIn, or Crunchbase)
+          required: false
+          schema:
+            type: string
+            format: uri
+          example: "https://stripe.com"
       responses:
         '200':
           description: Successful response with company data
@@ -88,6 +132,50 @@ paths:
                   - success
                   - data
                   - meta
+        '400':
+          description: Bad request - missing identifier or invalid format
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Missing identifier error
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                        example: 'MISSING_IDENTIFIER'
+                      message:
+                        type: string
+                        example: "Company identifier is required"
+                      details:
+                        type: object
+                        properties:
+                          help:
+                            type: string
+                            example: "Provide an identifier using one of the query parameters: id, permalink, domain, linkedin, crunchbase, or url"
+                          examples:
+                            type: object
+                            properties:
+                              byDomain:
+                                type: string
+                                example: "/api/v1/company?domain=stripe.com"
+                              byUrl:
+                                type: string
+                                example: "/api/v1/company?url=https://stripe.com"
+                              byLinkedIn:
+                                type: string
+                                example: "/api/v1/company?linkedin=https://www.linkedin.com/company/stripe"
+                              byPermalink:
+                                type: string
+                                example: "/api/v1/company?permalink=stripe"
+                              byId:
+                                type: string
+                                example: "/api/v1/company?id=550e8400-e29b-41d4-a716-446655440000"
         '401':
           description: Authentication error
           content:
@@ -523,7 +611,7 @@ components:
               properties:
                 help:
                   type: string
-                  example: "Please check the company ID or permalink and try again"
+                  example: "Please check the company identifier (ID, permalink, domain, LinkedIn URL, or Crunchbase URL) and try again"
       required:
         - error
 
