@@ -25,14 +25,6 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 
 # =============================================================================
-# PLACEHOLDER ALERT IDS - Replace these with your actual alert IDs
-# You can get your alert IDs from client.get_alert_configurations()
-# =============================================================================
-EXAMPLE_ALERT_ID_1 = "a2c9fa30-c479-4deb-856c-266622e5dcdf"
-EXAMPLE_ALERT_ID_2 = "e1307820-9ed8-49c9-95df-16b81ce9fc15"
-
-
-# =============================================================================
 # DATA EXTRACTION HELPERS
 # =============================================================================
 
