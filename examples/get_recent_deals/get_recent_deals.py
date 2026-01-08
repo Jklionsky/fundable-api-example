@@ -7,9 +7,14 @@ recent deals using different filter combinations.
 """
 
 import json
+import os
 from datetime import datetime, timedelta
 
 from fundable import FundableClient, DataExtractor
+
+# Get script directory for relative paths
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 
 def test_all_parameters():
     """Test the updated get_deals function with various parameter combinations."""
@@ -70,15 +75,18 @@ def test_all_parameters():
         print("\n" + "="*60)
         print("SAMPLE DEALS OUTPUT:")
         print("="*60)
+        print(deals[0])
 
-        # Extract and print deals using existing DataExtractor
-        extracted_deals = [DataExtractor.extract_deal(deal) for deal in deals[:2]]
-        DataExtractor.print_deals(extracted_deals, "Recent Large Deals")
+        # # Extract and print deals using existing DataExtractor
+        # extracted_deals = [DataExtractor.extract_deal(deal) for deal in deals[:2]]
+        # DataExtractor.print_deals(extracted_deals, "Recent Large Deals")
 
     # Test 6: Save full deal objects for inspection
     if deals:
-        print(f"\n📁 Saving {len(deals)} full deal objects to 'sample_deals.json'...")
-        with open('output/sample_deals.json', 'w') as f:
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        output_path = os.path.join(OUTPUT_DIR, 'sample_deals.json')
+        print(f"\n📁 Saving {len(deals)} full deal objects to '{output_path}'...")
+        with open(output_path, 'w') as f:
             json.dump(deals, f, indent=2)
         print("✓ Full deal objects saved - users can inspect the complete API response structure")
 

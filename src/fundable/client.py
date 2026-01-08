@@ -15,13 +15,15 @@ load_dotenv()
 class FundableClient:
     """Simple client for fetching deals from Fundable API."""
 
-    def __init__(self, api_key: str = None, base_url: str = "https://www.tryfundable.ai/api/v1"):
+    DEFAULT_BASE_URL = "https://www.tryfundable.ai/api/v1"
+
+    def __init__(self, api_key: str = None, base_url: str = None):
         """Initialize client with API key and base URL."""
         self.api_key = api_key or os.getenv("FUNDABLE_API_KEY")
         if not self.api_key:
             raise ValueError("API key required. Set FUNDABLE_API_KEY environment variable or pass api_key parameter.")
 
-        self.base_url = base_url
+        self.base_url = base_url or os.getenv("FUNDABLE_API_URL", self.DEFAULT_BASE_URL)
         self.headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
@@ -165,6 +167,101 @@ class FundableClient:
         except requests.exceptions.RequestException as e:
             print(f"Error fetching deals: {e}")
             return []
+
+    def get_alerts(self, alert_ids: List[str], start_date: str, end_date: str) -> Dict[str, Any]:
+        """
+        Get alert data with deals for specified alert IDs and date range.
+
+        Args:
+            alert_ids: List of alert UUIDs (up to 10)
+            start_date: Start date in ISO 8601 format (e.g., "2024-01-01T00:00:00.000Z")
+            end_date: End date in ISO 8601 format (e.g., "2024-12-31T23:59:59.999Z")
+
+        Returns:
+            Dict with 'alerts' array containing alert data and deals
+        """
+        params = {
+            'alertIds': ','.join(alert_ids),
+            'startDate': start_date,
+            'endDate': end_date
+        }
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/alerts/",
+                headers=self.headers,
+                params=params,
+                timeout=30
+            )
+            response.raise_for_status()
+            data = response.json()
+
+            if data.get("success"):
+                return data["data"]
+            return {"alerts": [], "totalDealCount": 0}
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching alerts: {e}")
+            return {"alerts": [], "totalDealCount": 0}
+
+    def get_alert_configurations(self) -> List[Dict[str, Any]]:
+        """
+        Get all alert configurations for the authenticated user.
+
+        Returns:
+            List of alert configuration dicts
+        """
+        try:
+            response = requests.get(
+                f"{self.base_url}/alerts/configurations",
+                headers=self.headers,
+                timeout=30
+            )
+            response.raise_for_status()
+            data = response.json()
+
+            if data.get("success"):
+                return data["data"]["configurations"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching alert configurations: {e}")
+            return []
+
+    def get_company(self, identifier: str, identifier_type: str = 'id') -> Optional[Dict[str, Any]]:
+        """
+        Get company details by various identifier types.
+
+        Args:
+            identifier: The company identifier value
+            identifier_type: One of 'id', 'permalink', 'domain', 'url', 'linkedin', 'crunchbase'
+
+        Returns:
+            Company details dict or None if not found
+        """
+        valid_types = ['id', 'permalink', 'domain', 'url', 'linkedin', 'crunchbase']
+        if identifier_type not in valid_types:
+            raise ValueError(f"identifier_type must be one of: {valid_types}")
+
+        params = {identifier_type: identifier}
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/company",
+                headers=self.headers,
+                params=params,
+                timeout=30
+            )
+            response.raise_for_status()
+            data = response.json()
+
+            if data.get("success"):
+                return data["data"]["company"]
+            return None
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching company {identifier}: {e}")
+            return None
 
 
 class DataExtractor:

@@ -4,23 +4,33 @@ This repository contains a Python client for interacting with the Fundable API, 
 
 ## Setup
 
-1. **Install the package:**
+1. **Create a Python virtual environment (recommended):**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On macOS/Linux
+   # Or on Windows: venv\Scripts\activate
+   ```
+
+2. **Install the package:**
    ```bash
    pip install -e .
    ```
    This installs the `fundable` package in editable mode, allowing clean imports across all examples.
 
-2. **Set your API key:**
+3. **Set your API key:**
+
+   Copy the example environment file and add your API key:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your Fundable API key
+   ```
+
+   Or set it directly in your shell:
    ```bash
    export FUNDABLE_API_KEY="your_api_key_here"
    ```
 
-3. **Run examples:**
-
-   **Simple Example:**
-   ```bash
-   python3 examples/simple_example.py
-   ```
+4. **Run examples:**
 
    **Get Recent Deals:**
    ```bash
@@ -29,7 +39,7 @@ This repository contains a Python client for interacting with the Fundable API, 
 
    **Top Investors Analysis:**
    ```bash
-   python3 examples/top_investors/top_seed_investors.py
+   python3 examples/top_investors/top_investors.py
    ```
 
    See README files in each example directory for detailed documentation.
@@ -41,12 +51,10 @@ This repository contains a Python client for interacting with the Fundable API, 
   - `analyzers/` - Analysis modules (InvestorAnalyzer, etc.)
   - `visualization/` - Charting and visualization tools
 - `examples/` - Example scripts demonstrating API usage
-  - `simple_example.py` - Quick start example
-  - `analyze_top_investors.py` - Investor analysis examples
-  - `visualize_investors.py` - Visualization examples
   - `get_recent_deals/` - Basic deal fetching examples
   - `top_investors/` - Advanced investor analysis
-  - `visualizations/` - Chart generation examples
+  - `company_viz/` - Company visualization examples
+  - `alerts/` - Alert fetching examples
 - `openapi/` - OpenAPI specifications for all API endpoints
 - `pyproject.toml` - Package configuration
 

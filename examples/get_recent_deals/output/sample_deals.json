@@ -1,42 +1,303 @@
 [
   {
-    "id": "a8118c2b-7ffb-40c5-9c68-b1a19228d907",
-    "round_type": "SERIES_B",
+    "id": "b0fe2c4a-09a3-4bbb-8fec-d28fcc62c951",
+    "round_type": "SERIES_F",
     "extension": false,
     "intermediate": "NONE",
     "pre": false,
-    "date": "2025-10-21T22:12:46.000Z",
-    "total_round_raised": 125,
+    "date": "2026-01-07T15:48:36.000Z",
+    "total_round_raised": 100,
     "deal_descriptions": {
-      "short_description": "LangChain, an open-source AI agent platform, raised a $125 million round led by IVP with participation from CapitalG, Sapphire Ventures, Sequoia, Benchmark and Amplify.",
-      "long_description": "LangChain secured $125 million in new funding at a $1.25 billion valuation. The round was led by IVP, while new investors CapitalG and Sapphire Ventures joined existing backers Sequoia, Benchmark and Amplify. No specific series label was disclosed in the article. This financing follows the company\u2019s $10 million seed round from Benchmark in April 2023 and a $25 million Series A led by Sequoia a week later, which valued the company at about $200 million. The fresh capital cements LangChain\u2019s unicorn status and will support ongoing development of its core framework and related tools LangGraph and LangSmith. Founded in 2022, LangChain continues to leverage its strong open-source community momentum as it scales its agentic AI platform."
+      "short_description": "Rakuten Medical, a photoimmunotherapy biotech, raised a $100M Series F round\u2014comprised of $70M new capital and $30M convertible note conversion\u2014led by TaiAx Life Science Fund L.P.",
+      "long_description": "Rakuten Medical closed a $100 million Series F financing round. The structure includes $70 million in fresh capital and the conversion of $30 million in outstanding convertible promissory notes plus accrued interest into equity. TaiAx Life Science Fund L.P. led the round; no additional investors were named in the article. Proceeds will fund the company\u2019s foremost objective of obtaining U.S. regulatory approval for its lead photoimmunotherapy drug candidate, ASP-1929. Headquartered in San Diego, the biotech develops cancer-targeting therapies using its Alluminox platform. Outside Japan, these therapies remain investigational, underscoring the importance of the regulatory push financed by this round. The article did not reference previous funding rounds or additional financial backers."
     },
     "articles": [
       {
-        "link": "https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/",
+        "link": "https://www.finsmes.com/2026/01/rakuten-medical-raises-100m-in-series-f-funding.html",
         "is_primary": true,
-        "date": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)"
+        "publishedDate": "2026-01-07T15:48:36.000Z"
       },
       {
-        "link": "https://www.lemondeinformatique.fr/actualites/lireamp-telex-langchain-leve-125et-8239-m$-pekin-accuse-la-nsa-d-une-cyberattaque-majeure-google-dope-broadcom-et-mediatek-avec-ses-tpu-98256.html",
+        "link": "https://pulse2.com/rakuten-medical-100-million-series-f/",
         "is_primary": false,
-        "date": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)"
+        "publishedDate": "2026-01-07T13:07:36.000Z"
       },
       {
-        "link": "https://www.lemondeinformatique.fr/actualites/lire-telex-langchain-leve-125et-8239-m$-pekin-accuse-la-nsa-d-une-cyberattaque-majeure-google-dope-broadcom-et-mediatek-avec-ses-tpu-98256.html",
+        "link": "https://www.prnewswire.com/news-releases/rakuten-medical-raises-100-million-in-oversubscribed-series-f-to-accelerate-development-toward-us-regulatory-approval-302655158.html",
         "is_primary": false,
-        "date": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 22:12:46 GMT+0000 (Coordinated Universal Time)"
+        "publishedDate": "2026-01-07T12:33:00.000Z"
       }
     ],
     "company": {
-      "id": "605a259d-d8f2-4a32-9d23-63da936f9a59",
-      "name": "LangChain",
-      "legal_name": "LangChain, Inc.",
-      "guru_permalink": "langsmith",
-      "domain": "langchain.com",
+      "id": "ad22ca16-d908-4005-b41a-baaffb83d08f",
+      "name": "Rakuten Medical",
+      "legal_name": "Rakuten Medical, Inc.",
+      "guru_permalink": "rakuten-medical",
+      "domain": "rakuten-med.com",
+      "region": "California",
+      "industries": [
+        {
+          "permalink": "biotechnology",
+          "name": "Biotechnology"
+        },
+        {
+          "permalink": "health-care",
+          "name": "Health Care"
+        },
+        {
+          "permalink": "medical",
+          "name": "Medical"
+        },
+        {
+          "permalink": "service-industry",
+          "name": "Service Industry"
+        },
+        {
+          "permalink": "therapeutics",
+          "name": "Therapeutics"
+        }
+      ],
+      "location": {
+        "region": {
+          "name": "North America",
+          "permalink": "north-america"
+        },
+        "country": {
+          "name": "United States",
+          "permalink": "united-states"
+        },
+        "state": {
+          "name": "California",
+          "permalink": "california-united-states"
+        },
+        "city": {
+          "name": "San Diego",
+          "permalink": "san-diego-california"
+        }
+      }
+    },
+    "deal_investors": [
+      {
+        "id": "2571b098-36ac-46d5-b8ab-eb0960490a8b",
+        "name": "TaiAx Life Science Fund",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_F",
+        "is_debt_investor": false
+      }
+    ],
+    "financings": [
+      {
+        "id": "eaa78f6d-288b-4f89-91b6-7948c3c4c5ef",
+        "type": "SERIES_F",
+        "size_usd": 100,
+        "size": 100,
+        "currency": "usd"
+      }
+    ],
+    "valuations": []
+  },
+  {
+    "id": "72a243b8-e5a3-47c0-a729-420c1c03aa15",
+    "round_type": "SERIES_C",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2026-01-07T13:05:00.000Z",
+    "total_round_raised": 100,
+    "deal_descriptions": {
+      "short_description": "E-commerce logistics platform Swap raised a $100M Series C co-led by Iconiq and DST Global.",
+      "long_description": "Swap closed a $100 million Series C financing that was co-led by existing investor Iconiq and DST Global. The raise comes roughly nine months after the company\u2019s $40 million Series B, which was led by Iconiq, bringing total capital raised to $149 million. Proceeds from the Series C will be directed toward strengthening the platform\u2019s payment capabilities, investing in digital payments, and supporting geographic expansion across Europe and North America. Founded in 2022 and headquartered in London\u2014with additional offices in the US, Israel, and the Netherlands\u2014Swap aims to become the default operating system for global e-commerce brands. The company has also integrated AI features for cross-border tax filing and return processing to enhance its value proposition."
+    },
+    "articles": [
+      {
+        "link": "https://tech.eu/2026/01/07/e-commerce-operating-startup-swap-raises-100m/",
+        "is_primary": true,
+        "publishedDate": "2026-01-07T13:05:00.000Z"
+      },
+      {
+        "link": "https://techfundingnews.com/swap-100m-series-c-funding-ai-commerce-platform/",
+        "is_primary": false,
+        "publishedDate": "2026-01-07T14:00:00.000Z"
+      },
+      {
+        "link": "https://pulse2.com/swap-100-million-series-c/",
+        "is_primary": false,
+        "publishedDate": "2026-01-07T14:00:31.000Z"
+      },
+      {
+        "link": "https://techcrunch.com/2026/01/07/shopify-competitor-swap-raises-100m-six-months-after-raising-40m/",
+        "is_primary": false,
+        "publishedDate": "2026-01-07T19:10:33.000Z"
+      },
+      {
+        "link": "https://www.finsmes.com/2026/01/swap-raises-100m-in-series-c-funding.html",
+        "is_primary": false,
+        "publishedDate": "2026-01-07T14:59:22.000Z"
+      }
+    ],
+    "company": {
+      "id": "d1d27f96-e8da-45a8-9632-e1d4694ecae4",
+      "name": "Swap",
+      "legal_name": "Swap Commerce Ltd.",
+      "guru_permalink": "swap-3",
+      "domain": "swap-commerce.com",
+      "region": "England",
+      "industries": [
+        {
+          "permalink": "e-commerce-275d",
+          "name": "E-Commerce"
+        },
+        {
+          "permalink": "finance",
+          "name": "Finance"
+        },
+        {
+          "permalink": "software",
+          "name": "Software"
+        }
+      ],
+      "location": {
+        "region": {
+          "name": "Europe",
+          "permalink": "europe"
+        },
+        "country": {
+          "name": "United Kingdom",
+          "permalink": "united-kingdom"
+        },
+        "state": {
+          "name": "England",
+          "permalink": "england-united-kingdom"
+        },
+        "city": {
+          "name": "London",
+          "permalink": "london-england"
+        }
+      }
+    },
+    "deal_investors": [
+      {
+        "id": "38d6f17e-5f2c-4dc0-9df1-e8f4bd3ad4eb",
+        "name": "ICONIQ Growth",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_C",
+        "is_debt_investor": false
+      },
+      {
+        "id": "abf596ef-f1d9-4915-a017-0a99a793d03f",
+        "name": "DST Global",
+        "lead_investor": true,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_C",
+        "is_debt_investor": false
+      }
+    ],
+    "financings": [
+      {
+        "id": "7b32061e-58af-48c6-8e33-f1a58906d788",
+        "type": "SERIES_C",
+        "size_usd": 100,
+        "size": 100,
+        "currency": "usd"
+      }
+    ],
+    "valuations": []
+  },
+  {
+    "id": "b6904489-baa8-414a-b300-6ce6f8b9d820",
+    "round_type": "SERIES_A",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2026-01-06T19:35:55.000Z",
+    "total_round_raised": 150,
+    "deal_descriptions": {
+      "short_description": "Crowdsourced AI benchmarking startup LMArena raised a $150 million Series A led by Felicis and UC Investments with participation from Andreessen Horowitz, The House Fund, LDVP, Kleiner Perkins, Lightspeed Venture Partners and Laude Ventures.",
+      "long_description": "LMArena closed a $150 million Series A financing at a $1.7 billion post-money valuation. The round was co-led by Felicis and UC Investments, with additional capital from Andreessen Horowitz, The House Fund, LDVP, Kleiner Perkins, Lightspeed Venture Partners and Laude Ventures. This Series A follows the company\u2019s $100 million seed round in May that valued the business at $600 million, bringing total funding to $250 million in roughly seven months. All capital raised to date is equity. Founded in 2023 as a UC Berkeley research project, LMArena drew investor interest through rapid user growth and an ARR that reached $30 million within four months of launching its paid AI Evaluations service. The company plans to use the new funds to scale its crowdsourced benchmarking platform and deepen commercial evaluation offerings for enterprises and model makers."
+    },
+    "articles": [
+      {
+        "link": "https://techcrunch.com/2026/01/06/lmarena-lands-1-7b-valuation-four-months-after-launching-its-product/",
+        "is_primary": true,
+        "publishedDate": "2026-01-06T19:35:55.000Z"
+      },
+      {
+        "link": "https://techfundingnews.com/unicorn-alert-lmarena-raises-150m-at-1-7b-valuation-to-make-users-the-judge-of-ai-performance/",
+        "is_primary": false,
+        "publishedDate": "2026-01-07T07:23:46.000Z"
+      },
+      {
+        "link": "https://pulse2.com/lmarena-150-million-at-1-7-billion-valuation-raised-to-expand-real-world-ai-evaluation/",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T20:59:58.000Z"
+      },
+      {
+        "link": "https://mezha.net/eng/bukvy/lmarena-raises-150m-series-a-at-1-7b-valuation-for-ai-model-evaluation/",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T20:23:42.000Z"
+      },
+      {
+        "link": "https://www.boursorama.com/bourse/actualites/la-startup-d-ia-lmarena-triple-sa-valorisation-pour-atteindre-1-7-milliard-de-dollars-lors-de-sa-derniere-levee-de-fonds-1d9246afabad1f214e614cae418901b7",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T21:16:43.000Z"
+      },
+      {
+        "link": "https://www.theinformation.com/",
+        "is_primary": false,
+        "publishedDate": "2025-12-26T22:52:14.000Z"
+      },
+      {
+        "link": "https://x.com/testingcatalog/status/2008573673637326883",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T21:16:42.000Z"
+      },
+      {
+        "link": "https://x.com/felicis/status/2008571901929738504",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T21:16:43.000Z"
+      },
+      {
+        "link": "https://mezha.net/eng/bukvy/lmarena-raises-150m-series-a-at-1-7b-valuation-for-ai-model-evaluation/amp/",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T21:16:43.000Z"
+      },
+      {
+        "link": "https://www.thesaasnews.com/news/lmarena-raises-150-million-series-a",
+        "is_primary": false,
+        "publishedDate": "2026-01-07T08:00:53.000Z"
+      },
+      {
+        "link": "https://www.reddit.com/r/aicuriosity/comments/1q5nrve/lmarena_raises_150_million_dollars_series_a/",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T21:16:42.000Z"
+      },
+      {
+        "link": "https://www.zonebourse.com/actualite-bourse/la-start-up-d-ia-lmarena-triple-sa-valorisation-a-1-7-milliard-de-dollars-lors-de-sa-derniere-levee-ce7e59dfdc8ff122",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T21:16:43.000Z"
+      },
+      {
+        "link": "https://www.prnewswire.com/news-releases/lmarena-raises-150-million-to-build-the-worlds-most-trusted-ai-evaluation-platform-302653012.html",
+        "is_primary": false,
+        "publishedDate": "2026-01-06T16:00:00.000Z"
+      },
+      {
+        "link": "https://www.finsmes.com/2026/01/lmarena-raises-150m-in-series-a-funding.html",
+        "is_primary": false,
+        "publishedDate": "2026-01-07T08:40:35.000Z"
+      }
+    ],
+    "company": {
+      "id": "916d14b7-0d27-49f7-bb8a-f94d9c269f5a",
+      "name": "LM Arena",
+      "legal_name": "LMSYS Corp.",
+      "guru_permalink": "lm-arena",
+      "domain": "lmarena.ai",
       "region": "California",
       "industries": [
         {
@@ -44,16 +305,16 @@
           "name": "Artificial Intelligence (AI)"
         },
         {
-          "permalink": "database",
-          "name": "Database"
+          "permalink": "communities",
+          "name": "Communities"
         },
         {
-          "permalink": "developer-apis",
-          "name": "Developer APIs"
+          "permalink": "machine-learning",
+          "name": "Machine Learning"
         },
         {
-          "permalink": "generative-ai",
-          "name": "Generative AI"
+          "permalink": "product-research",
+          "name": "Product Research"
         }
       ],
       "location": {
@@ -77,273 +338,95 @@
     },
     "deal_investors": [
       {
-        "id": "2d00393c-f02a-4bca-98da-ba803428272e",
-        "name": "Sequoia Capital",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_B",
-        "is_debt_investor": false
-      },
-      {
-        "id": "19684ffc-9736-4758-b8f2-3f3517d2717e",
-        "name": "Sapphire Ventures",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_B",
-        "is_debt_investor": false
-      },
-      {
-        "id": "4ece5266-50ef-4519-8e84-cb4112a10c2f",
-        "name": "IVP",
+        "id": "df7c73e4-bb26-445f-bd7e-878e021415ad",
+        "name": "UC Investments",
         "lead_investor": true,
         "angel_investor": false,
         "personnel": [],
-        "financing_type": "SERIES_B",
+        "financing_type": "SERIES_A",
         "is_debt_investor": false
       },
       {
-        "id": "5b7cf06d-2fb6-40cc-a86a-f3c35bbf876b",
-        "name": "CapitalG",
-        "lead_investor": false,
+        "id": "df44f8c6-709c-4839-840e-969f3dc026a4",
+        "name": "Felicis Ventures",
+        "lead_investor": true,
         "angel_investor": false,
         "personnel": [],
-        "financing_type": "SERIES_B",
+        "financing_type": "SERIES_A",
         "is_debt_investor": false
       },
       {
-        "id": "5b0f872c-4cde-405f-98c0-c1ab933dcbe0",
-        "name": "Benchmark Capital",
+        "id": "b8926b35-ef63-43b6-8299-0f508c7f3a59",
+        "name": "Lightspeed Venture Partners",
         "lead_investor": false,
         "angel_investor": false,
         "personnel": [],
-        "financing_type": "SERIES_B",
+        "financing_type": "SERIES_A",
         "is_debt_investor": false
       },
       {
-        "id": "12e6e631-498c-44c0-bfd4-e8c8f67a4aa5",
-        "name": "Amplify Partners",
+        "id": "2f0fc927-4bf1-429e-a033-844db6ff1e6a",
+        "name": "LDV Partners",
         "lead_investor": false,
         "angel_investor": false,
         "personnel": [],
-        "financing_type": "SERIES_B",
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "03eee093-7a0a-46a5-b3f0-4248fff1a332",
+        "name": "Luder Ventures",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "9b399dda-63ff-4665-a6a6-f7fc2e49f25e",
+        "name": "Kleiner Perkins",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "0e1395dc-4b34-454c-b286-7ea488689723",
+        "name": "The House Fund",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "e9236a00-e0d8-4ab6-9068-45a723f63fd2",
+        "name": "Andreessen Horowitz",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
         "is_debt_investor": false
       }
     ],
     "financings": [
       {
-        "id": "0276998d-6eeb-4af1-961a-0ed9310611be",
-        "type": "SERIES_B",
-        "size_usd": 125,
-        "size": 125,
+        "id": "0fa6b25b-2e84-4821-b4e4-c8fce0ffba25",
+        "type": "SERIES_A",
+        "size_usd": 150,
+        "size": 150,
         "currency": "usd"
       }
     ],
     "valuations": [
       {
         "valuation_currency": "USD",
-        "valuation": 1.25,
-        "valuation_usd": 1.25,
-        "valuation_usd_millions": 1250,
+        "valuation": 1.7,
+        "valuation_usd": 1.7,
+        "valuation_usd_millions": 1700,
         "type": "DEFAULT"
       }
     ]
-  },
-  {
-    "id": "9803ba8f-cea0-4b9f-8863-22222df9595f",
-    "round_type": "EQUITY",
-    "extension": false,
-    "intermediate": "NONE",
-    "pre": false,
-    "date": "2025-10-21T09:35:22.000Z",
-    "total_round_raised": 100,
-    "deal_descriptions": {
-      "short_description": "Electric motorbike startup Spiro raised a $100M investment round led by Afreximbank\u2019s FEDA with participation from other strategic investors.",
-      "long_description": "Spiro closed a $100 million investment round, with $75 million supplied by The Fund for Export Development in Africa (FEDA), the development arm of Afreximbank, and the remainder contributed by unnamed strategic investors. The deal is billed as the largest electric-mobility financing in Africa to date. Capital will be used to expand Spiro\u2019s battery-swap network, increase manufacturing capacity, advance R&D and launch pilots in Cameroon and Tanzania. Founded about three years ago and headquartered in Dubai, the company had previously raised more than $180 million in debt and equity from Equitane Group and Soci\u00e9t\u00e9 G\u00e9n\u00e9rale. The new round brings its total funding to over $280 million. No further details on the security type were disclosed beyond the description of an \u201cinvestment round.\u201d"
-    },
-    "articles": [
-      {
-        "link": "https://techcrunch.com/2025/10/21/spiro-raises-100m-the-largest-ever-investment-in-africas-e-mobility/",
-        "is_primary": true,
-        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
-      },
-      {
-        "link": "https://mascipolletti.com.ar/noticias/spiro-recauda-100-millones-de-dolares-en-la-mayor-inversion-en-vehiculos-electricos-jamas-realizada-en-africa/238347/",
-        "is_primary": false,
-        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
-      },
-      {
-        "link": "https://mascipolletti.com.ar/tecnica/spiro-recauda-100-millones-de-dolares-la-mayor-inversion-jamas-realizada-en-movilidad-electrica-en-africa/238089/",
-        "is_primary": false,
-        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
-      },
-      {
-        "link": "https://www.techinafrica.com/spiro-secures-100-million-investment-to-revolutionize-africas-electric-mobility-and-battery-swapping-infrastructure/",
-        "is_primary": false,
-        "date": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 09:35:22 GMT+0000 (Coordinated Universal Time)"
-      }
-    ],
-    "company": {
-      "id": "e13fbb60-2e0b-45c4-9174-1c8166eb4d9a",
-      "name": "Spironet",
-      "legal_name": "Spironet",
-      "guru_permalink": "spiro-1",
-      "domain": "spironet.com",
-      "region": "Littoral",
-      "industries": [
-        {
-          "permalink": "automotive",
-          "name": "Automotive"
-        },
-        {
-          "permalink": "electric-vehicle",
-          "name": "Electric Vehicle"
-        },
-        {
-          "permalink": "transportation",
-          "name": "Transportation"
-        }
-      ],
-      "location": {
-        "region": {
-          "name": "Africa",
-          "permalink": "africa"
-        },
-        "country": {
-          "name": "Benin",
-          "permalink": "benin"
-        },
-        "state": {
-          "name": "Littoral",
-          "permalink": "littoral-benin"
-        },
-        "city": {
-          "name": "Cotonou",
-          "permalink": "cotonou-littoral"
-        }
-      }
-    },
-    "deal_investors": [
-      {
-        "id": "294c9047-ae0e-4e25-ab1d-3df5c298823b",
-        "name": "Fund for Export Development in Africa",
-        "lead_investor": true,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "EQUITY",
-        "is_debt_investor": false
-      }
-    ],
-    "financings": [
-      {
-        "id": "8644fdbb-7164-4ea0-9a68-77f4eea22916",
-        "type": "EQUITY",
-        "size_usd": 100,
-        "size": 100,
-        "currency": "usd"
-      }
-    ],
-    "valuations": []
-  },
-  {
-    "id": "37c65d7f-eb63-45a6-92f3-1e310a5b7b78",
-    "round_type": "SERIES_B",
-    "extension": false,
-    "intermediate": "FOUR",
-    "pre": false,
-    "date": "2025-10-21T07:03:35.000Z",
-    "total_round_raised": 100,
-    "deal_descriptions": {
-      "short_description": "L4 RoboVan developer Jiushi Intelligence raised a $100 million Series B4 round led by Ant Group with participation from Blue Lake Capital and BV Baidu Ventures.",
-      "long_description": "Jiushi Intelligence closed a $100 million Series B4 equity financing led by Ant Group and joined by new and existing investors Blue Lake Capital and BV Baidu Ventures; Light Source Capital acted as the exclusive financial adviser.  The B4 tranche lifts the company\u2019s cumulative Series B funding to $400 million, making it one of the largest technology financings in China this year and a standout deal in the global L4 autonomous-driving arena.  Previous B-series tranches (B1\u2013B3) are not itemized in the article, but together they contributed $300 million prior to the latest raise.  Proceeds will fund increased R&D, accelerated product iteration, enhanced supply-chain control, and continued domestic and international market expansion.  The round underscores strong investor confidence in Jiushi\u2019s rapid commercial traction\u201410,000 vehicles delivered, 50 million safe kilometers driven, and 1 billion orders fulfilled to date.  Ant Group\u2019s entry also signals strategic alignment around logistics digitization and financial-services enablement for fleet operators.  The company positions the raise as a springboard to build a more intelligent, efficient, and environmentally friendly unmanned freight network worldwide."
-    },
-    "articles": [
-      {
-        "link": "https://eu.36kr.com/en/p/3518487879506054",
-        "is_primary": true,
-        "date": "Tue Oct 21 2025 07:03:35 GMT+0000 (Coordinated Universal Time)",
-        "publishedDate": "Tue Oct 21 2025 07:03:35 GMT+0000 (Coordinated Universal Time)"
-      }
-    ],
-    "company": {
-      "id": "5f613751-de6d-4d66-8597-abaade001554",
-      "name": "Jiushi Intelligence",
-      "legal_name": "Shanghai Jushi Intelligent Technology Co., Ltd.",
-      "guru_permalink": "jiushi-intelligence",
-      "domain": "",
-      "region": "Hainan",
-      "industries": [
-        {
-          "permalink": "artificial-intelligence",
-          "name": "Artificial Intelligence (AI)"
-        },
-        {
-          "permalink": "robotics",
-          "name": "Robotics"
-        }
-      ],
-      "location": {
-        "region": {
-          "name": "Asia",
-          "permalink": "asia"
-        },
-        "country": {
-          "name": "China",
-          "permalink": "china-500a"
-        },
-        "state": {
-          "name": "Hainan",
-          "permalink": "hainan-china"
-        },
-        "city": {
-          "name": "Yangpu",
-          "permalink": "yangpu-hainan"
-        }
-      }
-    },
-    "deal_investors": [
-      {
-        "id": "4a025cdf-8a7a-4b82-80c0-50af1fe2d7b0",
-        "name": "Baidu Ventures",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_B",
-        "is_debt_investor": false
-      },
-      {
-        "id": "3452e93c-8be0-4021-8efb-76872a4c9676",
-        "name": "Blue Lake Capital",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_B",
-        "is_debt_investor": false
-      },
-      {
-        "id": "0b621e0a-a927-42fa-b660-37948c310a38",
-        "name": "Ant Financial",
-        "lead_investor": true,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_B",
-        "is_debt_investor": false
-      }
-    ],
-    "financings": [
-      {
-        "id": "4e32a3dc-7f75-4d61-9d1f-c55971956b71",
-        "type": "SERIES_B",
-        "size_usd": 100,
-        "size": 100,
-        "currency": "usd"
-      }
-    ],
-    "valuations": []
   }
 ]

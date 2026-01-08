@@ -10,6 +10,10 @@ import os
 
 from fundable import FundableClient, InvestorAnalyzer
 
+# Get script directory for relative paths
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
+
 
 def example_1_top_seed_investors():
     """
@@ -31,10 +35,10 @@ def example_1_top_seed_investors():
     )
     
     analyzer.print_results(results, "Top 25 Seed Investors")
-    analyzer.save_results(results, 'output/top_seed_investors.json')
+    analyzer.save_results(results, os.path.join(OUTPUT_DIR, 'top_seed_investors.json'))
 
 
-def example_2_top_series_a_sf():
+def example_2_top_sf():
     """
     Example 2: Top Series A investors in San Francisco over last 6 months.
     Demonstrates filtering by round type + location.
@@ -47,18 +51,17 @@ def example_2_top_series_a_sf():
     results = analyzer.analyze_top_investors(
         top_n=15,
         months_back=6,
-        financing_types=['SERIES_A'],
         locations=['san-francisco-california']
     )
     analyzer.print_results(results, "Top 15 Series A Investors (SF)")
-    analyzer.save_results(results, 'output/top_series_a_sf.json')
+    analyzer.save_results(results, os.path.join(OUTPUT_DIR, 'top_series_a_sf.json'))
 
 
 def example_3_top_ai_investors():
     """
     Example 3: Top investors in AI startups over last 3 months.
-    
     Demonstrates filtering by industry.
+    NOTE: Identify specific filter permalinks here: https://fundable-api-docs.readme.io/reference/industry-filter-api-documentation-overview
     """
     print("\n" + "="*80)
     print("EXAMPLE 3: Top AI Investors (Last 3 Months)")
@@ -74,7 +77,7 @@ def example_3_top_ai_investors():
     )
     
     analyzer.print_results(results, "Top 20 AI Investors")
-    analyzer.save_results(results, 'output/top_ai_investors.json')
+    analyzer.save_results(results, os.path.join(OUTPUT_DIR, 'top_ai_investors.json'))
 
 
 def example_4_large_round_investors():
@@ -97,44 +100,14 @@ def example_4_large_round_investors():
     )
     
     analyzer.print_results(results, "Top 20 Large Round Investors ($50M+)")
-    analyzer.save_results(results, 'output/top_large_round_investors.json')
-
-
-def example_5_combined_filters():
-    """
-    Example 5: Top investors with multiple combined filters.
-    
-    Demonstrates combining multiple filter types:
-    - Round types: Seed + Series A
-    - Industries: AI + Fintech
-    - Location: California
-    - Deal size: $1M - $25M
-    """
-    print("\n" + "="*80)
-    print("EXAMPLE 5: Top Early-Stage Tech Investors in CA (Combined Filters)")
-    print("="*80)
-    
-    client = FundableClient()
-    analyzer = InvestorAnalyzer(client)
-    
-    results = analyzer.analyze_top_investors(
-        top_n=15,
-        months_back=6,
-        financing_types=['SEED', 'SERIES_A'],
-        super_categories=['artificial-intelligence-e551', 'fintech'],
-        deal_size_min=1,
-        deal_size_max=25
-    )
-    
-    analyzer.print_results(results, "Top 15 Early-Stage Tech Investors (CA)")
-    analyzer.save_results(results, 'output/top_early_stage_tech_ca.json')
+    analyzer.save_results(results, os.path.join(OUTPUT_DIR, 'top_large_round_investors.json'))
 
 
 def main():
     """Run examples."""
     
     # Create output directory if it doesn't exist
-    os.makedirs('output', exist_ok=True)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     
     print("\n🚀 Fundable Investor Analysis Examples")
     print("="*80)
@@ -148,7 +121,6 @@ def main():
     # example_2_top_series_a_sf()
     example_3_top_ai_investors()
     # example_4_large_round_investors()
-    # example_5_combined_filters()
     
     print("\n" + "="*80)
     print("✅ Analysis complete!")

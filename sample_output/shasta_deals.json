@@ -1,0 +1,1493 @@
+{
+    "success": true,
+    "data": {
+      "deals": [
+        {
+          "id": "e9d01ada-69ca-4b59-9e0a-ab2676e6481c",
+          "round_type": "SERIES_A",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2025-11-04T14:05:00.000Z",
+          "total_round_raised": 9,
+          "deal_descriptions": {
+            "short_description": "Portal26, a GenAI adoption management platform, raised a $9 million Series A equity round led by Shasta Ventures with participation from Fusion Fund and the venture arm of a Fortune 500 financial services firm.",
+            "long_description": "Portal26 closed a $9 million Series A equity financing. The round was led by Shasta Ventures, with additional backing from Fusion Fund and the venture arm of an unnamed Fortune 500 financial services institution. The company will deploy the capital to accelerate product development and expand market reach for its enterprise GenAI governance platform. This Series A follows a $6 million seed round completed in 2022, bringing total funding to $15 million. Management noted that the platform already supports hundreds of thousands of users and has secured multi-year, seven-figure customer contracts, underscoring strong traction. Portal26 also continues to cultivate partnerships with security, systems integrator, reseller, and hyperscaler ecosystems to fuel further growth."
+          },
+          "articles": [
+            {
+              "link": "https://www.prnewswire.com/news-releases/portal26-boosts-momentum-with-9mm-series-a-302601733.html",
+              "is_primary": true,
+              "publishedDate": "2025-11-04T14:05:00.000Z"
+            },
+            {
+              "link": "https://www.thesaasnews.com/news/portal26-raises-9-million-series-a",
+              "is_primary": false,
+              "publishedDate": "2025-11-05T08:00:55.000Z"
+            },
+            {
+              "link": "https://www.finsmes.com/2025/11/portal26-raises-9m-in-series-a-funding.html",
+              "is_primary": false,
+              "publishedDate": "2025-11-04T16:33:22.000Z"
+            },
+            {
+              "link": "https://techfundingnews.com/woman-led-ai-startup-portal26-raises-9m-ai-governance/",
+              "is_primary": false,
+              "publishedDate": "2025-11-04T14:05:00.000Z"
+            }
+          ],
+          "company": {
+            "id": "75d306c3-af5f-4b74-857a-4f56a7a72f14",
+            "name": "Portal26",
+            "legal_name": null,
+            "guru_permalink": "portal26",
+            "domain": "portal26.ai",
+            "region": "California",
+            "industries": [
+              {
+                "permalink": "artificial-intelligence",
+                "name": "Artificial Intelligence (AI)"
+              },
+              {
+                "permalink": "cyber-security",
+                "name": "Cyber Security"
+              },
+              {
+                "permalink": "education",
+                "name": "Education"
+              },
+              {
+                "permalink": "information-technology-dbca",
+                "name": "Information Technology"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "California",
+                "permalink": "california-united-states"
+              },
+              "city": {
+                "name": "San Jose",
+                "permalink": "san-jose-california"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [
+                "Jacob Mullins"
+              ],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "5fd32ccd-ccbb-461b-ac55-465f09dc7a9e",
+              "name": "Fusion Fund",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [
+                "Lu Zhang"
+              ],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "cb310d63-9b66-4701-9ede-51351720899e",
+              "type": "SERIES_A",
+              "size_usd": 9,
+              "size": 9,
+              "currency": "usd"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "8d74ff33-9337-4adf-ab9e-366af70eee80",
+          "round_type": "EQUITY",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2025-07-01T12:00:00.000Z",
+          "total_round_raised": 15,
+          "deal_descriptions": {
+            "short_description": "Agentic HR platform Wisq raised a $15M funding round from Norwest Venture Partners, Shasta Ventures, and True Ventures",
+            "long_description": "Wisq announced a $15 million funding round from existing investors Norwest Venture Partners, Shasta Ventures, and True Ventures. The company has previously raised $55M from those same venture firms. The article describes this as a $15M funding round; it does not specify the financing instrument. Proceeds will support continued AI and platform development and expansion of Wisq's engineering and go-to-market teams. The announcement coincides with the launch of HRLM and the Hurdle benchmark to anchor the company's product strategy. Founded in 2022 and headquartered in Redwood City, Calif., Wisq positions the raise as accelerating its mission to lead the era of Agentic HR."
+          },
+          "articles": [
+            {
+              "link": "https://www.prnewswire.com/news-releases/wisq-raises-15m-launches-hrlm-to-define-hrs-agentic-era-302495092.html",
+              "is_primary": true,
+              "publishedDate": "2025-07-01T12:00:00.000Z"
+            },
+            {
+              "link": "https://pulse2.com/wisq-15-million-secured-for-agentic-hr-platform/",
+              "is_primary": false,
+              "publishedDate": "2025-07-02T12:52:33.000Z"
+            }
+          ],
+          "company": {
+            "id": "1bb62ffa-83cb-433e-9e3e-9ef5c02651c1",
+            "name": "Wisq",
+            "legal_name": "Wisq, Inc.",
+            "guru_permalink": "wisq",
+            "domain": "wisq.com",
+            "region": "California",
+            "industries": [
+              {
+                "permalink": "apps",
+                "name": "Apps"
+              },
+              {
+                "permalink": "information-technology-dbca",
+                "name": "Information Technology"
+              },
+              {
+                "permalink": "software",
+                "name": "Software"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "California",
+                "permalink": "california-united-states"
+              },
+              "city": {
+                "name": "Redwood City",
+                "permalink": "redwood-city-california"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "597a1ae7-9403-4628-b065-8d7aeb759178",
+              "name": "True Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            },
+            {
+              "id": "5ef82aa7-d72f-4f99-b11c-dddca89b835a",
+              "name": "Norwest Venture Partners",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "2299829d-6287-471a-821f-d989c9a0c4e2",
+              "type": "EQUITY",
+              "size_usd": 15,
+              "size": 15,
+              "currency": "usd"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "d7961e04-c65b-41b1-92e4-ca9d0e6c75e2",
+          "round_type": "SERIES_B",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2025-06-03T12:57:00.000Z",
+          "total_round_raised": 15,
+          "deal_descriptions": {
+            "short_description": "AI-powered proactive security leader Deep Sentinel raised an oversubscribed $15M Series B equity round led by Egis Capital Partners; Intel Capital, Shasta Ventures, UP2398 and Slow Launch Fund participated.",
+            "long_description": "Deep Sentinel raised an oversubscribed $15 million Series B equity round led by Egis Capital Partners. The round included continued participation from existing backers Intel Capital, Shasta Ventures, UP2398 and Slow Launch Fund. The financing will be used to accelerate national expansion, further develop the company’s proprietary AI models, and scale its Bring Your Own Camera (BYOC) third-party camera integration program. The BYOC program now contributes nearly half of the company’s sales. Deep Sentinel reports it has doubled sales bookings year over year and outpaces traditional industry growth rates. The company combines AI monitoring with live human guards to deliver real-time intervention and is based in Pleasanton, Calif."
+          },
+          "articles": [
+            {
+              "link": "https://www.prnewswire.com/news-releases/deep-sentinel-secures-15-million-in-series-b-funding-to-accelerate-ai-powered-security-growth-302471838.html",
+              "is_primary": true,
+              "publishedDate": "2025-06-03T12:57:00.000Z"
+            },
+            {
+              "link": "https://www.finsmes.com/2025/06/deep-sentinel-raises-15m-in-series-b-funding.html",
+              "is_primary": false,
+              "publishedDate": "2025-06-03T14:55:27.000Z"
+            },
+            {
+              "link": "https://pulse2.com/deep-sentinel-15-million-series-b-raised-for-advancing-ai-based-security-growth/",
+              "is_primary": false,
+              "publishedDate": "2025-06-09T02:54:35.000Z"
+            }
+          ],
+          "company": {
+            "id": "dfeefecb-4845-4dd0-98e3-203d97f6fecc",
+            "name": "Deep Sentinel",
+            "legal_name": "Deep Sentinel Corp.",
+            "guru_permalink": "deep-sentinel",
+            "domain": "deepsentinel.com",
+            "region": "California",
+            "industries": [
+              {
+                "permalink": "home-improvement",
+                "name": "Home Improvement"
+              },
+              {
+                "permalink": "home-services",
+                "name": "Home Services"
+              },
+              {
+                "permalink": "security-4c60",
+                "name": "Security"
+              },
+              {
+                "permalink": "software",
+                "name": "Software"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "California",
+                "permalink": "california-united-states"
+              },
+              "city": {
+                "name": "Pleasanton",
+                "permalink": "pleasanton-california"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "10fd6f71-f356-4c6f-900d-dd6ec89f9341",
+              "name": "Egis Capital",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [
+                "Robert Chefitz"
+              ],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "51b1b2c4-0723-470c-adaa-8ac0dc78ecb4",
+              "name": "UP2398",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "ff283ff5-2a83-4e3b-ac82-5e4e6cd3e390",
+              "name": "Intel Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "df7dde8b-0289-4ce4-a77a-163eb181133c",
+              "name": "Slow Launch Fund",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "1e421e98-fe83-4636-9999-b7bb327da0e0",
+              "type": "SERIES_B",
+              "size_usd": 15,
+              "size": 15,
+              "currency": "usd"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "435527ff-1422-48bc-81f3-e591e0b1659b",
+          "round_type": "SERIES_A",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2025-01-14T09:46:17.000Z",
+          "total_round_raised": 32,
+          "deal_descriptions": {
+            "short_description": "Autonomy for uncrewed ground vehicles startup Overland AI raised a $32M Series A led by 8VC; Point72 Ventures, Overmatch Ventures, Shasta Ventures, Ascend and others",
+            "long_description": "Overland AI raised $32M in a Series A funding round. The round was led by 8VC, with participation from Point72 Ventures, Overmatch Ventures, Shasta Ventures, Ascend, Osage University Partners and Caprock. The company says it will use the funds to accelerate adoption of its ground capabilities for defense and national security. Founded in 2022 and led by CEO Byron Boots, Overland AI is based in Seattle, WA. Its products include an autonomy kit, the OverDrive stack and the OverWatch C2 system, which enable off-road navigation without GPS or direct operator control. The company leverages robotics and machine learning research and field-tests to develop and validate its autonomy solutions."
+          },
+          "articles": [
+            {
+              "link": "https://www.finsmes.com/2025/01/overland-ai-raises-32m-in-series-a-funding.html",
+              "is_primary": true,
+              "publishedDate": "2025-01-14T09:46:17.000Z"
+            },
+            {
+              "link": "https://pulse2.com/overland-ai-32-million-series-a-raised-to-power-ground-ops-for-modern-defenses/",
+              "is_primary": false,
+              "publishedDate": "2025-01-18T14:02:32.000Z"
+            }
+          ],
+          "company": {
+            "id": "ed2a9717-81bf-4f6e-8213-4c6004b1288f",
+            "name": "Overland AI",
+            "legal_name": "Overland AI Inc",
+            "guru_permalink": "overland-ai",
+            "domain": "overland.ai",
+            "region": "Washington",
+            "industries": [
+              {
+                "permalink": "artificial-intelligence",
+                "name": "Artificial Intelligence (AI)"
+              },
+              {
+                "permalink": "autonomous-vehicles",
+                "name": "Autonomous Vehicles"
+              },
+              {
+                "permalink": "machine-learning",
+                "name": "Machine Learning"
+              },
+              {
+                "permalink": "robotics",
+                "name": "Robotics"
+              },
+              {
+                "permalink": "software",
+                "name": "Software"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "Washington",
+                "permalink": "washington-united-states"
+              },
+              "city": {
+                "name": "Seattle",
+                "permalink": "seattle-washington"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "c516704c-8787-4859-86f4-e96916595688",
+              "name": "8VC",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "86cf3008-4ef0-4e24-8691-880c6c23c610",
+              "name": "Point72 Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "f1756161-c22b-4ac5-a0a3-8fbb11dee955",
+              "name": "Osage University Partners",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "b64501bc-00c2-4940-81db-4f29d24c1a7d",
+              "name": "Overmatch Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "f44ce8b4-4940-4d48-9d30-db1b19ce5b95",
+              "name": "Caprock",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "9cf28547-baee-4d07-bcbb-3f39fcaa7d24",
+              "name": "Ascend",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "494e6e4f-b63d-4a80-b8f8-8fe066de7ef4",
+              "type": "SERIES_A",
+              "size_usd": 32,
+              "size": 32,
+              "currency": "usd"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "fb7d798a-f26e-4d96-af3e-73d55aaf0656",
+          "round_type": "SEED",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2024-05-20T00:00:00.000Z",
+          "total_round_raised": 10,
+          "deal_descriptions": {
+            "short_description": "Overland AI, an off-road ground vehicle autonomy startup, raised a $10M seed round led by Point72 Ventures; Shasta Ventures, Ascend VC, Pioneer Square Labs and others.",
+            "long_description": "Overland AI raised $10M in a Seed funding round led by Point72 Ventures with participation from Shasta Ventures, Ascend VC, Pioneer Square Labs, Voyager Capital and Cubit Capital. The company said it will use the proceeds to expand operations and to accelerate development and testing of its OverDrive software. Overland AI is led by CEO Byron Boots and is based in Seattle, WA. Separately, the U.S. Army and Defense Innovation Unit awarded an $18.6M ceiling prototype Other Transaction agreement to adapt OverDrive for contested-terrain autonomous driving. The company was also selected as a performer on Phase II of DARPA’s RACER program to continue advanced capability development and demonstrations."
+          },
+          "articles": [
+            {
+              "link": "https://www.finsmes.com/2024/05/overland-ai-raises-10m-in-seed-funding.html",
+              "is_primary": true,
+              "publishedDate": "2024-05-20T00:00:00.000Z"
+            },
+            {
+              "link": "https://techfundingnews.com/overland-ai-10m-seed-funding-autonomous-vehicle",
+              "is_primary": false,
+              "publishedDate": "2024-05-21T00:00:00.000Z"
+            },
+            {
+              "link": "https://pulse2.com/overland-ai-autonomous-ground-mobility-company-raises-10-million",
+              "is_primary": false,
+              "publishedDate": "2024-05-28T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.vcaonline.com/news/2024052003/overland-ai-secures-10m-in-seed-funding-to-accelerate-development-of-autonomous-vehicle-software-for-high-risk-missions",
+              "is_primary": false,
+              "publishedDate": "2024-05-20T00:00:00.000Z"
+            },
+            {
+              "link": "https://vcnewsdaily.com/overland-ai/venture-capital-funding/syszqwhcvf",
+              "is_primary": false,
+              "publishedDate": "2024-05-20T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.overland.ai/news/overland-ai-secures-10m-in-seed-funding-to-accelerate-development-of-autonomous-vehicle-software-for-high-risk-missions",
+              "is_primary": false,
+              "publishedDate": "2024-05-20T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.globenewswire.com/en/news-release/2024/05/20/2885032/0/en/overland-ai-secures-10m-in-seed-funding-to-accelerate-development-of-autonomous-vehicle-software-for-high-risk-missions.html",
+              "is_primary": false,
+              "publishedDate": "2024-05-20T00:00:00.000Z"
+            }
+          ],
+          "company": {
+            "id": "ed2a9717-81bf-4f6e-8213-4c6004b1288f",
+            "name": "Overland AI",
+            "legal_name": "Overland AI Inc",
+            "guru_permalink": "overland-ai",
+            "domain": "overland.ai",
+            "region": "Washington",
+            "industries": [
+              {
+                "permalink": "artificial-intelligence",
+                "name": "Artificial Intelligence (AI)"
+              },
+              {
+                "permalink": "autonomous-vehicles",
+                "name": "Autonomous Vehicles"
+              },
+              {
+                "permalink": "machine-learning",
+                "name": "Machine Learning"
+              },
+              {
+                "permalink": "robotics",
+                "name": "Robotics"
+              },
+              {
+                "permalink": "software",
+                "name": "Software"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "Washington",
+                "permalink": "washington-united-states"
+              },
+              "city": {
+                "name": "Seattle",
+                "permalink": "seattle-washington"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "86cf3008-4ef0-4e24-8691-880c6c23c610",
+              "name": "Point72 Ventures",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "37381104-491b-4e42-9e2a-c4150c35238d",
+              "name": "PSL Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "9cf28547-baee-4d07-bcbb-3f39fcaa7d24",
+              "name": "Ascend",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "8faca4da-d2b6-485b-a689-8c046b4eba4c",
+              "name": "Voyager Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "ce59c0c6-5948-4f86-b221-215b271e79aa",
+              "name": "Cubit Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "7bad41f1-c439-483d-8d31-179d84bd622c",
+              "type": "SEED",
+              "size_usd": 10,
+              "size": 10,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "78c76fb7-d979-4e9d-ac31-b3883e577c48",
+          "round_type": "SERIES_B",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2024-05-16T00:00:00.000Z",
+          "total_round_raised": 30,
+          "deal_descriptions": {
+            "short_description": "Voxel51, a visual AI platform, raised a $30M Series B led by Bessemer Venture Partners; Tru Arrow Partners, Drive Capital, Top Harvest Capital, Shasta Ventures and others.",
+            "long_description": "Voxel51 raised $30M in a Series B funding round. The round was led by Bessemer Venture Partners, with participation from new investor Tru Arrow Partners and existing investors Drive Capital, Top Harvest Capital, Shasta Ventures and ID Ventures. The company said it will use the proceeds to expand go-to-market operations and accelerate its product roadmap. Voxel51 is based in Ann Arbor, Michigan, and is led by CEO Brian Moore. The company offers the open-source FiftyOne project and the enterprise FiftyOne Teams product, which are used by customers across automotive, robotics, security, retail and healthcare."
+          },
+          "articles": [
+            {
+              "link": "https://www.finsmes.com/2024/05/voxel51-raises-30m-in-series-b-funding.html",
+              "is_primary": true,
+              "publishedDate": "2024-05-16T00:00:00.000Z"
+            },
+            {
+              "link": "https://parsers.vc/news/240517-voxel51-s-visual-ai-platform-receives-a",
+              "is_primary": false,
+              "publishedDate": "2024-05-17T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.donews.com/news/detail/8/4239931.html",
+              "is_primary": false,
+              "publishedDate": "2024-05-20T00:00:00.000Z"
+            },
+            {
+              "link": "https://vcnewsdaily.com/voxel51/venture-capital-funding/yybqhbwptz",
+              "is_primary": false,
+              "publishedDate": "2024-05-16T00:00:00.000Z"
+            },
+            {
+              "link": "https://pulse2.com/voxel51-visual-ai-company-secures-30-million",
+              "is_primary": false,
+              "publishedDate": "2024-05-17T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.vcaonline.com/news/2024051604/voxel51-raises-30m-series-b-funding-to-make-visual-ai-a-reality",
+              "is_primary": false,
+              "publishedDate": "2024-05-16T00:00:00.000Z"
+            },
+            {
+              "link": "https://venturebeat.com/ai/voxel51-secures-30m-to-help-ai-understand-the-real-world-beyond-just-text-and-language",
+              "is_primary": false,
+              "publishedDate": "2024-05-16T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.prnewswire.com/news-releases/voxel51-raises-30m-series-b-funding-to-make-visual-ai-a-reality-302147665.html",
+              "is_primary": false,
+              "publishedDate": "2024-05-16T00:00:00.000Z"
+            },
+            {
+              "link": "https://siliconangle.com/2024/05/16/voxel51-raises-30m-help-companies-refine-visual-ai-models",
+              "is_primary": false,
+              "publishedDate": "2024-05-16T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.thesaasnews.com/news/voxel51-raises-30-million-in-series-b",
+              "is_primary": false,
+              "publishedDate": "2024-05-17T00:00:00.000Z"
+            }
+          ],
+          "company": {
+            "id": "d14f9457-bcd1-4a84-baee-eef22fa2ecb7",
+            "name": "Voxel51",
+            "legal_name": "Voxel51, Inc.",
+            "guru_permalink": "voxel51",
+            "domain": "voxel51.com",
+            "region": "Michigan",
+            "industries": [
+              {
+                "permalink": "analytics",
+                "name": "Analytics"
+              },
+              {
+                "permalink": "artificial-intelligence",
+                "name": "Artificial Intelligence (AI)"
+              },
+              {
+                "permalink": "computer-vision",
+                "name": "Computer Vision"
+              },
+              {
+                "permalink": "machine-learning",
+                "name": "Machine Learning"
+              },
+              {
+                "permalink": "software",
+                "name": "Software"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "Michigan",
+                "permalink": "michigan-united-states"
+              },
+              "city": {
+                "name": "Ann Arbor",
+                "permalink": "ann-arbor-michigan"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "d6cd0608-a642-4765-a130-b7eb5b3e627b",
+              "name": "Bessemer Venture Partners",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "54eacccb-25ca-4093-9747-9e376d5336ff",
+              "name": "Top Harvest Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "70d54772-7b01-4724-9846-29fae6bb191f",
+              "name": "Tru Arrow Partners",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "a8770f43-1b92-4768-8c9a-09a072fded46",
+              "name": "Drive Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "748b665c-7ffd-44ba-b1f5-85962eb1bfcf",
+              "name": "ID Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "0c740971-6a2d-486a-bd13-d1cb31e07f36",
+              "type": "SERIES_B",
+              "size_usd": 30,
+              "size": 30,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "a2e0e7f8-cd77-4c7c-8b5e-ff07c8c5ca5d",
+          "round_type": "EQUITY",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2024-03-21T00:00:00.000Z",
+          "total_round_raised": 1.6,
+          "deal_descriptions": {
+            "short_description": "LeakSignal, a microservices cybersecurity startup, raised a $1.6M seed led by Shasta Ventures; TFX Capital, Blu Ventures and Cyber Mentor Fund participated",
+            "long_description": "LeakSignal raised $1.6 million in an oversubscribed seed funding round led by Shasta Ventures. Participants in the round included TFX Capital, Blu Ventures and Cyber Mentor Fund. The company also counts previous investors Tokyo Black, Vela Partners and other prominent cybersecurity angels. The funding will accelerate product development and expand the company's evangelism efforts to integrate data-in-transit classification across modern architectures. LeakSignal is headquartered in Atlanta and its platform is used by enterprise customers including multinational banks and airlines."
+          },
+          "articles": [
+            {
+              "link": "https://www.businesswire.com/news/home/20240321749484/en/leaksignal-secures-1.6m-in-seed-funding-to-protect-data-in-transit-across-microservices-and-modern-architectures",
+              "is_primary": true,
+              "publishedDate": "2024-03-21T00:00:00.000Z"
+            },
+            {
+              "link": "https://pulse2.com/leaksignal-microservices-cybersecurity-solutions-company-raises-1-6-million",
+              "is_primary": false,
+              "publishedDate": "2024-03-25T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.silicon.co.uk/press-release/leaksignal-secures-1-6m-in-seed-funding-to-protect-data-in-transit-across-microservices-and-modern-architectures",
+              "is_primary": false,
+              "publishedDate": "2024-03-21T00:00:00.000Z"
+            },
+            {
+              "link": "https://venturebeat.com/business/leaksignal-secures-1-6m-in-seed-funding-to-protect-data-in-transit-across-microservices-and-modern-architectures",
+              "is_primary": false,
+              "publishedDate": "2024-03-21T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.vcaonline.com/news/2024032106/leaksignal-secures-1-6m-in-seed-funding-to-protect-data-in-transit-across-microservices-and-modern-architectures",
+              "is_primary": false,
+              "publishedDate": "2024-03-21T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.finsmes.com/2024/03/leaksignal-raises-1-6m-in-seed-funding.html",
+              "is_primary": false,
+              "publishedDate": "2024-03-21T00:00:00.000Z"
+            }
+          ],
+          "company": {
+            "id": "02679350-99cf-4cc7-a894-3906e5d3433d",
+            "name": "LeakSignal",
+            "legal_name": "LeakSignal, Inc.",
+            "guru_permalink": "leaksignal",
+            "domain": "leaksignal.com",
+            "region": "California",
+            "industries": [],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "California",
+                "permalink": "california-united-states"
+              },
+              "city": {
+                "name": "Menlo Park",
+                "permalink": "menlo-park-california"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            },
+            {
+              "id": "1257a8b7-666b-4d02-ac0d-9dd9935ab580",
+              "name": "Blu Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [
+                "Bill Phelps"
+              ],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            },
+            {
+              "id": "49ab6d56-de3a-4a45-9567-45bb87a2b8a6",
+              "name": "TFX Capital",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [
+                "Brandon Shelton"
+              ],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            },
+            {
+              "id": "300a85b4-8d0a-47d5-9554-200a5c1f2428",
+              "name": "Tokyo Black",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            },
+            {
+              "id": "7967adb3-d84c-4aa1-89da-c9623dd981eb",
+              "name": "Vela Partners",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            },
+            {
+              "id": "8a1d7385-71bc-4c6c-9955-e1032a978174",
+              "name": "Cyber Mentor Fund",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "EQUITY",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "99baf08d-170f-4d5d-b034-25eaf4dfeea7",
+              "type": "EQUITY",
+              "size_usd": 1.6,
+              "size": 1.6,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "869d0161-34e4-4641-9d90-5d9850ba9997",
+          "round_type": "SEED",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2024-03-14T00:00:00.000Z",
+          "total_round_raised": 18,
+          "deal_descriptions": {
+            "short_description": "Interlune, a lunar resources company, raised an $18M Seed round led by Seven Seven Six; Aurelia Foundry Fund, Gaingels, Liquid 2 Ventures, Shasta Ventures and University of Michigan alumni participated.",
+            "long_description": "Interlune raised $18M in a Seed funding round led by Seven Seven Six. Participants in the round include Aurelia Foundry Fund, Gaingels, Liquid 2 Ventures, Shasta Ventures and a committed group of University of Michigan alumni. The company is based in Seattle, WA. Proceeds will be used to further develop and operationalize technology to extract Helium-3 and other natural resources from the Moon. Interlune’s core intellectual property includes patent-pending excavation and processing technologies and a smaller, lighter, lower-power lunar harvester. The company was founded by former Blue Origin President Rob Meyerson, Chief Architect Gary Lai, and Apollo 17 astronaut Harrison H. Schmitt and aims to be the first U.S. company to commercialize space resources for commercial and government customers."
+          },
+          "articles": [
+            {
+              "link": "https://www.finsmes.com/2024/03/interlune-raises-18m-in-seed-funding.html",
+              "is_primary": true,
+              "publishedDate": "2024-03-14T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.vcaonline.com/news/2024031308/space-resources-startup-interlune-raises-18-million-in-seed-capital",
+              "is_primary": false,
+              "publishedDate": "2024-03-13T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.argusnews.in/amp/article/spacetech-startup-raises-15-5-mn-to-harvest-natural-resources-from-moon",
+              "is_primary": false,
+              "publishedDate": "2024-02-04T00:00:00.000Z"
+            },
+            {
+              "link": "https://techcrunch.com/2024/02/02/secretive-moon-startup-led-by-ex-blue-origin-leaders-raises-new-tranche-of-funding",
+              "is_primary": false,
+              "publishedDate": "2024-02-02T00:00:00.000Z"
+            },
+            {
+              "link": "https://xperttimes.com/spacetech-startup-raises-15-5-mn-to-reap-pure-sources-from-moon",
+              "is_primary": false,
+              "publishedDate": "2024-02-04T00:00:00.000Z"
+            },
+            {
+              "link": "https://techcrunch.com/2024/02/07/ex-blue-origin-leaders-secretive-lunar-startup-interlune-has-moonshot-mining-plans",
+              "is_primary": false,
+              "publishedDate": "2024-02-07T00:00:00.000Z"
+            },
+            {
+              "link": "https://pulse2.com/interlune-18-million-funding",
+              "is_primary": false,
+              "publishedDate": "2024-03-14T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.interlune.space/press-release/space-resources-startup-interlune-raises-18-million-in-seed-capital",
+              "is_primary": false,
+              "publishedDate": "2024-03-13T00:00:00.000Z"
+            },
+            {
+              "link": "https://vcnewsdaily.com/interlune/venture-capital-funding/rnhzfhztvx",
+              "is_primary": false,
+              "publishedDate": "2024-03-13T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.citybiz.co/article/532025/interlune-raises-18m-seed-funding",
+              "is_primary": false,
+              "publishedDate": "2024-03-14T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.prnewswire.com/news-releases/space-resources-startup-interlune-raises-18-million-in-seed-capital-302087587.html",
+              "is_primary": false,
+              "publishedDate": "2024-03-13T00:00:00.000Z"
+            }
+          ],
+          "company": {
+            "id": "fce4372f-8c60-4c16-beb7-6516c6d9893b",
+            "name": "Interlune",
+            "legal_name": "Interlune Corporation",
+            "guru_permalink": "interlune",
+            "domain": "interlune.space",
+            "region": "Colorado",
+            "industries": [
+              {
+                "permalink": "aerospace-8a20",
+                "name": "Aerospace"
+              },
+              {
+                "permalink": "information-technology-dbca",
+                "name": "Information Technology"
+              },
+              {
+                "permalink": "space-travel-b590",
+                "name": "Space Travel"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "Colorado",
+                "permalink": "colorado-united-states"
+              },
+              "city": {
+                "name": "Estes Park",
+                "permalink": "estes-park-colorado"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "56ad219b-6263-4020-bb4b-56a2edf33633",
+              "name": "Seven Seven Six",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "e4c406d6-e73c-4e1b-a5e2-40856e2f703e",
+              "name": "Gaingels",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "6833b218-96ac-4cde-8f2d-6ee22d3fd95b",
+              "name": "Liquid 2 Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            },
+            {
+              "id": "4ad7f115-4800-4216-bc97-96d4cffff04d",
+              "name": "Aurelia Foundry Fund",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SEED",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "b5655faa-5f04-44d4-8683-3c7284292288",
+              "type": "SEED",
+              "size_usd": 18,
+              "size": 18,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "06e01537-9033-463f-8769-ec5a8b2f9e8c",
+          "round_type": "SERIES_A",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2024-02-27T00:00:00.000Z",
+          "total_round_raised": 13.5,
+          "deal_descriptions": {
+            "short_description": "Modern brand-tracking platform Tracksuit raised a $13.5M Series A led by Altos Ventures and Footwork; Blackbird, Icehouse Ventures, Shasta Ventures and others participated",
+            "long_description": "Tracksuit raised $13.5M in a Series A round led by Altos Ventures and Footwork. The round included participation from Allbirds co-founder Tim Brown, Frank Body co-founder Bree Johnson, investor Lenny Rachitsky, the AirAngels fund, and prior backers Blackbird, Icehouse Ventures, Ascential, and Shasta Ventures. The company says total funding to date is around $18M. Altos Ventures’ Anthony Lee will join Tracksuit’s board, Blackbird’s Samantha Wong remains on the board, and Footwork’s Mike Smith will join as a board observer. The raise follows Tracksuit’s seed round (which included investor/advisor Mark Ritson) and supports planned US and UK expansion, research and platform development, and efforts to democratize brand research data."
+          },
+          "articles": [
+            {
+              "link": "https://www.vcaonline.com/news/2024022705/tracksuit-secures-13-5m-to-bring-the-future-of-brand-tracking-to-growing-consumer-brands",
+              "is_primary": true,
+              "publishedDate": "2024-02-27T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.finsmes.com/2024/02/tracksuit-raises-13-5m-in-funding.html",
+              "is_primary": false,
+              "publishedDate": "2024-02-28T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.prweb.com/releases/tracksuit-secures-13-5m-to-bring-the-future-of-brand-tracking-to-growing-consumer-brands-302072327.html",
+              "is_primary": false,
+              "publishedDate": "2024-02-27T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.gotracksuit.com/us/blog/posts/raise-announcement-series-a",
+              "is_primary": false,
+              "publishedDate": "2024-02-28T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.nzherald.co.nz/business/mad-men-auckland-brand-awareness-startup-tracksuit-raises-22m/jnjmqymvgjf7hohky4eafpvnfm",
+              "is_primary": false,
+              "publishedDate": "2024-02-28T00:00:00.000Z"
+            },
+            {
+              "link": "https://vcnewsdaily.com/tracksuit/venture-capital-funding/sbzpylkcjr",
+              "is_primary": false,
+              "publishedDate": "2024-02-27T00:00:00.000Z"
+            }
+          ],
+          "company": {
+            "id": "e8690333-c0e0-4ef0-9af4-8042fcb9d869",
+            "name": "Tracksuit",
+            "legal_name": "Tracksuit Limited",
+            "guru_permalink": "tracksuit",
+            "domain": "gotracksuit.com",
+            "region": "Auckland",
+            "industries": [
+              {
+                "permalink": "brand-marketing",
+                "name": "Brand Marketing"
+              },
+              {
+                "permalink": "market-research",
+                "name": "Market Research"
+              },
+              {
+                "permalink": "saas-5c4e",
+                "name": "SaaS"
+              },
+              {
+                "permalink": "software",
+                "name": "Software"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "Oceania",
+                "permalink": "oceania"
+              },
+              "country": {
+                "name": "New Zealand",
+                "permalink": "new-zealand"
+              },
+              "state": {
+                "name": "Auckland",
+                "permalink": "auckland-new-zealand-cecd"
+              },
+              "city": {
+                "name": "Auckland",
+                "permalink": "auckland-auckland"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "cc0688a1-4a18-4b7b-8b6b-a78c793d064b",
+              "name": "Altos Ventures",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [
+                "Anthony Lee"
+              ],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "e648ff51-5a3c-4af1-b0cb-d9f254038a70",
+              "name": "Footwork",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [
+                "Mike Smith"
+              ],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "a3910fd3-8b48-4d6f-a773-24624e464bef",
+              "name": "Icehouse Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "6e418ba5-760e-440b-8c2f-a109f5ba2a7e",
+              "name": "Blackbird Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [
+                "Samantha Wong"
+              ],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            },
+            {
+              "id": "a4334668-593c-4291-8028-ddbe004cb95d",
+              "name": "Ascential",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_A",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "4dd70ec8-3a93-4ecc-853f-a88838039e83",
+              "type": "SERIES_A",
+              "size_usd": 13.5,
+              "size": 13.5,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        },
+        {
+          "id": "140b4db0-6cf9-4d10-a97e-63155157c50d",
+          "round_type": "SERIES_B",
+          "extension": false,
+          "intermediate": "NONE",
+          "pre": false,
+          "date": "2024-01-09T00:00:00.000Z",
+          "total_round_raised": 25,
+          "deal_descriptions": {
+            "short_description": "Anecdotes, a GRC automation platform, raised a $25M Series B led by Glilot Capital Partners; Vertex, DTCP, Red Dot Capital, Vintage Investment Partners and Shasta Ventures participated.",
+            "long_description": "Anecdotes announced a $25M Series B led by Glilot Capital Partners with participation from Vertex, DTCP, Red Dot Capital Partners, Vintage Investment Partners and Shasta Ventures. The tranche was described by the company as oversubscribed and brings Anecdotes’ total funding to $55M. The round is a Series B equity financing. Proceeds will be used to expand into new markets and to double the company’s 60-person team over the next 12–24 months. Co-founders Yair Kuznitsov and Roi Amior started the company after encountering GRC challenges while at IntSights. The company cites roughly 100 customers and reports selling millions of dollars with 3x year-over-year growth and healthy SaaS gross margins."
+          },
+          "articles": [
+            {
+              "link": "https://techcrunch.com/2024/01/09/anecdotes-lands-25m-to-expand-its-governance-risk-management-and-compliance-business",
+              "is_primary": true,
+              "publishedDate": "2024-01-09T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.thesaasnews.com/news/anecdotes-closes-25-million-in-series-b",
+              "is_primary": false,
+              "publishedDate": "2024-01-10T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.calcalistech.com/ctechnews/article/rjfb35c006",
+              "is_primary": false,
+              "publishedDate": "2024-01-09T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.finsmes.com/2024/01/anecdotes-raises-25m-in-series-b-funding.html",
+              "is_primary": false,
+              "publishedDate": "2024-01-09T00:00:00.000Z"
+            },
+            {
+              "link": "https://pulse2.com/anecdotes-enterprise-grc-company-secures-25-million",
+              "is_primary": false,
+              "publishedDate": "2024-01-11T00:00:00.000Z"
+            },
+            {
+              "link": "https://vcnewsdaily.com/anecdotes/venture-capital-funding/lmcqxxwrxs",
+              "is_primary": false,
+              "publishedDate": "2024-01-09T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.prnewswire.com/news-releases/anecdotes-secures-25-million-in-series-b-funding-to-revolutionize-the-enterprise-grc-stack-302028617.html",
+              "is_primary": false,
+              "publishedDate": "2024-01-09T00:00:00.000Z"
+            },
+            {
+              "link": "https://www.vcaonline.com/news/2024010906/anecdotes-secures-25-million-in-series-b-funding-to-revolutionize-the-enterprise-grc-stack",
+              "is_primary": false,
+              "publishedDate": "2024-01-09T00:00:00.000Z"
+            }
+          ],
+          "company": {
+            "id": "f6599eb2-9d79-4ae9-961d-4e7ea2638cac",
+            "name": "anecdotes",
+            "legal_name": "Anecdotes A.I Ltd.",
+            "guru_permalink": "anecdotes",
+            "domain": "anecdotes.ai",
+            "region": "California",
+            "industries": [
+              {
+                "permalink": "compliance-da6d",
+                "name": "Compliance"
+              },
+              {
+                "permalink": "cyber-security",
+                "name": "Cyber Security"
+              },
+              {
+                "permalink": "data-governance",
+                "name": "Data Governance"
+              },
+              {
+                "permalink": "risk-management",
+                "name": "Risk Management"
+              },
+              {
+                "permalink": "saas-5c4e",
+                "name": "SaaS"
+              }
+            ],
+            "location": {
+              "region": {
+                "name": "North America",
+                "permalink": "north-america"
+              },
+              "country": {
+                "name": "United States",
+                "permalink": "united-states"
+              },
+              "state": {
+                "name": "California",
+                "permalink": "california-united-states"
+              },
+              "city": {
+                "name": "Palo Alto",
+                "permalink": "palo-alto-california"
+              }
+            }
+          },
+          "deal_investors": [
+            {
+              "id": "35d25270-a64a-45e1-9a98-644a688382a7",
+              "name": "Glilot Capital Partners",
+              "lead_investor": true,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "3c3febfa-eee6-45f0-84b7-8ad9afac312b",
+              "name": "DTCP",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "3bc30018-373e-479d-955d-c755f67c46ba",
+              "name": "Vintage Investment Partners",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "42970d46-c204-439a-9ede-a1b012a268a6",
+              "name": "Shasta Ventures",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "1df6dc5d-b297-46c5-b528-0b243f9d53b5",
+              "name": "Red Dot Capital Partners",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            },
+            {
+              "id": "21b04dc8-99c5-49f0-87d9-088ed3c2a2c8",
+              "name": "Vertex",
+              "lead_investor": false,
+              "angel_investor": false,
+              "personnel": [],
+              "financing_type": "SERIES_B",
+              "is_debt_investor": false
+            }
+          ],
+          "financings": [
+            {
+              "id": "78d2e323-ae9e-4559-9531-83c9ed5a32d8",
+              "type": "SERIES_B",
+              "size_usd": 25,
+              "size": 25,
+              "currency": "USD"
+            }
+          ],
+          "valuations": []
+        }
+      ],
+      "totalCount": 327
+    },
+    "meta": {
+      "limit": 10,
+      "offset": 0,
+      "remaining_requests": null
+    }
+  }

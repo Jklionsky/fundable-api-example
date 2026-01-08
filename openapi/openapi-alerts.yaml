@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Fundable Alerts API
+  title: Deal Alerts
   description: |
-    API for accessing saved alert data with timeline periods and associated deals.
+    API for accessing saved alert data with simplified deal structures.
     
     ## Authentication
     All API requests require authentication using an API key in the Authorization header.
@@ -43,10 +43,12 @@ info:
       - All date grouping is done in UTC timezone
     
     ## Response Structure
-    The API returns alert data organized by time periods (daily, weekly, or monthly based on alert frequency):
-    - Each period contains deals that matched the alert criteria during that time
-    - Deal counts represent the actual number of deals stored in the database
-    - Periods with no deals are automatically filtered out
+    The API returns alert data with flattened deal arrays:
+    - Each alert contains a deals array with all matching deals from the date range
+    - Deals are sorted by date descending (newest first)
+    - Duplicate deals are automatically removed
+    - Each deal includes simplified company information and AI-generated reasoning
+    - Deal counts represent the total number of unique deals for each alert
     
     ## Use Cases
     - Retrieve historical alert data for analysis
@@ -57,7 +59,7 @@ info:
   version: 1.0.0
   contact:
     name: Fundable API Support
-    url: tj@tryfundable.ai
+    url: jacob@tryfundable.ai
   license:
     name: Proprietary
     url: https://www.tryfundable.ai/terms/privacy/
@@ -74,26 +76,24 @@ security:
 paths:
   /alerts:
     get:
-      summary: Get alert data with timeline periods
+      summary: Get alert data with deals
       description: |
         Retrieve saved alert data including all deals that matched the alert criteria within the specified date range.
-        Results are organized by time periods (daily, weekly, or monthly) based on each alert's configured frequency.
-        
+        Results include a flattened array of deals sorted by date (newest first) with duplicates removed.
+
         **Multiple Alerts Support:**
         - Query multiple alerts in a single request (up to 10)
-        - Each alert is processed independently with its own timeline
+        - Each alert returns its own flattened deals array
         - Different alerts can have different frequencies (e.g., one daily, one weekly)
         - Total deal count across all alerts determines rate limit usage
-        
+
         **Important Notes:**
         - All alertIds must belong to alerts you have access to
-        - Deal counts reflect the actual number in the database, not the number returned
-        - Periods are automatically grouped based on each alert's frequency setting
-        - Empty periods (with no deals) are excluded from the response
-        - Timezone affects how dates are grouped into periods
+        - Deals are flattened from all time periods and sorted by date DESC (newest first)
+        - Duplicate deals are automatically removed
+        - Each deal includes AI-generated reasoning for why it matched the alert criteria
+        - Deal structure is simplified with flattened company information for easier integration
       operationId: getAlerts
-      tags:
-        - alerts
       parameters:
         - name: alertIds
           in: query
@@ -182,44 +182,59 @@ paths:
                       alerts:
                         - alertId: "550e8400-e29b-41d4-a716-446655440000"
                           alertName: "Weekly AI Funding Deals"
-                          alertFrequency: "weekly"
+                          alertFrequency: "WEEKLY"
                           totalDealCount: 25
-                          timelinePeriods:
-                            - periodLabel: "01/01/2024 - 01/07/2024"
-                              startDate: "2024-01-01"
-                              endDate: "2024-01-07"
-                              dealCount: 15
-                              deals:
-                                - id: "deal1"
-                                  round_type: "SERIES_A"
-                                  total_round_raised: 25
-                                  date: "2024-01-03T00:00:00Z"
-                                  company:
-                                    name: "Acme AI Corp"
-                                    industries:
-                                      - permalink: "artificial-intelligence"
-                                        name: "Artificial Intelligence"
-                            - periodLabel: "01/08/2024 - 01/14/2024"
-                              startDate: "2024-01-08"
-                              endDate: "2024-01-14"
-                              dealCount: 10
-                              deals: []
+                          deals:
+                            - id: "deal1"
+                              company_id: "comp1"
+                              company_name: "Acme AI Corp"
+                              round_type: "SERIES_A"
+                              total_round_raised: 25
+                              date: "2024-01-15T00:00:00.000Z"
+                              company_website: "acme.com"
+                              company_linkedin: "https://linkedin.com/company/acme"
+                              region: "North America"
+                              deal_short_description: "Series A funding round"
+                              deal_long_description: "Acme AI Corp raised $25M in Series A funding"
+                              reasoning: "Matches AI startups criteria with focus on artificial intelligence"
+                              articles:
+                                - link: "https://techcrunch.com/article1"
+                                  is_primary: true
+                                  publishedDate: "2024-01-15T00:00:00.000Z"
+                            - id: "deal3"
+                              company_id: "comp3"
+                              company_name: "ML Solutions Inc"
+                              round_type: "SERIES_B"
+                              total_round_raised: 40
+                              date: "2024-01-10T00:00:00.000Z"
+                              company_website: "mlsolutions.com"
+                              company_linkedin: null
+                              region: "Europe"
+                              deal_short_description: "Series B funding"
+                              deal_long_description: "ML Solutions raised $40M in Series B"
+                              reasoning: "Machine learning focus aligns with your alert criteria"
+                              articles: []
                         - alertId: "660e8400-e29b-41d4-a716-446655440001"
                           alertName: "Monthly Healthcare Seed Deals"
-                          alertFrequency: "monthly"
+                          alertFrequency: "MONTHLY"
                           totalDealCount: 22
-                          timelinePeriods:
-                            - periodLabel: "01/2024"
-                              startDate: "2024-01-01"
-                              endDate: "2024-01-31"
-                              dealCount: 22
-                              deals:
-                                - id: "deal2"
-                                  round_type: "SEED"
-                                  total_round_raised: 5
-                                  date: "2024-01-10T00:00:00Z"
-                                  company:
-                                    name: "HealthTech Startup"
+                          deals:
+                            - id: "deal2"
+                              company_id: "comp2"
+                              company_name: "HealthTech Startup"
+                              round_type: "SEED"
+                              total_round_raised: 5
+                              date: "2024-01-10T00:00:00.000Z"
+                              company_website: "healthtech.io"
+                              company_linkedin: "https://linkedin.com/company/healthtech"
+                              region: "North America"
+                              deal_short_description: "Seed funding round"
+                              deal_long_description: "HealthTech Startup raised $5M in seed funding"
+                              reasoning: "Healthcare focus matches your seed round criteria"
+                              articles:
+                                - link: "https://healthcarevc.com/article"
+                                  is_primary: true
+                                  publishedDate: "2024-01-10T00:00:00.000Z"
                       totalDealCount: 47
                     meta:
                       limit: 2
@@ -243,9 +258,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/ValidationError'
-                  - $ref: '#/components/schemas/MissingParametersError'
+                $ref: '#/components/schemas/BadRequestError'
               examples:
                 missingParameters:
                   summary: Missing required parameters
@@ -425,8 +438,6 @@ paths:
         - Retrieve alert filter settings for external integrations
         - Audit alert configurations programmatically
       operationId: getAlertConfigurations
-      tags:
-        - alerts
       parameters: []
             
       responses:
@@ -683,191 +694,166 @@ components:
           example: "WEEKLY"
         totalDealCount:
           type: integer
-          description: Total number of deals for this alert across all periods
+          description: Total number of deals for this alert
           example: 25
-        timelinePeriods:
+        deals:
           type: array
-          description: Array of time periods with associated deals for this alert
+          description: Array of deals that matched the alert criteria (flattened from all time periods, sorted by date DESC)
           items:
-            $ref: '#/components/schemas/TimelinePeriod'
+            $ref: '#/components/schemas/SimplifiedDeal'
       required:
         - alertId
         - alertName
         - alertFrequency
         - totalDealCount
-        - timelinePeriods
-
-    TimelinePeriod:
-      type: object
-      properties:
-        periodLabel:
-          type: string
-          description: |
-            Human-readable label for the time period in MM/DD/YYYY format.
-            Format varies by alert frequency:
-            - **Daily:** "01/15/2024"
-            - **Weekly:** "01/01/2024 - 01/07/2024"
-            - **Monthly:** "01/2024"
-            
-            **Note:** For programmatic date parsing, use the `startDate` and `endDate` fields instead.
-          example: "01/01/2024 - 01/07/2024"
-        startDate:
-          type: string
-          format: date
-          description: Machine-readable start date of the period (YYYY-MM-DD format in specified timezone)
-          example: "2024-01-01"
-        endDate:
-          type: string
-          format: date
-          description: Machine-readable end date of the period (YYYY-MM-DD format in specified timezone)
-          example: "2024-01-07"
-        dealCount:
-          type: integer
-          description: Number of deals in this period (from database, not filtered by search results)
-          example: 15
-        deals:
-          type: array
-          description: Array of deals that matched the alert criteria during this period
-          items:
-            $ref: '#/components/schemas/Deal'
-      required:
-        - periodLabel
-        - startDate
-        - endDate
-        - dealCount
         - deals
 
-    Deal:
+    SimplifiedDeal:
+      type: object
       description: |
-        Venture capital deal information. This schema references the Deal model from the /deals endpoint.
-        See openapi-deals.yaml for the complete schema definition.
-        
-        **Note:** Deal objects in alert responses use the same structure as the /deals endpoint for consistency.
-      allOf:
-        - type: object
-          properties:
-            id:
-              type: string
-              format: uuid
-              description: Unique identifier for the deal
-              example: "550e8400-e29b-41d4-a716-446655440000"
-            round_type:
-              type: string
-              nullable: true
-              description: Type of funding round
-              example: "SERIES_A"
-            date:
-              type: string
-              format: date-time
-              nullable: true
-              description: Date of the funding round
-              example: "2024-01-15T00:00:00Z"
-            total_round_raised:
-              type: number
-              nullable: true
-              description: Total amount raised in the round (USD $M)
-              example: 25
-            company:
-              type: object
-              properties:
-                id:
-                  type: string
-                name:
-                  type: string
-                  nullable: true
-                domain:
-                  type: string
-                  nullable: true
-                industries:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      permalink:
-                        type: string
-                      name:
-                        type: string
-            deal_investors:
-              type: array
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    format: uuid
-                  name:
-                    type: string
-                  lead_investor:
-                    type: boolean
-                    nullable: true
-            articles:
-              type: array
-              items:
-                type: object
-                properties:
-                  link:
-                    type: string
-                    format: uri
-                  is_primary:
-                    type: boolean
+        Simplified deal structure optimized for API consumption.
+        Flattens company information and removes nested structures for easier integration.
+        Deals are sorted by date descending (newest first) and duplicates are removed.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the deal
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        company_id:
+          type: string
+          description: Unique identifier for the company
+          example: "abc123"
+        company_name:
+          type: string
+          nullable: true
+          description: Company name
+          example: "Acme AI Corp"
+        round_type:
+          type: string
+          nullable: true
+          description: Type of funding round
+          example: "SERIES_A"
+        date:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date of the funding round (ISO 8601 format)
+          example: "2024-01-15T00:00:00.000Z"
+        total_round_raised:
+          type: number
+          nullable: true
+          description: Total amount raised in the round (USD $M)
+          example: 25
+        company_website:
+          type: string
+          nullable: true
+          description: Company website domain
+          example: "acme.com"
+        company_linkedin:
+          type: string
+          nullable: true
+          description: Company LinkedIn URL
+          example: "https://linkedin.com/company/acme"
+        region:
+          type: string
+          nullable: true
+          description: Geographic region name
+          example: "North America"
+        deal_short_description:
+          type: string
+          nullable: true
+          description: Brief description of the deal
+          example: "Series A funding round"
+        deal_long_description:
+          type: string
+          nullable: true
+          description: Detailed description of the deal
+          example: "Company raised $25M in Series A funding led by Acme Ventures"
+        reasoning:
+          type: string
+          nullable: true
+          description: AI-generated reasoning for why this deal matched the alert criteria
+          example: "This deal matches your AI startups criteria with focus on machine learning"
+        articles:
+          type: array
+          description: News articles related to this deal
+          items:
+            type: object
+            properties:
+              link:
+                type: string
+                description: URL to the article
+                example: "https://techcrunch.com/article"
+              is_primary:
+                type: boolean
+                description: Whether this is the primary article for the deal
+                example: true
+              publishedDate:
+                type: string
+                format: date-time
+                nullable: true
+                description: Article publication date (ISO 8601 format)
+                example: "2024-01-15T00:00:00.000Z"
+      required:
+        - id
+        - company_id
+        - company_name
+        - round_type
+        - date
+        - total_round_raised
+        - company_website
+        - company_linkedin
+        - region
+        - deal_short_description
+        - deal_long_description
+        - reasoning
+        - articles
       example:
         id: "550e8400-e29b-41d4-a716-446655440000"
+        company_id: "abc123"
+        company_name: "Acme AI Corp"
         round_type: "SERIES_A"
-        extension: false
-        intermediate: "NONE"
-        pre: false
-        date: "2024-01-15T00:00:00Z"
+        date: "2024-01-15T00:00:00.000Z"
         total_round_raised: 25
-        deal_descriptions:
-          short_description: "Series A funding round"
-          long_description: "Company raised $25M in Series A funding"
+        company_website: "acme.com"
+        company_linkedin: "https://linkedin.com/company/acme"
+        region: "North America"
+        deal_short_description: "Series A funding round"
+        deal_long_description: "Company raised $25M in Series A funding led by Acme Ventures"
+        reasoning: "This deal matches your AI startups criteria with focus on machine learning and enterprise software"
         articles:
           - link: "https://techcrunch.com/article"
             is_primary: true
-            date: "2024-01-15T00:00:00Z"
-        company:
-          id: "abc123"
-          name: "Acme Corp"
-          legal_name: "Acme Corporation Inc."
-          guru_permalink: "acme-corp"
-          domain: "acme.com"
-          region: "San Francisco Bay Area"
-          industries:
-            - permalink: "artificial-intelligence"
-              name: "Artificial Intelligence"
-          location:
-            city:
-              name: "San Francisco"
-              permalink: "san-francisco"
-            state:
-              name: "California"
-              permalink: "california"
-            country:
-              name: "United States"
-              permalink: "united-states"
-            region:
-              name: "North America"
-              permalink: "north-america"
-        deal_investors:
-          - id: "inv123"
-            name: "Acme Ventures"
-            lead_investor: true
-            angel_investor: false
-            personnel: ["John Doe"]
-            financing_type: "EQUITY"
-            is_debt_investor: false
-        financings:
-          - id: "fin123"
-            type: "SERIES_A"
-            size_usd: 25
-            size: 25
-            currency: "USD"
-        valuations:
-          - valuation_currency: "USD"
-            valuation: 100
-            valuation_usd: 100
-            valuation_usd_millions: 100
-            type: "POST_MONEY"
+            publishedDate: "2024-01-15T00:00:00.000Z"
+
+    BadRequestError:
+      type: object
+      description: Bad request error for invalid or missing parameters
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              enum: ['MISSING_PARAMETERS', 'INVALID_ALERT_ID', 'INVALID_DATE_FORMAT', 'DATE_RANGE_TOO_LARGE', 'FUTURE_DATE']
+              example: 'MISSING_PARAMETERS'
+            message:
+              type: string
+              example: "Missing required parameters"
+            details:
+              type: object
+              description: Error details with helpful information
+        statusCode:
+          type: integer
+          example: 400
+      required:
+        - success
+        - error
+        - statusCode
 
     AuthError:
       type: object
@@ -1025,4 +1011,4 @@ components:
 
 tags:
   - name: alerts
-    description: Saved alert configurations and timeline data
+    description: Saved alert configurations and deal data
