@@ -112,7 +112,7 @@ def get_alerts_simple(alert_id: str):
         raise ValueError("Set FUNDABLE_API_KEY environment variable")
 
     # API base URL (can be overridden for local development)
-    base_url = os.getenv("FUNDABLE_API_URL", "https://www.tryfundable.ai/api/v1")
+    base_url =  "https://www.tryfundable.ai/api/v1"
 
     # -------------------------------------------------------------------------
     # STEP 2: Calculate date range (last 7 days)
@@ -532,6 +532,7 @@ def main():
 
     print(f"\nUsing alert ID: {first_alert_id} for examples\n")
     print(f"  Name: {first_alert_name}")
+    breakpoint()
 
     # Uncomment the examples you want to run:
 

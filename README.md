@@ -127,6 +127,43 @@ chart.plot_top_investors(
 )
 ```
 
+### Working with Alerts
+
+The Fundable API allows you to fetch deals from your configured alerts. First, list your alert configurations to find your alert IDs:
+
+```python
+from fundable import FundableClient
+from datetime import datetime, timedelta
+
+client = FundableClient()
+
+# List all your alert configurations
+configs = client.get_alert_configurations()
+for config in configs:
+    print(f"{config['configuration_name']}: {config['configuration_id']}")
+
+# Fetch deals from a specific alert
+today = datetime.now()
+week_ago = today - timedelta(days=7)
+
+result = client.get_alerts(
+    alert_ids=['your-alert-id'],
+    start_date=week_ago.strftime("%Y-%m-%dT00:00:00.000Z"),
+    end_date=today.strftime("%Y-%m-%dT23:59:59.999Z")
+)
+
+# Access alert deals
+for alert in result['alerts']:
+    print(f"{alert['alertName']}: {alert['totalDealCount']} deals")
+    for deal in alert['deals']:
+        print(f"  - {deal['company_name']}")
+```
+
+For complete examples including enriching alerts with company and investor data, see:
+```bash
+python3 examples/alerts/get_alerts.py
+```
+
 See README files in `examples/` directories for more detailed examples.
 
 ## API Documentation
