@@ -161,7 +161,7 @@ for alert in result['alerts']:
 
 For complete examples including enriching alerts with company and investor data, see:
 ```bash
-python3 examples/alerts/get_alerts.py
+python3 examples/get_alerts/get_alerts.py
 ```
 
 See README files in `examples/` directories for more detailed examples.
