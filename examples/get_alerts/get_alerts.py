@@ -44,7 +44,8 @@ def extract_alert_deal_summary(deal: Dict[str, Any]) -> Dict[str, Any]:
         'date': deal.get('date'),
         'website': deal.get('company_website'),
         'linkedin': deal.get('company_linkedin'),
-        'region': deal.get('region'),
+        'company_guru_permalink': deal.get('company_guru_permalink'),
+        'location': deal.get('location'),  # Contains city, state, country, region
         'reasoning': deal.get('reasoning'),  # AI-generated reasoning for why this matched
         'short_description': deal.get('deal_short_description'),
         'long_description': deal.get('deal_long_description'),
@@ -539,9 +540,9 @@ def main():
     get_alerts_simple(first_alert_id)
 
     # Example 2: Multiple alerts by name (requires 2+ alert IDs)
-    # if len(configs) >= 2:
-    #     alert_ids = [c['configuration_id'] for c in configs[:2]]
-    #     example_2_multiple_alerts_by_name(alert_ids)
+    if len(configs) >= 2:
+        alert_ids = [c['configuration_id'] for c in configs[:2]]
+        example_2_multiple_alerts_by_name(alert_ids)
 
     # Example 3: Enrich with company info
     # example_3_alerts_with_company_info(first_alert_id, max_companies=3)
