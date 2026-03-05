@@ -42,6 +42,17 @@ This repository contains a Python client for interacting with the Fundable API, 
    python3 examples/top_investors/top_investors.py
    ```
 
+   **Get Companies:**
+   ```bash
+   python3 examples/get_companies/get_companies.py
+   python3 examples/get_companies/get_recent_raises.py
+   ```
+
+   **Get Investors:**
+   ```bash
+   python3 examples/get_investors/get_investors.py
+   ```
+
    See README files in each example directory for detailed documentation.
 
 ## Project Structure
@@ -53,7 +64,8 @@ This repository contains a Python client for interacting with the Fundable API, 
 - `examples/` - Example scripts demonstrating API usage
   - `get_recent_deals/` - Basic deal fetching examples
   - `top_investors/` - Advanced investor analysis
-  - `company_viz/` - Company visualization examples
+  - `get_companies/` - Company lookup and filtering examples
+  - `get_investors/` - Investor lookup and filtering examples
   - `alerts/` - Alert fetching examples
 - `openapi/` - OpenAPI specifications for all API endpoints
 - `pyproject.toml` - Package configuration
@@ -102,28 +114,56 @@ analyzer.print_results(results)
 analyzer.save_results(results, 'output/top_investors.json')
 ```
 
-### Visualize Results
+### Get Companies
 
 ```python
-from fundable import FundableClient, InvestorAnalyzer
-from fundable.visualization import InvestorBarChart
+from fundable import FundableClient
 
 client = FundableClient()
-analyzer = InvestorAnalyzer(client)
 
-results = analyzer.analyze_top_investors(
-    top_n=15,
-    months_back=2,
-    financing_types=['SEED']
+# Search companies with filters
+companies = client.get_companies(
+    financing_types=['SEED', 'SERIES_A'],
+    locations=['san-francisco-california'],
+    deal_start_date='2024-01-01',
+    deal_end_date='2024-12-31',
+    page_size=10
 )
 
-# Create chart with logos
-chart = InvestorBarChart()
-chart.plot_top_investors(
-    results,
-    title="Top Seed Investors",
-    show_logos=True,
-    output_path="output/chart.png"
+for company in companies:
+    print(f"{company['name']} ({company.get('domain', 'N/A')})")
+
+# Batch lookup by domain
+companies = client.get_companies(
+    domains=['openai.com', 'anthropic.com'],
+    page_size=100
+)
+```
+
+### Get Investors
+
+```python
+from fundable import FundableClient
+
+client = FundableClient()
+
+# Find investors by portfolio filters
+investors = client.get_investors(
+    financing_types=['SEED'],
+    locations=['san-francisco-california'],
+    deal_start_date='2024-01-01',
+    deal_end_date='2024-12-31',
+    page_size=10,
+    sort_by='Matching Deals'
+)
+
+for inv in investors:
+    print(f"{inv['name']} — {inv.get('total_deal_count', 0)} deals")
+
+# Batch lookup by investor domain
+investors = client.get_investors(
+    investor_domains=['sequoiacap.com', 'a16z.com'],
+    page_size=100
 )
 ```
 
