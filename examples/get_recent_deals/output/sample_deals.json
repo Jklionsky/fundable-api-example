@@ -1,157 +1,522 @@
 [
   {
-    "id": "b0fe2c4a-09a3-4bbb-8fec-d28fcc62c951",
-    "round_type": "SERIES_F",
+    "id": "ddd9766f-8700-4db1-964b-249779db0574",
+    "round_type": "SERIES_A",
     "extension": false,
     "intermediate": "NONE",
     "pre": false,
-    "date": "2026-01-07T15:48:36.000Z",
-    "total_round_raised": 100,
+    "date": "2026-02-23T21:17:20.000Z",
+    "total_round_raised": 101.28,
     "deal_descriptions": {
-      "short_description": "Rakuten Medical, a photoimmunotherapy biotech, raised a $100M Series F round\u2014comprised of $70M new capital and $30M convertible note conversion\u2014led by TaiAx Life Science Fund L.P.",
-      "long_description": "Rakuten Medical closed a $100 million Series F financing round. The structure includes $70 million in fresh capital and the conversion of $30 million in outstanding convertible promissory notes plus accrued interest into equity. TaiAx Life Science Fund L.P. led the round; no additional investors were named in the article. Proceeds will fund the company\u2019s foremost objective of obtaining U.S. regulatory approval for its lead photoimmunotherapy drug candidate, ASP-1929. Headquartered in San Diego, the biotech develops cancer-targeting therapies using its Alluminox platform. Outside Japan, these therapies remain investigational, underscoring the importance of the regulatory push financed by this round. The article did not reference previous funding rounds or additional financial backers."
+      "short_description": "Semiconductor equipment maker Yanwei Semiconductor raised a nearly \u00a5700 million Series A round from Hillhouse Capital, Shixi Capital, CICC Capital and a consortium of new and returning investors.",
+      "long_description": "Yanwei Semiconductor closed a Series A financing of almost RMB 700 million. New investors included Shixi Capital, Goldstone Investment, Hillhouse Capital, Anxin Capital, Fengyuan Capital, Xincheng Capital, CICC Capital, TEDA Kechuang Investment, Jinyuan Capital, Hefei Industrial Investment, Dianshi Capital and Yongxin Ark. Existing shareholders Hushan Capital, Xianghe Capital, Yida Capital, Xinke Capital and Primavera Capital also participated, increasing their stakes. The capital mix was entirely equity according to the disclosure. Proceeds will support core product upgrades, capacity build-out and R&D expansion to accelerate domestic replacement of high-end thin-film deposition tools. The company, located in Jiangsu, did not reveal earlier round sizes but noted several prior backers in this raise. No additional financial metrics or valuation figures were provided beyond the \u201cnear RMB 700 million\u201d headline amount."
     },
     "articles": [
       {
-        "link": "https://www.finsmes.com/2026/01/rakuten-medical-raises-100m-in-series-f-funding.html",
+        "link": "https://m.sohu.com/a/989186703_100032554",
         "is_primary": true,
-        "publishedDate": "2026-01-07T15:48:36.000Z"
+        "publishedDate": "2026-02-23T21:17:20+00:00"
       },
       {
-        "link": "https://pulse2.com/rakuten-medical-100-million-series-f/",
+        "link": "https://www.xhby.net/content/s69282f7ee4b0050b31b5acd3.html",
         "is_primary": false,
-        "publishedDate": "2026-01-07T13:07:36.000Z"
+        "publishedDate": "2025-11-27T12:17:05+00:00"
       },
       {
-        "link": "https://www.prnewswire.com/news-releases/rakuten-medical-raises-100-million-in-oversubscribed-series-f-to-accelerate-development-toward-us-regulatory-approval-302655158.html",
+        "link": "https://k.sina.com.cn/article_7879922977_1d5ae152106801b3di.html",
         "is_primary": false,
-        "publishedDate": "2026-01-07T12:33:00.000Z"
+        "publishedDate": "2026-02-15T21:43:43+00:00"
+      },
+      {
+        "link": "https://news.pedaily.cn/202511/557805.shtml",
+        "is_primary": false,
+        "publishedDate": "2025-11-25T21:17:33+00:00"
+      },
+      {
+        "link": "https://www.trendforce.com/news/2025/12/05/news-chinese-semiconductor-equipment-maker-psr-completed-series-a-funding/",
+        "is_primary": false,
+        "publishedDate": "2025-12-05T21:21:43+00:00"
       }
     ],
     "company": {
-      "id": "ad22ca16-d908-4005-b41a-baaffb83d08f",
-      "name": "Rakuten Medical",
-      "legal_name": "Rakuten Medical, Inc.",
-      "guru_permalink": "rakuten-medical",
-      "domain": "rakuten-med.com",
-      "region": "California",
+      "id": "864b81da-eb76-490b-9f27-53b2056ed0a6",
+      "name": "\u7814\u5fae\u534a\u5bfc\u4f53 - Yanwei (Jiangsu) Semiconductor Technology Co., Ltd",
+      "legal_name": "Yanwei (Jiangsu) Semiconductor Technology Co., Ltd.",
+      "guru_permalink": "yan-wei-ban-dao-ti",
+      "domain": "psrsemi.com",
+      "region": "Jiangsu",
       "industries": [
         {
-          "permalink": "biotechnology",
-          "name": "Biotechnology"
+          "permalink": "industrial-engineering",
+          "name": "Industrial Engineering"
         },
         {
-          "permalink": "health-care",
-          "name": "Health Care"
+          "permalink": "manufacturing",
+          "name": "Manufacturing"
         },
         {
-          "permalink": "medical",
-          "name": "Medical"
-        },
-        {
-          "permalink": "service-industry",
-          "name": "Service Industry"
-        },
-        {
-          "permalink": "therapeutics",
-          "name": "Therapeutics"
+          "permalink": "semiconductor",
+          "name": "Semiconductor"
         }
       ],
       "location": {
         "region": {
-          "name": "North America",
-          "permalink": "north-america"
+          "name": "Asia",
+          "permalink": "asia"
         },
         "country": {
-          "name": "United States",
-          "permalink": "united-states"
+          "name": "China",
+          "permalink": "china-500a"
         },
         "state": {
-          "name": "California",
-          "permalink": "california-united-states"
+          "name": "Jiangsu",
+          "permalink": "jiangsu-china"
         },
         "city": {
-          "name": "San Diego",
-          "permalink": "san-diego-california"
+          "name": "Wuxi Shi",
+          "permalink": "wuxi-shi-jiangsu"
         }
       }
     },
     "deal_investors": [
       {
-        "id": "2571b098-36ac-46d5-b8ab-eb0960490a8b",
-        "name": "TaiAx Life Science Fund",
-        "lead_investor": true,
+        "id": "15adfb85-aa40-469a-9978-ae81bd5db384",
+        "name": "\u6c38\u946b\u65b9\u821f",
+        "lead_investor": false,
         "angel_investor": false,
         "personnel": [],
-        "financing_type": "SERIES_F",
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "09ca198d-6ca3-4743-b372-e839ea1d8e22",
+        "name": "\u6cf0\u8fbe\u79d1\u6295",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "20358a5e-3a8a-413f-bf69-38ab5c790065",
+        "name": "\u82af\u8fb0\u8d44\u672c",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "0f85b991-38dd-4256-a426-00123e005c5f",
+        "name": "\u51af\u6e90\u8d44\u672c",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "b58b98aa-db76-4073-b9be-0f9aecb384bd",
+        "name": "Dianshi Capital",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "128023d9-b634-4e27-99a9-b64d2fa02d02",
+        "name": "\u5408\u80a5\u4ea7\u6295",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "59740dfe-6a1f-44f2-bdee-13051baeeb85",
+        "name": "Goldstone Investment",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "c2847b95-7ab1-4995-9b0e-a63d51759e4f",
+        "name": "\u91d1\u5706\u8d44\u672c\u7ba1\u7406",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "d9009997-e7f7-4e29-8420-11332c43479c",
+        "name": "Hillhouse Capital Group",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "7789f48d-b22c-451f-ab9c-40dbb616896f",
+        "name": "Primavera Capital Group",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "a28b2ccc-140d-48cb-8742-9f499040c846",
+        "name": "\u6b23\u67ef\u521b\u6295",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "4d758967-00b0-4a73-8861-fbf1cf7b3eda",
+        "name": "\u6bc5\u8fbe\u8d44\u672c",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "add637a1-f066-4181-80da-614ebf8c5806",
+        "name": "Xianghe Capital",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "8de5d76e-0421-42da-9844-8a879fdd3cd7",
+        "name": "\u6e56\u6749\u8d44\u672c",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "affdca7b-3375-4b19-bffa-6db8dd251d6f",
+        "name": "\u4e2d\u8bc1\u6295\u8d44",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "e954abd9-a07e-4aeb-b796-397c4b3c8f19",
+        "name": "\u77f3\u6eaa\u8d44\u672c",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
+        "is_debt_investor": false
+      },
+      {
+        "id": "07d86428-b0f3-40cd-8863-bf0250c2dc24",
+        "name": "\u5b89\u82af\u8d44\u672c",
+        "lead_investor": false,
+        "angel_investor": false,
+        "personnel": [],
+        "financing_type": "SERIES_A",
         "is_debt_investor": false
       }
     ],
     "financings": [
       {
-        "id": "eaa78f6d-288b-4f89-91b6-7948c3c4c5ef",
-        "type": "SERIES_F",
-        "size_usd": 100,
-        "size": 100,
-        "currency": "usd"
+        "id": "0ac57fec-6019-4061-a5d3-415ea9a89acc",
+        "type": "SERIES_A",
+        "size_usd": 101.28,
+        "size": 700,
+        "currency": "rmb"
       }
     ],
     "valuations": []
   },
   {
-    "id": "72a243b8-e5a3-47c0-a729-420c1c03aa15",
-    "round_type": "SERIES_C",
+    "id": "5c953528-8cae-40a0-9558-64ffd6ec77b9",
+    "round_type": "SERIES_B",
     "extension": false,
     "intermediate": "NONE",
     "pre": false,
-    "date": "2026-01-07T13:05:00.000Z",
-    "total_round_raised": 100,
+    "date": "2026-02-23T21:17:20.000Z",
+    "total_round_raised": 144.69,
     "deal_descriptions": {
-      "short_description": "E-commerce logistics platform Swap raised a $100M Series C co-led by Iconiq and DST Global.",
-      "long_description": "Swap closed a $100 million Series C financing that was co-led by existing investor Iconiq and DST Global. The raise comes roughly nine months after the company\u2019s $40 million Series B, which was led by Iconiq, bringing total capital raised to $149 million. Proceeds from the Series C will be directed toward strengthening the platform\u2019s payment capabilities, investing in digital payments, and supporting geographic expansion across Europe and North America. Founded in 2022 and headquartered in London\u2014with additional offices in the US, Israel, and the Netherlands\u2014Swap aims to become the default operating system for global e-commerce brands. The company has also integrated AI features for cross-border tax filing and return processing to enhance its value proposition."
+      "short_description": "\u667a\u5e73\u65b9 raised over RMB 1 billion in Series B equity financing from undisclosed investors, boosting its valuation above RMB 10 billion.",
+      "long_description": "\u667a\u5e73\u65b9 completed a Series B equity financing exceeding RMB 1 billion. The transaction\u2019s investor roster was not revealed in the article, and no breakdown of tranche sizes was provided. With this round, the company\u2019s valuation officially surpassed RMB 10 billion. The coverage did not mention any prior funding history, debt components, or strategic investors. Key deal terms such as board seats or use of proceeds were likewise undisclosed. Overall, the story highlights the magnitude of the Series B raise and the sharp increase in corporate valuation, but provides no further financial or operational details."
     },
     "articles": [
       {
-        "link": "https://tech.eu/2026/01/07/e-commerce-operating-startup-swap-raises-100m/",
+        "link": "https://www.donews.com/news/detail/4/6435335.html",
         "is_primary": true,
-        "publishedDate": "2026-01-07T13:05:00.000Z"
+        "publishedDate": "2026-02-23T21:17:20+00:00"
       },
       {
-        "link": "https://techfundingnews.com/swap-100m-series-c-funding-ai-commerce-platform/",
+        "link": "https://www.caixinglobal.com/2026-02-23/chinas-ai-robotics-raises-fresh-funds-at-over-10-billion-yuan-valuation-102416310.html",
         "is_primary": false,
-        "publishedDate": "2026-01-07T14:00:00.000Z"
+        "publishedDate": "2026-02-23T11:17:20+00:00"
       },
       {
-        "link": "https://pulse2.com/swap-100-million-series-c/",
+        "link": "https://www.stcn.com/article/detail/3646400.html",
         "is_primary": false,
-        "publishedDate": "2026-01-07T14:00:31.000Z"
+        "publishedDate": "2026-02-23T21:17:20+00:00"
       },
       {
-        "link": "https://techcrunch.com/2026/01/07/shopify-competitor-swap-raises-100m-six-months-after-raising-40m/",
+        "link": "https://m.dtm.com.cn/news/202602/197266.html",
         "is_primary": false,
-        "publishedDate": "2026-01-07T19:10:33.000Z"
+        "publishedDate": "2026-02-23T21:17:21+00:00"
       },
       {
-        "link": "https://www.finsmes.com/2026/01/swap-raises-100m-in-series-c-funding.html",
+        "link": "https://news.pedaily.cn/202602/561111.shtml",
         "is_primary": false,
-        "publishedDate": "2026-01-07T14:59:22.000Z"
+        "publishedDate": "2026-02-23T21:17:20+00:00"
+      },
+      {
+        "link": "https://beta.huxiu.com/ainews/9007.html",
+        "is_primary": false,
+        "publishedDate": "2026-02-13T21:40:35+00:00"
+      },
+      {
+        "link": "https://www.ithome.com/0/922/937.htm",
+        "is_primary": false,
+        "publishedDate": "2026-02-23T21:17:21+00:00"
+      },
+      {
+        "link": "https://news.futunn.com/flash/19971345/zhi-ping-fang-completes-series-b-funding-round-exceeding-1",
+        "is_primary": false,
+        "publishedDate": "2026-02-23T21:17:21+00:00"
+      },
+      {
+        "link": "https://article.9466.com/news/5lgAPOKE",
+        "is_primary": false,
+        "publishedDate": "2026-02-23T21:17:21+00:00"
+      },
+      {
+        "link": "https://www.cls.cn/detail/2292966",
+        "is_primary": false,
+        "publishedDate": "2026-02-23T21:17:20+00:00"
+      },
+      {
+        "link": "https://tech.china.com/articles/20260223/202602231814197.html",
+        "is_primary": false,
+        "publishedDate": "2026-02-23T21:17:20+00:00"
+      },
+      {
+        "link": "https://www.nfnews.com/content/LownkR5D6J.html",
+        "is_primary": false,
+        "publishedDate": "2026-02-23T21:17:21+00:00"
+      },
+      {
+        "link": "https://m.sohu.com/a/989311848_465270",
+        "is_primary": false,
+        "publishedDate": "2026-02-23T21:17:20+00:00"
       }
     ],
     "company": {
-      "id": "d1d27f96-e8da-45a8-9632-e1d4694ecae4",
-      "name": "Swap",
-      "legal_name": "Swap Commerce Ltd.",
-      "guru_permalink": "swap-3",
-      "domain": "swap-commerce.com",
-      "region": "England",
+      "id": "bfcd3387-77fd-44cd-a1ae-6da366323f3b",
+      "name": "\u667a\u5e73\u65b9",
+      "legal_name": "Shenzhen Zhipingfang Technology Co., Ltd.",
+      "guru_permalink": "zhi-ping-fang",
+      "domain": "ai2robotics.com",
+      "region": "Beijing",
       "industries": [
         {
-          "permalink": "e-commerce-275d",
-          "name": "E-Commerce"
+          "permalink": "manufacturing",
+          "name": "Manufacturing"
         },
         {
-          "permalink": "finance",
-          "name": "Finance"
+          "permalink": "robotics",
+          "name": "Robotics"
+        },
+        {
+          "permalink": "rpa-c4f8",
+          "name": "Robotic Process Automation (RPA)"
+        }
+      ],
+      "location": {
+        "region": {
+          "name": "Asia",
+          "permalink": "asia"
+        },
+        "country": {
+          "name": "China",
+          "permalink": "china-500a"
+        },
+        "state": {
+          "name": "Beijing",
+          "permalink": "beijing-china"
+        },
+        "city": {
+          "name": "Beijing",
+          "permalink": "beijing-beijing"
+        }
+      }
+    },
+    "deal_investors": [],
+    "financings": [
+      {
+        "id": "4da6f211-657e-43c3-b5ea-5c4d55125ed8",
+        "type": "SERIES_B",
+        "size_usd": 144.69,
+        "size": 1000,
+        "currency": "rmb"
+      }
+    ],
+    "valuations": [
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      },
+      {
+        "valuation_currency": "CNY",
+        "valuation": 100,
+        "valuation_usd": 14.47,
+        "valuation_usd_millions": 1447,
+        "type": "DEFAULT"
+      }
+    ]
+  },
+  {
+    "id": "084731fa-0aa3-4ca0-8a74-2084dad9da45",
+    "round_type": "DEBT_FINANCING",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": false,
+    "date": "2026-02-23T21:17:20.000Z",
+    "total_round_raised": 134.55,
+    "deal_descriptions": {
+      "short_description": "Brazilian fintech 99Pay raised R$ 700 million (\u2248 US$135 million) through a FIDC vehicle coordinated and co-invested by Bradesco BBI, with 99 also participating.",
+      "long_description": "99 completed a R$ 700 million (\u2248 US$135 million) fundraising via a Fundo de Investimento em Direitos Credit\u00f3rios (FIDC), its third such structure since it began lending in November 2022. The FIDC was exclusively coordinated by Bradesco BBI, which also invested alongside the company itself. Proceeds will be used to expand 99Pay\u2019s credit offering to its user base. Cumulatively, 99Pay has originated around R$ 6 billion in loans and holds an active portfolio of roughly R$ 1.8 billion. No additional external investors or equity components were disclosed in the article. The transaction reinforces 99\u2019s strategy of using structured credit vehicles to finance loan growth within Brazil\u2019s regulated fintech sector."
+    },
+    "articles": [
+      {
+        "link": "https://www.latamfintech.co/articles/fintech-99pay-capta-us-135-millones-via-fidc-para-fortalecer-su-operacion-de-credito-en-brasil",
+        "is_primary": true,
+        "publishedDate": "2026-02-23T21:17:20+00:00"
+      }
+    ],
+    "company": {
+      "id": "8f36e16f-b5ec-4c1d-8c18-c84ce1b75c0e",
+      "name": "99",
+      "legal_name": "99 T\u00e1xis Desenvolvimento de Software Limitada",
+      "guru_permalink": "99taxis",
+      "domain": "99app.com",
+      "region": "Sao Paulo",
+      "industries": [
+        {
+          "permalink": "android-3f49",
+          "name": "Android"
+        },
+        {
+          "permalink": "car-sharing",
+          "name": "Car Sharing"
+        },
+        {
+          "permalink": "internet",
+          "name": "Internet"
+        },
+        {
+          "permalink": "ios-6e02",
+          "name": "iOS"
+        },
+        {
+          "permalink": "mobile",
+          "name": "Mobile"
+        },
+        {
+          "permalink": "saas-5c4e",
+          "name": "SaaS"
         },
         {
           "permalink": "software",
@@ -160,273 +525,52 @@
       ],
       "location": {
         "region": {
-          "name": "Europe",
-          "permalink": "europe"
+          "name": "South America",
+          "permalink": "south-america"
         },
         "country": {
-          "name": "United Kingdom",
-          "permalink": "united-kingdom"
+          "name": "Brazil",
+          "permalink": "brazil"
         },
         "state": {
-          "name": "England",
-          "permalink": "england-united-kingdom"
+          "name": "Sao Paulo",
+          "permalink": "sao-paulo-brazil"
         },
         "city": {
-          "name": "London",
-          "permalink": "london-england"
+          "name": "S\u00e3o Paulo",
+          "permalink": "s\u00e3o-paulo-sao-paulo"
         }
       }
     },
     "deal_investors": [
       {
-        "id": "38d6f17e-5f2c-4dc0-9df1-e8f4bd3ad4eb",
-        "name": "ICONIQ Growth",
+        "id": "c640b4a6-be51-4127-aaf4-293e74c871a0",
+        "name": "Bradesco BBI",
         "lead_investor": true,
         "angel_investor": false,
         "personnel": [],
-        "financing_type": "SERIES_C",
-        "is_debt_investor": false
+        "financing_type": "DEBT_FINANCING",
+        "is_debt_investor": true
       },
       {
-        "id": "abf596ef-f1d9-4915-a017-0a99a793d03f",
-        "name": "DST Global",
-        "lead_investor": true,
+        "id": "2a2c97be-a7fe-4e0a-90e5-2ded8fe455a5",
+        "name": "99",
+        "lead_investor": false,
         "angel_investor": false,
         "personnel": [],
-        "financing_type": "SERIES_C",
-        "is_debt_investor": false
+        "financing_type": "DEBT_FINANCING",
+        "is_debt_investor": true
       }
     ],
     "financings": [
       {
-        "id": "7b32061e-58af-48c6-8e33-f1a58906d788",
-        "type": "SERIES_C",
-        "size_usd": 100,
-        "size": 100,
-        "currency": "usd"
+        "id": "df11ebe7-f2f8-4f1c-b031-b4360cd0f629",
+        "type": "DEBT_FINANCING",
+        "size_usd": 134.55,
+        "size": 700,
+        "currency": "brl"
       }
     ],
     "valuations": []
-  },
-  {
-    "id": "b6904489-baa8-414a-b300-6ce6f8b9d820",
-    "round_type": "SERIES_A",
-    "extension": false,
-    "intermediate": "NONE",
-    "pre": false,
-    "date": "2026-01-06T19:35:55.000Z",
-    "total_round_raised": 150,
-    "deal_descriptions": {
-      "short_description": "Crowdsourced AI benchmarking startup LMArena raised a $150 million Series A led by Felicis and UC Investments with participation from Andreessen Horowitz, The House Fund, LDVP, Kleiner Perkins, Lightspeed Venture Partners and Laude Ventures.",
-      "long_description": "LMArena closed a $150 million Series A financing at a $1.7 billion post-money valuation. The round was co-led by Felicis and UC Investments, with additional capital from Andreessen Horowitz, The House Fund, LDVP, Kleiner Perkins, Lightspeed Venture Partners and Laude Ventures. This Series A follows the company\u2019s $100 million seed round in May that valued the business at $600 million, bringing total funding to $250 million in roughly seven months. All capital raised to date is equity. Founded in 2023 as a UC Berkeley research project, LMArena drew investor interest through rapid user growth and an ARR that reached $30 million within four months of launching its paid AI Evaluations service. The company plans to use the new funds to scale its crowdsourced benchmarking platform and deepen commercial evaluation offerings for enterprises and model makers."
-    },
-    "articles": [
-      {
-        "link": "https://techcrunch.com/2026/01/06/lmarena-lands-1-7b-valuation-four-months-after-launching-its-product/",
-        "is_primary": true,
-        "publishedDate": "2026-01-06T19:35:55.000Z"
-      },
-      {
-        "link": "https://techfundingnews.com/unicorn-alert-lmarena-raises-150m-at-1-7b-valuation-to-make-users-the-judge-of-ai-performance/",
-        "is_primary": false,
-        "publishedDate": "2026-01-07T07:23:46.000Z"
-      },
-      {
-        "link": "https://pulse2.com/lmarena-150-million-at-1-7-billion-valuation-raised-to-expand-real-world-ai-evaluation/",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T20:59:58.000Z"
-      },
-      {
-        "link": "https://mezha.net/eng/bukvy/lmarena-raises-150m-series-a-at-1-7b-valuation-for-ai-model-evaluation/",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T20:23:42.000Z"
-      },
-      {
-        "link": "https://www.boursorama.com/bourse/actualites/la-startup-d-ia-lmarena-triple-sa-valorisation-pour-atteindre-1-7-milliard-de-dollars-lors-de-sa-derniere-levee-de-fonds-1d9246afabad1f214e614cae418901b7",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T21:16:43.000Z"
-      },
-      {
-        "link": "https://www.theinformation.com/",
-        "is_primary": false,
-        "publishedDate": "2025-12-26T22:52:14.000Z"
-      },
-      {
-        "link": "https://x.com/testingcatalog/status/2008573673637326883",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T21:16:42.000Z"
-      },
-      {
-        "link": "https://x.com/felicis/status/2008571901929738504",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T21:16:43.000Z"
-      },
-      {
-        "link": "https://mezha.net/eng/bukvy/lmarena-raises-150m-series-a-at-1-7b-valuation-for-ai-model-evaluation/amp/",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T21:16:43.000Z"
-      },
-      {
-        "link": "https://www.thesaasnews.com/news/lmarena-raises-150-million-series-a",
-        "is_primary": false,
-        "publishedDate": "2026-01-07T08:00:53.000Z"
-      },
-      {
-        "link": "https://www.reddit.com/r/aicuriosity/comments/1q5nrve/lmarena_raises_150_million_dollars_series_a/",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T21:16:42.000Z"
-      },
-      {
-        "link": "https://www.zonebourse.com/actualite-bourse/la-start-up-d-ia-lmarena-triple-sa-valorisation-a-1-7-milliard-de-dollars-lors-de-sa-derniere-levee-ce7e59dfdc8ff122",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T21:16:43.000Z"
-      },
-      {
-        "link": "https://www.prnewswire.com/news-releases/lmarena-raises-150-million-to-build-the-worlds-most-trusted-ai-evaluation-platform-302653012.html",
-        "is_primary": false,
-        "publishedDate": "2026-01-06T16:00:00.000Z"
-      },
-      {
-        "link": "https://www.finsmes.com/2026/01/lmarena-raises-150m-in-series-a-funding.html",
-        "is_primary": false,
-        "publishedDate": "2026-01-07T08:40:35.000Z"
-      }
-    ],
-    "company": {
-      "id": "916d14b7-0d27-49f7-bb8a-f94d9c269f5a",
-      "name": "LM Arena",
-      "legal_name": "LMSYS Corp.",
-      "guru_permalink": "lm-arena",
-      "domain": "lmarena.ai",
-      "region": "California",
-      "industries": [
-        {
-          "permalink": "artificial-intelligence",
-          "name": "Artificial Intelligence (AI)"
-        },
-        {
-          "permalink": "communities",
-          "name": "Communities"
-        },
-        {
-          "permalink": "machine-learning",
-          "name": "Machine Learning"
-        },
-        {
-          "permalink": "product-research",
-          "name": "Product Research"
-        }
-      ],
-      "location": {
-        "region": {
-          "name": "North America",
-          "permalink": "north-america"
-        },
-        "country": {
-          "name": "United States",
-          "permalink": "united-states"
-        },
-        "state": {
-          "name": "California",
-          "permalink": "california-united-states"
-        },
-        "city": {
-          "name": "San Francisco",
-          "permalink": "san-francisco-california"
-        }
-      }
-    },
-    "deal_investors": [
-      {
-        "id": "df7c73e4-bb26-445f-bd7e-878e021415ad",
-        "name": "UC Investments",
-        "lead_investor": true,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "df44f8c6-709c-4839-840e-969f3dc026a4",
-        "name": "Felicis Ventures",
-        "lead_investor": true,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "b8926b35-ef63-43b6-8299-0f508c7f3a59",
-        "name": "Lightspeed Venture Partners",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "2f0fc927-4bf1-429e-a033-844db6ff1e6a",
-        "name": "LDV Partners",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "03eee093-7a0a-46a5-b3f0-4248fff1a332",
-        "name": "Luder Ventures",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "9b399dda-63ff-4665-a6a6-f7fc2e49f25e",
-        "name": "Kleiner Perkins",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "0e1395dc-4b34-454c-b286-7ea488689723",
-        "name": "The House Fund",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "e9236a00-e0d8-4ab6-9068-45a723f63fd2",
-        "name": "Andreessen Horowitz",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      }
-    ],
-    "financings": [
-      {
-        "id": "0fa6b25b-2e84-4821-b4e4-c8fce0ffba25",
-        "type": "SERIES_A",
-        "size_usd": 150,
-        "size": 150,
-        "currency": "usd"
-      }
-    ],
-    "valuations": [
-      {
-        "valuation_currency": "USD",
-        "valuation": 1.7,
-        "valuation_usd": 1.7,
-        "valuation_usd_millions": 1700,
-        "type": "DEFAULT"
-      }
-    ]
   }
 ]

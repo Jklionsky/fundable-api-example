@@ -13,7 +13,7 @@ info:
     ## Parameter Validation
     This API enforces strict parameter validation:
     - **Unknown Parameters**: Any parameter not in the allowed list will result in a `422 UNKNOWN_PARAMETER` error
-    - **Whitelisted Parameters Only**: Only these parameters are allowed: page, pageSize, sortBy, dealSizeMin, dealSizeMax, dealStartDate, dealEndDate, financingTypes, industries, locations, employeeCount, superCategories, ipoStatus, investorIds, companyIds, companyFoundedStart, companyFoundedEnd
+    - **Whitelisted Parameters Only**: Only these parameters are allowed: page, pageSize, sortBy, dealSizeMin, dealSizeMax, dealStartDate, dealEndDate, financingTypes, industries, locations, employeeCount, superCategories, ipoStatus, investorIds, companyIds, companyFoundedStart, companyFoundedEnd, domains, linkedins
     - **Enum Values**: Parameters like `financingTypes`, `sortBy`, `employeeCount`, and `ipoStatus` only accept exact enum values
     - **Data Types**: Numeric parameters must be valid numbers, dates must be valid ISO 8601 format
     - **Array Parameters**: Cannot be empty strings; use comma-separated values or omit entirely
@@ -44,7 +44,7 @@ info:
   version: 1.0.0
   contact:
     name: Fundable API Support
-    url: tj@tryfundable.ai
+    url: jacob@tryfundable.ai
   license:
     name: Proprietary
     url: https://www.tryfundable.ai/terms/privacy/
@@ -61,7 +61,7 @@ security:
 paths:
   /deals:
     get:
-      summary: Get funding deals
+      summary: Search and filter funding rounds by company, investor, and round details
       description: Retrieve venture capital deals with optional filtering, pagination, and sorting
       operationId: getDeals
       parameters:
@@ -136,6 +136,27 @@ paths:
               type: string
               format: uuid
             example: ["97ae048e-77bc-471b-821a-f9decb373689", "9058e182-75e5-4f11-ae9f-06291de8aaff"]
+        - name: domains
+          in: query
+          description: |
+            Filter deals by company domains (comma-separated, max 100).
+            Can be combined with other filters. If both `domains` and `linkedins` are provided,
+            deals from companies matching either will be included.
+          required: false
+          schema:
+            type: string
+            example: "stripe.com,airbnb.com,notion.so"
+        - name: linkedins
+          in: query
+          description: |
+            Filter deals by LinkedIn company slugs (comma-separated, max 100).
+            Use just the slug, not the full URL (e.g., "stripe" not "https://linkedin.com/company/stripe").
+            Can be combined with other filters. If both `domains` and `linkedins` are provided,
+            deals from companies matching either will be included.
+          required: false
+          schema:
+            type: string
+            example: "stripe,airbnb,notion-so"
         - name: industries
           in: query
           description: Filter by industry permalinks (comma-separated). Please refer to "Industry Filters Overview" for industry / supercategory permalinks.
@@ -527,14 +548,15 @@ components:
               is_primary:
                 type: boolean
                 description: |
-                  Whether this article is from the primary deal record (true). Non-primary articles are from the same deal, but from a different source. 
+                  Whether this article is from the primary deal record (true). Non-primary articles are from the same deal, but from a different source.
                   Non-primary articles might have information that is not present / different from the primary article.
                 example: true
-              date:
+              publishedDate:
                 type: string
+                format: date-time
                 nullable: true
-                description: Deal date (inherited from the parent deal record)
-                example: "2024-01-15T00:00:00Z"
+                description: Date when the article was published
+                example: "2024-01-14T18:30:00Z"
             required:
               - link
               - is_primary

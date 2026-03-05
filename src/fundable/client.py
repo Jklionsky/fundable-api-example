@@ -29,29 +29,46 @@ class FundableClient:
             "Content-Type": "application/json"
         }
 
-    def get_investor(self, identifier: str) -> Optional[Dict[str, Any]]:
+    def get_investor(self, identifier: str, identifier_type: str = None) -> Optional[Dict[str, Any]]:
         """
-        Get detailed investor information by ID or permalink.
-        
+        Get detailed investor information by ID, permalink, domain, or LinkedIn.
+
         Args:
-            identifier: Investor UUID or permalink
-            
+            identifier: Investor UUID, permalink, domain, or LinkedIn URL
+            identifier_type: One of 'id', 'permalink', 'domain', 'linkedin', 'url'.
+                If None, auto-detects: UUID format -> 'id', otherwise -> 'url'.
+
         Returns:
             Investor details dict or None if not found
         """
+        if identifier_type is None:
+            # Auto-detect: UUIDs have dashes in a specific pattern
+            import re
+            if re.match(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', identifier, re.I):
+                identifier_type = 'id'
+            else:
+                identifier_type = 'url'
+
+        valid_types = ['id', 'permalink', 'domain', 'linkedin', 'url']
+        if identifier_type not in valid_types:
+            raise ValueError(f"identifier_type must be one of: {valid_types}")
+
+        params = {identifier_type: identifier}
+
         try:
             response = requests.get(
-                f"{self.base_url}/investor/{identifier}",
+                f"{self.base_url}/investor",
                 headers=self.headers,
+                params=params,
                 timeout=30
             )
             response.raise_for_status()
             data = response.json()
-            
+
             if data.get("success"):
                 return data["data"]["investor"]
             return None
-            
+
         except requests.exceptions.RequestException as e:
             print(f"Error fetching investor {identifier}: {e}")
             return None
@@ -166,6 +183,267 @@ class FundableClient:
 
         except requests.exceptions.RequestException as e:
             print(f"Error fetching deals: {e}")
+            return []
+
+    def get_companies(self,
+                      # Pagination
+                      page: int = None,
+                      page_size: int = None,
+                      # Sorting
+                      sort_by: str = None,
+                      # Semantic search
+                      search_query: str = None,
+                      # Date filters
+                      deal_start_date: str = None,
+                      deal_end_date: str = None,
+                      company_founded_start: str = None,
+                      company_founded_end: str = None,
+                      # Company filters
+                      company_ids: List[str] = None,
+                      industries: List[str] = None,
+                      super_categories: List[str] = None,
+                      locations: List[str] = None,
+                      employee_count: List[str] = None,
+                      ipo_status: List[str] = None,
+                      total_raised_min: float = None,
+                      total_raised_max: float = None,
+                      # Deal filters
+                      financing_types: List[str] = None,
+                      deal_size_min: float = None,
+                      deal_size_max: float = None,
+                      # Investor filters
+                      investor_ids: List[str] = None,
+                      # Batch lookup filters
+                      domains: List[str] = None,
+                      linkedins: List[str] = None,
+                      # Relevance threshold
+                      min_relevance: float = None,
+                      **kwargs) -> List[Dict[str, Any]]:
+        """
+        Get companies with any combination of filters.
+
+        All parameters are optional. Date strings should be in YYYY-MM-DD format.
+        List parameters accept lists of strings that will be comma-separated.
+        """
+        # Set date defaults if not provided (skip for batch lookups by domain/linkedin)
+        has_batch_filter = domains or linkedins
+        if not has_batch_filter:
+            if not deal_end_date:
+                deal_end_date = datetime.utcnow().strftime("%Y-%m-%d")
+            if not deal_start_date:
+                deal_start_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%d")
+
+        # Build API parameters
+        params = {}
+
+        # Add pagination
+        if page is not None:
+            params['page'] = page
+        if page_size is not None:
+            params['pageSize'] = page_size
+        else:
+            params['pageSize'] = 100
+
+        # Add sorting
+        if sort_by:
+            params['sortBy'] = sort_by
+        elif not has_batch_filter:
+            params['sortBy'] = 'Most Recent Raise'
+
+        # Add semantic search
+        if search_query:
+            params['searchQuery'] = search_query
+
+        # Add date filters
+        if deal_start_date:
+            params['dealStartDate'] = f"{deal_start_date}T00:00:00Z"
+        if deal_end_date:
+            params['dealEndDate'] = f"{deal_end_date}T23:59:59Z"
+        if company_founded_start:
+            params['companyFoundedStart'] = f"{company_founded_start}T00:00:00Z"
+        if company_founded_end:
+            params['companyFoundedEnd'] = f"{company_founded_end}T23:59:59Z"
+
+        # Add list filters (convert lists to comma-separated strings)
+        if company_ids:
+            params['companyIds'] = ','.join(company_ids)
+        if industries:
+            params['industries'] = ','.join(industries)
+        if super_categories:
+            params['superCategories'] = ','.join(super_categories)
+        if locations:
+            params['locations'] = ','.join(locations)
+        if employee_count:
+            params['employeeCount'] = ','.join(employee_count)
+        if ipo_status:
+            params['ipoStatus'] = ','.join(ipo_status)
+        if financing_types:
+            params['financingTypes'] = ','.join(financing_types)
+        if investor_ids:
+            params['investorIds'] = ','.join(investor_ids)
+        if domains:
+            params['domains'] = ','.join(domains)
+        if linkedins:
+            params['linkedins'] = ','.join(linkedins)
+
+        # Add numeric filters
+        if deal_size_min is not None:
+            params['dealSizeMin'] = deal_size_min
+        if deal_size_max is not None:
+            params['dealSizeMax'] = deal_size_max
+        if total_raised_min is not None:
+            params['totalRaisedMin'] = total_raised_min
+        if total_raised_max is not None:
+            params['totalRaisedMax'] = total_raised_max
+        if min_relevance is not None:
+            params['minRelevance'] = min_relevance
+
+        # Make single API request
+        try:
+            response = requests.get(f"{self.base_url}/companies", headers=self.headers, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+
+            if data.get("success"):
+                return data["data"]["companies"]
+            else:
+                return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching companies: {e}")
+            return []
+
+    def get_investors(self,
+                      # Pagination
+                      page: int = None,
+                      page_size: int = None,
+                      # Sorting
+                      sort_by: str = None,
+                      # Investor filters
+                      investor_locations: List[str] = None,
+                      investor_employee_count: List[str] = None,
+                      investor_domains: List[str] = None,
+                      investor_linkedins: List[str] = None,
+                      investor_ids: List[str] = None,
+                      # Portfolio filters - company attributes
+                      industries: List[str] = None,
+                      super_categories: List[str] = None,
+                      locations: List[str] = None,
+                      employee_count: List[str] = None,
+                      ipo_status: List[str] = None,
+                      # Portfolio filters - deal attributes
+                      deal_size_min: float = None,
+                      deal_size_max: float = None,
+                      deal_start_date: str = None,
+                      deal_end_date: str = None,
+                      financing_types: List[str] = None,
+                      # Portfolio filters - company identifiers
+                      company_ids: List[str] = None,
+                      domains: List[str] = None,
+                      linkedins: List[str] = None,
+                      company_founded_start: str = None,
+                      company_founded_end: str = None,
+                      # Portfolio filters - thresholds
+                      min_matching_deals: int = None,
+                      only_lead_deals: bool = None,
+                      **kwargs) -> List[Dict[str, Any]]:
+        """
+        Get investors with any combination of filters.
+
+        Filters are split into two categories:
+        - Investor Filters: filter on the investor entity itself (location, size, domain)
+        - Portfolio Filters: filter by the companies they've invested in
+
+        All parameters are optional. Date strings should be in YYYY-MM-DD format.
+        List parameters accept lists of strings that will be comma-separated.
+        """
+        # Skip date defaults for batch lookups
+        has_batch_filter = investor_domains or investor_linkedins or domains or linkedins
+
+        # Build API parameters
+        params = {}
+
+        # Add pagination
+        if page is not None:
+            params['page'] = page
+        if page_size is not None:
+            params['pageSize'] = page_size
+        else:
+            params['pageSize'] = 100
+
+        # Add sorting
+        if sort_by:
+            params['sortBy'] = sort_by
+        elif not has_batch_filter:
+            params['sortBy'] = 'Most Recent Deal'
+
+        # Investor filters
+        if investor_locations:
+            params['investorLocations'] = ','.join(investor_locations)
+        if investor_employee_count:
+            params['investorEmployeeCount'] = ','.join(investor_employee_count)
+        if investor_domains:
+            params['investorDomains'] = ','.join(investor_domains)
+        if investor_linkedins:
+            params['investorLinkedins'] = ','.join(investor_linkedins)
+        if investor_ids:
+            params['investorIds'] = ','.join(investor_ids)
+
+        # Portfolio filters - company attributes
+        if industries:
+            params['industries'] = ','.join(industries)
+        if super_categories:
+            params['superCategories'] = ','.join(super_categories)
+        if locations:
+            params['locations'] = ','.join(locations)
+        if employee_count:
+            params['employeeCount'] = ','.join(employee_count)
+        if ipo_status:
+            params['ipoStatus'] = ','.join(ipo_status)
+
+        # Portfolio filters - deal attributes
+        if deal_size_min is not None:
+            params['dealSizeMin'] = deal_size_min
+        if deal_size_max is not None:
+            params['dealSizeMax'] = deal_size_max
+        if deal_start_date:
+            params['dealStartDate'] = f"{deal_start_date}T00:00:00Z"
+        if deal_end_date:
+            params['dealEndDate'] = f"{deal_end_date}T23:59:59Z"
+        if financing_types:
+            params['financingTypes'] = ','.join(financing_types)
+
+        # Portfolio filters - company identifiers
+        if company_ids:
+            params['companyIds'] = ','.join(company_ids)
+        if domains:
+            params['domains'] = ','.join(domains)
+        if linkedins:
+            params['linkedins'] = ','.join(linkedins)
+        if company_founded_start:
+            params['companyFoundedStart'] = f"{company_founded_start}T00:00:00Z"
+        if company_founded_end:
+            params['companyFoundedEnd'] = f"{company_founded_end}T23:59:59Z"
+
+        # Portfolio filters - thresholds
+        if min_matching_deals is not None:
+            params['minMatchingDeals'] = min_matching_deals
+        if only_lead_deals is not None:
+            params['onlyLeadDeals'] = str(only_lead_deals).lower()
+
+        # Make single API request
+        try:
+            response = requests.get(f"{self.base_url}/investors", headers=self.headers, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+
+            if data.get("success"):
+                return data["data"]["investors"]
+            else:
+                return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching investors: {e}")
             return []
 
     def get_alerts(self, alert_ids: List[str], start_date: str, end_date: str) -> Dict[str, Any]:

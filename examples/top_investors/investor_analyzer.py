@@ -170,7 +170,6 @@ class InvestorAnalyzer:
                 'top_industries': investor_details.get('industry_data', [])[:5],
                 'linkedin': investor_details.get('linkedin'),
                 'crunchbase': investor_details.get('crunchbase'),
-                'image': investor_details.get('image'),
             }
             
             # Get sample deals this investor participated in

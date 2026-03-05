@@ -20,7 +20,7 @@ info:
   version: 1.0.0
   contact:
     name: Fundable API Support
-    url: tj@tryfundable.ai
+    url: jacob@tryfundable.ai
   license:
     name: Proprietary
     url: https://www.tryfundable.ai/terms/privacy/
@@ -158,52 +158,52 @@ paths:
                           help:
                             type: string
                             example: "Provide one of: q, query, name, or domain parameters"
-              examples:
-                missing_params:
-                  value:
-                    success: false
-                    error:
-                      code: "MISSING_SEARCH_PARAMS"
-                      message: "At least one search parameter is required"
-                      details:
-                        help: "Provide one of: q, query, name, or domain parameters"
-                    statusCode: 400
-                multiple_params:
-                  value:
-                    success: false
-                    error:
-                      code: "MULTIPLE_SEARCH_PARAMS"
-                      message: "Only one search parameter is allowed at a time"
-                      details:
-                        help: "You provided: q, query. Please use only one of: q, query, name, or domain parameters"
-                    statusCode: 400
-                empty_term:
-                  value:
-                    success: false
-                    error:
-                      code: "EMPTY_SEARCH_TERM"
-                      message: "Search term cannot be empty"
-                      details:
-                        help: "Search term cannot be empty or whitespace only"
-                    statusCode: 400
-                invalid_location_type:
-                  value:
-                    success: false
-                    error:
-                      code: "INVALID_LOCATION_TYPE"
-                      message: "Invalid location type. Must be one of: CITY, STATE, REGION, COUNTRY"
-                      details:
-                        help: "Provided type: 'INVALID'. Valid types are: CITY, STATE, REGION, COUNTRY"
-                    statusCode: 400
-                multiple_location_type_params:
-                  value:
-                    success: false
-                    error:
-                      code: "MULTIPLE_LOCATION_TYPE_PARAMS"
-                      message: "Cannot specify both type and location_type parameters"
-                      details:
-                        help: "Use either type or location_type parameter, not both"
-                    statusCode: 400
+                examples:
+                  missing_params:
+                    value:
+                      success: false
+                      error:
+                        code: "MISSING_SEARCH_PARAMS"
+                        message: "At least one search parameter is required"
+                        details:
+                          help: "Provide one of: q, query, name, or domain parameters"
+                      statusCode: 400
+                  multiple_params:
+                    value:
+                      success: false
+                      error:
+                        code: "MULTIPLE_SEARCH_PARAMS"
+                        message: "Only one search parameter is allowed at a time"
+                        details:
+                          help: "You provided: q, query. Please use only one of: q, query, name, or domain parameters"
+                      statusCode: 400
+                  empty_term:
+                    value:
+                      success: false
+                      error:
+                        code: "EMPTY_SEARCH_TERM"
+                        message: "Search term cannot be empty"
+                        details:
+                          help: "Search term cannot be empty or whitespace only"
+                      statusCode: 400
+                  invalid_location_type:
+                    value:
+                      success: false
+                      error:
+                        code: "INVALID_LOCATION_TYPE"
+                        message: "Invalid location type. Must be one of: CITY, STATE, REGION, COUNTRY"
+                        details:
+                          help: "Provided type: 'INVALID'. Valid types are: CITY, STATE, REGION, COUNTRY"
+                      statusCode: 400
+                  multiple_location_type_params:
+                    value:
+                      success: false
+                      error:
+                        code: "MULTIPLE_LOCATION_TYPE_PARAMS"
+                        message: "Cannot specify both type and location_type parameters"
+                        details:
+                          help: "Use either type or location_type parameter, not both"
+                      statusCode: 400
         '401':
           description: Authentication error
           content:
