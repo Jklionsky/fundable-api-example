@@ -60,13 +60,12 @@ This repository contains a Python client for interacting with the Fundable API, 
 - `src/fundable/` - Main Python package
   - `client.py` - FundableClient and DataExtractor classes
   - `analyzers/` - Analysis modules (InvestorAnalyzer, etc.)
-  - `visualization/` - Charting and visualization tools
 - `examples/` - Example scripts demonstrating API usage
   - `get_recent_deals/` - Basic deal fetching examples
   - `top_investors/` - Advanced investor analysis
   - `get_companies/` - Company lookup and filtering examples
   - `get_investors/` - Investor lookup and filtering examples
-  - `alerts/` - Alert fetching examples
+  - `get_alerts/` - Alert fetching examples
 - `openapi/` - OpenAPI specifications for all API endpoints
 - `pyproject.toml` - Package configuration
 

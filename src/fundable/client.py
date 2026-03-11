@@ -62,8 +62,12 @@ class FundableClient:
                 params=params,
                 timeout=30
             )
-            response.raise_for_status()
             data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching investor {identifier}: {error_msg}")
+                return None
 
             if data.get("success"):
                 return data["data"]["investor"]
@@ -173,8 +177,12 @@ class FundableClient:
         # Make single API request
         try:
             response = requests.get(f"{self.base_url}/deals", headers=self.headers, params=params, timeout=30)
-            response.raise_for_status()
             data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching deals: {error_msg}")
+                return []
 
             if data.get("success"):
                 return data["data"]["deals"]
@@ -301,8 +309,12 @@ class FundableClient:
         # Make single API request
         try:
             response = requests.get(f"{self.base_url}/companies", headers=self.headers, params=params, timeout=30)
-            response.raise_for_status()
             data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching companies: {error_msg}")
+                return []
 
             if data.get("success"):
                 return data["data"]["companies"]
@@ -434,8 +446,12 @@ class FundableClient:
         # Make single API request
         try:
             response = requests.get(f"{self.base_url}/investors", headers=self.headers, params=params, timeout=30)
-            response.raise_for_status()
             data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching investors: {error_msg}")
+                return []
 
             if data.get("success"):
                 return data["data"]["investors"]
@@ -471,8 +487,12 @@ class FundableClient:
                 params=params,
                 timeout=30
             )
-            response.raise_for_status()
             data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching alerts: {error_msg}")
+                return {"alerts": [], "totalDealCount": 0}
 
             if data.get("success"):
                 return data["data"]
@@ -495,8 +515,12 @@ class FundableClient:
                 headers=self.headers,
                 timeout=30
             )
-            response.raise_for_status()
             data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching alert configurations: {error_msg}")
+                return []
 
             if data.get("success"):
                 return data["data"]["configurations"]
@@ -530,8 +554,12 @@ class FundableClient:
                 params=params,
                 timeout=30
             )
-            response.raise_for_status()
             data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching company {identifier}: {error_msg}")
+                return None
 
             if data.get("success"):
                 return data["data"]["company"]
