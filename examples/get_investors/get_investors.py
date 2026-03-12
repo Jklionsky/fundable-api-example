@@ -135,6 +135,33 @@ def main():
     for inv in investors:
         print_investor(inv)
 
+    # --- Test 6: Batch lookup by investor Crunchbase slug ---
+    print(f"\n{'=' * 60}")
+    print("TEST 6: Batch lookup by investor Crunchbase slug")
+    print("=" * 60)
+    vc_cb_slugs = ['sequoia-capital', 'andreessen-horowitz', 'accel', 'khosla-ventures']
+    investors = client.get_investors(
+        investor_crunchbases=vc_cb_slugs,
+        page_size=100,
+    )
+    print(f"Matched {len(investors)} / {len(vc_cb_slugs)} investor Crunchbase slugs\n")
+    for inv in investors:
+        print_investor(inv)
+
+    # --- Test 7: Portfolio filter by company Crunchbase slug ---
+    print(f"\n{'=' * 60}")
+    print("TEST 7: Find investors in companies (by Crunchbase slug)")
+    print("=" * 60)
+    company_cb_slugs = ['stripe', 'openai', 'anthropic']
+    investors = client.get_investors(
+        company_crunchbases=company_cb_slugs,
+        page_size=10,
+        sort_by='Total Deals',
+    )
+    print(f"Found {len(investors)} investors across {len(company_cb_slugs)} portfolio companies (by Crunchbase slug)\n")
+    for inv in investors:
+        print_investor(inv)
+
     # --- Save sample output ---
     if investors:
         os.makedirs(OUTPUT_DIR, exist_ok=True)

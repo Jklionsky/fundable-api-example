@@ -53,6 +53,11 @@ This repository contains a Python client for interacting with the Fundable API, 
    python3 examples/get_investors/get_investors.py
    ```
 
+   **Search (Companies, Investors, Industries, Locations):**
+   ```bash
+   python3 examples/search/search_examples.py
+   ```
+
    See README files in each example directory for detailed documentation.
 
 ## Project Structure
@@ -66,6 +71,7 @@ This repository contains a Python client for interacting with the Fundable API, 
   - `get_companies/` - Company lookup and filtering examples
   - `get_investors/` - Investor lookup and filtering examples
   - `get_alerts/` - Alert fetching examples
+  - `search/` - Search examples (companies, investors, industries, locations)
 - `openapi/` - OpenAPI specifications for all API endpoints
 - `pyproject.toml` - Package configuration
 
@@ -137,6 +143,12 @@ companies = client.get_companies(
     domains=['openai.com', 'anthropic.com'],
     page_size=100
 )
+
+# Batch lookup by Crunchbase slug
+companies = client.get_companies(
+    crunchbases=['stripe', 'airbnb', 'notion-so'],
+    page_size=100
+)
 ```
 
 ### Get Investors
@@ -164,6 +176,34 @@ investors = client.get_investors(
     investor_domains=['sequoiacap.com', 'a16z.com'],
     page_size=100
 )
+
+# Batch lookup by investor Crunchbase slug
+investors = client.get_investors(
+    investor_crunchbases=['sequoia-capital', 'andreessen-horowitz'],
+    page_size=100
+)
+```
+
+### Search
+
+```python
+from fundable import FundableClient
+
+client = FundableClient()
+
+# Search companies by name
+companies = client.search_companies(q="stripe")
+
+# Search investors by name
+investors = client.search_investors(q="sequoia")
+
+# Search industries (optionally filter by type: INDUSTRY or SUPER_CATEGORY)
+industries = client.search_industries(q="artificial intelligence")
+super_cats = client.search_industries(q="fintech", type="INDUSTRY")
+
+# Search locations (optionally filter by type: CITY, STATE, REGION, COUNTRY)
+locations = client.search_locations(q="san francisco")
+states = client.search_locations(q="california", type="STATE")
 ```
 
 ### Working with Alerts

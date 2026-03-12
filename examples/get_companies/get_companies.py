@@ -89,6 +89,21 @@ def main():
     for company in companies_li:
         print(f"  {company['name']} ({company.get('domain', 'N/A')})")
 
+    # --- Test 3: Batch lookup by Crunchbase slug ---
+    cb_slugs = ['stripe', 'airbnb', 'notion-so']
+    print(f"\n{'=' * 60}")
+    print(f"BATCH LOOKUP BY CRUNCHBASE ({len(cb_slugs)} slugs)")
+    print("=" * 60)
+
+    companies_cb = client.get_companies(
+        crunchbases=cb_slugs,
+        page_size=100,
+    )
+    print(f"\nMatched {len(companies_cb)} / {len(cb_slugs)} Crunchbase slugs\n")
+
+    for company in companies_cb:
+        print(f"  {company['name']} ({company.get('domain', 'N/A')})")
+
 
 if __name__ == "__main__":
     main()

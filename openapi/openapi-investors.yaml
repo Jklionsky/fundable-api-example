@@ -15,9 +15,10 @@ info:
     - UUID format (e.g., "550e8400-e29b-41d4-a716-446655440000")
     - Permalink format (e.g., "acme-ventures")
     - Domain (e.g., "sequoiacap.com")
-    - LinkedIn URL (e.g., "https://www.linkedin.com/company/sequoia-capital")
+    - LinkedIn slug (e.g., "sequoia-capital")
+    - Crunchbase slug (e.g., "sequoia-capital")
 
-    The `/investor` endpoint supports flexible lookup via query parameters (id, permalink, domain, linkedin, url).
+    The `/investor` endpoint supports flexible lookup via query parameters (id, permalink, domain, linkedin, crunchbase, url).
 
     ## Investor List Endpoint (/investors)
     The `/investors` endpoint supports two categories of filters:
@@ -34,7 +35,7 @@ info:
     - `employeeCount`, `ipoStatus` — Portfolio company characteristics
     - `dealSizeMin`, `dealSizeMax`, `dealStartDate`, `dealEndDate` — Deal characteristics
     - `financingTypes` — Deal round types
-    - `companyIds`, `domains`, `linkedins` — Specific portfolio companies (max 100 for domains/linkedins)
+    - `companyIds`, `domains`, `companyLinkedins`, `companyCrunchbases` — Specific portfolio companies (max 100 for domains/companyLinkedins/companyCrunchbases)
     - `companyFoundedStart`, `companyFoundedEnd` — Portfolio company founding date range
     - `minMatchingDeals` — Minimum deals matching above criteria
     - `onlyLeadDeals` — Only count deals where investor was lead
@@ -47,7 +48,7 @@ info:
     - **Enum Values**: Parameters like `financingTypes`, `sortBy`, `employeeCount`, `investorEmployeeCount`, and `ipoStatus` only accept exact enum values
     - **Data Types**: Numeric parameters must be valid numbers, dates must be valid ISO 8601 format
     - **Array Parameters**: Cannot be empty strings; use comma-separated values or omit entirely
-    - **Batch Limits**: `domains`, `linkedins`, `investorDomains`, `investorLinkedins` are limited to 100 items each
+    - **Batch Limits**: `domains`, `companyLinkedins`, `companyCrunchbases`, `investorDomains`, `investorLinkedins`, `investorCrunchbases` are limited to 100 items each
 
   version: 1.0.0
   contact:
@@ -170,6 +171,15 @@ paths:
           schema:
             type: string
           example: "sequoia-capital,andreessen-horowitz"
+        - name: investorCrunchbases
+          in: query
+          description: |
+            **Investor Filter.** Batch lookup investors by Crunchbase slug (comma-separated, max 100).
+            Example: `investorCrunchbases=sequoia-capital,andreessen-horowitz`
+          required: false
+          schema:
+            type: string
+          example: "sequoia-capital,andreessen-horowitz"
         - name: investorIds
           in: query
           description: |
@@ -193,11 +203,11 @@ paths:
           in: query
           description: |
             **Portfolio Filter.** Filter by broad industry super-categories (comma-separated).
-            Example: `superCategories=technology,healthcare`
+            Example: `superCategories=artificial-intelligence-e551,health-care-a53c`
           required: false
           schema:
             type: string
-          example: "technology"
+          example: "artificial-intelligence-e551,financial-services-d7b6"
         - name: locations
           in: query
           description: |
@@ -298,11 +308,21 @@ paths:
           schema:
             type: string
           example: "stripe.com,openai.com"
-        - name: linkedins
+        - name: companyLinkedins
           in: query
           description: |
             **Portfolio Filter.** Filter by portfolio company LinkedIn slugs (comma-separated, max 100).
             Returns investors who have invested in companies matching these LinkedIn profiles.
+            When active, response includes `matching_deal_ids`.
+          required: false
+          schema:
+            type: string
+          example: "stripe,openai"
+        - name: companyCrunchbases
+          in: query
+          description: |
+            **Portfolio Filter.** Filter by portfolio company Crunchbase slugs (comma-separated, max 100).
+            Returns investors who have invested in companies matching these Crunchbase profiles.
             When active, response includes `matching_deal_ids`.
           required: false
           schema:
@@ -456,13 +476,19 @@ paths:
         - name: linkedin
           in: query
           description: |
-            Investor LinkedIn company URL.
-            Must be in format: `https://www.linkedin.com/company/{slug}`
+            Investor LinkedIn company slug (e.g., "sequoia-capital" from linkedin.com/company/sequoia-capital).
           required: false
           schema:
             type: string
-            format: uri
-          example: "https://www.linkedin.com/company/sequoia-capital"
+          example: "sequoia-capital"
+        - name: crunchbase
+          in: query
+          description: |
+            Investor Crunchbase organization slug (e.g., "sequoia-capital" from crunchbase.com/organization/sequoia-capital).
+          required: false
+          schema:
+            type: string
+          example: "sequoia-capital"
         - name: url
           in: query
           description: |
@@ -547,38 +573,17 @@ paths:
 
   /investor/search:
     get:
-      summary: Search investors by name or domain
-      description: Search for investors using name or domain with fuzzy matching and relevance scoring
+      summary: Search investors by name
+      description: Search for investors by name with fuzzy matching and relevance scoring
       operationId: searchInvestors
       parameters:
         - name: q
           in: query
-          description: General search query (searches across name and domain)
-          required: false
+          description: Search query (searches across investor name and domain)
+          required: true
           schema:
             type: string
-            example: "acme ventures"
-        - name: query
-          in: query
-          description: Alias for 'q' parameter
-          required: false
-          schema:
-            type: string
-            example: "acme ventures"
-        - name: name
-          in: query
-          description: Search specifically by investor name
-          required: false
-          schema:
-            type: string
-            example: "Acme Ventures"
-        - name: domain
-          in: query
-          description: Search specifically by investor domain
-          required: false
-          schema:
-            type: string
-            example: "acmeventures.com"
+          example: "sequoia"
       responses:
         '200':
           description: Successful search results
@@ -658,13 +663,13 @@ paths:
                         example: "MISSING_SEARCH_PARAMS"
                       message:
                         type: string
-                        example: "At least one search parameter is required"
+                        example: "Search parameter q is required"
                       details:
                         type: object
                         properties:
                           help:
                             type: string
-                            example: "Provide one of: q, query, name, or domain parameters"
+                            example: "Provide a q parameter, e.g. ?q=sequoia"
         '401':
           description: Authentication error
           content:

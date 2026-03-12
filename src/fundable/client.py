@@ -31,11 +31,11 @@ class FundableClient:
 
     def get_investor(self, identifier: str, identifier_type: str = None) -> Optional[Dict[str, Any]]:
         """
-        Get detailed investor information by ID, permalink, domain, or LinkedIn.
+        Get detailed investor information by ID, permalink, domain, LinkedIn, or Crunchbase.
 
         Args:
-            identifier: Investor UUID, permalink, domain, or LinkedIn URL
-            identifier_type: One of 'id', 'permalink', 'domain', 'linkedin', 'url'.
+            identifier: Investor UUID, permalink, domain, LinkedIn slug, or Crunchbase slug
+            identifier_type: One of 'id', 'permalink', 'domain', 'linkedin', 'crunchbase', 'url'.
                 If None, auto-detects: UUID format -> 'id', otherwise -> 'url'.
 
         Returns:
@@ -49,7 +49,7 @@ class FundableClient:
             else:
                 identifier_type = 'url'
 
-        valid_types = ['id', 'permalink', 'domain', 'linkedin', 'url']
+        valid_types = ['id', 'permalink', 'domain', 'linkedin', 'crunchbase', 'url']
         if identifier_type not in valid_types:
             raise ValueError(f"identifier_type must be one of: {valid_types}")
 
@@ -224,6 +224,7 @@ class FundableClient:
                       # Batch lookup filters
                       domains: List[str] = None,
                       linkedins: List[str] = None,
+                      crunchbases: List[str] = None,
                       # Relevance threshold
                       min_relevance: float = None,
                       **kwargs) -> List[Dict[str, Any]]:
@@ -234,7 +235,7 @@ class FundableClient:
         List parameters accept lists of strings that will be comma-separated.
         """
         # Set date defaults if not provided (skip for batch lookups by domain/linkedin)
-        has_batch_filter = domains or linkedins
+        has_batch_filter = domains or linkedins or crunchbases
         if not has_batch_filter:
             if not deal_end_date:
                 deal_end_date = datetime.utcnow().strftime("%Y-%m-%d")
@@ -293,6 +294,8 @@ class FundableClient:
             params['domains'] = ','.join(domains)
         if linkedins:
             params['linkedins'] = ','.join(linkedins)
+        if crunchbases:
+            params['crunchbases'] = ','.join(crunchbases)
 
         # Add numeric filters
         if deal_size_min is not None:
@@ -336,6 +339,7 @@ class FundableClient:
                       investor_employee_count: List[str] = None,
                       investor_domains: List[str] = None,
                       investor_linkedins: List[str] = None,
+                      investor_crunchbases: List[str] = None,
                       investor_ids: List[str] = None,
                       # Portfolio filters - company attributes
                       industries: List[str] = None,
@@ -352,7 +356,8 @@ class FundableClient:
                       # Portfolio filters - company identifiers
                       company_ids: List[str] = None,
                       domains: List[str] = None,
-                      linkedins: List[str] = None,
+                      company_linkedins: List[str] = None,
+                      company_crunchbases: List[str] = None,
                       company_founded_start: str = None,
                       company_founded_end: str = None,
                       # Portfolio filters - thresholds
@@ -370,7 +375,7 @@ class FundableClient:
         List parameters accept lists of strings that will be comma-separated.
         """
         # Skip date defaults for batch lookups
-        has_batch_filter = investor_domains or investor_linkedins or domains or linkedins
+        has_batch_filter = investor_domains or investor_linkedins or investor_crunchbases or domains or company_linkedins or company_crunchbases
 
         # Build API parameters
         params = {}
@@ -398,6 +403,8 @@ class FundableClient:
             params['investorDomains'] = ','.join(investor_domains)
         if investor_linkedins:
             params['investorLinkedins'] = ','.join(investor_linkedins)
+        if investor_crunchbases:
+            params['investorCrunchbases'] = ','.join(investor_crunchbases)
         if investor_ids:
             params['investorIds'] = ','.join(investor_ids)
 
@@ -430,8 +437,10 @@ class FundableClient:
             params['companyIds'] = ','.join(company_ids)
         if domains:
             params['domains'] = ','.join(domains)
-        if linkedins:
-            params['linkedins'] = ','.join(linkedins)
+        if company_linkedins:
+            params['companyLinkedins'] = ','.join(company_linkedins)
+        if company_crunchbases:
+            params['companyCrunchbases'] = ','.join(company_crunchbases)
         if company_founded_start:
             params['companyFoundedStart'] = f"{company_founded_start}T00:00:00Z"
         if company_founded_end:
@@ -568,6 +577,154 @@ class FundableClient:
         except requests.exceptions.RequestException as e:
             print(f"Error fetching company {identifier}: {e}")
             return None
+
+    def search_companies(self, q: str) -> List[Dict[str, Any]]:
+        """
+        Search companies by name with fuzzy matching.
+
+        Args:
+            q: Search query (searches across company name and domain)
+
+        Returns:
+            List of matching company dicts with relevance scores
+        """
+        try:
+            response = requests.get(
+                f"{self.base_url}/company/search",
+                headers=self.headers,
+                params={'q': q},
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error searching companies: {error_msg}")
+                return []
+
+            if data.get("success"):
+                return data["data"]["companies"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error searching companies: {e}")
+            return []
+
+    def search_investors(self, q: str) -> List[Dict[str, Any]]:
+        """
+        Search investors by name with fuzzy matching.
+
+        Args:
+            q: Search query (searches across investor name and domain)
+
+        Returns:
+            List of matching investor dicts with relevance scores
+        """
+        try:
+            response = requests.get(
+                f"{self.base_url}/investor/search",
+                headers=self.headers,
+                params={'q': q},
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error searching investors: {error_msg}")
+                return []
+
+            if data.get("success"):
+                return data["data"]["investors"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error searching investors: {e}")
+            return []
+
+    def search_industries(self, q: str, type: str = None) -> List[Dict[str, Any]]:
+        """
+        Search industries and super categories by name with fuzzy matching.
+
+        Args:
+            q: Search query for industry name
+            type: Optional filter — 'INDUSTRY' or 'SUPER_CATEGORY'
+
+        Returns:
+            List of matching industry dicts with permalink and industry_type
+        """
+        if type is not None:
+            valid_types = ['INDUSTRY', 'SUPER_CATEGORY']
+            if type not in valid_types:
+                raise ValueError(f"type must be one of: {valid_types}")
+
+        params = {'q': q}
+        if type:
+            params['type'] = type
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/industry/search",
+                headers=self.headers,
+                params=params,
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error searching industries: {error_msg}")
+                return []
+
+            if data.get("success"):
+                return data["data"]["industries"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error searching industries: {e}")
+            return []
+
+    def search_locations(self, q: str, type: str = None) -> List[Dict[str, Any]]:
+        """
+        Search locations by name with fuzzy matching.
+
+        Args:
+            q: Search query for location name
+            type: Optional filter — 'CITY', 'STATE', 'REGION', or 'COUNTRY'
+
+        Returns:
+            List of matching location dicts with permalink and location_type
+        """
+        if type is not None:
+            valid_types = ['CITY', 'STATE', 'REGION', 'COUNTRY']
+            if type not in valid_types:
+                raise ValueError(f"type must be one of: {valid_types}")
+
+        params = {'q': q}
+        if type:
+            params['type'] = type
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/location/search",
+                headers=self.headers,
+                params=params,
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error searching locations: {error_msg}")
+                return []
+
+            if data.get("success"):
+                return data["data"]["locations"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error searching locations: {e}")
+            return []
 
 
 class DataExtractor:
