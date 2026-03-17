@@ -37,11 +37,6 @@ This repository contains a Python client for interacting with the Fundable API, 
    python3 examples/get_recent_deals/get_recent_deals.py
    ```
 
-   **Top Investors Analysis:**
-   ```bash
-   python3 examples/top_investors/top_investors.py
-   ```
-
    **Get Companies:**
    ```bash
    python3 examples/get_companies/get_companies.py
@@ -64,10 +59,9 @@ This repository contains a Python client for interacting with the Fundable API, 
 
 - `src/fundable/` - Main Python package
   - `client.py` - FundableClient and DataExtractor classes
-  - `analyzers/` - Analysis modules (InvestorAnalyzer, etc.)
+  - `analyzers/` - Analysis modules
 - `examples/` - Example scripts demonstrating API usage
   - `get_recent_deals/` - Basic deal fetching examples
-  - `top_investors/` - Advanced investor analysis
   - `get_companies/` - Company lookup and filtering examples
   - `get_investors/` - Investor lookup and filtering examples
   - `get_alerts/` - Alert fetching examples
@@ -97,26 +91,6 @@ deals = client.get_deals(
 # Extract and display
 extracted = [DataExtractor.extract_deal(deal) for deal in deals]
 DataExtractor.print_deals(extracted, "Recent Deals")
-```
-
-### Find Top Investors by Any Criteria
-
-```python
-from fundable import FundableClient, InvestorAnalyzer
-
-client = FundableClient()
-analyzer = InvestorAnalyzer(client)
-
-# Find top seed investors in last 2 months
-results = analyzer.analyze_top_investors(
-    top_n=25,
-    months_back=2,
-    financing_types=['SEED']
-)
-
-# Print and save results
-analyzer.print_results(results)
-analyzer.save_results(results, 'output/top_investors.json')
 ```
 
 ### Get Companies

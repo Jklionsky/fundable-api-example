@@ -177,7 +177,7 @@ class InvestorBarChart(BaseGraphGenerator):
         Create a vertical bar chart of top investors with optional circular logos.
         
         Args:
-            investors: List of investor dicts (from InvestorAnalyzer)
+            investors: List of investor dicts
             title: Chart title
             metric: Field to plot (e.g., 'deal_count', 'total_investments')
             show_logos: Whether to display investor logos

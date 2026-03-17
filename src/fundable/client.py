@@ -29,6 +29,15 @@ class FundableClient:
             "Content-Type": "application/json"
         }
 
+    def _post(self, path: str, body: Dict[str, Any]) -> Any:
+        """Make a POST request with a JSON body, returning the parsed response."""
+        return requests.post(
+            f"{self.base_url}{path}",
+            headers=self.headers,
+            json=body,
+            timeout=30
+        )
+
     def get_investor(self, identifier: str, identifier_type: str = None) -> Optional[Dict[str, Any]]:
         """
         Get detailed investor information by ID, permalink, domain, LinkedIn, or Crunchbase.
@@ -77,6 +86,68 @@ class FundableClient:
             print(f"Error fetching investor {identifier}: {e}")
             return None
 
+    def get_deal(self, deal_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Get detailed deal information by ID.
+
+        Args:
+            deal_id: Deal UUID
+
+        Returns:
+            Deal details dict or None if not found
+        """
+        try:
+            response = requests.get(
+                f"{self.base_url}/deals/{deal_id}",
+                headers=self.headers,
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching deal {deal_id}: {error_msg}")
+                return None
+
+            if data.get("success"):
+                return data["data"]["deal"]
+            return None
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching deal {deal_id}: {e}")
+            return None
+
+    def get_deal_investors(self, deal_id: str) -> List[Dict[str, Any]]:
+        """
+        Get full investor details for a specific deal.
+
+        Args:
+            deal_id: Deal UUID
+
+        Returns:
+            List of DealInvestor dicts with name, lead_investor, domain, linkedin, crunchbase, etc.
+        """
+        try:
+            response = requests.get(
+                f"{self.base_url}/deals/{deal_id}/investors",
+                headers=self.headers,
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching investors for deal {deal_id}: {error_msg}")
+                return []
+
+            if data.get("success"):
+                return data["data"]["investors"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching investors for deal {deal_id}: {e}")
+            return []
+
     def get_deals(self,
                   # Pagination
                   page: int = None,
@@ -86,8 +157,6 @@ class FundableClient:
                   # Date filters
                   deal_start_date: str = None,
                   deal_end_date: str = None,
-                  company_founded_start: str = None,
-                  company_founded_end: str = None,
                   # Company filters
                   company_ids: List[str] = None,
                   industries: List[str] = None,
@@ -95,21 +164,24 @@ class FundableClient:
                   locations: List[str] = None,
                   employee_count: List[str] = None,
                   ipo_status: List[str] = None,
+                  total_raised_min: float = None,
+                  total_raised_max: float = None,
                   # Deal filters
-                  financing_types: List[str] = None,
+                  financing_types: List[Dict[str, Any]] = None,
                   deal_size_min: float = None,
                   deal_size_max: float = None,
                   # Investor filters
                   investor_ids: List[str] = None,
+                  # Identifier lookup
+                  deal_ids: List[str] = None,
                   # Legacy support
                   start_date: str = None,
                   end_date: str = None,
                   **kwargs) -> List[Dict[str, Any]]:
         """
-        Get deals with any combination of filters.
+        Get deals with any combination of filters. Sends a POST request with a JSON body.
 
         All parameters are optional. Date strings should be in YYYY-MM-DD format.
-        List parameters accept lists of strings that will be comma-separated.
         """
         # Handle legacy parameters
         if start_date and not deal_start_date:
@@ -117,66 +189,75 @@ class FundableClient:
         if end_date and not deal_end_date:
             deal_end_date = end_date
 
-        # Set date defaults if not provided
-        if not deal_end_date:
-            deal_end_date = datetime.utcnow().strftime("%Y-%m-%d")
-        if not deal_start_date:
-            deal_start_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%d")
+        # Apply date defaults only for general browsing — skip when looking up by ID
+        has_id_filter = bool(company_ids or deal_ids)
+        if not has_id_filter:
+            if not deal_end_date:
+                deal_end_date = datetime.utcnow().strftime("%Y-%m-%d")
+            if not deal_start_date:
+                deal_start_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%d")
 
-        # Build API parameters
-        params = {}
+        # Build nested JSON body
+        body = {}
 
-        # Add pagination
-        if page is not None:
-            params['page'] = page
-        if page_size is not None:
-            params['pageSize'] = page_size
-        else:
-            params['pageSize'] = 100
+        # Identifiers section
+        identifiers = {}
+        if deal_ids:
+            identifiers['deal_ids'] = deal_ids
+        if identifiers:
+            body['identifiers'] = identifiers
 
-        # Add sorting
-        if sort_by:
-            params['sortBy'] = sort_by
-        else:
-            params['sortBy'] = 'Most Recent'
-
-        # Add date filters
-        if deal_start_date:
-            params['dealStartDate'] = f"{deal_start_date}T00:00:00Z"
-        if deal_end_date:
-            params['dealEndDate'] = f"{deal_end_date}T23:59:59Z"
-        if company_founded_start:
-            params['companyFoundedStart'] = f"{company_founded_start}T00:00:00Z"
-        if company_founded_end:
-            params['companyFoundedEnd'] = f"{company_founded_end}T23:59:59Z"
-
-        # Add list filters (convert lists to comma-separated strings)
-        if company_ids:
-            params['companyIds'] = ','.join(company_ids)
-        if industries:
-            params['industries'] = ','.join(industries)
-        if super_categories:
-            params['superCategories'] = ','.join(super_categories)
-        if locations:
-            params['locations'] = ','.join(locations)
-        if employee_count:
-            params['employeeCount'] = ','.join(employee_count)
-        if ipo_status:
-            params['ipoStatus'] = ','.join(ipo_status)
+        # Deal section
+        deal_filters = {}
         if financing_types:
-            params['financingTypes'] = ','.join(financing_types)
-        if investor_ids:
-            params['investorIds'] = ','.join(investor_ids)
-
-        # Add numeric filters
+            deal_filters['financing_types'] = financing_types
         if deal_size_min is not None:
-            params['dealSizeMin'] = deal_size_min
+            deal_filters['size_min'] = deal_size_min
         if deal_size_max is not None:
-            params['dealSizeMax'] = deal_size_max
+            deal_filters['size_max'] = deal_size_max
+        if deal_start_date:
+            deal_filters['date_start'] = deal_start_date
+        if deal_end_date:
+            deal_filters['date_end'] = deal_end_date
+        if deal_filters:
+            body['deal'] = deal_filters
 
-        # Make single API request
+        # Company section
+        company_filters = {}
+        if locations:
+            company_filters['locations'] = locations
+        if industries:
+            company_filters['industries'] = industries
+        if super_categories:
+            company_filters['super_categories'] = super_categories
+        if employee_count:
+            company_filters['employee_count'] = employee_count
+        if ipo_status:
+            company_filters['ipo_status'] = ipo_status
+        if total_raised_min is not None:
+            company_filters['total_raised_min'] = total_raised_min
+        if total_raised_max is not None:
+            company_filters['total_raised_max'] = total_raised_max
+        if company_ids:
+            company_filters['company_ids'] = company_ids
+        if company_filters:
+            body['company'] = company_filters
+
+        # Investors section
+        investors_filter = {}
+        if investor_ids:
+            investors_filter['investor_ids'] = investor_ids
+        if investors_filter:
+            body['investors'] = investors_filter
+
+        # Pagination and sorting
+        body['page_size'] = page_size if page_size is not None else 100
+        if page is not None:
+            body['page'] = page
+        body['sort_by'] = sort_by if sort_by else 'most_recent_deal'
+
         try:
-            response = requests.get(f"{self.base_url}/deals", headers=self.headers, params=params, timeout=30)
+            response = self._post('/deals', body)
             data = response.json()
 
             if not response.ok:
@@ -201,7 +282,8 @@ class FundableClient:
                       sort_by: str = None,
                       # Semantic search
                       search_query: str = None,
-                      # Date filters
+                      min_relevance: float = None,
+                      # Date filters (latest deal)
                       deal_start_date: str = None,
                       deal_end_date: str = None,
                       company_founded_start: str = None,
@@ -215,103 +297,102 @@ class FundableClient:
                       ipo_status: List[str] = None,
                       total_raised_min: float = None,
                       total_raised_max: float = None,
-                      # Deal filters
-                      financing_types: List[str] = None,
+                      # Deal filters (latest deal)
+                      financing_types: List[Dict[str, Any]] = None,
                       deal_size_min: float = None,
                       deal_size_max: float = None,
                       # Investor filters
                       investor_ids: List[str] = None,
-                      # Batch lookup filters
+                      # Batch identifier lookup
                       domains: List[str] = None,
                       linkedins: List[str] = None,
                       crunchbases: List[str] = None,
-                      # Relevance threshold
-                      min_relevance: float = None,
                       **kwargs) -> List[Dict[str, Any]]:
         """
-        Get companies with any combination of filters.
+        Get companies with any combination of filters. Sends a POST request with a JSON body.
 
         All parameters are optional. Date strings should be in YYYY-MM-DD format.
-        List parameters accept lists of strings that will be comma-separated.
         """
-        # Set date defaults if not provided (skip for batch lookups by domain/linkedin)
-        has_batch_filter = domains or linkedins or crunchbases
+        has_batch_filter = domains or linkedins or crunchbases or company_ids
+
+        # Set date defaults if not provided (skip for batch lookups)
         if not has_batch_filter:
             if not deal_end_date:
                 deal_end_date = datetime.utcnow().strftime("%Y-%m-%d")
             if not deal_start_date:
                 deal_start_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%d")
 
-        # Build API parameters
-        params = {}
+        # Build nested JSON body
+        body = {}
 
-        # Add pagination
-        if page is not None:
-            params['page'] = page
-        if page_size is not None:
-            params['pageSize'] = page_size
-        else:
-            params['pageSize'] = 100
-
-        # Add sorting
-        if sort_by:
-            params['sortBy'] = sort_by
-        elif not has_batch_filter:
-            params['sortBy'] = 'Most Recent Raise'
-
-        # Add semantic search
-        if search_query:
-            params['searchQuery'] = search_query
-
-        # Add date filters
-        if deal_start_date:
-            params['dealStartDate'] = f"{deal_start_date}T00:00:00Z"
-        if deal_end_date:
-            params['dealEndDate'] = f"{deal_end_date}T23:59:59Z"
-        if company_founded_start:
-            params['companyFoundedStart'] = f"{company_founded_start}T00:00:00Z"
-        if company_founded_end:
-            params['companyFoundedEnd'] = f"{company_founded_end}T23:59:59Z"
-
-        # Add list filters (convert lists to comma-separated strings)
+        # Identifiers section
+        identifiers = {}
         if company_ids:
-            params['companyIds'] = ','.join(company_ids)
-        if industries:
-            params['industries'] = ','.join(industries)
-        if super_categories:
-            params['superCategories'] = ','.join(super_categories)
-        if locations:
-            params['locations'] = ','.join(locations)
-        if employee_count:
-            params['employeeCount'] = ','.join(employee_count)
-        if ipo_status:
-            params['ipoStatus'] = ','.join(ipo_status)
-        if financing_types:
-            params['financingTypes'] = ','.join(financing_types)
-        if investor_ids:
-            params['investorIds'] = ','.join(investor_ids)
+            identifiers['ids'] = company_ids
         if domains:
-            params['domains'] = ','.join(domains)
+            identifiers['domains'] = domains
         if linkedins:
-            params['linkedins'] = ','.join(linkedins)
+            identifiers['linkedin_urls'] = linkedins
         if crunchbases:
-            params['crunchbases'] = ','.join(crunchbases)
+            identifiers['crunchbase_urls'] = crunchbases
+        if identifiers:
+            body['identifiers'] = identifiers
 
-        # Add numeric filters
-        if deal_size_min is not None:
-            params['dealSizeMin'] = deal_size_min
-        if deal_size_max is not None:
-            params['dealSizeMax'] = deal_size_max
-        if total_raised_min is not None:
-            params['totalRaisedMin'] = total_raised_min
-        if total_raised_max is not None:
-            params['totalRaisedMax'] = total_raised_max
+        # Company section
+        company_filters = {}
+        if search_query:
+            company_filters['search_query'] = search_query
         if min_relevance is not None:
-            params['minRelevance'] = min_relevance
+            company_filters['min_relevance'] = min_relevance
+        if locations:
+            company_filters['locations'] = locations
+        if industries:
+            company_filters['industries'] = industries
+        if super_categories:
+            company_filters['super_categories'] = super_categories
+        if employee_count:
+            company_filters['employee_count'] = employee_count
+        if ipo_status:
+            company_filters['ipo_status'] = ipo_status
+        if total_raised_min is not None:
+            company_filters['total_raised_min'] = total_raised_min
+        if total_raised_max is not None:
+            company_filters['total_raised_max'] = total_raised_max
+        if company_founded_start:
+            company_filters['founded_start'] = company_founded_start
+        if company_founded_end:
+            company_filters['founded_end'] = company_founded_end
+        if company_filters:
+            body['company'] = company_filters
 
-        # Make single API request
+        # Latest deal section
+        latest_deal_filters = {}
+        if financing_types:
+            latest_deal_filters['financing_types'] = financing_types
+        if deal_size_min is not None:
+            latest_deal_filters['size_min'] = deal_size_min
+        if deal_size_max is not None:
+            latest_deal_filters['size_max'] = deal_size_max
+        if deal_start_date:
+            latest_deal_filters['date_start'] = deal_start_date
+        if deal_end_date:
+            latest_deal_filters['date_end'] = deal_end_date
+        if investor_ids:
+            latest_deal_filters['investor_ids'] = investor_ids
+        if latest_deal_filters:
+            body['latest_deal'] = latest_deal_filters
+
+        # Pagination and sorting
+        body['page_size'] = page_size if page_size is not None else 100
+        if page is not None:
+            body['page'] = page
+        if sort_by:
+            body['sort_by'] = sort_by
+        elif not has_batch_filter:
+            body['sort_by'] = 'most_recent_raise'
+
         try:
-            response = requests.get(f"{self.base_url}/companies", headers=self.headers, params=params, timeout=30)
+            response = self._post('/companies', body)
             data = response.json()
 
             if not response.ok:
@@ -352,109 +433,91 @@ class FundableClient:
                       deal_size_max: float = None,
                       deal_start_date: str = None,
                       deal_end_date: str = None,
-                      financing_types: List[str] = None,
+                      financing_types: List[Dict[str, Any]] = None,
                       # Portfolio filters - company identifiers
                       company_ids: List[str] = None,
-                      domains: List[str] = None,
-                      company_linkedins: List[str] = None,
-                      company_crunchbases: List[str] = None,
-                      company_founded_start: str = None,
-                      company_founded_end: str = None,
                       # Portfolio filters - thresholds
                       min_matching_deals: int = None,
                       only_lead_deals: bool = None,
                       **kwargs) -> List[Dict[str, Any]]:
         """
-        Get investors with any combination of filters.
+        Get investors with any combination of filters. Sends a POST request with a JSON body.
 
         Filters are split into two categories:
         - Investor Filters: filter on the investor entity itself (location, size, domain)
-        - Portfolio Filters: filter by the companies they've invested in
+        - Portfolio Filters (company_investments): filter by the companies they've invested in
 
         All parameters are optional. Date strings should be in YYYY-MM-DD format.
-        List parameters accept lists of strings that will be comma-separated.
         """
-        # Skip date defaults for batch lookups
-        has_batch_filter = investor_domains or investor_linkedins or investor_crunchbases or domains or company_linkedins or company_crunchbases
+        has_batch_filter = investor_domains or investor_linkedins or investor_crunchbases
 
-        # Build API parameters
-        params = {}
+        # Build nested JSON body
+        body = {}
 
-        # Add pagination
-        if page is not None:
-            params['page'] = page
-        if page_size is not None:
-            params['pageSize'] = page_size
-        else:
-            params['pageSize'] = 100
-
-        # Add sorting
-        if sort_by:
-            params['sortBy'] = sort_by
-        elif not has_batch_filter:
-            params['sortBy'] = 'Most Recent Deal'
-
-        # Investor filters
-        if investor_locations:
-            params['investorLocations'] = ','.join(investor_locations)
-        if investor_employee_count:
-            params['investorEmployeeCount'] = ','.join(investor_employee_count)
-        if investor_domains:
-            params['investorDomains'] = ','.join(investor_domains)
-        if investor_linkedins:
-            params['investorLinkedins'] = ','.join(investor_linkedins)
-        if investor_crunchbases:
-            params['investorCrunchbases'] = ','.join(investor_crunchbases)
+        # Identifiers section (investor batch lookup)
+        identifiers = {}
         if investor_ids:
-            params['investorIds'] = ','.join(investor_ids)
+            identifiers['ids'] = investor_ids
+        if investor_domains:
+            identifiers['domains'] = investor_domains
+        if investor_linkedins:
+            identifiers['linkedin_urls'] = investor_linkedins
+        if investor_crunchbases:
+            identifiers['crunchbase_urls'] = investor_crunchbases
+        if identifiers:
+            body['identifiers'] = identifiers
 
-        # Portfolio filters - company attributes
-        if industries:
-            params['industries'] = ','.join(industries)
-        if super_categories:
-            params['superCategories'] = ','.join(super_categories)
-        if locations:
-            params['locations'] = ','.join(locations)
-        if employee_count:
-            params['employeeCount'] = ','.join(employee_count)
-        if ipo_status:
-            params['ipoStatus'] = ','.join(ipo_status)
+        # Investor section
+        investor_filters = {}
+        if investor_locations:
+            investor_filters['locations'] = investor_locations
+        if investor_employee_count:
+            investor_filters['employee_count'] = investor_employee_count
+        if investor_filters:
+            body['investor'] = investor_filters
 
-        # Portfolio filters - deal attributes
+        # Company investments section (portfolio filters)
+        portfolio_filters = {}
         if deal_size_min is not None:
-            params['dealSizeMin'] = deal_size_min
+            portfolio_filters['deal_size_min'] = deal_size_min
         if deal_size_max is not None:
-            params['dealSizeMax'] = deal_size_max
+            portfolio_filters['deal_size_max'] = deal_size_max
         if deal_start_date:
-            params['dealStartDate'] = f"{deal_start_date}T00:00:00Z"
+            portfolio_filters['deal_start_date'] = deal_start_date
         if deal_end_date:
-            params['dealEndDate'] = f"{deal_end_date}T23:59:59Z"
+            portfolio_filters['deal_end_date'] = deal_end_date
         if financing_types:
-            params['financingTypes'] = ','.join(financing_types)
-
-        # Portfolio filters - company identifiers
+            portfolio_filters['financing_types'] = financing_types
+        if locations:
+            portfolio_filters['locations'] = locations
+        if industries:
+            portfolio_filters['industries'] = industries
+        if super_categories:
+            portfolio_filters['super_categories'] = super_categories
+        if employee_count:
+            portfolio_filters['employee_count'] = employee_count
+        if ipo_status:
+            portfolio_filters['ipo_status'] = ipo_status
         if company_ids:
-            params['companyIds'] = ','.join(company_ids)
-        if domains:
-            params['domains'] = ','.join(domains)
-        if company_linkedins:
-            params['companyLinkedins'] = ','.join(company_linkedins)
-        if company_crunchbases:
-            params['companyCrunchbases'] = ','.join(company_crunchbases)
-        if company_founded_start:
-            params['companyFoundedStart'] = f"{company_founded_start}T00:00:00Z"
-        if company_founded_end:
-            params['companyFoundedEnd'] = f"{company_founded_end}T23:59:59Z"
-
-        # Portfolio filters - thresholds
+            portfolio_filters['company_ids'] = company_ids
         if min_matching_deals is not None:
-            params['minMatchingDeals'] = min_matching_deals
+            portfolio_filters['min_matching_deals'] = min_matching_deals
         if only_lead_deals is not None:
-            params['onlyLeadDeals'] = str(only_lead_deals).lower()
+            portfolio_filters['only_lead_deals'] = only_lead_deals
+        if portfolio_filters:
+            body['company_investments'] = portfolio_filters
 
-        # Make single API request
+        # Pagination and sorting
+        body['page_size'] = page_size if page_size is not None else 100
+        if page is not None:
+            body['page'] = page
+        if sort_by:
+            body['sort_by'] = sort_by
+        elif not has_batch_filter:
+            body['sort_by'] = 'most_recent_deal'
+
         try:
-            response = requests.get(f"{self.base_url}/investors", headers=self.headers, params=params, timeout=30)
+            response = self._post('/investors', body)
             data = response.json()
 
             if not response.ok:
@@ -484,9 +547,9 @@ class FundableClient:
             Dict with 'alerts' array containing alert data and deals
         """
         params = {
-            'alertIds': ','.join(alert_ids),
-            'startDate': start_date,
-            'endDate': end_date
+            'alert_ids': ','.join(alert_ids),
+            'start_date': start_date,
+            'end_date': end_date
         }
 
         try:
@@ -501,15 +564,15 @@ class FundableClient:
             if not response.ok:
                 error_msg = data.get('error', {}).get('message', response.reason)
                 print(f"Error fetching alerts: {error_msg}")
-                return {"alerts": [], "totalDealCount": 0}
+                return {"alerts": [], "total_count": 0}
 
             if data.get("success"):
                 return data["data"]
-            return {"alerts": [], "totalDealCount": 0}
+            return {"alerts": [], "total_count": 0}
 
         except requests.exceptions.RequestException as e:
             print(f"Error fetching alerts: {e}")
-            return {"alerts": [], "totalDealCount": 0}
+            return {"alerts": [], "total_count": 0}
 
     def get_alert_configurations(self) -> List[Dict[str, Any]]:
         """
@@ -578,21 +641,83 @@ class FundableClient:
             print(f"Error fetching company {identifier}: {e}")
             return None
 
-    def search_companies(self, q: str) -> List[Dict[str, Any]]:
+    def get_company_deals(self, domain: str = None, linkedin: str = None,
+                          crunchbase: str = None, page: int = None,
+                          page_size: int = None) -> Dict[str, Any]:
         """
-        Search companies by name with fuzzy matching.
+        Get all deals for a company by domain, LinkedIn URL, or Crunchbase URL.
+
+        Exactly one identifier must be provided.
 
         Args:
-            q: Search query (searches across company name and domain)
+            domain: Company domain (e.g., "stripe.com")
+            linkedin: LinkedIn company URL (e.g., "https://linkedin.com/company/stripe")
+            crunchbase: Crunchbase organization URL (e.g., "https://crunchbase.com/organization/stripe")
+            page: Page number (0-based)
+            page_size: Results per page (1-100, default 10)
+
+        Returns:
+            Dict with 'deals' list and 'meta' dict (total_count, page, page_size)
+        """
+        provided = {k: v for k, v in {'domain': domain, 'linkedin': linkedin,
+                                       'crunchbase': crunchbase}.items() if v}
+        if len(provided) != 1:
+            raise ValueError("Exactly one of domain, linkedin, or crunchbase must be provided")
+
+        params = dict(provided)
+        if page is not None:
+            params['page'] = page
+        if page_size is not None:
+            params['page_size'] = page_size
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/company/deals",
+                headers=self.headers,
+                params=params,
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching company deals: {error_msg}")
+                return {"deals": [], "meta": {"total_count": 0}}
+
+            if data.get("success"):
+                return {"deals": data["data"]["deals"], "meta": data.get("meta", {})}
+            return {"deals": [], "meta": {"total_count": 0}}
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching company deals: {e}")
+            return {"deals": [], "meta": {"total_count": 0}}
+
+    def search_companies(self, name: str = None, domain: str = None,
+                         linkedin: str = None, crunchbase: str = None) -> List[Dict[str, Any]]:
+        """
+        Search companies by name, domain, LinkedIn URL, or Crunchbase URL.
+
+        Exactly one parameter must be provided.
+
+        Args:
+            name: Search by company name (fuzzy match)
+            domain: Search by company domain (exact match)
+            linkedin: Search by LinkedIn company URL
+            crunchbase: Search by Crunchbase organization URL
 
         Returns:
             List of matching company dicts with relevance scores
         """
+        provided = {k: v for k, v in {'name': name, 'domain': domain,
+                                       'linkedin': linkedin, 'crunchbase': crunchbase}.items() if v}
+        if len(provided) != 1:
+            raise ValueError("Exactly one of name, domain, linkedin, or crunchbase must be provided")
+
         try:
             response = requests.get(
                 f"{self.base_url}/company/search",
                 headers=self.headers,
-                params={'q': q},
+                params=provided,
                 timeout=30
             )
             data = response.json()
@@ -610,21 +735,83 @@ class FundableClient:
             print(f"Error searching companies: {e}")
             return []
 
-    def search_investors(self, q: str) -> List[Dict[str, Any]]:
+    def get_investor_deals(self, domain: str = None, linkedin: str = None,
+                           crunchbase: str = None, page: int = None,
+                           page_size: int = None) -> Dict[str, Any]:
         """
-        Search investors by name with fuzzy matching.
+        Get all deals for an investor by domain, LinkedIn URL, or Crunchbase URL.
+
+        Exactly one identifier must be provided.
 
         Args:
-            q: Search query (searches across investor name and domain)
+            domain: Investor domain (e.g., "sequoiacap.com")
+            linkedin: LinkedIn company URL (e.g., "https://linkedin.com/company/sequoia-capital")
+            crunchbase: Crunchbase organization URL (e.g., "https://crunchbase.com/organization/sequoia-capital")
+            page: Page number (0-based)
+            page_size: Results per page (1-100, default 10)
+
+        Returns:
+            Dict with 'deals' list and 'meta' dict (total_count, page, page_size)
+        """
+        provided = {k: v for k, v in {'domain': domain, 'linkedin': linkedin,
+                                       'crunchbase': crunchbase}.items() if v}
+        if len(provided) != 1:
+            raise ValueError("Exactly one of domain, linkedin, or crunchbase must be provided")
+
+        params = dict(provided)
+        if page is not None:
+            params['page'] = page
+        if page_size is not None:
+            params['page_size'] = page_size
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/investor/deals",
+                headers=self.headers,
+                params=params,
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching investor deals: {error_msg}")
+                return {"deals": [], "meta": {"total_count": 0}}
+
+            if data.get("success"):
+                return {"deals": data["data"]["deals"], "meta": data.get("meta", {})}
+            return {"deals": [], "meta": {"total_count": 0}}
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching investor deals: {e}")
+            return {"deals": [], "meta": {"total_count": 0}}
+
+    def search_investors(self, name: str = None, domain: str = None,
+                         linkedin: str = None, crunchbase: str = None) -> List[Dict[str, Any]]:
+        """
+        Search investors by name, domain, LinkedIn URL, or Crunchbase URL.
+
+        Exactly one parameter must be provided.
+
+        Args:
+            name: Search by investor name (fuzzy match)
+            domain: Search by investor domain (exact match)
+            linkedin: Search by LinkedIn company URL
+            crunchbase: Search by Crunchbase organization URL
 
         Returns:
             List of matching investor dicts with relevance scores
         """
+        provided = {k: v for k, v in {'name': name, 'domain': domain,
+                                       'linkedin': linkedin, 'crunchbase': crunchbase}.items() if v}
+        if len(provided) != 1:
+            raise ValueError("Exactly one of name, domain, linkedin, or crunchbase must be provided")
+
         try:
             response = requests.get(
                 f"{self.base_url}/investor/search",
                 headers=self.headers,
-                params={'q': q},
+                params=provided,
                 timeout=30
             )
             data = response.json()
@@ -642,12 +829,12 @@ class FundableClient:
             print(f"Error searching investors: {e}")
             return []
 
-    def search_industries(self, q: str, type: str = None) -> List[Dict[str, Any]]:
+    def search_industries(self, name: str, type: str = None) -> List[Dict[str, Any]]:
         """
         Search industries and super categories by name with fuzzy matching.
 
         Args:
-            q: Search query for industry name
+            name: Search query for industry name
             type: Optional filter — 'INDUSTRY' or 'SUPER_CATEGORY'
 
         Returns:
@@ -658,7 +845,7 @@ class FundableClient:
             if type not in valid_types:
                 raise ValueError(f"type must be one of: {valid_types}")
 
-        params = {'q': q}
+        params = {'name': name}
         if type:
             params['type'] = type
 
@@ -684,12 +871,12 @@ class FundableClient:
             print(f"Error searching industries: {e}")
             return []
 
-    def search_locations(self, q: str, type: str = None) -> List[Dict[str, Any]]:
+    def search_locations(self, name: str, type: str = None) -> List[Dict[str, Any]]:
         """
         Search locations by name with fuzzy matching.
 
         Args:
-            q: Search query for location name
+            name: Search query for location name
             type: Optional filter — 'CITY', 'STATE', 'REGION', or 'COUNTRY'
 
         Returns:
@@ -700,7 +887,7 @@ class FundableClient:
             if type not in valid_types:
                 raise ValueError(f"type must be one of: {valid_types}")
 
-        params = {'q': q}
+        params = {'name': name}
         if type:
             params['type'] = type
 
@@ -732,20 +919,20 @@ class DataExtractor:
 
     @staticmethod
     def extract_deal(deal: Dict[str, Any]) -> Dict[str, Any]:
-        """Extract key information from a deal."""
+        """Extract key information from a deal.
+
+        Note: In API v2 the deal response no longer includes inline company or investor
+        objects. Use get_company(deal['company_id']) or get_deal_investors(deal['id'])
+        to fetch those details separately.
+        """
         # Basic info
         extracted = {
             'deal_id': deal.get('id', ''),
-            'company_name': deal.get('company', {}).get('name', 'Unknown'),
+            'company_id': deal.get('company_id', ''),
             'round_type': deal.get('round_type', 'Unknown'),
             'deal_date': deal.get('date', ''),
             'deal_amount': f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else 'Undisclosed'
         }
-
-        # Company info
-        company = deal.get('company', {}) or {}
-        extracted['company_domain'] = company.get('domain', '')
-        extracted['company_location'] = DataExtractor._extract_location(company.get('location', {}))
 
         # Description
         descriptions = deal.get('deal_descriptions', {}) or {}
@@ -753,43 +940,37 @@ class DataExtractor:
         short_desc = descriptions.get('short_description', '')
         extracted['description'] = long_desc or short_desc or 'No description'
 
-        # Articles
-        articles = deal.get('articles', [])
-        extracted['article_urls'] = [article['link'] for article in articles]
+        # Valuation (single nullable object in v2)
+        valuation = deal.get('valuation')
+        if valuation:
+            extracted['valuation'] = valuation.get('valuation_usd_millions')
+        else:
+            extracted['valuation'] = None
 
-        # Investors
-        investors = DataExtractor._extract_investors(deal.get('deal_investors', []))
-        extracted.update(investors)
+        # Investor IDs (full objects require get_deal_investors())
+        investor_ids = deal.get('investor_ids', [])
+        extracted['investor_ids'] = investor_ids
+        extracted['investor_count'] = len(investor_ids)
 
         return extracted
 
     @staticmethod
-    def _extract_location(location: Dict[str, Any]) -> str:
-        """Extract location string."""
-        if not location:
-            return 'Unknown'
-
-        parts = []
-        for loc_type in ['city', 'state', 'country']:
-            loc_data = location.get(loc_type, {})
-            if loc_data and loc_data.get('name'):
-                parts.append(loc_data['name'])
-
-        return ', '.join(parts) if parts else 'Unknown'
-
-    @staticmethod
-    def _extract_investors(deal_investors: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Extract investor information."""
+    def _extract_investors(investors: List[Any]) -> Dict[str, Any]:
+        """Extract investor information from a list of DealInvestor dicts or investor ID strings."""
         all_investors = []
         lead_investors = []
 
-        for investor in deal_investors:
-            name = investor.get('name', 'Unknown')
-            is_lead = investor.get('lead_investor', False)
-
-            all_investors.append(name)
-            if is_lead:
-                lead_investors.append(name)
+        for investor in investors:
+            if isinstance(investor, dict):
+                # Full DealInvestor object (from get_deal_investors())
+                name = investor.get('name', 'Unknown')
+                is_lead = investor.get('lead_investor', False)
+                all_investors.append(name)
+                if is_lead:
+                    lead_investors.append(name)
+            else:
+                # Plain investor ID string (from deal['investor_ids'])
+                all_investors.append(str(investor))
 
         return {
             'investors': all_investors,
@@ -804,13 +985,9 @@ class DataExtractor:
         print("=" * 60)
 
         for i, deal in enumerate(deals, 1):
-            print(f"\n{i}. {deal['company_name']}")
+            print(f"\n{i}. Company ID: {deal['company_id']}")
             print(f"   💰 {deal['deal_amount']} ({deal['round_type']})")
             print(f"   📅 {deal['deal_date']}")
-            print(f"   🌍 {deal['company_location']}")
-
-            if deal['company_domain']:
-                print(f"   🌐 {deal['company_domain']}")
 
             # Description (truncated)
             desc = deal['description']
@@ -818,16 +995,14 @@ class DataExtractor:
                 desc = desc[:150] + "..."
             print(f"   📝 {desc}")
 
-            # Investors
-            if deal['investors']:
-                investors_str = ', '.join(deal['investors'][:3])
+            # Investors (IDs or names depending on enrichment)
+            if deal.get('investors'):
+                investors_str = ', '.join(str(i) for i in deal['investors'][:3])
                 if len(deal['investors']) > 3:
                     investors_str += f" (+{len(deal['investors'])-3} more)"
                 print(f"   💼 {investors_str}")
 
-                if deal['lead_investors']:
+                if deal.get('lead_investors'):
                     print(f"   🎯 Lead: {', '.join(deal['lead_investors'])}")
-
-            # Articles
-            if deal['article_urls']:
-                print(f"   📰 {len(deal['article_urls'])} articles")
+            elif deal.get('investor_ids'):
+                print(f"   💼 {len(deal['investor_ids'])} investor(s) — call get_deal_investors() for details")

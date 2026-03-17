@@ -18,11 +18,25 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 
 
+def print_company(company):
+    """Print a single company summary with latest deal info."""
+    name = company.get('name', 'Unknown')
+    domain = company.get('domain', 'N/A')
+    total = f"${company.get('total_raised')}M" if company.get('total_raised') else 'N/A'
+    latest = company.get('latest_deal', {}) or {}
+    deal_type = latest.get('type', 'N/A')
+    deal_size = f"${latest.get('size')}M" if latest.get('size') else 'Undisclosed'
+    deal_date = (latest.get('date') or 'N/A')[:10]
+    similarity = company.get('similarity')
+    sim_str = f" | similarity: {similarity:.2f}" if similarity else ""
+    print(f"    {name} ({domain}) | Total Raised: {total} | Latest: {deal_type} {deal_size} ({deal_date}){sim_str}")
+
+
 def test_all_parameters():
     """Test the get_companies function with various parameter combinations."""
     client = FundableClient()
 
-    print("Testing get_companies with various filter combinations...")
+    print("Testing get_companies with various filter combinations...\n")
 
     # Calculate dynamic date ranges
     today = datetime.now()
@@ -30,82 +44,103 @@ def test_all_parameters():
     last_30_days_start = (today - timedelta(days=30)).strftime("%Y-%m-%d")
     today_str = today.strftime("%Y-%m-%d")
 
-    print(f"Using date range: {last_7_days_start} to {today_str}")
-
     # Test 1: Basic pagination with last 7 days
+    print("=" * 70)
+    print(f"TEST 1: Basic pagination (last 7 days: {last_7_days_start} to {today_str})")
+    print("=" * 70)
     companies = client.get_companies(
         page=0,
         page_size=5,
         deal_start_date=last_7_days_start,
         deal_end_date=today_str
     )
-    print(f"\u2713 Basic pagination (last 7 days): {len(companies)} companies")
+    print(f"  Found {len(companies)} companies")
+    for company in companies:
+        print_company(company)
 
     # Test 2: Financing types filter with last 7 days
+    print(f"\n{'=' * 70}")
+    print(f"TEST 2: Financing types filter — SERIES_A + SEED (last 7 days)")
+    print("=" * 70)
     companies = client.get_companies(
-        financing_types=['SERIES_A', 'SEED'],
-        page_size=3,
+        financing_types=[{'type': 'SERIES_A'}, {'type': 'SEED'}],
+        page_size=5,
         deal_start_date=last_7_days_start,
         deal_end_date=today_str,
     )
-    print(f"\u2713 Financing types filter (last 7 days): {len(companies)} companies")
+    print(f"  Found {len(companies)} companies")
+    for company in companies:
+        print_company(company)
 
     # Test 3: Industry + location filter with last 30 days
+    print(f"\n{'=' * 70}")
+    print(f"TEST 3: Industry + location filter — AI + San Francisco (last 30 days)")
+    print("=" * 70)
     companies = client.get_companies(
         super_categories=['artificial-intelligence-e551'],
         locations=['san-francisco-california'],
-        page_size=3,
+        page_size=5,
         deal_start_date=last_30_days_start,
         deal_end_date=today_str,
     )
-    print(f"\u2713 Industry + location filter (last 30 days): {len(companies)} companies")
+    print(f"  Found {len(companies)} companies")
+    for company in companies:
+        print_company(company)
 
     # Test 4: Deal size range with last 30 days
+    print(f"\n{'=' * 70}")
+    print(f"TEST 4: Deal size range $10M–$50M (last 30 days)")
+    print("=" * 70)
     companies = client.get_companies(
         deal_size_min=10,
         deal_size_max=50,
-        page_size=3,
+        page_size=5,
         deal_start_date=last_30_days_start,
         deal_end_date=today_str,
     )
-    print(f"\u2713 Deal size range $10M-$50M (last 30 days): {len(companies)} companies")
+    print(f"  Found {len(companies)} companies")
+    for company in companies:
+        print_company(company)
 
-    # Test 5: Semantic search — AI-powered natural language query
+    # Test 5: Total raised filter — companies that have raised $50M–$200M lifetime
+    print(f"\n{'=' * 70}")
+    print(f"TEST 5: Total raised $50M–$200M (last 30 days)")
+    print("=" * 70)
+    companies = client.get_companies(
+        total_raised_min=50,
+        total_raised_max=200,
+        page_size=5,
+        deal_start_date=last_30_days_start,
+        deal_end_date=today_str,
+    )
+    print(f"  Found {len(companies)} companies")
+    for company in companies:
+        print_company(company)
+
+    # Test 6: Semantic search — AI-powered natural language query
+    print(f"\n{'=' * 70}")
+    print(f"TEST 6: Semantic search — 'AI healthcare diagnostics startups' (last 30 days)")
+    print("=" * 70)
     companies = client.get_companies(
         search_query="AI healthcare diagnostics startups",
-        page_size=3,
+        page_size=5,
         deal_start_date=last_30_days_start,
         deal_end_date=today_str,
     )
-    print(f"\u2713 Semantic search (last 30 days): {len(companies)} companies")
+    print(f"  Found {len(companies)} companies")
     for company in companies:
-        name = company.get('name', 'Unknown')
-        domain = company.get('domain', 'N/A')
-        similarity = company.get('similarity')
-        desc = company.get('short_description', 'No description')
-        latest = company.get('latest_deal', {})
-        deal_info = ""
-        if latest:
-            deal_info = f" | {latest.get('type', 'N/A')} ${latest.get('size') or 'Undisclosed'}M"
-        sim_str = f" (similarity: {similarity:.2f})" if similarity else ""
-        print(f"  {name} ({domain}){sim_str}{deal_info}")
-        print(f"    {desc}")
+        print_company(company)
+        desc = company.get('short_description', '')
+        if desc:
+            print(f"      {desc}")
 
-    # Test 6: Print a sample company
-    if companies:
-        print("\n" + "="*60)
-        print("SAMPLE COMPANY OUTPUT:")
-        print("="*60)
-        print(companies[0])
-
-    # Test 7: Save full company objects for inspection
+    # Save results for inspection
     if companies:
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         output_path = os.path.join(OUTPUT_DIR, 'sample_companies.json')
-        print(f"\n\U0001f4c1 Saving {len(companies)} full company objects to '{output_path}'...")
         with open(output_path, 'w') as f:
             json.dump(companies, f, indent=2)
-        print("\u2713 Full company objects saved - inspect the complete API response structure")
+        print(f"\n  Saved to {output_path}")
 
 
 if __name__ == "__main__":

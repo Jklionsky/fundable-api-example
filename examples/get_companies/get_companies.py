@@ -2,8 +2,8 @@
 """
 Example: Batch lookup companies by domain using a CSV file.
 
-This script demonstrates how to use the /companies endpoint's `domains`
-and `linkedins` filters to batch-lookup companies from a CSV test set.
+This script demonstrates how to use the /companies endpoint's `domains`,
+`linkedins`, and `crunchbases` filters to batch-lookup companies from a CSV test set.
 """
 
 import csv
@@ -20,9 +20,9 @@ CSV_PATH = os.path.join(REPO_ROOT, 'test_sets', 'San_Francisco_2026-03-05.csv')
 
 
 def load_csv(path):
-    """Load company domains and LinkedIn slugs from CSV."""
+    """Load company domains and LinkedIn URLs from CSV."""
     domains = []
-    linkedin_slugs = []
+    linkedin_urls = []
     with open(path, 'r') as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -31,10 +31,8 @@ def load_csv(path):
             if domain:
                 domains.append(domain)
             if linkedin:
-                # Extract slug from full URL
-                slug = linkedin.rstrip('/').split('/')[-1]
-                linkedin_slugs.append(slug)
-    return domains, linkedin_slugs
+                linkedin_urls.append(linkedin)
+    return domains, linkedin_urls
 
 
 def main():
@@ -42,8 +40,8 @@ def main():
 
     # Load test set
     print(f"Loading CSV from {CSV_PATH}...")
-    domains, linkedin_slugs = load_csv(CSV_PATH)
-    print(f"Found {len(domains)} domains and {len(linkedin_slugs)} LinkedIn slugs\n")
+    domains, linkedin_urls = load_csv(CSV_PATH)
+    print(f"Found {len(domains)} domains and {len(linkedin_urls)} LinkedIn URLs\n")
 
     # --- Test 1: Batch lookup by domain ---
     print("=" * 60)
@@ -74,32 +72,36 @@ def main():
             json.dump(companies, f, indent=2)
         print(f"\nSaved {len(companies)} companies to {output_path}")
 
-    # --- Test 2: Batch lookup by LinkedIn slug (first 10) ---
-    subset = linkedin_slugs[:10]
+    # --- Test 2: Batch lookup by LinkedIn URL (first 10) ---
+    subset = linkedin_urls[:10]
     print(f"\n{'=' * 60}")
-    print(f"BATCH LOOKUP BY LINKEDIN ({len(subset)} slugs)")
+    print(f"BATCH LOOKUP BY LINKEDIN ({len(subset)} URLs)")
     print("=" * 60)
 
     companies_li = client.get_companies(
         linkedins=subset,
         page_size=100,
     )
-    print(f"\nMatched {len(companies_li)} / {len(subset)} LinkedIn slugs\n")
+    print(f"\nMatched {len(companies_li)} / {len(subset)} LinkedIn URLs\n")
 
     for company in companies_li:
         print(f"  {company['name']} ({company.get('domain', 'N/A')})")
 
-    # --- Test 3: Batch lookup by Crunchbase slug ---
-    cb_slugs = ['stripe', 'airbnb', 'notion-so']
+    # --- Test 3: Batch lookup by Crunchbase URL ---
+    cb_urls = [
+        'https://crunchbase.com/organization/stripe',
+        'https://crunchbase.com/organization/airbnb',
+        'https://crunchbase.com/organization/notion-so',
+    ]
     print(f"\n{'=' * 60}")
-    print(f"BATCH LOOKUP BY CRUNCHBASE ({len(cb_slugs)} slugs)")
+    print(f"BATCH LOOKUP BY CRUNCHBASE ({len(cb_urls)} URLs)")
     print("=" * 60)
 
     companies_cb = client.get_companies(
-        crunchbases=cb_slugs,
+        crunchbases=cb_urls,
         page_size=100,
     )
-    print(f"\nMatched {len(companies_cb)} / {len(cb_slugs)} Crunchbase slugs\n")
+    print(f"\nMatched {len(companies_cb)} / {len(cb_urls)} Crunchbase URLs\n")
 
     for company in companies_cb:
         print(f"  {company['name']} ({company.get('domain', 'N/A')})")

@@ -1,576 +1,140 @@
 [
   {
-    "id": "ddd9766f-8700-4db1-964b-249779db0574",
-    "round_type": "SERIES_A",
+    "id": "d96aedaf-50ab-4eb9-8096-82758f10c111",
+    "round_type": "SEED",
     "extension": false,
     "intermediate": "NONE",
-    "pre": false,
-    "date": "2026-02-23T21:17:20.000Z",
-    "total_round_raised": 101.28,
+    "pre": true,
+    "date": "2026-03-15T20:30:34.000Z",
+    "created_at": "2026-03-15T23:02:21.803Z",
+    "total_round_raised": 2,
     "deal_descriptions": {
-      "short_description": "Semiconductor equipment maker Yanwei Semiconductor raised a nearly \u00a5700 million Series A round from Hillhouse Capital, Shixi Capital, CICC Capital and a consortium of new and returning investors.",
-      "long_description": "Yanwei Semiconductor closed a Series A financing of almost RMB 700 million. New investors included Shixi Capital, Goldstone Investment, Hillhouse Capital, Anxin Capital, Fengyuan Capital, Xincheng Capital, CICC Capital, TEDA Kechuang Investment, Jinyuan Capital, Hefei Industrial Investment, Dianshi Capital and Yongxin Ark. Existing shareholders Hushan Capital, Xianghe Capital, Yida Capital, Xinke Capital and Primavera Capital also participated, increasing their stakes. The capital mix was entirely equity according to the disclosure. Proceeds will support core product upgrades, capacity build-out and R&D expansion to accelerate domestic replacement of high-end thin-film deposition tools. The company, located in Jiangsu, did not reveal earlier round sizes but noted several prior backers in this raise. No additional financial metrics or valuation figures were provided beyond the \u201cnear RMB 700 million\u201d headline amount."
+      "short_description": "Fluum, an AI-native warm introduction platform, is raising a $2M pre-seed via an open SAFE at a $12M valuation with a 20% discount, following prior capital from angels and family offices.",
+      "long_description": "Fluum is conducting a $2M pre-seed round structured as an open SAFE with a $12M valuation and a 20% discount. Prior to this round the company has raised roughly $400K from angels and family offices. The raise will include the new SAFE commitments alongside that existing investor base; no lead institutional investor is named in the article. Management says the funds will be used to expand the platform and scale its professional network toward targets such as 100,000 decision-makers, 200 B2B/Enterprise users, and $5M ARR. The company has communicated early traction metrics to support the round, which investors can review during the open raise. Fluum is UK-based and led by a founding team with backgrounds in trading, engineering, and growth."
     },
-    "articles": [
-      {
-        "link": "https://m.sohu.com/a/989186703_100032554",
-        "is_primary": true,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
-      },
-      {
-        "link": "https://www.xhby.net/content/s69282f7ee4b0050b31b5acd3.html",
-        "is_primary": false,
-        "publishedDate": "2025-11-27T12:17:05+00:00"
-      },
-      {
-        "link": "https://k.sina.com.cn/article_7879922977_1d5ae152106801b3di.html",
-        "is_primary": false,
-        "publishedDate": "2026-02-15T21:43:43+00:00"
-      },
-      {
-        "link": "https://news.pedaily.cn/202511/557805.shtml",
-        "is_primary": false,
-        "publishedDate": "2025-11-25T21:17:33+00:00"
-      },
-      {
-        "link": "https://www.trendforce.com/news/2025/12/05/news-chinese-semiconductor-equipment-maker-psr-completed-series-a-funding/",
-        "is_primary": false,
-        "publishedDate": "2025-12-05T21:21:43+00:00"
-      }
-    ],
-    "company": {
-      "id": "864b81da-eb76-490b-9f27-53b2056ed0a6",
-      "name": "\u7814\u5fae\u534a\u5bfc\u4f53 - Yanwei (Jiangsu) Semiconductor Technology Co., Ltd",
-      "legal_name": "Yanwei (Jiangsu) Semiconductor Technology Co., Ltd.",
-      "guru_permalink": "yan-wei-ban-dao-ti",
-      "domain": "psrsemi.com",
-      "region": "Jiangsu",
-      "industries": [
-        {
-          "permalink": "industrial-engineering",
-          "name": "Industrial Engineering"
-        },
-        {
-          "permalink": "manufacturing",
-          "name": "Manufacturing"
-        },
-        {
-          "permalink": "semiconductor",
-          "name": "Semiconductor"
-        }
-      ],
-      "location": {
-        "region": {
-          "name": "Asia",
-          "permalink": "asia"
-        },
-        "country": {
-          "name": "China",
-          "permalink": "china-500a"
-        },
-        "state": {
-          "name": "Jiangsu",
-          "permalink": "jiangsu-china"
-        },
-        "city": {
-          "name": "Wuxi Shi",
-          "permalink": "wuxi-shi-jiangsu"
-        }
-      }
-    },
-    "deal_investors": [
-      {
-        "id": "15adfb85-aa40-469a-9978-ae81bd5db384",
-        "name": "\u6c38\u946b\u65b9\u821f",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "09ca198d-6ca3-4743-b372-e839ea1d8e22",
-        "name": "\u6cf0\u8fbe\u79d1\u6295",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "20358a5e-3a8a-413f-bf69-38ab5c790065",
-        "name": "\u82af\u8fb0\u8d44\u672c",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "0f85b991-38dd-4256-a426-00123e005c5f",
-        "name": "\u51af\u6e90\u8d44\u672c",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "b58b98aa-db76-4073-b9be-0f9aecb384bd",
-        "name": "Dianshi Capital",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "128023d9-b634-4e27-99a9-b64d2fa02d02",
-        "name": "\u5408\u80a5\u4ea7\u6295",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "59740dfe-6a1f-44f2-bdee-13051baeeb85",
-        "name": "Goldstone Investment",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "c2847b95-7ab1-4995-9b0e-a63d51759e4f",
-        "name": "\u91d1\u5706\u8d44\u672c\u7ba1\u7406",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "d9009997-e7f7-4e29-8420-11332c43479c",
-        "name": "Hillhouse Capital Group",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "7789f48d-b22c-451f-ab9c-40dbb616896f",
-        "name": "Primavera Capital Group",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "a28b2ccc-140d-48cb-8742-9f499040c846",
-        "name": "\u6b23\u67ef\u521b\u6295",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "4d758967-00b0-4a73-8861-fbf1cf7b3eda",
-        "name": "\u6bc5\u8fbe\u8d44\u672c",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "add637a1-f066-4181-80da-614ebf8c5806",
-        "name": "Xianghe Capital",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "8de5d76e-0421-42da-9844-8a879fdd3cd7",
-        "name": "\u6e56\u6749\u8d44\u672c",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "affdca7b-3375-4b19-bffa-6db8dd251d6f",
-        "name": "\u4e2d\u8bc1\u6295\u8d44",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "e954abd9-a07e-4aeb-b796-397c4b3c8f19",
-        "name": "\u77f3\u6eaa\u8d44\u672c",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      },
-      {
-        "id": "07d86428-b0f3-40cd-8863-bf0250c2dc24",
-        "name": "\u5b89\u82af\u8d44\u672c",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "SERIES_A",
-        "is_debt_investor": false
-      }
-    ],
+    "company_id": "b504ac38-4ccb-44c4-bf22-cbbc321a77f5",
+    "investor_ids": [],
     "financings": [
       {
-        "id": "0ac57fec-6019-4061-a5d3-415ea9a89acc",
-        "type": "SERIES_A",
-        "size_usd": 101.28,
-        "size": 700,
-        "currency": "rmb"
+        "id": "78949d5c-4ae2-4532-b981-e6cd3f8e3b49",
+        "type": "SEED",
+        "size_usd": 2,
+        "size": 2,
+        "currency": "usd"
       }
     ],
-    "valuations": []
+    "valuation": {
+      "valuation_currency": "USD",
+      "valuation": 12,
+      "valuation_usd": 12,
+      "valuation_usd_millions": 12,
+      "type": "DEFAULT"
+    }
   },
   {
-    "id": "5c953528-8cae-40a0-9558-64ffd6ec77b9",
-    "round_type": "SERIES_B",
+    "id": "14fd026f-b172-42ad-9c4f-2b4fa82c8880",
+    "round_type": "SEED",
     "extension": false,
     "intermediate": "NONE",
-    "pre": false,
-    "date": "2026-02-23T21:17:20.000Z",
-    "total_round_raised": 144.69,
+    "pre": true,
+    "date": "2026-03-15T00:53:42.000Z",
+    "created_at": "2026-03-15T12:00:28.053Z",
+    "total_round_raised": 2.4,
     "deal_descriptions": {
-      "short_description": "\u667a\u5e73\u65b9 raised over RMB 1 billion in Series B equity financing from undisclosed investors, boosting its valuation above RMB 10 billion.",
-      "long_description": "\u667a\u5e73\u65b9 completed a Series B equity financing exceeding RMB 1 billion. The transaction\u2019s investor roster was not revealed in the article, and no breakdown of tranche sizes was provided. With this round, the company\u2019s valuation officially surpassed RMB 10 billion. The coverage did not mention any prior funding history, debt components, or strategic investors. Key deal terms such as board seats or use of proceeds were likewise undisclosed. Overall, the story highlights the magnitude of the Series B raise and the sharp increase in corporate valuation, but provides no further financial or operational details."
+      "short_description": "Verustruct, a construction robotics startup, raised $2.4M in an oversubscribed pre-seed round with support from the Yale School of Management and Professor Jennifer McFadden.",
+      "long_description": "Verustruct completed an oversubscribed $2.4 million pre-seed financing round. The raise was supported by the Yale School of Management and individual support from Professor Jennifer McFadden, as noted in coverage of the deal. The financing was described as a pre-seed equity round; no valuation or detailed syndicate members were disclosed in the article. The company has positioned the round to advance its robotic construction technology and commercial strategy. Verustruct is organized as a Public Benefit Corporation, a structure it adopted prior to or during early fundraising. The company is cited as operating out of New Haven and London."
     },
-    "articles": [
-      {
-        "link": "https://www.donews.com/news/detail/4/6435335.html",
-        "is_primary": true,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
-      },
-      {
-        "link": "https://www.caixinglobal.com/2026-02-23/chinas-ai-robotics-raises-fresh-funds-at-over-10-billion-yuan-valuation-102416310.html",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T11:17:20+00:00"
-      },
-      {
-        "link": "https://www.stcn.com/article/detail/3646400.html",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
-      },
-      {
-        "link": "https://m.dtm.com.cn/news/202602/197266.html",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:21+00:00"
-      },
-      {
-        "link": "https://news.pedaily.cn/202602/561111.shtml",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
-      },
-      {
-        "link": "https://beta.huxiu.com/ainews/9007.html",
-        "is_primary": false,
-        "publishedDate": "2026-02-13T21:40:35+00:00"
-      },
-      {
-        "link": "https://www.ithome.com/0/922/937.htm",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:21+00:00"
-      },
-      {
-        "link": "https://news.futunn.com/flash/19971345/zhi-ping-fang-completes-series-b-funding-round-exceeding-1",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:21+00:00"
-      },
-      {
-        "link": "https://article.9466.com/news/5lgAPOKE",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:21+00:00"
-      },
-      {
-        "link": "https://www.cls.cn/detail/2292966",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
-      },
-      {
-        "link": "https://tech.china.com/articles/20260223/202602231814197.html",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
-      },
-      {
-        "link": "https://www.nfnews.com/content/LownkR5D6J.html",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:21+00:00"
-      },
-      {
-        "link": "https://m.sohu.com/a/989311848_465270",
-        "is_primary": false,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
-      }
-    ],
-    "company": {
-      "id": "bfcd3387-77fd-44cd-a1ae-6da366323f3b",
-      "name": "\u667a\u5e73\u65b9",
-      "legal_name": "Shenzhen Zhipingfang Technology Co., Ltd.",
-      "guru_permalink": "zhi-ping-fang",
-      "domain": "ai2robotics.com",
-      "region": "Beijing",
-      "industries": [
-        {
-          "permalink": "manufacturing",
-          "name": "Manufacturing"
-        },
-        {
-          "permalink": "robotics",
-          "name": "Robotics"
-        },
-        {
-          "permalink": "rpa-c4f8",
-          "name": "Robotic Process Automation (RPA)"
-        }
-      ],
-      "location": {
-        "region": {
-          "name": "Asia",
-          "permalink": "asia"
-        },
-        "country": {
-          "name": "China",
-          "permalink": "china-500a"
-        },
-        "state": {
-          "name": "Beijing",
-          "permalink": "beijing-china"
-        },
-        "city": {
-          "name": "Beijing",
-          "permalink": "beijing-beijing"
-        }
-      }
-    },
-    "deal_investors": [],
+    "company_id": "00b6ca2f-5b6c-4e3d-8cad-c8408ef4ecc4",
+    "investor_ids": [],
     "financings": [
       {
-        "id": "4da6f211-657e-43c3-b5ea-5c4d55125ed8",
-        "type": "SERIES_B",
-        "size_usd": 144.69,
-        "size": 1000,
-        "currency": "rmb"
+        "id": "8c06c79f-3af2-4581-bc10-d676e7a24862",
+        "type": "SEED",
+        "size_usd": 2.4,
+        "size": 2.4,
+        "currency": "usd"
       }
     ],
-    "valuations": [
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      },
-      {
-        "valuation_currency": "CNY",
-        "valuation": 100,
-        "valuation_usd": 14.47,
-        "valuation_usd_millions": 1447,
-        "type": "DEFAULT"
-      }
-    ]
+    "valuation": null
   },
   {
-    "id": "084731fa-0aa3-4ca0-8a74-2084dad9da45",
-    "round_type": "DEBT_FINANCING",
+    "id": "9267de4f-3151-49c8-b1d2-986919357ccd",
+    "round_type": "SEED",
     "extension": false,
     "intermediate": "NONE",
-    "pre": false,
-    "date": "2026-02-23T21:17:20.000Z",
-    "total_round_raised": 134.55,
+    "pre": true,
+    "date": "2026-03-14T11:46:37.000Z",
+    "created_at": "2026-03-14T12:00:39.220Z",
+    "total_round_raised": 0.33,
     "deal_descriptions": {
-      "short_description": "Brazilian fintech 99Pay raised R$ 700 million (\u2248 US$135 million) through a FIDC vehicle coordinated and co-invested by Bradesco BBI, with 99 also participating.",
-      "long_description": "99 completed a R$ 700 million (\u2248 US$135 million) fundraising via a Fundo de Investimento em Direitos Credit\u00f3rios (FIDC), its third such structure since it began lending in November 2022. The FIDC was exclusively coordinated by Bradesco BBI, which also invested alongside the company itself. Proceeds will be used to expand 99Pay\u2019s credit offering to its user base. Cumulatively, 99Pay has originated around R$ 6 billion in loans and holds an active portfolio of roughly R$ 1.8 billion. No additional external investors or equity components were disclosed in the article. The transaction reinforces 99\u2019s strategy of using structured credit vehicles to finance loan growth within Brazil\u2019s regulated fintech sector."
+      "short_description": "SPORTL, a London-based pay-as-you-train fitness marketplace, raised $320K (\u00a3250K) in a pre-seed round.",
+      "long_description": "SPORTL raised $320K (\u00a3250K) in a pre-seed funding round to launch its pay-as-you-train marketplace. The article does not list participating investors or additional capital types beyond the pre-seed raise. The funds are intended to build and launch a platform that lets users book workouts at different gym studios across London without long-term memberships. SPORTL\u2019s model is designed to give studios control over pricing and availability while providing them with a distribution channel to fill unused capacity and attract new customers. The company positions itself as a hyper-local, marketplace-driven alternative to membership models and to broader players like ClassPass. No prior funding rounds or operating metrics were disclosed in the coverage."
     },
-    "articles": [
+    "company_id": "5ebac676-8730-4fa8-8f65-5738898055f3",
+    "investor_ids": [],
+    "financings": [
       {
-        "link": "https://www.latamfintech.co/articles/fintech-99pay-capta-us-135-millones-via-fidc-para-fortalecer-su-operacion-de-credito-en-brasil",
-        "is_primary": true,
-        "publishedDate": "2026-02-23T21:17:20+00:00"
+        "id": "4e238844-4d0d-4cce-82fb-48a56ae4773a",
+        "type": "SEED",
+        "size_usd": 0.33,
+        "size": 0.25,
+        "currency": "gbp"
       }
     ],
-    "company": {
-      "id": "8f36e16f-b5ec-4c1d-8c18-c84ce1b75c0e",
-      "name": "99",
-      "legal_name": "99 T\u00e1xis Desenvolvimento de Software Limitada",
-      "guru_permalink": "99taxis",
-      "domain": "99app.com",
-      "region": "Sao Paulo",
-      "industries": [
-        {
-          "permalink": "android-3f49",
-          "name": "Android"
-        },
-        {
-          "permalink": "car-sharing",
-          "name": "Car Sharing"
-        },
-        {
-          "permalink": "internet",
-          "name": "Internet"
-        },
-        {
-          "permalink": "ios-6e02",
-          "name": "iOS"
-        },
-        {
-          "permalink": "mobile",
-          "name": "Mobile"
-        },
-        {
-          "permalink": "saas-5c4e",
-          "name": "SaaS"
-        },
-        {
-          "permalink": "software",
-          "name": "Software"
-        }
-      ],
-      "location": {
-        "region": {
-          "name": "South America",
-          "permalink": "south-america"
-        },
-        "country": {
-          "name": "Brazil",
-          "permalink": "brazil"
-        },
-        "state": {
-          "name": "Sao Paulo",
-          "permalink": "sao-paulo-brazil"
-        },
-        "city": {
-          "name": "S\u00e3o Paulo",
-          "permalink": "s\u00e3o-paulo-sao-paulo"
-        }
-      }
+    "valuation": null
+  },
+  {
+    "id": "187260a1-dbb1-44d3-95d2-b85738aaf974",
+    "round_type": "SEED",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": true,
+    "date": "2026-03-14T08:47:16.000Z",
+    "created_at": "2026-03-14T12:00:39.220Z",
+    "total_round_raised": 0,
+    "deal_descriptions": {
+      "short_description": "Yumi Finance, a startup rebuilding credit infrastructure on stablecoin rails, raised a pre-seed round backed by Colosseum and angel investors including Kevin Sekniqi, James Smith, Arnold Lee, Fedor C., Jinsol Bok, Shimon Newman, Valentin Pletnev, Laurens Kubat, Jan Baeriswyl, Sebastien Davies, Julian Rachman, Juhyuk B., Oleg Smagin, Genya Smagin, and Charles Mountain",
+      "long_description": "Yumi Finance announced a pre-seed fundraising to rebuild credit infrastructure on stablecoin rails. The round is composed of early-stage/angel capital from a roster of backers led publicly by Colosseum and a group of individual investors including Kevin Sekniqi, James Smith, Arnold Lee, Fedor C., Jinsol Bok, Shimon Newman, Valentin Pletnev, Laurens Kubat, Jan Baeriswyl, Sebastien Davies, Julian Rachman, Juhyuk B., Oleg Smagin, Genya Smagin, and Charles Mountain. The company did not disclose the total amount raised or a valuation in the announcement. No prior funding rounds were mentioned. Yumi said the funds will support rebuilding credit infrastructure using stablecoins, with initial focus on SMBs and trade finance. The team framed the effort as addressing an estimated $2.5 trillion unmet demand in trade finance and SMB lending in 2025."
     },
-    "deal_investors": [
-      {
-        "id": "c640b4a6-be51-4127-aaf4-293e74c871a0",
-        "name": "Bradesco BBI",
-        "lead_investor": true,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "DEBT_FINANCING",
-        "is_debt_investor": true
-      },
-      {
-        "id": "2a2c97be-a7fe-4e0a-90e5-2ded8fe455a5",
-        "name": "99",
-        "lead_investor": false,
-        "angel_investor": false,
-        "personnel": [],
-        "financing_type": "DEBT_FINANCING",
-        "is_debt_investor": true
-      }
+    "company_id": "bdd074aa-085a-40f8-bea0-1121f4a3eb09",
+    "investor_ids": [
+      "9ffaa273-cf69-4ea0-9f56-67a05c146d1c"
     ],
     "financings": [
       {
-        "id": "df11ebe7-f2f8-4f1c-b031-b4360cd0f629",
-        "type": "DEBT_FINANCING",
-        "size_usd": 134.55,
-        "size": 700,
-        "currency": "brl"
+        "id": "333cafc3-093f-408b-9a5b-9baa7502173a",
+        "type": "SEED",
+        "size_usd": 0,
+        "size": 0,
+        "currency": "usd"
       }
     ],
-    "valuations": []
+    "valuation": null
+  },
+  {
+    "id": "24c316d1-1d29-4f8a-89ef-52c1ee44399f",
+    "round_type": "SEED",
+    "extension": false,
+    "intermediate": "NONE",
+    "pre": true,
+    "date": "2026-03-14T01:05:47.000Z",
+    "created_at": "2026-03-15T12:00:28.053Z",
+    "total_round_raised": 0,
+    "deal_descriptions": {
+      "short_description": "Chaseit.ai, a fintech focused on AI-powered automated voice collections, raised an undisclosed pre-seed round.",
+      "long_description": "Chaseit.ai raised a pre-seed round with the amount undisclosed. The round is the company's only reported funding to date; it plans to raise a seed round in the coming months. The startup was founded seven months ago and is headquartered in Vilnius and London. The company processes more than 20,000 automated calls per day (with an expectation of reaching 30,000) and serves financial institutions including Eleving Group. No investors were named in reporting about the pre-seed, and no valuation information was disclosed. The company has stated ambitions to expand beyond collections and support into a full AI-driven credit management platform."
+    },
+    "company_id": "d9c622da-68d0-4def-b44f-1586b19fd775",
+    "investor_ids": [],
+    "financings": [
+      {
+        "id": "f530e88d-84b9-4934-9a2a-2b71576a288b",
+        "type": "SEED",
+        "size_usd": 0,
+        "size": 0,
+        "currency": "usd"
+      }
+    ],
+    "valuation": null
   }
 ]

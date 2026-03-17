@@ -1,25 +1,22 @@
-"""Fundable API Client - Investor analysis and visualization tools.
+"""Fundable API Client - Python client and visualization tools.
 
 This package provides a simple Python client for the Fundable API,
-along with tools for analyzing investor data and creating visualizations.
+along with tools for creating visualizations.
 
 Basic usage:
-    >>> from fundable import FundableClient, InvestorAnalyzer
+    >>> from fundable import FundableClient
     >>> client = FundableClient()
-    >>> analyzer = InvestorAnalyzer(client)
-    >>> results = analyzer.analyze_top_investors(top_n=15, financing_types=['SEED'])
+    >>> deals = client.get_deals(financing_types=['SEED'])
 """
 
 __version__ = "0.1.0"
 
 from fundable.client import FundableClient, DataExtractor
-from fundable.analyzers.investor import InvestorAnalyzer
 from fundable.visualization.charts import InvestorBarChart, IndustryChart
 
 __all__ = [
     "FundableClient",
     "DataExtractor",
-    "InvestorAnalyzer",
     "InvestorBarChart",
     "IndustryChart",
     "__version__",

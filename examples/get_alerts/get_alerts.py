@@ -136,9 +136,9 @@ def get_alerts_simple(alert_id: str):
             "Content-Type": "application/json"
         },
         params={
-            "alertIds": alert_id,
-            "startDate": start_date,
-            "endDate": end_date
+            "alert_ids": alert_id,
+            "start_date": start_date,
+            "end_date": end_date
         },
         timeout=30
     )
@@ -155,7 +155,7 @@ def get_alerts_simple(alert_id: str):
         return []
 
     alerts = data["data"]["alerts"]
-    total_deals = data["data"].get("totalDealCount", 0)
+    total_deals = data.get("meta", {}).get("total_count", 0)
 
     print(f"\nFound {len(alerts)} alert(s) with {total_deals} total deals")
 
@@ -379,7 +379,7 @@ def example_4_alerts_with_investor_info(alert_id: str, max_deals: int = 5):
             if not company_id:
                 continue
 
-            # Fetch deals for this company to get investor info
+            # Fetch deals for this company to get deal ID
             full_deals = client.get_deals(
                 company_ids=[company_id],
                 deal_start_date=week_ago.strftime("%Y-%m-%d"),
@@ -391,9 +391,9 @@ def example_4_alerts_with_investor_info(alert_id: str, max_deals: int = 5):
                 print(f"    No full deal data found")
                 continue
 
-            # Use the first matching deal
+            # Use the first matching deal; fetch investors via the dedicated endpoint
             full_deal = full_deals[0]
-            deal_investors = full_deal.get('deal_investors', [])
+            deal_investors = client.get_deal_investors(full_deal['id'])
 
             print(f"    Found {len(deal_investors)} investors")
 
