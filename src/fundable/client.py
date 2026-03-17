@@ -13,8 +13,8 @@ load_dotenv()
 
 
 def format_usd(amount) -> str:
-    """Format a dollar amount with commas. Returns 'Undisclosed' if None."""
-    if amount is None:
+    """Format a dollar amount with commas. Returns 'Undisclosed' if None or 0."""
+    if not amount:
         return 'Undisclosed'
     if isinstance(amount, (int, float)):
         if amount == int(amount):

@@ -34,9 +34,9 @@ def main():
 
     # --- Test 1: Funding history by domain ---
     print("=" * 70)
-    print("TEST 1: Full funding history by domain (stripe.com)")
+    print("TEST 1: Funding history by domain (databricks.com)")
     print("=" * 70)
-    result = client.get_company_deals(domain="stripe.com")
+    result = client.get_company_deals(domain="databricks.com", page_size=25)
     deals = result['deals']
     meta = result['meta']
     print(f"  Found {meta.get('total_count', len(deals))} total deals (page {meta.get('page', 0)})\n")
@@ -45,9 +45,9 @@ def main():
 
     # --- Test 2: Funding history by LinkedIn URL ---
     print(f"\n{'=' * 70}")
-    print("TEST 2: Full funding history by LinkedIn URL (Databricks)")
+    print("TEST 2: Funding history by LinkedIn URL (Anduril)")
     print("=" * 70)
-    result = client.get_company_deals(linkedin="https://linkedin.com/company/databricks")
+    result = client.get_company_deals(linkedin="linkedin.com/company/andurilindustries/", page_size=25)
     deals = result['deals']
     meta = result['meta']
     print(f"  Found {meta.get('total_count', len(deals))} total deals (page {meta.get('page', 0)})\n")
@@ -56,9 +56,9 @@ def main():
 
     # --- Test 3: Funding history by Crunchbase URL ---
     print(f"\n{'=' * 70}")
-    print("TEST 3: Full funding history by Crunchbase URL (OpenAI)")
+    print("TEST 3: Full funding history by Crunchbase URL (Lovable)")
     print("=" * 70)
-    result = client.get_company_deals(crunchbase="https://crunchbase.com/organization/openai")
+    result = client.get_company_deals(crunchbase="https://www.crunchbase.com/organization/lovable-803a", page_size=25)
     deals = result['deals']
     meta = result['meta']
     print(f"  Found {meta.get('total_count', len(deals))} total deals (page {meta.get('page', 0)})\n")
@@ -67,10 +67,10 @@ def main():
 
     # --- Test 4: Pagination ---
     print(f"\n{'=' * 70}")
-    print("TEST 4: Pagination — page 0 vs page 1 (stripe.com, page_size=3)")
+    print("TEST 4: Pagination — page 0 vs page 1 (databricks.com, page_size=3)")
     print("=" * 70)
     for pg in [0, 1]:
-        result = client.get_company_deals(domain="stripe.com", page=pg, page_size=3)
+        result = client.get_company_deals(domain="databricks.com", page=pg, page_size=3)
         deals = result['deals']
         meta = result['meta']
         print(f"\n  Page {pg} ({len(deals)} deals, {meta.get('total_count', '?')} total):")
@@ -78,7 +78,7 @@ def main():
             print_deal(deal)
 
     # Save a sample for inspection
-    result = client.get_company_deals(domain="stripe.com", page_size=10)
+    result = client.get_company_deals(domain="databricks.com", page_size=10)
     if result['deals']:
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         output_path = os.path.join(OUTPUT_DIR, 'company_deals.json')

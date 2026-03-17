@@ -41,11 +41,18 @@ This repository contains a Python client for interacting with the Fundable API, 
    ```bash
    python3 examples/get_companies/get_companies.py
    python3 examples/get_companies/get_recent_raises.py
+   python3 examples/get_companies/get_company_deals.py
    ```
 
    **Get Investors:**
    ```bash
    python3 examples/get_investors/get_investors.py
+   python3 examples/get_investors/get_investor_deals.py
+   ```
+
+   **Get Alerts:**
+   ```bash
+   python3 examples/get_alerts/get_alerts.py
    ```
 
    **Search (Companies, Investors, Industries, Locations):**
@@ -62,10 +69,11 @@ This repository contains a Python client for interacting with the Fundable API, 
   - `analyzers/` - Analysis modules
 - `examples/` - Example scripts demonstrating API usage
   - `get_recent_deals/` - Basic deal fetching examples
-  - `get_companies/` - Company lookup and filtering examples
-  - `get_investors/` - Investor lookup and filtering examples
+  - `get_companies/` - Company lookup, recent raises, and company deal history examples
+  - `get_investors/` - Investor lookup and investor deal history examples
   - `get_alerts/` - Alert fetching examples
   - `search/` - Search examples (companies, investors, industries, locations)
+  - `utils/` - Reusable utilities (graph generation)
 - `openapi/` - OpenAPI specifications for all API endpoints
 - `pyproject.toml` - Package configuration
 
