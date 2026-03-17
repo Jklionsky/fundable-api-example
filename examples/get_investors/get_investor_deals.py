@@ -9,7 +9,7 @@ by domain, LinkedIn URL, or Crunchbase URL, with pagination support.
 import json
 import os
 
-from fundable import FundableClient
+from fundable import FundableClient, format_usd
 
 # Get script directory for relative paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +18,7 @@ OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 
 def print_deal(deal):
     """Print a single deal with round type modifiers."""
-    amount = f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else "Undisclosed"
+    amount = format_usd(deal.get('total_round_raised'))
     label = deal.get('round_type', 'Unknown')
     if deal.get('pre'):
         label = f"Pre-{label}"

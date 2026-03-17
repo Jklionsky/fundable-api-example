@@ -38,7 +38,7 @@ pytest
 
 **`examples/`** — Each subdirectory is a self-contained script with its own `output/` folder. Pattern: create client → call API with filters → extract/analyze → save JSON or PNG.
 
-**`openapi_v3/`** — Current per-endpoint OpenAPI specs. The API uses strict parameter validation (unknown params → 422 error).
+**`openapi_v2/`** — Current per-endpoint OpenAPI specs. The API uses strict parameter validation (unknown params → 422 error).
 
 ## Key API Conventions
 
@@ -46,11 +46,13 @@ pytest
 - Financing types are objects with `type` (required), `pre`, and `extension` (optional booleans):
   `[{"type": "SEED", "pre": true}, {"type": "SERIES_A"}]`
 - Sort enums use snake_case: `most_recent_deal`, `matching_deals`, `recent_deals`, `total_deals`, `most_recent_raise`, etc.
-- Deal sizes in millions USD; max $100B, date range max 10 years
+- All monetary values (deal sizes, total raised, valuations) are in actual USD (not millions). Filter params (`size_min`, `size_max`, `total_raised_min`, `total_raised_max`) also expect actual USD. Date range max 10 years.
 - Pagination: `page`/`page_size` (cap: 50,000 items)
 - Deal response: contains `company_id` (UUID) and `investor_ids` (UUID array) — no inline company/investor objects. Use `get_company(id)` or `get_deal_investors(deal_id)` for full details.
 - LinkedIn and Crunchbase params expect full URLs (e.g., `https://linkedin.com/company/stripe`, `https://crunchbase.com/organization/stripe`)
 - `/company/search` and `/investor/search` accept `name=`, `domain=`, `linkedin=`, or `crunchbase=` (exactly one required)
 - `/location/search` and `/industry/search` accept `name=` (required) and optional `type=` filter
-- Package imports: `from fundable import FundableClient, DataExtractor`
+- Company `latest_deal` uses `size_usd` / `size_native` (not `size`). Deal `valuation` uses `valuation_usd` / `valuation_native` (not `valuation_usd_millions`).
+- `format_usd()` helper in `client.py` formats dollar amounts with commas (e.g., `$25,000,000`).
+- Package imports: `from fundable import FundableClient, DataExtractor, format_usd`
 - Visualization imports: `from fundable.visualization import InvestorBarChart`

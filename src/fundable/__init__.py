@@ -11,12 +11,13 @@ Basic usage:
 
 __version__ = "0.1.0"
 
-from fundable.client import FundableClient, DataExtractor
+from fundable.client import FundableClient, DataExtractor, format_usd
 from fundable.visualization.charts import InvestorBarChart, IndustryChart
 
 __all__ = [
     "FundableClient",
     "DataExtractor",
+    "format_usd",
     "InvestorBarChart",
     "IndustryChart",
     "__version__",

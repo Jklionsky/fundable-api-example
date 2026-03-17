@@ -10,7 +10,7 @@ import csv
 import json
 import os
 
-from fundable import FundableClient
+from fundable import FundableClient, format_usd
 
 # Get script directory for relative paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -56,10 +56,10 @@ def main():
 
     for company in companies:
         latest = company.get('latest_deal') or {}
-        deal_size = f"${latest.get('size')}M" if latest.get('size') else 'Undisclosed'
+        deal_size = format_usd(latest.get('size_usd') or latest.get('size_native'))
         deal_type = latest.get('type', 'N/A')
         deal_date = (latest.get('date') or '')[:10]
-        total = f"${company.get('total_raised')}M" if company.get('total_raised') else 'N/A'
+        total = format_usd(company.get('total_raised'))
 
         print(f"  {company['name']} ({company.get('domain', 'N/A')})")
         print(f"    Total Raised: {total} | Latest: {deal_type} {deal_size} ({deal_date})")

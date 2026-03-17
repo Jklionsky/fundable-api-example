@@ -11,7 +11,7 @@ import json
 import os
 from datetime import datetime, timedelta
 
-from fundable import FundableClient
+from fundable import FundableClient, format_usd
 
 # Get script directory for relative paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,10 +22,10 @@ def print_company(company):
     """Print a single company summary with latest deal info."""
     name = company.get('name', 'Unknown')
     domain = company.get('domain', 'N/A')
-    total = f"${company.get('total_raised')}M" if company.get('total_raised') else 'N/A'
+    total = format_usd(company.get('total_raised'))
     latest = company.get('latest_deal', {}) or {}
     deal_type = latest.get('type', 'N/A')
-    deal_size = f"${latest.get('size')}M" if latest.get('size') else 'Undisclosed'
+    deal_size = format_usd(latest.get('size_usd') or latest.get('size_native'))
     deal_date = (latest.get('date') or 'N/A')[:10]
     similarity = company.get('similarity')
     sim_str = f" | similarity: {similarity:.2f}" if similarity else ""
@@ -92,8 +92,8 @@ def test_all_parameters():
     print(f"TEST 4: Deal size range $10M–$50M (last 30 days)")
     print("=" * 70)
     companies = client.get_companies(
-        deal_size_min=10,
-        deal_size_max=50,
+        deal_size_min=10_000_000,
+        deal_size_max=50_000_000,
         page_size=5,
         deal_start_date=last_30_days_start,
         deal_end_date=today_str,
@@ -107,8 +107,8 @@ def test_all_parameters():
     print(f"TEST 5: Total raised $50M–$200M (last 30 days)")
     print("=" * 70)
     companies = client.get_companies(
-        total_raised_min=50,
-        total_raised_max=200,
+        total_raised_min=50_000_000,
+        total_raised_max=200_000_000,
         page_size=5,
         deal_start_date=last_30_days_start,
         deal_end_date=today_str,

@@ -7,7 +7,7 @@
     "pre": true,
     "date": "2026-03-15T20:30:34.000Z",
     "created_at": "2026-03-15T23:02:21.803Z",
-    "total_round_raised": 2,
+    "total_round_raised": 2000000,
     "deal_descriptions": {
       "short_description": "Fluum, an AI-native warm introduction platform, is raising a $2M pre-seed via an open SAFE at a $12M valuation with a 20% discount, following prior capital from angels and family offices.",
       "long_description": "Fluum is conducting a $2M pre-seed round structured as an open SAFE with a $12M valuation and a 20% discount. Prior to this round the company has raised roughly $400K from angels and family offices. The raise will include the new SAFE commitments alongside that existing investor base; no lead institutional investor is named in the article. Management says the funds will be used to expand the platform and scale its professional network toward targets such as 100,000 decision-makers, 200 B2B/Enterprise users, and $5M ARR. The company has communicated early traction metrics to support the round, which investors can review during the open raise. Fluum is UK-based and led by a founding team with backgrounds in trading, engineering, and growth."
@@ -18,18 +18,24 @@
       {
         "id": "78949d5c-4ae2-4532-b981-e6cd3f8e3b49",
         "type": "SEED",
-        "size_usd": 2,
-        "size": 2,
+        "size_usd": 2000000,
+        "size_native": 2000000,
         "currency": "usd"
       }
     ],
     "valuation": {
       "valuation_currency": "USD",
-      "valuation": 12,
-      "valuation_usd": 12,
-      "valuation_usd_millions": 12,
+      "valuation_usd": 12000000,
+      "valuation_native": 12000000,
       "type": "DEFAULT"
-    }
+    },
+    "articles": [
+      {
+        "link": "https://builtineurope.substack.com/p/the-ai-engine-behind-warm-intros-fluum",
+        "date": "2026-03-15T20:30:34.000Z",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "14fd026f-b172-42ad-9c4f-2b4fa82c8880",
@@ -39,7 +45,7 @@
     "pre": true,
     "date": "2026-03-15T00:53:42.000Z",
     "created_at": "2026-03-15T12:00:28.053Z",
-    "total_round_raised": 2.4,
+    "total_round_raised": 2400000,
     "deal_descriptions": {
       "short_description": "Verustruct, a construction robotics startup, raised $2.4M in an oversubscribed pre-seed round with support from the Yale School of Management and Professor Jennifer McFadden.",
       "long_description": "Verustruct completed an oversubscribed $2.4 million pre-seed financing round. The raise was supported by the Yale School of Management and individual support from Professor Jennifer McFadden, as noted in coverage of the deal. The financing was described as a pre-seed equity round; no valuation or detailed syndicate members were disclosed in the article. The company has positioned the round to advance its robotic construction technology and commercial strategy. Verustruct is organized as a Public Benefit Corporation, a structure it adopted prior to or during early fundraising. The company is cited as operating out of New Haven and London."
@@ -50,12 +56,24 @@
       {
         "id": "8c06c79f-3af2-4581-bc10-d676e7a24862",
         "type": "SEED",
-        "size_usd": 2.4,
-        "size": 2.4,
+        "size_usd": 2400000,
+        "size_native": 2400000,
         "currency": "usd"
       }
     ],
-    "valuation": null
+    "valuation": null,
+    "articles": [
+      {
+        "link": "https://www.it-boltwise.de/verustruct-revolutionaere-baurobotik-fuer-nachhaltiges-wohnen.html",
+        "date": "2026-03-15T00:53:42.000Z",
+        "is_primary": true
+      },
+      {
+        "link": "https://som.yale.edu/story/2025/sustainable-construction-startup-closes-oversubscribed-24-million-pre-seed-fundraising",
+        "date": "2026-03-15T00:53:42.000Z",
+        "is_primary": false
+      }
+    ]
   },
   {
     "id": "9267de4f-3151-49c8-b1d2-986919357ccd",
@@ -65,7 +83,7 @@
     "pre": true,
     "date": "2026-03-14T11:46:37.000Z",
     "created_at": "2026-03-14T12:00:39.220Z",
-    "total_round_raised": 0.33,
+    "total_round_raised": 330000,
     "deal_descriptions": {
       "short_description": "SPORTL, a London-based pay-as-you-train fitness marketplace, raised $320K (\u00a3250K) in a pre-seed round.",
       "long_description": "SPORTL raised $320K (\u00a3250K) in a pre-seed funding round to launch its pay-as-you-train marketplace. The article does not list participating investors or additional capital types beyond the pre-seed raise. The funds are intended to build and launch a platform that lets users book workouts at different gym studios across London without long-term memberships. SPORTL\u2019s model is designed to give studios control over pricing and availability while providing them with a distribution channel to fill unused capacity and attract new customers. The company positions itself as a hyper-local, marketplace-driven alternative to membership models and to broader players like ClassPass. No prior funding rounds or operating metrics were disclosed in the coverage."
@@ -76,12 +94,39 @@
       {
         "id": "4e238844-4d0d-4cce-82fb-48a56ae4773a",
         "type": "SEED",
-        "size_usd": 0.33,
-        "size": 0.25,
+        "size_usd": 330000,
+        "size_native": 250000,
         "currency": "gbp"
       }
     ],
-    "valuation": null
+    "valuation": null,
+    "articles": [
+      {
+        "link": "https://www.linkedin.com/posts/davidlasday_sportstech-fitnesstech-startupfunding-activity-7438482395177291776-p3Qq",
+        "date": "2026-03-14T11:46:37.000Z",
+        "is_primary": true
+      },
+      {
+        "link": "https://www.sgieurope.com/financing/sportl-launches-app-with-250k-pre-seed-backing/120039.article",
+        "date": "2026-03-14T11:46:37.000Z",
+        "is_primary": false
+      },
+      {
+        "link": "https://www.uktechnews.info/2026/03/10/sportl-secures-250k-pre-seed-investment/",
+        "date": "2026-03-14T11:46:37.000Z",
+        "is_primary": false
+      },
+      {
+        "link": "https://businesscloud.co.uk/news/fitness-app-sportl-eyes-up-expansion-after-250k-raise/",
+        "date": "2026-03-14T11:46:37.000Z",
+        "is_primary": false
+      },
+      {
+        "link": "https://www.vestbee.com/insights/articles/sportl-launches-250-k",
+        "date": "2026-03-14T11:46:37.000Z",
+        "is_primary": false
+      }
+    ]
   },
   {
     "id": "187260a1-dbb1-44d3-95d2-b85738aaf974",
@@ -105,11 +150,18 @@
         "id": "333cafc3-093f-408b-9a5b-9baa7502173a",
         "type": "SEED",
         "size_usd": 0,
-        "size": 0,
+        "size_native": 0,
         "currency": "usd"
       }
     ],
-    "valuation": null
+    "valuation": null,
+    "articles": [
+      {
+        "link": "https://www.linkedin.com/posts/yumi-finance_we-are-stoked-to-announce-our-%F0%9D%97%A3%F0%9D%97%BF%F0%9D%97%B2-%F0%9D%97%A6%F0%9D%97%B2-activity-7438460757303791616-xrPm",
+        "date": "2026-03-14T08:47:16.000Z",
+        "is_primary": true
+      }
+    ]
   },
   {
     "id": "24c316d1-1d29-4f8a-89ef-52c1ee44399f",
@@ -131,10 +183,17 @@
         "id": "f530e88d-84b9-4934-9a2a-2b71576a288b",
         "type": "SEED",
         "size_usd": 0,
-        "size": 0,
+        "size_native": 0,
         "currency": "usd"
       }
     ],
-    "valuation": null
+    "valuation": null,
+    "articles": [
+      {
+        "link": "https://www.letsmoney.com.br/internacional/ia-faz-20-mil-ligacoes-cobranca-bancaria/",
+        "date": "2026-03-14T01:05:47.000Z",
+        "is_primary": true
+      }
+    ]
   }
 ]

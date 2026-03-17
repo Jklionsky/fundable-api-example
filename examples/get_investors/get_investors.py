@@ -163,61 +163,24 @@ def main():
     for inv in investors:
         print_investor(inv)
 
-    # --- Test 8: Most active recent investors with their last deals ---
-    print(f"\n{'=' * 60}")
-    print("TEST 8: Most active investors (by recent deals) + last 3 deals")
-    print("=" * 60)
-    investors = client.get_investors(
-        page_size=5,
-        sort_by='recent_deals',
-    )
-    print(f"Found {len(investors)} investors (sorted by recent deal count)\n")
-    for inv in investors:
-        print_investor(inv)
-        for deal in inv.get('last_three_deals', []):
-            amount = f"${deal['deal_size']}M" if deal.get('deal_size') else "Undisclosed"
-            print(f"    -> {deal.get('company_name', '?')} — {deal.get('round_type', '?')} ({amount})")
-
-    # --- Test 9: Portfolio filters → matching_deal_ids → fetch full deals ---
-    print(f"\n{'=' * 60}")
-    print("TEST 9: Top AI seed investors + fetch their matching deals by ID")
-    print("=" * 60)
-    investors = client.get_investors(
-        super_categories=['artificial-intelligence-e551'],
-        financing_types=[{'type': 'SEED'}],
-        deal_start_date=last_30_days,
-        deal_end_date=today_str,
-        page_size=3,
-        sort_by='matching_deals',
-    )
-    print(f"Found {len(investors)} investors\n")
-    for inv in investors:
-        filtered = inv.get('filtered_deal_count', 0)
-        deal_ids = inv.get('matching_deal_ids') or []
-        print(f"  {inv['name']} — {filtered} matching deals")
-
-        # Fetch full deal details using matching_deal_ids
-        for deal_id in deal_ids:
-            deal = client.get_deal(deal_id)
-            if deal:
-                amount = f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else "Undisclosed"
-                # company_id is available inline; call get_company(deal['company_id']) for full name
-                print(f"    -> company_id:{deal.get('company_id', '?')} — {deal.get('round_type', '?')} ({amount})")
-
     # --- Save sample output ---
-    if investors:
+    # Strip key_people fields (verbose, not useful in examples)
+    STRIP_FIELDS = {'key_people', 'key_people_count'}
+    cleaned = [{k: v for k, v in inv.items() if k not in STRIP_FIELDS} for inv in investors]
+
+    if cleaned:
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         output_path = os.path.join(OUTPUT_DIR, 'sample_investors.json')
         with open(output_path, 'w') as f:
-            json.dump(investors, f, indent=2)
-        print(f"\nSaved {len(investors)} investors to {output_path}")
+            json.dump(cleaned, f, indent=2)
+        print(f"\nSaved {len(cleaned)} investors to {output_path}")
 
     # --- Print full sample ---
-    if investors:
+    if cleaned:
         print(f"\n{'=' * 60}")
         print("SAMPLE INVESTOR OUTPUT:")
         print("=" * 60)
-        print(json.dumps(investors[0], indent=2, default=str))
+        print(json.dumps(cleaned[0], indent=2, default=str))
 
 
 if __name__ == "__main__":

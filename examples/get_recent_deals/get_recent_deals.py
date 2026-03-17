@@ -10,7 +10,7 @@ import json
 import os
 from datetime import datetime, timedelta
 
-from fundable import FundableClient, DataExtractor
+from fundable import FundableClient, DataExtractor, format_usd
 
 # Get script directory for relative paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +18,7 @@ OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 
 def print_deal_summary(deal):
     """Print a single deal summary line."""
-    amount = f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else "Undisclosed"
+    amount = format_usd(deal.get('total_round_raised'))
     round_type = deal.get('round_type', 'Unknown')
     date = deal.get('date', 'N/A')
     num_investors = len(deal.get('investor_ids', []))
@@ -79,7 +79,7 @@ def test_all_parameters():
     )
     print(f"  Found {len(deals)} deals\n")
     for deal in deals:
-        amount = f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else "Undisclosed"
+        amount = format_usd(deal.get('total_round_raised'))
         print(f"    {deal.get('round_type', '?')} | {amount} | {deal.get('date', 'N/A')}")
         company = client.get_company(deal['company_id'])
         if company:
@@ -104,8 +104,8 @@ def test_all_parameters():
     print(f"TEST 4: Deal size range $100M–$150M (last 30 days)")
     print("=" * 70)
     deals = client.get_deals(
-        deal_size_min=100,
-        deal_size_max=150,
+        deal_size_min=100_000_000,
+        deal_size_max=150_000_000,
         page_size=5,
         deal_start_date=last_30_days_start,
         deal_end_date=today_str
@@ -126,7 +126,7 @@ def test_all_parameters():
     )
     print(f"  Found {len(deals)} deals")
     for deal in deals:
-        amount = f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else "Undisclosed"
+        amount = format_usd(deal.get('total_round_raised'))
         label = deal.get('round_type', '?')
         if deal.get('pre'):
             label = f"Pre-{label}"

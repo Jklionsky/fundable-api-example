@@ -18,7 +18,7 @@ from typing import Dict, List, Any
 from dotenv import load_dotenv
 load_dotenv()
 
-from fundable import FundableClient
+from fundable import FundableClient, format_usd
 
 # Script-relative paths for output
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -40,7 +40,7 @@ def extract_alert_deal_summary(deal: Dict[str, Any]) -> Dict[str, Any]:
         'company_id': deal.get('company_id'),
         'company_name': deal.get('company_name'),
         'round_type': deal.get('round_type'),
-        'amount': f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else 'Undisclosed',
+        'amount': format_usd(deal.get('total_round_raised')),
         'date': deal.get('date'),
         'website': deal.get('company_website'),
         'linkedin': deal.get('company_linkedin'),
@@ -313,7 +313,7 @@ def example_3_alerts_with_company_info(alert_id: str, max_companies: int = 5):
         if deal.get('company_enriched'):
             ce = deal['company_enriched']
             print(f"    Employees: {ce.get('num_employees', 'N/A')}")
-            print(f"    Total Raised: ${ce.get('total_raised', 'N/A')}M")
+            print(f"    Total Raised: {format_usd(ce.get('total_raised'))}")
             if ce.get('industries'):
                 print(f"    Industries: {', '.join(ce['industries'][:3])}")
 

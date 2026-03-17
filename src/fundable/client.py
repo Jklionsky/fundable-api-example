@@ -12,6 +12,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+def format_usd(amount) -> str:
+    """Format a dollar amount with commas. Returns 'Undisclosed' if None."""
+    if amount is None:
+        return 'Undisclosed'
+    if isinstance(amount, (int, float)):
+        if amount == int(amount):
+            return f"${int(amount):,}"
+        return f"${amount:,.2f}"
+    return 'Undisclosed'
+
+
 class FundableClient:
     """Simple client for fetching deals from Fundable API."""
 
@@ -931,7 +942,7 @@ class DataExtractor:
             'company_id': deal.get('company_id', ''),
             'round_type': deal.get('round_type', 'Unknown'),
             'deal_date': deal.get('date', ''),
-            'deal_amount': f"${deal.get('total_round_raised')}M" if deal.get('total_round_raised') else 'Undisclosed'
+            'deal_amount': format_usd(deal.get('total_round_raised'))
         }
 
         # Description
@@ -943,7 +954,7 @@ class DataExtractor:
         # Valuation (single nullable object in v2)
         valuation = deal.get('valuation')
         if valuation:
-            extracted['valuation'] = valuation.get('valuation_usd_millions')
+            extracted['valuation'] = valuation.get('valuation_usd')
         else:
             extracted['valuation'] = None
 
