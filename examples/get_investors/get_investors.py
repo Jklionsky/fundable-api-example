@@ -164,23 +164,19 @@ def main():
         print_investor(inv)
 
     # --- Save sample output ---
-    # Strip key_people fields (verbose, not useful in examples)
-    STRIP_FIELDS = {'key_people', 'key_people_count'}
-    cleaned = [{k: v for k, v in inv.items() if k not in STRIP_FIELDS} for inv in investors]
-
-    if cleaned:
+    if investors:
         os.makedirs(OUTPUT_DIR, exist_ok=True)
         output_path = os.path.join(OUTPUT_DIR, 'sample_investors.json')
         with open(output_path, 'w') as f:
-            json.dump(cleaned, f, indent=2)
-        print(f"\nSaved {len(cleaned)} investors to {output_path}")
+            json.dump(investors, f, indent=2)
+        print(f"\nSaved {len(investors)} investors to {output_path}")
 
     # --- Print full sample ---
-    if cleaned:
+    if investors:
         print(f"\n{'=' * 60}")
         print("SAMPLE INVESTOR OUTPUT:")
         print("=" * 60)
-        print(json.dumps(cleaned[0], indent=2, default=str))
+        print(json.dumps(investors[0], indent=2, default=str))
 
 
 if __name__ == "__main__":
