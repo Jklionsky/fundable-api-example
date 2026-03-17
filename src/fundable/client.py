@@ -652,15 +652,16 @@ class FundableClient:
             print(f"Error fetching company {identifier}: {e}")
             return None
 
-    def get_company_deals(self, domain: str = None, linkedin: str = None,
-                          crunchbase: str = None, page: int = None,
-                          page_size: int = None) -> Dict[str, Any]:
+    def get_company_deals(self, id: str = None, domain: str = None,
+                          linkedin: str = None, crunchbase: str = None,
+                          page: int = None, page_size: int = None) -> Dict[str, Any]:
         """
-        Get all deals for a company by domain, LinkedIn URL, or Crunchbase URL.
+        Get all deals for a company by ID, domain, LinkedIn URL, or Crunchbase URL.
 
         Exactly one identifier must be provided.
 
         Args:
+            id: Company UUID
             domain: Company domain (e.g., "stripe.com")
             linkedin: LinkedIn company URL (e.g., "https://linkedin.com/company/stripe")
             crunchbase: Crunchbase organization URL (e.g., "https://crunchbase.com/organization/stripe")
@@ -670,10 +671,10 @@ class FundableClient:
         Returns:
             Dict with 'deals' list and 'meta' dict (total_count, page, page_size)
         """
-        provided = {k: v for k, v in {'domain': domain, 'linkedin': linkedin,
+        provided = {k: v for k, v in {'id': id, 'domain': domain, 'linkedin': linkedin,
                                        'crunchbase': crunchbase}.items() if v}
         if len(provided) != 1:
-            raise ValueError("Exactly one of domain, linkedin, or crunchbase must be provided")
+            raise ValueError("Exactly one of id, domain, linkedin, or crunchbase must be provided")
 
         params = dict(provided)
         if page is not None:

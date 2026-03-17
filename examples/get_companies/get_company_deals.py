@@ -3,7 +3,7 @@
 Example: Get a company's full funding history using /company/deals.
 
 This script demonstrates how to look up all deals for a specific company
-by domain, LinkedIn URL, or Crunchbase URL, with pagination support.
+by ID, domain, LinkedIn URL, or Crunchbase URL, with pagination support.
 """
 
 import json
@@ -56,7 +56,7 @@ def main():
 
     # --- Test 3: Funding history by Crunchbase URL ---
     print(f"\n{'=' * 70}")
-    print("TEST 3: Full funding history by Crunchbase URL (Lovable)")
+    print("TEST 3: Funding history by Crunchbase URL (Lovable)")
     print("=" * 70)
     result = client.get_company_deals(crunchbase="https://www.crunchbase.com/organization/lovable-803a", page_size=25)
     deals = result['deals']
@@ -65,9 +65,20 @@ def main():
     for deal in deals:
         print_deal(deal)
 
-    # --- Test 4: Pagination ---
+    # --- Test 4: Funding history by company ID ---
     print(f"\n{'=' * 70}")
-    print("TEST 4: Pagination — page 0 vs page 1 (databricks.com, page_size=3)")
+    print("TEST 4: Funding history by company ID (Databricks)")
+    print("=" * 70)
+    result = client.get_company_deals(id="b6e9fac5-340f-4071-9703-b4831e014c60", page_size=25)
+    deals = result['deals']
+    meta = result['meta']
+    print(f"  Found {meta.get('total_count', len(deals))} total deals (page {meta.get('page', 0)})\n")
+    for deal in deals:
+        print_deal(deal)
+
+    # --- Test 5: Pagination ---
+    print(f"\n{'=' * 70}")
+    print("TEST 5: Pagination — page 0 vs page 1 (databricks.com, page_size=3)")
     print("=" * 70)
     for pg in [0, 1]:
         result = client.get_company_deals(domain="databricks.com", page=pg, page_size=3)
