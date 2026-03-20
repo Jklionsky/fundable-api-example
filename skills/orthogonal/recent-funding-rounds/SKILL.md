@@ -95,16 +95,23 @@ orth api run fundable /companies --body '{
         "num_investors": 5,
         "industries": [{"name": "Artificial Intelligence", "permalink": "artificial-intelligence"}],
         "location": {
-          "city": {"name": "San Francisco"},
-          "state": {"name": "California"},
-          "country": {"name": "United States"}
+          "region": {"name": "North America", "permalink": "north-america"},
+          "country": {"name": "United States", "permalink": "united-states"},
+          "state": {"name": "California", "permalink": "california"},
+          "city": {"name": "San Francisco", "permalink": "san-francisco-california"}
         },
         "latest_deal": {
+          "id": "deal-uuid",
           "type": "SEED",
           "size_native": 5000000,
           "date": "2026-03-18T00:00:00Z",
           "pre": false,
           "extension": false,
+          "intermediate": "NONE",
+          "description": {
+            "short_description": "Acme Corp raised a $5M seed round...",
+            "long_description": "Acme Corp secured $5 million in seed funding..."
+          },
           "investors": ["investor-uuid-1", "investor-uuid-2"]
         }
       }

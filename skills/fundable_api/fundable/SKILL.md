@@ -92,6 +92,27 @@ Parameters (provide ONE):
 - `linkedin` — Full LinkedIn URL (required)
 - `crunchbase` — Full Crunchbase URL (required)
 
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "companies": [
+      {
+        "id": "uuid",
+        "guru_permalink": "stripe",
+        "name": "Stripe",
+        "short_description": "Stripe is an API-first global payments...",
+        "image": "https://images.crunchbase.com/image/upload/...",
+        "relevance_score": 120,
+        "domain": "stripe.com",
+        "website": "https://stripe.com/"
+      }
+    ]
+  }
+}
+```
+
 ### Company Deals (GET)
 
 Get all funding rounds for a company.
@@ -161,6 +182,31 @@ Parameters (provide ONE):
 - `domain` — Exact domain match
 - `linkedin` — Full LinkedIn URL (required)
 - `crunchbase` — Full Crunchbase URL (required)
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "investors": [
+      {
+        "id": "uuid",
+        "guru_permalink": "sequoia-capital",
+        "name": "Sequoia Capital",
+        "description": "Sequoia is a venture capital firm...",
+        "image": "https://images.crunchbase.com/image/upload/...",
+        "domain": "sequoiacap.com",
+        "website": "https://www.sequoiacap.com/",
+        "total_deal_count": 5211,
+        "recent_deal_count": 849,
+        "lead_deal_count": 1933,
+        "latest_deal_date": "2025-12-10T17:10:06+00:00",
+        "relevance_score": 99
+      }
+    ]
+  }
+}
+```
 
 ### Investor Deals (GET)
 
@@ -244,6 +290,19 @@ Parameters:
 - `name`* — Location name to search
 - `type` — Filter by `CITY`, `STATE`, `REGION`, or `COUNTRY`
 
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "locations": [
+      {"permalink": "san-francisco-california", "name": "San Francisco", "location_type": "CITY"},
+      {"permalink": "san-francisco-bay-area", "name": "San Francisco Bay Area", "location_type": "REGION"}
+    ]
+  }
+}
+```
+
 ### Industry Search (GET)
 
 Find industry permalinks for filtering. Costs 0 credits.
@@ -256,6 +315,19 @@ curl -s "https://www.tryfundable.ai/api/v1/industry/search/?name=artificial+inte
 Parameters:
 - `name`* — Industry name to search
 - `type` — Filter by `INDUSTRY` or `SUPER_CATEGORY`
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "industries": [
+      {"permalink": "artificial-intelligence", "name": "Artificial Intelligence (AI)", "industry_type": "INDUSTRY"},
+      {"permalink": "artificial-intelligence-e551", "name": "Artificial Intelligence (AI)", "industry_type": "SUPER_CATEGORY"}
+    ]
+  }
+}
+```
 
 ---
 

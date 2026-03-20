@@ -42,15 +42,31 @@ curl -s "https://www.tryfundable.ai/api/v1/investor/search/?name=benchmark" \
     "investors": [
       {
         "id": "abc123-...",
+        "guru_permalink": "benchmark",
         "name": "Benchmark",
+        "description": "Benchmark is an early-stage venture capital firm...",
+        "image": "https://images.crunchbase.com/image/upload/...",
         "domain": "benchmark.com",
-        "relevance_score": 1.0
+        "website": "https://www.benchmark.com/",
+        "total_deal_count": 500,
+        "recent_deal_count": 85,
+        "lead_deal_count": 200,
+        "latest_deal_date": "2026-03-15T00:00:00+00:00",
+        "relevance_score": 99
       },
       {
         "id": "def456-...",
+        "guru_permalink": "benchmark-capital-partners",
         "name": "Benchmark Capital Partners",
+        "description": "Benchmark Capital Partners...",
+        "image": null,
         "domain": "benchmark.com",
-        "relevance_score": 1.0
+        "website": "https://www.benchmark.com/",
+        "total_deal_count": 50,
+        "recent_deal_count": 5,
+        "lead_deal_count": 20,
+        "latest_deal_date": "2025-06-01T00:00:00+00:00",
+        "relevance_score": 95
       }
     ]
   }
@@ -144,16 +160,23 @@ Only one parameter at a time.
         "num_investors": 5,
         "industries": [{"name": "Artificial Intelligence", "permalink": "artificial-intelligence"}],
         "location": {
-          "city": {"name": "San Francisco"},
-          "state": {"name": "California"},
-          "country": {"name": "United States"}
+          "region": {"name": "North America", "permalink": "north-america"},
+          "country": {"name": "United States", "permalink": "united-states"},
+          "state": {"name": "California", "permalink": "california"},
+          "city": {"name": "San Francisco", "permalink": "san-francisco-california"}
         },
         "latest_deal": {
+          "id": "deal-uuid",
           "type": "SERIES_A",
           "size_native": 12000000,
           "date": "2026-02-10T00:00:00Z",
           "pre": false,
           "extension": false,
+          "intermediate": "NONE",
+          "description": {
+            "short_description": "Acme Corp raised a $12M Series A round...",
+            "long_description": "Acme Corp secured $12 million in Series A funding..."
+          },
           "investors": ["abc123-...", "other-investor-uuid"]
         }
       }
