@@ -136,7 +136,7 @@ def get_alerts_simple(alert_id: str):
             "Content-Type": "application/json"
         },
         params={
-            "alert_ids": alert_id,
+            "alert_ids": 'alert_id',
             "start_date": start_date,
             "end_date": end_date
         },
