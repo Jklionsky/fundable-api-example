@@ -95,10 +95,10 @@ Parameters (provide ONE):
         "guru_permalink": "stripe",
         "name": "Stripe",
         "short_description": "Stripe is an API-first global payments...",
-        "image": "https://images.crunchbase.com/image/upload/...",
         "relevance_score": 120,
         "domain": "stripe.com",
-        "website": "https://stripe.com/"
+        "linkedin": "https://linkedin.com/company/stripe",
+        "crunchbase": "https://crunchbase.com/organization/stripe"
       }
     ]
   }
@@ -181,13 +181,11 @@ Parameters (provide ONE):
         "name": "Sequoia Capital",
         "description": "Sequoia is a venture capital firm...",
         "image": "https://images.crunchbase.com/image/upload/...",
+        "relevance_score": 99,
         "domain": "sequoiacap.com",
         "website": "https://www.sequoiacap.com/",
-        "total_deal_count": 5211,
-        "recent_deal_count": 849,
-        "lead_deal_count": 1933,
-        "latest_deal_date": "2025-12-10T17:10:06+00:00",
-        "relevance_score": 99
+        "linkedin": "https://linkedin.com/company/sequoia-capital",
+        "crunchbase": "https://crunchbase.com/organization/sequoia-capital"
       }
     ]
   }

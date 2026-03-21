@@ -46,13 +46,11 @@ curl -s "https://www.tryfundable.ai/api/v1/investor/search/?name=benchmark" \
         "name": "Benchmark",
         "description": "Benchmark is an early-stage venture capital firm...",
         "image": "https://images.crunchbase.com/image/upload/...",
+        "relevance_score": 99,
         "domain": "benchmark.com",
         "website": "https://www.benchmark.com/",
-        "total_deal_count": 500,
-        "recent_deal_count": 85,
-        "lead_deal_count": 200,
-        "latest_deal_date": "2026-03-15T00:00:00+00:00",
-        "relevance_score": 99
+        "linkedin": "https://linkedin.com/company/benchmark",
+        "crunchbase": "https://crunchbase.com/organization/benchmark"
       },
       {
         "id": "def456-...",
@@ -60,13 +58,11 @@ curl -s "https://www.tryfundable.ai/api/v1/investor/search/?name=benchmark" \
         "name": "Benchmark Capital Partners",
         "description": "Benchmark Capital Partners...",
         "image": null,
+        "relevance_score": 95,
         "domain": "benchmark.com",
         "website": "https://www.benchmark.com/",
-        "total_deal_count": 50,
-        "recent_deal_count": 5,
-        "lead_deal_count": 20,
-        "latest_deal_date": "2025-06-01T00:00:00+00:00",
-        "relevance_score": 95
+        "linkedin": null,
+        "crunchbase": null
       }
     ]
   }

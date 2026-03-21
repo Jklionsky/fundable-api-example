@@ -1237,11 +1237,14 @@ components:
           nullable: true
           description: Company website domain
           example: "acme.com"
-        website:
+        linkedin:
           type: string
           nullable: true
-          format: uri
-          description: Company website URL
+          description: LinkedIn profile URL
+        crunchbase:
+          type: string
+          nullable: true
+          description: Crunchbase profile URL
 
     CompanyDeal:
       type: object

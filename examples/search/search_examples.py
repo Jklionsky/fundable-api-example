@@ -45,6 +45,8 @@ def main():
         score = inv.get('relevance_score', 'N/A')
         print(f"  {inv.get('name')} ({inv.get('domain', 'N/A')}) — relevance: {score}")
     all_results['investor_search'] = investors
+    
+    breakpoint()
 
     # --- Test 3: Industry search (all types) ---
     print(f"\n{'=' * 60}")
