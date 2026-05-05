@@ -15,7 +15,7 @@ info:
     - `identifiers` - Look up specific deals by UUID
     - `deal` - Filter by deal attributes (financing type with pre/extension modifiers, size, date)
     - `company` - Filter by company attributes (location, industry, size, IPO status)
-    - `investors` - Filter by investor participation
+    - `investors` - Filter by investor participation (firms or people, by UUID)
 
     ## Parameter Validation
     This API enforces strict parameter validation:
@@ -40,7 +40,7 @@ info:
     url: https://www.tryfundable.ai/terms/privacy/
 
 servers:
-  - url: https://tryfundable.ai/api/v1
+  - url: https://www.tryfundable.ai/api/v1
     description: Production server
 
 security:
@@ -58,7 +58,7 @@ paths:
         - `identifiers` - Look up specific deals by UUID
         - `deal` - Filter by deal attributes (financing type, size, date)
         - `company` - Filter by company attributes (location, industry, size)
-        - `investors` - Filter by investor participation
+        - `investors` - Filter by investor participation (firms or people, by UUID)
       operationId: searchDeals
       requestBody:
         required: true
@@ -195,15 +195,25 @@ paths:
                       example: ["private"]
                 investors:
                   type: object
-                  description: Filter by investor participation
+                  description: Filter by investor participation (firms or people)
                   properties:
                     investor_ids:
                       type: array
-                      description: Investor UUIDs
+                      description: Investor UUIDs (firms)
                       items:
                         type: string
                         format: uuid
                       example: ["c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82"]
+                    people_ids:
+                      type: array
+                      description: |
+                        Person UUIDs — matches deals where any of these people participated as an
+                        **angel investor** OR as a **lead partner** of an investing firm.
+                        Resolve via `/people/{id}`.
+                      items:
+                        type: string
+                        format: uuid
+                      example: ["b3e9c7d1-2f4a-4d5e-9c1b-7a8f3e2d1c6a"]
                 page:
                   type: integer
                   minimum: 0
@@ -212,7 +222,7 @@ paths:
                 page_size:
                   type: integer
                   minimum: 1
-                  maximum: 100
+                  maximum: 500
                   default: 10
                   description: Number of results per page
                 sort_by:
@@ -565,8 +575,17 @@ paths:
                     properties:
                       investors:
                         type: array
+                        description: Firm investors on this deal. Angels are surfaced separately in `angel_investors`.
                         items:
                           $ref: '#/components/schemas/DealInvestor'
+                      angel_investors:
+                        type: array
+                        description: Angel investors (individuals) on this deal. Empty array when no angels.
+                        items:
+                          $ref: '#/components/schemas/AngelInvestor'
+                    required:
+                      - investors
+                      - angel_investors
                   meta:
                     type: object
                     properties:
@@ -741,11 +760,18 @@ components:
           example: "550e8400-e29b-41d4-a716-446655440001"
         investor_ids:
           type: array
-          description: UUIDs of investors participating in this deal
+          description: UUIDs of firm investors participating in this deal. Angels are surfaced separately in `angel_investor_ids`.
           items:
             type: string
             format: uuid
           example: ["c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82"]
+        angel_investor_ids:
+          type: array
+          description: UUIDs of angel investors (people) who participated in this deal. Resolve via `/people/{id}`. Empty array when no angels.
+          items:
+            type: string
+            format: uuid
+          example: ["b3e9c7d1-2f4a-4d5e-9c1b-7a8f3e2d1c6a"]
         financings:
           type: array
           description: Detailed financing information for deals that have multiple financing types
@@ -766,15 +792,17 @@ components:
         - id
         - company_id
         - investor_ids
+        - angel_investor_ids
         - financings
 
     DealInvestor:
       type: object
+      description: A firm investor on a deal. Angels are returned separately in the `angel_investors` array on /deals/{id}/investors.
       properties:
         id:
           type: string
           format: uuid
-          description: Unique identifier for the investor
+          description: Unique identifier for the firm investor (parent_investor UUID)
           example: "c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82"
         name:
           type: string
@@ -785,26 +813,22 @@ components:
           nullable: true
           description: Whether this investor led the round
           example: true
-        angel_investor:
-          type: boolean
-          nullable: true
-          description: Whether this is an angel investor
-          example: false
         personnel:
           type: array
-          description: Key personnel involved in the deal
+          description: Key personnel (partners) at this firm involved in this deal. Each entry is a person record joinable to /people/{id}.
           items:
-            type: string
-          example: ["John Smith"]
+            $ref: '#/components/schemas/PersonnelMember'
+          example:
+            - id: "f1a2b3c4-d5e6-7890-abcd-ef1234567890"
+              name: "John Smith"
+              linkedin: "https://linkedin.com/in/johnsmith"
+              crunchbase: "https://crunchbase.com/person/john-smith"
+              twitter: "https://x.com/johnsmith"
         financing_type:
           type: string
           nullable: true
           description: The financing type this investor participated in
           example: "SERIES_A"
-        is_debt_investor:
-          type: boolean
-          description: Whether this investor provided debt financing
-          example: false
         domain:
           type: string
           nullable: true
@@ -823,7 +847,60 @@ components:
       required:
         - id
         - name
-        - is_debt_investor
+
+    PersonnelMember:
+      type: object
+      description: A person (partner) at a firm investor associated with a deal.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Person UUID. Resolves via /people/{id}.
+        name:
+          type: string
+          nullable: true
+        linkedin:
+          type: string
+          nullable: true
+          description: LinkedIn URL.
+        crunchbase:
+          type: string
+          nullable: true
+          description: Crunchbase URL.
+        twitter:
+          type: string
+          nullable: true
+          description: Twitter/X URL.
+      required:
+        - id
+
+    AngelInvestor:
+      type: object
+      description: An angel (individual) investor on a deal. Returned in the `angel_investors` array on /deals/{id}/investors.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Person UUID for the angel. Resolves via /people/{id}.
+        name:
+          type: string
+          nullable: true
+        financing_type:
+          type: string
+          nullable: true
+          description: The financing type this angel participated in.
+          example: "SEED"
+        linkedin:
+          type: string
+          nullable: true
+        crunchbase:
+          type: string
+          nullable: true
+        twitter:
+          type: string
+          nullable: true
+      required:
+        - id
 
     DealArticle:
       type: object
@@ -981,7 +1058,7 @@ components:
               example: 'INSUFFICIENT_CREDITS'
             message:
               type: string
-              example: "Not enough credits to complete this request. Visit https://tryfundable.ai/api-access to purchase more."
+              example: "Not enough credits to complete this request. Visit https://www.tryfundable.ai/api-access to purchase more."
             details:
               type: object
               properties:
@@ -1000,7 +1077,7 @@ components:
                   example: 0
                 help:
                   type: string
-                  example: "Purchase additional credits at https://tryfundable.ai/api-access or upgrade your plan."
+                  example: "Purchase additional credits at https://www.tryfundable.ai/api-access or upgrade your plan."
       required:
         - error
 

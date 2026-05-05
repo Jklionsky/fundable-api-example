@@ -31,7 +31,7 @@ info:
     url: https://www.tryfundable.ai/terms/privacy/
 
 servers:
-  - url: https://tryfundable.ai/api/v1
+  - url: https://www.tryfundable.ai/api/v1
     description: Production server
 
 security:
@@ -42,8 +42,16 @@ paths:
     get:
       summary: Search locations by name and optionally filter by type
       description: |
-        Search for locations (cities, states, countries, regions) by name with fuzzy matching.
-        Optionally filter results by specific location type using the 'type' or 'location_type' parameter.
+        Look up locations (cities, states, countries, regions) by name with fuzzy matching. The `name` parameter is required; `type` is optional.
+
+        **Search types:**
+        - `name` — Fuzzy name search with relevance scoring (required)
+        - `type` — Optional filter by location type: `CITY`, `STATE`, `REGION`, or `COUNTRY`
+        - `location_type` — Alias for `type`
+
+        Examples:
+        - `?name=san francisco`
+        - `?name=california&type=STATE`
       operationId: searchLocations
       parameters:
         - name: name
@@ -227,8 +235,16 @@ paths:
     get:
       summary: Search industries and super categories by name
       description: |
-        Search for industries and super categories by name with fuzzy matching.
-        Optionally filter results by specific type using the 'type' or 'industry_type' parameter.
+        Look up industries and super categories by name with fuzzy matching. The `name` parameter is required; `type` is optional.
+
+        **Search types:**
+        - `name` — Fuzzy name search with relevance scoring (required)
+        - `type` — Optional filter by industry type: `INDUSTRY` or `SUPER_CATEGORY`
+        - `industry_type` — Alias for `type`
+
+        Examples:
+        - `?name=artificial intelligence`
+        - `?name=fintech&type=INDUSTRY`
       operationId: searchIndustries
       parameters:
         - name: name
@@ -479,7 +495,7 @@ components:
                       example: "Authorization: Bearer vg_your_api_key_here"
                     curl:
                       type: string
-                      example: "curl -H 'Authorization: Bearer vg_your_api_key_here' https://tryfundable.ai/api/v1/location/search?name=san+francisco"
+                      example: "curl -H 'Authorization: Bearer vg_your_api_key_here' https://www.tryfundable.ai/api/v1/location/search?name=san+francisco"
                 documentation:
                   type: string
                   example: "Visit our documentation for more information about authentication"
@@ -532,7 +548,7 @@ components:
               example: 'INSUFFICIENT_CREDITS'
             message:
               type: string
-              example: "Not enough credits to complete this request. Visit https://tryfundable.ai/api-access to purchase more."
+              example: "Not enough credits to complete this request. Visit https://www.tryfundable.ai/api-access to purchase more."
             details:
               type: object
               properties:
@@ -551,7 +567,7 @@ components:
                   example: 0
                 help:
                   type: string
-                  example: "Purchase additional credits at https://tryfundable.ai/api-access or upgrade your plan."
+                  example: "Purchase additional credits at https://www.tryfundable.ai/api-access or upgrade your plan."
       required:
         - error
 

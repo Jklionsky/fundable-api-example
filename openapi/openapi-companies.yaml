@@ -38,7 +38,7 @@ info:
     url: https://www.tryfundable.ai/terms/privacy/
 
 servers:
-  - url: https://tryfundable.ai/api/v1
+  - url: https://www.tryfundable.ai/api/v1
     description: Production server
 
 security:
@@ -78,14 +78,14 @@ paths:
           example: "stripe.com"
         - name: linkedin
           in: query
-          description: LinkedIn company URL (e.g., "https://linkedin.com/company/stripe")
+          description: LinkedIn company URL
           required: false
           schema:
             type: string
           example: "https://linkedin.com/company/stripe"
         - name: crunchbase
           in: query
-          description: Crunchbase organization URL (e.g., "https://crunchbase.com/organization/stripe")
+          description: Crunchbase organization URL
           required: false
           schema:
             type: string
@@ -221,10 +221,16 @@ paths:
     get:
       summary: Get deals for a company by identifier
       description: |
-        Look up a company by ID, domain, LinkedIn, or Crunchbase identifier, then return all of its deals
-        with pagination. If the identifier matches multiple companies, deals from all matches are returned.
+        Retrieve all deals for a company using any supported identifier format.
+        The API intelligently detects the identifier type and queries accordingly.
 
-        Provide exactly ONE identifier parameter plus optional pagination.
+        Provide ONE of the following query parameters to identify the company:
+        - `id` - Company UUID
+        - `domain` - Company domain or full URL (e.g., "stripe.com" or "https://stripe.com")
+        - `linkedin` - LinkedIn company URL
+        - `crunchbase` - Crunchbase organization URL
+
+        The response includes the company's deals with pagination. If the identifier matches multiple companies, deals from all matches are returned.
       operationId: getCompanyDeals
       parameters:
         - name: id
@@ -244,14 +250,14 @@ paths:
           example: "stripe.com"
         - name: linkedin
           in: query
-          description: LinkedIn company URL (full URL required, e.g., "https://linkedin.com/company/stripe")
+          description: LinkedIn company URL
           required: false
           schema:
             type: string
           example: "https://linkedin.com/company/stripe"
         - name: crunchbase
           in: query
-          description: Crunchbase organization URL (full URL required, e.g., "https://crunchbase.com/organization/stripe")
+          description: Crunchbase organization URL
           required: false
           schema:
             type: string
@@ -267,12 +273,12 @@ paths:
           example: 0
         - name: page_size
           in: query
-          description: Number of results per page (1-100)
+          description: Number of results per page (1-500)
           required: false
           schema:
             type: integer
             minimum: 1
-            maximum: 100
+            maximum: 500
             default: 10
           example: 10
       responses:
@@ -433,11 +439,11 @@ paths:
 
         **Search types:**
         - `name` — Fuzzy name search with relevance scoring
-        - `domain` — Exact match on company domain
-        - `linkedin` — Match by LinkedIn company slug or full URL
-        - `crunchbase` — Match by Crunchbase organization slug or full URL
+        - `domain` — Company domain or full URL
+        - `linkedin` — LinkedIn company URL
+        - `crunchbase` — Crunchbase organization URL
 
-        LinkedIn and Crunchbase require full URLs (bare slugs are rejected):
+        Examples:
         - `?linkedin=https://linkedin.com/company/stripe`
         - `?crunchbase=https://crunchbase.com/organization/notion`
       operationId: searchCompanies
@@ -451,21 +457,21 @@ paths:
           example: "stripe"
         - name: domain
           in: query
-          description: Exact match by company domain
+          description: Company domain or full URL (e.g., "stripe.com" or "https://stripe.com") — URLs are automatically parsed to extract the domain
           required: false
           schema:
             type: string
           example: "stripe.com"
         - name: linkedin
           in: query
-          description: Match by LinkedIn company URL (full URL required)
+          description: LinkedIn company URL
           required: false
           schema:
             type: string
           example: "https://linkedin.com/company/stripe"
         - name: crunchbase
           in: query
-          description: Match by Crunchbase organization URL (full URL required)
+          description: Crunchbase organization URL
           required: false
           schema:
             type: string
@@ -599,7 +605,7 @@ paths:
         - `identifiers` - Look up specific companies by UUID, domain, LinkedIn, or Crunchbase
         - `company` - Filter by company attributes (search, location, industry, size, etc.)
         - `latest_deal` - Filter by latest funding round attributes (type, size, date, investors)
-        - `investors` - Filter by investors across all rounds
+        - `investors` - Filter by investors (firms or people) across all rounds
       operationId: searchCompanies
       requestBody:
         required: true
@@ -754,7 +760,7 @@ paths:
                       example: ["c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82"]
                 investors:
                   type: object
-                  description: Filter by investors across all funding rounds
+                  description: Filter by investors (firms or people) across all funding rounds
                   properties:
                     investor_ids:
                       type: array
@@ -763,6 +769,16 @@ paths:
                         type: string
                         format: uuid
                       example: ["c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82"]
+                    people_ids:
+                      type: array
+                      description: |
+                        Person UUIDs — matches companies where any of these people participated in any round
+                        as an **angel investor** OR as a **lead partner** of an investing firm.
+                        Resolve via `/people/{id}`.
+                      items:
+                        type: string
+                        format: uuid
+                      example: ["b3e9c7d1-2f4a-4d5e-9c1b-7a8f3e2d1c6a"]
                 page:
                   type: integer
                   minimum: 0
@@ -771,7 +787,7 @@ paths:
                 page_size:
                   type: integer
                   minimum: 1
-                  maximum: 100
+                  maximum: 500
                   default: 10
                   description: Number of results per page
                 sort_by:
@@ -1189,11 +1205,18 @@ components:
               description: Detailed description of the deal
         investors:
           type: array
-          description: UUIDs of investors participating in this deal
+          description: UUIDs of firm investors participating in this deal. Angels are surfaced separately in `angel_investor_ids`.
           items:
             type: string
             format: uuid
           example: ["c5a3f6ac-f6c9-4686-aa6e-12aeb7419b82", "c6bc63af-cb37-453d-9c20-35f56fb87ee9"]
+        angel_investor_ids:
+          type: array
+          description: UUIDs of angel investors (people) on this latest deal. Resolve via `/people/{id}`. Empty array when no angels.
+          items:
+            type: string
+            format: uuid
+          example: ["b3e9c7d1-2f4a-4d5e-9c1b-7a8f3e2d1c6a"]
         financings:
           type: array
           description: Individual financing tranches in this deal
@@ -1319,6 +1342,13 @@ components:
           format: uuid
         investor_ids:
           type: array
+          description: UUIDs of firm investors participating in this deal. Angels are surfaced separately in `angel_investor_ids`.
+          items:
+            type: string
+            format: uuid
+        angel_investor_ids:
+          type: array
+          description: UUIDs of angel investors (people) on this deal. Resolve via `/people/{id}`. Empty array when no angels.
           items:
             type: string
             format: uuid
@@ -1360,6 +1390,7 @@ components:
         - id
         - company_id
         - investor_ids
+        - angel_investor_ids
         - financings
 
     ValidationError:
@@ -1482,7 +1513,7 @@ components:
               example: 'INSUFFICIENT_CREDITS'
             message:
               type: string
-              example: "Not enough credits to complete this request. Visit https://tryfundable.ai/api-access to purchase more."
+              example: "Not enough credits to complete this request. Visit https://www.tryfundable.ai/api-access to purchase more."
             details:
               type: object
               properties:
@@ -1501,7 +1532,7 @@ components:
                   example: 0
                 help:
                   type: string
-                  example: "Purchase additional credits at https://tryfundable.ai/api-access or upgrade your plan."
+                  example: "Purchase additional credits at https://www.tryfundable.ai/api-access or upgrade your plan."
       required:
         - error
 

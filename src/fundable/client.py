@@ -312,8 +312,11 @@ class FundableClient:
                       financing_types: List[Dict[str, Any]] = None,
                       deal_size_min: float = None,
                       deal_size_max: float = None,
-                      # Investor filters
+                      # Investor filters (latest-deal scoped)
                       investor_ids: List[str] = None,
+                      # Investor filters (any-round scoped — top-level `investors` block)
+                      people_ids: List[str] = None,
+                      any_round_investor_ids: List[str] = None,
                       # Batch identifier lookup
                       domains: List[str] = None,
                       linkedins: List[str] = None,
@@ -323,11 +326,22 @@ class FundableClient:
         Get companies with any combination of filters. Sends a POST request with a JSON body.
 
         All parameters are optional. Date strings should be in YYYY-MM-DD format.
+
+        Investor scoping:
+        - `investor_ids` filters by firms participating in the company's *latest* round
+          (lands under `latest_deal.investor_ids`).
+        - `people_ids` filters by people (angels OR firm lead partners) who participated
+          in *any* round of the company (lands under `investors.people_ids`).
+        - `any_round_investor_ids` filters by firm UUIDs across any round
+          (lands under `investors.investor_ids`).
         """
         has_batch_filter = domains or linkedins or crunchbases or company_ids
+        # Free-form thesis search and per-person portfolio lookups should not be silently
+        # narrowed to a 1-day window — treat them like batch lookups for date defaulting.
+        skip_date_default = has_batch_filter or search_query or people_ids or any_round_investor_ids
 
-        # Set date defaults if not provided (skip for batch lookups)
-        if not has_batch_filter:
+        # Set date defaults if not provided (skip for batch lookups / thesis searches)
+        if not skip_date_default:
             if not deal_end_date:
                 deal_end_date = datetime.utcnow().strftime("%Y-%m-%d")
             if not deal_start_date:
@@ -392,6 +406,15 @@ class FundableClient:
             latest_deal_filters['investor_ids'] = investor_ids
         if latest_deal_filters:
             body['latest_deal'] = latest_deal_filters
+
+        # Investors section (any-round scope)
+        investors_block = {}
+        if people_ids:
+            investors_block['people_ids'] = people_ids
+        if any_round_investor_ids:
+            investors_block['investor_ids'] = any_round_investor_ids
+        if investors_block:
+            body['investors'] = investors_block
 
         # Pagination and sorting
         body['page_size'] = page_size if page_size is not None else 100
@@ -923,6 +946,168 @@ class FundableClient:
 
         except requests.exceptions.RequestException as e:
             print(f"Error searching locations: {e}")
+            return []
+
+    def _detect_person_identifier_type(self, identifier: str) -> str:
+        """Auto-detect identifier type for /person endpoints. UUID -> 'id', URL -> linkedin/crunchbase/twitter."""
+        import re
+        if re.match(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', identifier, re.I):
+            return 'id'
+        lower = identifier.lower()
+        if 'linkedin.com' in lower:
+            return 'linkedin'
+        if 'crunchbase.com' in lower:
+            return 'crunchbase'
+        if 'twitter.com' in lower or 'x.com' in lower:
+            return 'twitter'
+        raise ValueError(f"Could not auto-detect identifier type for {identifier!r}. Pass identifier_type explicitly.")
+
+    def search_people(self,
+                      person_type: str = None,
+                      identifiers: Dict[str, Any] = None,
+                      person: Dict[str, Any] = None,
+                      company: Dict[str, Any] = None,
+                      investor: Dict[str, Any] = None,
+                      page: int = None,
+                      page_size: int = None,
+                      sort_by: str = None) -> List[Dict[str, Any]]:
+        """
+        Search people via POST /people with cross-type filters.
+
+        Each filter section (`identifiers`, `person`, `company`, `investor`) is passed
+        through as-is. Setting any field under `company.*` implicitly requires a current
+        employer; any field under `investor.*` implicitly requires the person to be an
+        investor. See openapi/openapi-people.yaml for the full schema.
+
+        Args:
+            person_type: 'company', 'investor', or 'any' (default 'any')
+            identifiers: dict with optional ids / linkedin_urls / crunchbase_urls / twitter_urls
+            person: person attribute filters (roles, contact_types, job_titles, ...)
+            company: current-employer filters (incl. nested `latest_deal`)
+            investor: investor-firm + deal-activity filters (incl. nested `deals`)
+            page, page_size, sort_by: pagination + sort
+
+        Returns:
+            List of person result dicts (data.people).
+        """
+        body: Dict[str, Any] = {}
+        if person_type:
+            body['person_type'] = person_type
+        if identifiers:
+            body['identifiers'] = identifiers
+        if person:
+            body['person'] = person
+        if company:
+            body['company'] = company
+        if investor:
+            body['investor'] = investor
+        if page is not None:
+            body['page'] = page
+        if page_size is not None:
+            body['page_size'] = page_size
+        if sort_by:
+            body['sort_by'] = sort_by
+
+        try:
+            response = self._post('/people', body)
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error searching people: {error_msg}")
+                return []
+
+            if data.get("success"):
+                return data["data"]["people"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error searching people: {e}")
+            return []
+
+    def get_person(self, identifier: str, identifier_type: str = None) -> Optional[Dict[str, Any]]:
+        """
+        Get full person detail via GET /person.
+
+        Args:
+            identifier: Person UUID or LinkedIn / Crunchbase / Twitter URL
+            identifier_type: One of 'id', 'linkedin', 'crunchbase', 'twitter'.
+                If None, auto-detects from `identifier`.
+
+        Returns:
+            Person detail dict or None if not found.
+        """
+        if identifier_type is None:
+            identifier_type = self._detect_person_identifier_type(identifier)
+
+        valid_types = ['id', 'linkedin', 'crunchbase', 'twitter']
+        if identifier_type not in valid_types:
+            raise ValueError(f"identifier_type must be one of: {valid_types}")
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/person",
+                headers=self.headers,
+                params={identifier_type: identifier},
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching person {identifier}: {error_msg}")
+                return None
+
+            if data.get("success"):
+                return data["data"]["person"]
+            return None
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching person {identifier}: {e}")
+            return None
+
+    def get_person_deals(self, identifier: str, identifier_type: str = None,
+                         page: int = 0, page_size: int = 10) -> List[Dict[str, Any]]:
+        """
+        Get the deals a person participated in as an investor (angel + lead/firm) via GET /person/deals.
+
+        Args:
+            identifier: Person UUID or LinkedIn / Crunchbase / Twitter URL
+            identifier_type: 'id', 'linkedin', 'crunchbase', or 'twitter' (auto-detected if None)
+            page, page_size: pagination
+
+        Returns:
+            List of deal dicts (data.deals).
+        """
+        if identifier_type is None:
+            identifier_type = self._detect_person_identifier_type(identifier)
+
+        valid_types = ['id', 'linkedin', 'crunchbase', 'twitter']
+        if identifier_type not in valid_types:
+            raise ValueError(f"identifier_type must be one of: {valid_types}")
+
+        params = {identifier_type: identifier, 'page': page, 'page_size': page_size}
+
+        try:
+            response = requests.get(
+                f"{self.base_url}/person/deals",
+                headers=self.headers,
+                params=params,
+                timeout=30
+            )
+            data = response.json()
+
+            if not response.ok:
+                error_msg = data.get('error', {}).get('message', response.reason)
+                print(f"Error fetching deals for person {identifier}: {error_msg}")
+                return []
+
+            if data.get("success"):
+                return data["data"]["deals"]
+            return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching deals for person {identifier}: {e}")
             return []
 
 
