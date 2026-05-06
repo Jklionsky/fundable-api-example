@@ -16,3 +16,7 @@ build/
 
 # Output files
 output/
+
+# Local-only docs (kept on disk, not tracked)
+CLAUDE.md
+API_CHANGELOG.md
