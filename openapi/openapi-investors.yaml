@@ -119,6 +119,21 @@ paths:
                   type: object
                   description: Investor entity-level filters
                   properties:
+                    search_query:
+                      type: string
+                      description: |
+                        Natural language semantic search query. When provided, results are ranked by relevance
+                        (investors who invested in the most semantically matching companies). Combines with
+                        other filters. Defaults sort to relevance when no `sort_by` is specified.
+                      example: "climate tech and clean energy investors"
+                    min_relevance:
+                      type: number
+                      minimum: 0
+                      maximum: 1
+                      description: |
+                        Minimum relevance threshold (0–1) for semantic search results. Only applies when
+                        `search_query` is set. Results below this score are excluded from the response.
+                      example: 0.5
                     locations:
                       type: array
                       description: Investor HQ location permalinks
