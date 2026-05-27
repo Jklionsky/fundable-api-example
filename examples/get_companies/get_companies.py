@@ -3,7 +3,7 @@
 Example: Batch lookup companies by domain using a CSV file.
 
 This script demonstrates how to use the /companies endpoint's `domains`,
-`linkedins`, and `crunchbases` filters to batch-lookup companies from a CSV test set.
+`linkedins`, and `crunchbases` filters to batch-lookup companies from a CSV example list.
 """
 
 import csv
@@ -16,7 +16,7 @@ from fundable import FundableClient, format_usd
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, '..', '..'))
-CSV_PATH = os.path.join(REPO_ROOT, 'test_sets', 'San_Francisco_2026-03-05.csv')
+CSV_PATH = os.path.join(REPO_ROOT, 'example_lists', 'San_Francisco_2026-03-05.csv')
 
 
 def load_csv(path):
@@ -38,7 +38,7 @@ def load_csv(path):
 def main():
     client = FundableClient()
 
-    # Load test set
+    # Load example list
     print(f"Loading CSV from {CSV_PATH}...")
     domains, linkedin_urls = load_csv(CSV_PATH)
     print(f"Found {len(domains)} domains and {len(linkedin_urls)} LinkedIn URLs\n")

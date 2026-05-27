@@ -49,26 +49,18 @@ class FundableClient:
             timeout=30
         )
 
-    def get_investor(self, identifier: str, identifier_type: str = None) -> Optional[Dict[str, Any]]:
+    def get_investor(self, identifier: str, identifier_type: str = 'id') -> Optional[Dict[str, Any]]:
         """
         Get detailed investor information by ID, permalink, domain, LinkedIn, or Crunchbase.
 
         Args:
             identifier: Investor UUID, permalink, domain, LinkedIn slug, or Crunchbase slug
             identifier_type: One of 'id', 'permalink', 'domain', 'linkedin', 'crunchbase', 'url'.
-                If None, auto-detects: UUID format -> 'id', otherwise -> 'url'.
+                Defaults to 'id'.
 
         Returns:
             Investor details dict or None if not found
         """
-        if identifier_type is None:
-            # Auto-detect: UUIDs have dashes in a specific pattern
-            import re
-            if re.match(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', identifier, re.I):
-                identifier_type = 'id'
-            else:
-                identifier_type = 'url'
-
         valid_types = ['id', 'permalink', 'domain', 'linkedin', 'crunchbase', 'url']
         if identifier_type not in valid_types:
             raise ValueError(f"identifier_type must be one of: {valid_types}")
@@ -200,13 +192,9 @@ class FundableClient:
         if end_date and not deal_end_date:
             deal_end_date = end_date
 
-        # Apply date defaults only for general browsing — skip when looking up by ID
-        has_id_filter = bool(company_ids or deal_ids)
-        if not has_id_filter:
-            if not deal_end_date:
-                deal_end_date = datetime.utcnow().strftime("%Y-%m-%d")
-            if not deal_start_date:
-                deal_start_date = (datetime.utcnow() - timedelta(days=1)).strftime("%Y-%m-%d")
+        # No implicit date window: send exactly the filters the caller specified.
+        # A date-less query is valid — the API returns most-recent deals, bounded by
+        # page_size and sort_by (default 'most_recent_deal').
 
         # Build nested JSON body
         body = {}

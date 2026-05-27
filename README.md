@@ -231,7 +231,7 @@ See README files in `examples/` directories for more detailed examples.
 
 For complete API documentation, including all available endpoints, parameters, and response formats, please reference the full documentation at:
 
-**https://fundable-api-docs.readme.io/reference/**
+**https://docs.tryfundable.ai/**
 
 ## Requirements
 
