@@ -71,10 +71,10 @@ When `search_query` is set, results are ordered by semantic relevance and `sort_
             "domain": "acme.vc", "deal_count": 12, "last_deal_date": "2024-08-15" }
         ],
         "investor_highlights": {
-          "deal_count": 47,
+          "total_deal_count": 47,
           "lead_deal_count": 12,
           "lead_deal_count_last_12_months": 3,
-          "recent_deal_count": 5,
+          "deal_count_last_12_months": 5,
           "most_recent_deal_date": "2024-08-15",
           "top_industries":   [{ "name": "AI", "permalink": "artificial-intelligence", "count": 7 }],
           "top_locations":    [{ "name": "San Francisco", "permalink": "san-francisco-california", "type": "CITY", "count": 6 }],
@@ -335,7 +335,7 @@ Top-level: `page`, `page_size` (max 500), `person_type` (`"investor"` to force i
 - Semantic search hits monthly usage limits — a `429` with code `USAGE_LIMIT_EXCEEDED` (or a `504 TIMEOUT`) only happens when `search_query` is set. Fall back to non-semantic filters (industry permalinks, financing types) if you hit the limit.
 - `filtered_deal_count`, `filtered_lead_count`, and `filtered_most_recent_date` are populated **only** when any `investor.deals.*` filter is set; otherwise they're `null`. Use them to rank/qualify hits — e.g. require `filtered_lead_count >= 1` for angels who actually led. For the actual on-thesis deals, do the Step 3 `/companies` follow-up.
 - Pure angels return `investment_firms: []` and have `current_company` but no firm affiliations. Investors who operate under a fund have `investment_firms: [...]` populated. `is_angel: true` can be true for either — it just means the person has *some* angel activity.
-- `investor_highlights` is `null` for non-investors. Aggregates (`deal_count`, `lead_deal_count`, `top_industries`, `top_locations`, `top_round_types`, `most_recent_deal_date`) all live under it. Top-level discriminators (`is_investor`, `is_angel`, `has_led_deal`, `investment_firms`) stay top-level so you can branch without dereferencing.
+- `investor_highlights` is `null` for non-investors. Aggregates (`total_deal_count`, `lead_deal_count`, `deal_count_last_12_months`, `lead_deal_count_last_12_months`, `top_industries`, `top_locations`, `top_round_types`, `most_recent_deal_date`) all live under it. Top-level discriminators (`is_investor`, `is_angel`, `has_led_deal`, `investment_firms`) stay top-level so you can branch without dereferencing.
 - All dollar values in requests and responses are **actual USD** (not millions): `size_min: 500000` = $500k.
 - The `/person/search?name=...` endpoint exists for fuzzy name lookup if you already know who you're looking for; it returns lightweight rows. Use `/person?id=...` for full detail.
 

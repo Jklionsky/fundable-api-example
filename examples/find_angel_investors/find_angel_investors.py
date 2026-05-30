@@ -121,7 +121,7 @@ def print_person_summary(idx, person):
     firm = cur.get('name') or '—'
     matched = person.get('filtered_deal_count')
     highlights = person.get('investor_highlights') or {}
-    total = highlights.get('deal_count', 0)
+    total = highlights.get('total_deal_count', 0)
     leads = highlights.get('lead_deal_count', 0)
     is_angel = person.get('is_angel', False)
     has_led = person.get('has_led_deal', False)
@@ -143,15 +143,12 @@ def print_profile(person):
     name = person.get('name') or 'Unknown'
     title = person.get('title') or '—'
     location = person.get('location') or '—'
-    followers = person.get('followers')
     highlights = person.get('investor_highlights') or {}
     most_recent = (highlights.get('most_recent_deal_date') or '—')[:10]
 
     print(f"  Name:            {name}")
     print(f"  Title:           {title}")
     print(f"  Location:        {location}")
-    if followers:
-        print(f"  Followers:       {followers:,}")
     print(f"  Most recent deal: {most_recent}")
 
     about = person.get('about')

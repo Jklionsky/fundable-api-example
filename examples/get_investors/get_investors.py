@@ -24,14 +24,14 @@ def print_investor(investor):
     Fields:
     - total_deal_count: all-time deal count
     - lead_deal_count: all-time deals where investor was lead
-    - recent_deal_count: deals in the last 12 months
+    - deal_count_last_12_months: deals in the last 12 months
     - filtered_deal_count: deals matching your active portfolio filters
       (date range, industry, location, financing type, etc.)
     """
     name = investor.get('name', 'Unknown')
     domain = investor.get('domain', 'N/A')
     total = investor.get('total_deal_count', 0)
-    recent = investor.get('recent_deal_count', 0)
+    recent = investor.get('deal_count_last_12_months', 0)
     leads = investor.get('lead_deal_count', 0)
     filtered = investor.get('filtered_deal_count')
 

@@ -104,6 +104,8 @@ paths:
           application/json:
             schema:
               type: object
+              example:
+                page_size: 10
               properties:
                 person_type:
                   type: string
@@ -201,6 +203,12 @@ paths:
                         type: string
                         format: uuid
                       example: ["660e8400-e29b-41d4-a716-446655440000"]
+                    locations:
+                      type: array
+                      description: Location permalinks
+                      items:
+                        type: string
+                      example: ["san-francisco-california", "new-york-new-york"]
                     industries:
                       type: array
                       description: Industry permalinks
@@ -213,12 +221,6 @@ paths:
                       items:
                         type: string
                       example: ["financial-services"]
-                    locations:
-                      type: array
-                      description: Location permalinks
-                      items:
-                        type: string
-                      example: ["san-francisco-california", "new-york-new-york"]
                     employee_count:
                       type: array
                       description: Current-employer headcount ranges
@@ -373,21 +375,31 @@ paths:
                         `portfolio_locations`, `portfolio_employee_count`, `ipo_status`,
                         `total_raised_min/max`, plus semantic `search_query` / `min_relevance`).
                       properties:
+                        search_query:
+                          type: string
+                          description: AI-powered natural-language search against portfolio companies. Overrides explicit sort_by — results are ordered by relevance.
+                          example: "AI infrastructure"
+                        min_relevance:
+                          type: number
+                          minimum: 0
+                          maximum: 1
+                          description: Minimum similarity threshold (0-1). Only applies with search_query.
+                          example: 0.5
                         investment_type:
                           type: string
                           enum: ['all', 'angel', 'institutional']
                           default: 'all'
                           description: Filter by whether the person invests as an angel, under a firm, or both
                           example: "angel"
+                        only_lead_deals:
+                          type: boolean
+                          default: false
+                          description: Only count deals where the person/firm was a lead investor
                         min_matching_deals:
                           type: integer
                           minimum: 1
                           description: Require at least this many deals to match the deal filters
                           example: 3
-                        only_lead_deals:
-                          type: boolean
-                          default: false
-                          description: Only count deals where the person/firm was a lead investor
                         financing_types:
                           type: array
                           description: Financing types for the person's investment activity
@@ -428,16 +440,6 @@ paths:
                           type: string
                           format: date
                           example: "2024-12-31"
-                        search_query:
-                          type: string
-                          description: AI-powered natural-language search against portfolio companies. Overrides explicit sort_by — results are ordered by relevance.
-                          example: "AI infrastructure"
-                        min_relevance:
-                          type: number
-                          minimum: 0
-                          maximum: 1
-                          description: Minimum similarity threshold (0-1). Only applies with search_query.
-                          example: 0.5
                         industries:
                           type: array
                           description: Portfolio company industry permalinks
@@ -492,11 +494,9 @@ paths:
                     - 'most_recent_deal_date'
                     - 'total_raised'
                     - 'latest_deal_size'
-                    - 'followers'
-                    - 'connections'
                     - 'name'
                     - 'total_deal_count'
-                    - 'recent_deal_count'
+                    - 'deal_count_last_12_months'
                     - 'lead_deal_count'
                     - 'lead_deal_count_last_12_months'
                     - 'filtered_deal_count'
@@ -507,33 +507,23 @@ paths:
                     Ignored when `company.search_query` or `investor.deals.search_query` is set (results are then
                     ordered by semantic relevance).
             examples:
+              empty:
+                summary: Empty request (no filters)
+                value: {}
               filter_only:
-                summary: Founders at private fintech companies
+                summary: Founders at private financial-services companies
                 value:
                   person:
                     roles: ["founder"]
                   company:
-                    industries: ["fintech"]
                     ipo_status: ["private"]
+                    super_categories: ["financial-services-d7b6"]
                   page_size: 25
-              cross_type_semantic:
-                summary: Founders at climate-tech companies who also invested in AI infra startups
-                value:
-                  person:
-                    roles: ["founder"]
-                  company:
-                    search_query: "climate tech"
-                    min_relevance: 0.6
-                  investor:
-                    deals:
-                      search_query: "AI infrastructure"
-                      min_relevance: 0.6
-                  page_size: 10
               batch_lookup:
                 summary: Look up specific people by LinkedIn URL
                 value:
                   identifiers:
-                    linkedin_urls: ["https://linkedin.com/in/jane-doe-12345", "https://linkedin.com/in/john-smith-67890"]
+                    linkedin_urls: ["https://www.linkedin.com/in/joshua-kushner-711b45230/", "https://www.linkedin.com/in/eladgil/"]
               angel_investors_active_2024:
                 summary: People who made at least 3 angel investments in 2024
                 value:
@@ -1192,21 +1182,6 @@ components:
           description: LinkedIn bio/about section
         is_founder:
           type: boolean
-        is_ceo:
-          type: boolean
-        is_key_person:
-          type: boolean
-        is_current:
-          type: boolean
-          description: Currently at the listed company
-        followers:
-          type: integer
-          nullable: true
-          description: LinkedIn follower count
-        connections:
-          type: integer
-          nullable: true
-          description: LinkedIn connection count
         current_company:
           $ref: '#/components/schemas/PersonCurrentCompany'
         employment_history:
@@ -1381,19 +1356,19 @@ components:
       type: object
       description: Aggregated investor activity. Counts dedupe by deal across angel + firm contributions.
       properties:
-        deal_count:
+        total_deal_count:
           type: integer
           description: Total tracked deals for this person
           example: 12
         lead_deal_count:
           type: integer
           description: Total deals the person led
+        deal_count_last_12_months:
+          type: integer
+          description: Deals in the last 12 months (any role)
         lead_deal_count_last_12_months:
           type: integer
           description: Lead deals in the last 12 months
-        recent_deal_count:
-          type: integer
-          description: Deals in the last 12 months (any role)
         most_recent_deal_date:
           type: string
           format: date

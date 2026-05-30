@@ -66,6 +66,8 @@ paths:
           application/json:
             schema:
               type: object
+              example:
+                page_size: 10
               properties:
                 identifiers:
                   type: object
@@ -176,6 +178,13 @@ paths:
                         type: string
                         enum: ['1-10', '11-50', '51-100', '101-250', '251-500', '501-1000', '1001-5000', '5001-10000', '10001+']
                       example: ["1-10", "11-50"]
+                    ipo_status:
+                      type: array
+                      description: "IPO status filter. Valid: public, private"
+                      items:
+                        type: string
+                        enum: ['public', 'private']
+                      example: ["private"]
                     total_raised_min:
                       type: number
                       minimum: 0
@@ -186,13 +195,6 @@ paths:
                       minimum: 0
                       description: Maximum total raised (USD)
                       example: 500000000
-                    ipo_status:
-                      type: array
-                      description: "IPO status filter. Valid: public, private"
-                      items:
-                        type: string
-                        enum: ['public', 'private']
-                      example: ["private"]
                 investors:
                   type: object
                   description: Filter by investor participation (firms or people)
@@ -235,6 +237,9 @@ paths:
                   default: 'most_recent_deal'
                   description: Sort order for results
             examples:
+              empty:
+                summary: Empty request (no filters)
+                value: {}
               filter_by_financing:
                 summary: Filter by financing type
                 value:

@@ -62,7 +62,7 @@ Setting any `investor.*` field implicitly requires the person to be an investor;
             "domain": "acme.vc", "deal_count": 12, "last_deal_date": "2024-08-15" }
         ],
         "investor_highlights": {
-          "deal_count": 47,
+          "total_deal_count": 47,
           "lead_deal_count": 12,
           "lead_deal_count_last_12_months": 3,
           "most_recent_deal_date": "2024-08-15",
