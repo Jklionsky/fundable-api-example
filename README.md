@@ -30,7 +30,14 @@ This repository contains a Python client for interacting with the Fundable API, 
    export FUNDABLE_API_KEY="your_api_key_here"
    ```
 
-4. **Run examples:**
+4. **Start with the quickstart notebook (optional):**
+
+   `quickstart.ipynb` at the repo root walks a single deal through company → people → investors → firm people using only `requests` (no `fundable` client import). It's the fastest way to see the raw API calls:
+   ```bash
+   jupyter notebook quickstart.ipynb
+   ```
+
+5. **Run examples:**
 
    **Get Recent Deals:**
    ```bash
@@ -64,10 +71,11 @@ This repository contains a Python client for interacting with the Fundable API, 
 
 ## Project Structure
 
+- `quickstart.ipynb` - A no-dependencies-on-our-client intro notebook: walks a single deal through company, people, investors, and firm people using raw HTTP calls
 - `src/fundable/` - Main Python package
   - `client.py` - FundableClient and DataExtractor classes
-  - `analyzers/` - Analysis modules
 - `examples/` - Example scripts demonstrating API usage
+  - `data/` - Sample CSV lists used by the examples
   - `get_recent_deals/` - Basic deal fetching examples
   - `get_companies/` - Company lookup, recent raises, and company deal history examples
   - `get_investors/` - Investor lookup and investor deal history examples
@@ -174,18 +182,18 @@ from fundable import FundableClient
 client = FundableClient()
 
 # Search companies by name
-companies = client.search_companies(q="stripe")
+companies = client.search_companies(name="stripe")
 
 # Search investors by name
-investors = client.search_investors(q="sequoia")
+investors = client.search_investors(name="sequoia")
 
 # Search industries (optionally filter by type: INDUSTRY or SUPER_CATEGORY)
-industries = client.search_industries(q="artificial intelligence")
-super_cats = client.search_industries(q="fintech", type="INDUSTRY")
+industries = client.search_industries(name="artificial intelligence")
+super_cats = client.search_industries(name="fintech", type="INDUSTRY")
 
 # Search locations (optionally filter by type: CITY, STATE, REGION, COUNTRY)
-locations = client.search_locations(q="san francisco")
-states = client.search_locations(q="california", type="STATE")
+locations = client.search_locations(name="san francisco")
+states = client.search_locations(name="california", type="STATE")
 ```
 
 ### Working with Alerts
