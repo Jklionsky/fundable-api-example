@@ -16,7 +16,7 @@ from fundable import FundableClient, format_usd
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output')
 REPO_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, '..', '..'))
-CSV_PATH = os.path.join(REPO_ROOT, 'examples', 'data', 'San_Francisco_2026-03-05.csv')
+CSV_PATH = os.path.join(REPO_ROOT, 'examples', 'data', 'companies_export.csv')
 
 
 def load_csv(path):

@@ -32,8 +32,9 @@ This repository contains a Python client for interacting with the Fundable API, 
 
 4. **Start with the quickstart notebook (optional):**
 
-   `quickstart.ipynb` at the repo root walks a single deal through company → people → investors → firm people using only `requests` (no `fundable` client import). It's the fastest way to see the raw API calls:
+   `quickstart.ipynb` at the repo root walks a single deal through company → people → investors → firm people using only `requests` (no `fundable` client import). It's the fastest way to see the raw API calls. Install the notebook extras, then launch it:
    ```bash
+   pip install -e ".[notebook]"
    jupyter notebook quickstart.ipynb
    ```
 
